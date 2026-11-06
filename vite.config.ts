@@ -5,12 +5,14 @@ import { viteSingleFile } from 'vite-plugin-singlefile';
 
 export default defineConfig(({ mode }) => ({
   base: './',
+  resolve: mode === 'single' ? { alias: { 'virtual:pwa-register': '/src/pwa-stub.ts' } } : undefined,
   plugins: [
     react(),
     mode === 'single'
       ? viteSingleFile()
       : VitePWA({
           registerType: 'autoUpdate',
+          injectRegister: false,
           includeAssets: ['icon.svg'],
           workbox: {
             // Cache the pose model and its WASM after first use so swing analysis also works offline.
