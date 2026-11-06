@@ -10,8 +10,9 @@ PWA ฟรีที่จัดเซสชันฝึกกอล์ฟตา�
 - `npm run build:single` สร้างไฟล์ HTML เดียวใน `dist-single/` สำหรับพรีวิว
 
 ## Deploy (ฟรี)
-- Cloudflare Pages: build command `npm run build`, output `dist`
-- GitHub Pages: อัปโหลดโฟลเดอร์ `dist`
+- ทุก push เข้า `main` จะรัน test, build และ deploy ขึ้น GitHub Pages อัตโนมัติ (`.github/workflows/deploy.yml`)
+- branch อื่นและ pull request รัน test + build (`.github/workflows/ci.yml`)
+- แอป: https://kasidito.github.io/swinglog/
 
 ## โครงสร้าง
 - `src/engine.ts` กฎจัดเซสชัน แนะนำอาการ และสถิติ (pure functions)
