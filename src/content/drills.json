@@ -1,0 +1,602 @@
+[
+ {
+  "id": "setup-alignment",
+  "name": "เช็กแนวยืนด้วยไม้ชี้แนว",
+  "goal": "ให้เท้า สะโพก ไหล่ ชี้ขนานกับเป้าก่อนเริ่มตี",
+  "area": "iron",
+  "symptoms": [
+   "slice",
+   "hook",
+   "contact"
+  ],
+  "minutes": 5,
+  "balls": 5,
+  "equipment": [
+   "iron",
+   "alignment_stick"
+  ],
+  "steps": [
+   "วางไม้ชี้แนวบนพื้นชี้ไปที่เป้า ขนานกับแนวลูก",
+   "ยืนให้ปลายเท้าขนานกับไม้ แล้ววางไม้อีกอันพาดไหล่ เทียบว่าขนานกันไหม",
+   "ตีเบา ๆ 5 ลูก เช็กแนวยืนใหม่ทุกลูก"
+  ],
+  "isWarmup": true,
+  "sources": [
+   {
+    "title": "Bruce Bolt – Golf alignment drills",
+    "url": "https://brucebolt.us/blogs/news/golf-alignment-drills-how-to-aim-correctly"
+   },
+   {
+    "title": "GOLF.com – Three ways to practice with an alignment stick",
+    "url": "https://golf.com/instruction/three-ways-practice-alignment-stick-play-smart"
+   }
+  ],
+  "version": 1
+ },
+ {
+  "id": "half-swing-warmup",
+  "name": "สวิงครึ่งวงอุ่นเครื่อง",
+  "goal": "อุ่นร่างกายและหาจังหวะก่อนตีเต็มวง",
+  "area": "iron",
+  "symptoms": [],
+  "minutes": 5,
+  "balls": 10,
+  "equipment": [
+   "wedge"
+  ],
+  "steps": [
+   "ใช้เวดจ์ สวิงขึ้นแค่ระดับเอว",
+   "ตีให้โดนกลางหน้าไม้ ไม่ต้องสนระยะ",
+   "ค่อย ๆ เพิ่มเป็นสามในสี่วงใน 3 ลูกสุดท้าย"
+  ],
+  "isWarmup": true,
+  "sources": [],
+  "version": 1
+ },
+ {
+  "id": "path-gate",
+  "name": "ประตูไม้ชี้แนว",
+  "goal": "ฝึกทางสวิงไม่ให้ตัดจากนอกเข้าใน",
+  "area": "iron",
+  "symptoms": [
+   "slice",
+   "hook"
+  ],
+  "minutes": 8,
+  "balls": 12,
+  "equipment": [
+   "iron",
+   "alignment_stick"
+  ],
+  "steps": [
+   "ปักหรือวางไม้ชี้แนว 2 อันเป็นช่องแคบหน้าลูก กว้างกว่าหัวไม้เล็กน้อย",
+   "สวิงให้หัวไม้ผ่านช่องโดยไม่แตะไม้",
+   "แตะไม้เกิน 3 ใน 10 ลูก ให้ขยายช่อง ผ่านได้สบายแล้วค่อยแคบลง"
+  ],
+  "isWarmup": false,
+  "sources": [
+   {
+    "title": "Golf swing path drills (golfblog)",
+    "url": "https://golfblog.pages.dev/posts/2025/10/golf-swing-path-drills-to-eliminate-hooks-and"
+   },
+   {
+    "title": "Bruce Bolt – Golf alignment drills",
+    "url": "https://brucebolt.us/blogs/news/golf-alignment-drills-how-to-aim-correctly"
+   }
+  ],
+  "version": 1
+ },
+ {
+  "id": "anti-slice-stick",
+  "name": "ไม้ชี้แนวกันตัดเข้า",
+  "goal": "กันไม่ให้ดาวน์สวิงมาจากด้านบน (over the top)",
+  "area": "driver",
+  "symptoms": [
+   "slice"
+  ],
+  "minutes": 8,
+  "balls": 10,
+  "equipment": [
+   "driver",
+   "alignment_stick"
+  ],
+  "steps": [
+   "ปักไม้ชี้แนวเอียงนอกลูกเล็กน้อย ด้านไกลตัว",
+   "ตีลูกโดยไม่ให้ไม้กอล์ฟหรือแขนโดนไม้ชี้แนวตอนลงมา",
+   "เริ่มด้วยครึ่งวงก่อน แล้วค่อยเพิ่มความเร็ว"
+  ],
+  "isWarmup": false,
+  "sources": [
+   {
+    "title": "GOLF.com – Andrew Rice anti-slice drill",
+    "url": "https://golf.com/instruction/how-to-fix-slice-andrew-rice-drill/"
+   },
+   {
+    "title": "PGA.com – Fix your slice with an alignment stick",
+    "url": "https://pga.com/story/how-to-fix-your-slice-with-an-alignment-stick"
+   },
+   {
+    "title": "Bruce Bolt – Golf alignment drills",
+    "url": "https://brucebolt.us/blogs/news/golf-alignment-drills-how-to-aim-correctly"
+   }
+  ],
+  "version": 1
+ },
+ {
+  "id": "split-grip",
+  "name": "จับไม้แยกมือ",
+  "goal": "ให้ลำตัวหมุนเปิดผ่านลูก ลดการพลิกหน้าไม้ปิด",
+  "area": "iron",
+  "symptoms": [
+   "hook"
+  ],
+  "minutes": 6,
+  "balls": 10,
+  "equipment": [
+   "iron"
+  ],
+  "steps": [
+   "จับไม้โดยแยกมือห่างกันประมาณ 1 ฝ่ามือ",
+   "สวิงครึ่งวง ให้หน้าอกหันไปทางเป้าตอนจบ",
+   "ตีปกติ 3 ลูกสลับ เพื่อเทียบความรู้สึก"
+  ],
+  "isWarmup": false,
+  "sources": [
+   {
+    "title": "Golf Monthly – How to fix a hook",
+    "url": "https://www.golfmonthly.com/videos/driving-tips/what-causes-a-hook-and-how-do-i-cure-it"
+   }
+  ],
+  "version": 1
+ },
+ {
+  "id": "feet-together",
+  "name": "ยืนเท้าชิด",
+  "goal": "ฝึกสมดุลและการหมุนตัวแทนการใช้มือ",
+  "area": "iron",
+  "symptoms": [
+   "hook",
+   "contact"
+  ],
+  "minutes": 6,
+  "balls": 10,
+  "equipment": [
+   "iron"
+  ],
+  "steps": [
+   "ยืนเท้าชิดกัน ลูกอยู่กลาง",
+   "สวิงสามในสี่วง ยืนนิ่งจนจบท่า",
+   "เสียหลักเมื่อไรให้ลดความเร็วลง"
+  ],
+  "isWarmup": false,
+  "sources": [
+   {
+    "title": "Golf Monthly – How to fix a hook",
+    "url": "https://www.golfmonthly.com/videos/driving-tips/what-causes-a-hook-and-how-do-i-cure-it"
+   }
+  ],
+  "version": 1
+ },
+ {
+  "id": "towel-low-point",
+  "name": "ผ้าหลังลูก",
+  "goal": "ให้จุดต่ำสุดของวงสวิงอยู่หน้าลูก ลดตีหนา",
+  "area": "iron",
+  "symptoms": [
+   "contact"
+  ],
+  "minutes": 8,
+  "balls": 12,
+  "equipment": [
+   "iron",
+   "towel"
+  ],
+  "steps": [
+   "พับผ้าวางหลังลูกราว 15 ซม.",
+   "ตีลูกโดยไม่ให้ไม้โดนผ้า",
+   "ทำได้ 8 ใน 10 แล้วขยับผ้าเข้าใกล้ขึ้น"
+  ],
+  "isWarmup": false,
+  "sources": [
+   {
+    "title": "Hole19 – Improve iron contact",
+    "url": "https://www.hole19golf.com/the-19th-hole/improve-iron-contact-in-golf"
+   },
+   {
+    "title": "CaddieHQ – Stop hitting fat iron shots",
+    "url": "https://www.caddiehq.com/resources/how-to-stop-hitting-fat-golf-shots-with-irons"
+   },
+   {
+    "title": "GolfWRX – Low point towel drill",
+    "url": "https://golfwrx.com/?p=363044"
+   },
+   {
+    "title": "HackMotion – Low point control drills",
+    "url": "https://hackmotion.com/low-point-control-drills/"
+   }
+  ],
+  "version": 1
+ },
+ {
+  "id": "line-drill",
+  "name": "เส้นบนพื้น",
+  "goal": "ให้รอยไม้ (divot) เกิดหน้าเส้น ไม่ใช่หลังเส้น",
+  "area": "iron",
+  "symptoms": [
+   "contact"
+  ],
+  "minutes": 8,
+  "balls": 12,
+  "equipment": [
+   "iron",
+   "alignment_stick"
+  ],
+  "steps": [
+   "ขีดเส้นบนพื้นหญ้าหรือวางไม้ชี้แนวตั้งฉากกับเป้า",
+   "วางลูกบนเส้น แล้วตี",
+   "ดูว่ารอยไม้อยู่ฝั่งเป้าของเส้นหรือไม่ บนแมตใช้การฟังเสียงและดูรอยบนแมตแทน"
+  ],
+  "isWarmup": false,
+  "sources": [
+   {
+    "title": "CaddieHQ – How to stop taking bad divots",
+    "url": "https://www.caddiehq.com/resources/how-to-stop-taking-divots-in-golf"
+   },
+   {
+    "title": "HackMotion – Low point control drills",
+    "url": "https://hackmotion.com/low-point-control-drills/"
+   },
+   {
+    "title": "CaddieHQ – Stop hitting fat iron shots",
+    "url": "https://www.caddiehq.com/resources/how-to-stop-hitting-fat-golf-shots-with-irons"
+   }
+  ],
+  "version": 1
+ },
+ {
+  "id": "step-through",
+  "name": "ก้าวตามไปข้างหน้า",
+  "goal": "บังคับการถ่ายน้ำหนักไปเท้าหน้า",
+  "area": "iron",
+  "symptoms": [
+   "contact",
+   "slice"
+  ],
+  "minutes": 6,
+  "balls": 10,
+  "equipment": [
+   "iron"
+  ],
+  "steps": [
+   "เริ่มยืนเท้าชิด",
+   "ตอนดาวน์สวิงก้าวเท้าหลังเดินตามไปทางเป้า",
+   "ตีครึ่งวงก่อน ความเร็วค่อยเพิ่ม"
+  ],
+  "isWarmup": false,
+  "sources": [
+   {
+    "title": "Hole19 – Improve iron contact",
+    "url": "https://www.hole19golf.com/the-19th-hole/improve-iron-contact-in-golf"
+   },
+   {
+    "title": "CaddieHQ – Stop hitting fat iron shots",
+    "url": "https://www.caddiehq.com/resources/how-to-stop-hitting-fat-golf-shots-with-irons"
+   }
+  ],
+  "version": 1
+ },
+ {
+  "id": "tee-gate-driver",
+  "name": "ประตูทีหน้าไดรเวอร์",
+  "goal": "ให้ลูกโดนกลางหน้าไม้ไดรเวอร์",
+  "area": "driver",
+  "symptoms": [
+   "hook",
+   "slice"
+  ],
+  "minutes": 8,
+  "balls": 10,
+  "equipment": [
+   "driver",
+   "tee"
+  ],
+  "steps": [
+   "ปักทีเพิ่ม 1 อันข้างหัวไม้ ด้านที่มักตีโดน (ด้านใน ถ้ามักโดนปลายไม้)",
+   "ตีลูกโดยไม่ให้โดนทีที่ปักเพิ่ม",
+   "ถ้ามี ให้พ่นสเปรย์ที่หน้าไม้เพื่อดูจุดกระทบ"
+  ],
+  "isWarmup": false,
+  "sources": [
+   {
+    "title": "GOLFTEC – What causes toe hits",
+    "url": "https://golftec.com/video/what-causes-toe-hits-and-how-to-correct-them"
+   },
+   {
+    "title": "GOLF.com – 10 fixes to stop hitting the toe",
+    "url": "https://golf.com/instruction/10-fixes-stop-hitting-toe-golf-club/"
+   }
+  ],
+  "version": 1
+ },
+ {
+  "id": "putt-gate",
+  "name": "ประตูพัตต์",
+  "goal": "ให้ลูกออกตรงแนวและหน้าไม้ตั้งฉาก",
+  "area": "putt",
+  "symptoms": [
+   "short_putt"
+  ],
+  "minutes": 6,
+  "balls": 10,
+  "equipment": [
+   "putter",
+   "tee"
+  ],
+  "steps": [
+   "ปักที 2 อัน กว้างกว่าหัวพัตเตอร์เล็กน้อย",
+   "พัตต์ระยะ 1 เมตรโดยไม่ให้พัตเตอร์โดนที",
+   "ผ่าน 7 ใน 10 แล้วค่อยแคบช่อง"
+  ],
+  "isWarmup": false,
+  "sources": [
+   {
+    "title": "HackMotion – Gate putting drill",
+    "url": "https://hackmotion.com/gate-putting-drill/"
+   },
+   {
+    "title": "MyGolfSpy – First 3 putting drills",
+    "url": "https://mygolfspy.com/news-opinion/instruction/the-first-3-putting-drills-beginners-should-learn/"
+   },
+   {
+    "title": "Plum Creek – Short putting practice drills",
+    "url": "https://plumcreekgolf.com/contact/news/quickly-master-your-stroke-with-these-short-putting-practice-drills"
+   }
+  ],
+  "version": 1
+ },
+ {
+  "id": "clock-drill",
+  "name": "นาฬิการอบหลุม",
+  "goal": "พัตต์สั้นให้ลงจากทุกมุม",
+  "area": "putt",
+  "symptoms": [
+   "short_putt"
+  ],
+  "minutes": 8,
+  "balls": 8,
+  "equipment": [
+   "putter",
+   "tee"
+  ],
+  "steps": [
+   "วางลูก 8 ลูกรอบหลุมห่าง 1 เมตรเหมือนหน้าปัดนาฬิกา",
+   "พัตต์ไล่ไปทีละลูก",
+   "พลาดเมื่อไรเริ่มใหม่ ครบรอบแล้วขยับเป็น 1.2 เมตร"
+  ],
+  "isWarmup": false,
+  "sources": [
+   {
+    "title": "Plum Creek – Short putting practice drills",
+    "url": "https://plumcreekgolf.com/contact/news/quickly-master-your-stroke-with-these-short-putting-practice-drills"
+   },
+   {
+    "title": "GOLFZON Leadbetter – 6 putting drills",
+    "url": "https://www.golfzonleadbetter.com/blogs/master-your-putting-game-6-effective-putting-drills-for-precision-speed-alignment"
+   },
+   {
+    "title": "Southwest Greens – Compact green drills",
+    "url": "https://www.southwestgreens.com/blog/practice-drills-you-can-practice-on-a-compact-putting-green"
+   }
+  ],
+  "version": 1
+ },
+ {
+  "id": "ladder-369",
+  "name": "บันได 1-2-3 เมตร",
+  "goal": "คุมระยะพัตต์สั้นถึงกลาง",
+  "area": "putt",
+  "symptoms": [
+   "short_putt",
+   "lag_putt"
+  ],
+  "minutes": 8,
+  "balls": 3,
+  "equipment": [
+   "putter",
+   "tee"
+  ],
+  "steps": [
+   "ปักทีที่ 1, 2 และ 3 เมตรจากหลุม",
+   "พัตต์จากแต่ละจุดให้ลงทั้ง 3",
+   "พลาดลูกไหนเริ่มใหม่จาก 1 เมตร นับจำนวนรอบที่ทำได้"
+  ],
+  "isWarmup": false,
+  "sources": [
+   {
+    "title": "Scratch drills – 3-6-9 ladder",
+    "url": "https://scratch-7lo.pages.dev/drills"
+   },
+   {
+    "title": "GOLFZON Leadbetter – 6 putting drills",
+    "url": "https://www.golfzonleadbetter.com/blogs/master-your-putting-game-6-effective-putting-drills-for-precision-speed-alignment"
+   }
+  ],
+  "version": 1
+ },
+ {
+  "id": "lag-ladder",
+  "name": "บันไดพัตต์ไกล",
+  "goal": "คุมน้ำหนักพัตต์ไกล ลด 3 พัตต์",
+  "area": "putt",
+  "symptoms": [
+   "lag_putt"
+  ],
+  "minutes": 10,
+  "balls": 4,
+  "equipment": [
+   "putter",
+   "tee"
+  ],
+  "steps": [
+   "ปักทีที่ 3, 6, 9 และ 12 เมตร",
+   "พัตต์ไปทีละระยะ ให้ลูกหยุดใกล้หลุม",
+   "ไล่จากใกล้ไปไกล แล้วไกลกลับมาใกล้"
+  ],
+  "isWarmup": false,
+  "sources": [
+   {
+    "title": "GOLFTEC – Lag and ladder putting drills",
+    "url": "https://scramble.golftec.com/blog/2016/02/lag-and-ladder-putting-drills-to-eliminate-three-putts/"
+   },
+   {
+    "title": "Montana Coaches – Clinic putting notes (PDF)",
+    "url": "https://montanacoaches.com/wp-content/uploads/2025/08/Clinic-Putting-Notes.pdf"
+   },
+   {
+    "title": "Plum Creek – Short putting practice drills",
+    "url": "https://plumcreekgolf.com/contact/news/quickly-master-your-stroke-with-these-short-putting-practice-drills"
+   }
+  ],
+  "version": 1
+ },
+ {
+  "id": "lag-safe-zone",
+  "name": "โซนปลอดภัยหลังหลุม",
+  "goal": "ให้ลูกเลยหลุมเล็กน้อยแต่ไม่เกินระยะพัตต์ที่สอง",
+  "area": "putt",
+  "symptoms": [
+   "lag_putt"
+  ],
+  "minutes": 8,
+  "balls": 5,
+  "equipment": [
+   "putter"
+  ],
+  "steps": [
+   "วางไม้กอล์ฟหลังหลุมราว 60 ซม.",
+   "พัตต์จาก 6-9 เมตร ให้ลูกเลยหลุมแต่ไม่เลยไม้",
+   "ลูกที่สั้นกว่าหลุมนับเป็นพลาด"
+  ],
+  "isWarmup": false,
+  "sources": [
+   {
+    "title": "GOLFZON Leadbetter – 6 putting drills",
+    "url": "https://www.golfzonleadbetter.com/blogs/master-your-putting-game-6-effective-putting-drills-for-precision-speed-alignment"
+   },
+   {
+    "title": "CaddieHQ – How to practice short game",
+    "url": "https://www.caddiehq.com/resources/how-to-practice-golf-short-game"
+   }
+  ],
+  "version": 1
+ },
+ {
+  "id": "landing-towel",
+  "name": "ผ้าจุดตกลูกชิป",
+  "goal": "เล็งจุดตกแทนการเล็งหลุม",
+  "area": "chip",
+  "symptoms": [
+   "chip"
+  ],
+  "minutes": 8,
+  "balls": 10,
+  "equipment": [
+   "wedge",
+   "towel"
+  ],
+  "steps": [
+   "วางผ้าบนกรีนห่างขอบราว 1 เมตร",
+   "ชิปให้ลูกตกบนผ้าแล้วกลิ้งไปหาหลุม",
+   "ตกโดนผ้าได้กี่ลูกใน 10 ลูก จดไว้เทียบครั้งหน้า"
+  ],
+  "isWarmup": false,
+  "sources": [
+   {
+    "title": "CaddieHQ – How to work on short game",
+    "url": "https://www.caddiehq.com/resources/how-to-work-on-short-game-golf"
+   },
+   {
+    "title": "CaddieHQ – How to practice short game",
+    "url": "https://www.caddiehq.com/resources/how-to-practice-golf-short-game"
+   },
+   {
+    "title": "GolfPass – Chipping landing spot drill",
+    "url": "https://www.golfpass.com.au/watch/daily-video-tips/chipping-landing-spot-drill"
+   }
+  ],
+  "version": 1
+ },
+ {
+  "id": "landing-club-ladder",
+  "name": "ไม้ต่างกันจุดตกเดียว",
+  "goal": "เรียนรู้ว่าแต่ละไม้กลิ้งต่างกันแค่ไหน",
+  "area": "chip",
+  "symptoms": [
+   "chip"
+  ],
+  "minutes": 10,
+  "balls": 9,
+  "equipment": [
+   "wedge",
+   "iron",
+   "towel"
+  ],
+  "steps": [
+   "ใช้จุดตกเดิม (ผ้า)",
+   "ชิปด้วย PW, เหล็ก 8 และเหล็ก 6 ไม้ละ 3 ลูก",
+   "ดูว่าไม้ไหนกลิ้งไกลสุด เลือกไม้ตามระยะกลิ้งที่ต้องการ"
+  ],
+  "isWarmup": false,
+  "sources": [
+   {
+    "title": "GolfPass – Chipping landing spot drill",
+    "url": "https://www.golfpass.com.au/watch/daily-video-tips/chipping-landing-spot-drill"
+   },
+   {
+    "title": "CaddieHQ – How to work on short game",
+    "url": "https://www.caddiehq.com/resources/how-to-work-on-short-game-golf"
+   }
+  ],
+  "version": 1
+ },
+ {
+  "id": "bunker-line",
+  "name": "เส้นในทราย",
+  "goal": "ให้หัวไม้เข้าทรายจุดเดิมทุกครั้ง",
+  "area": "bunker",
+  "symptoms": [
+   "bunker",
+   "chip"
+  ],
+  "minutes": 10,
+  "balls": 10,
+  "equipment": [
+   "wedge"
+  ],
+  "steps": [
+   "ขีดเส้นในทรายตั้งฉากกับเป้า ยาวราว 2 เมตร",
+   "สวิงให้หัวไม้เข้าทรายที่เส้นพอดี ยังไม่ต้องมีลูก",
+   "วางลูกหน้าเส้น 3-5 ซม. แล้วตีให้ทรายพาลูกออก"
+  ],
+  "isWarmup": false,
+  "sources": [
+   {
+    "title": "Golf Compendium – Line drill in bunkers",
+    "url": "https://www.golfcompendium.com/2021/11/line-drill-bunkers-point-of-entry.html"
+   },
+   {
+    "title": "CaddieHQ – How to work on short game",
+    "url": "https://www.caddiehq.com/resources/how-to-work-on-short-game-golf"
+   },
+   {
+    "title": "GolfMagic – Bunker practice drills",
+    "url": "https://www.golfmagic.com/node/98793"
+   },
+   {
+    "title": "Titleist – Bunker line drill",
+    "url": "https://titleist.com/instruction/bunker-line-drill"
+   }
+  ],
+  "version": 1
+ }
+]

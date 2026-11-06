@@ -1,0 +1,37 @@
+[
+ {
+  "id": "slice",
+  "label": "สไลซ์ (ลูกเลี้ยวขวามาก)",
+  "area": "driver"
+ },
+ {
+  "id": "hook",
+  "label": "ฮุก (ลูกเลี้ยวซ้ายมาก)",
+  "area": "driver"
+ },
+ {
+  "id": "contact",
+  "label": "ตีบาง / ตีหนา",
+  "area": "iron"
+ },
+ {
+  "id": "short_putt",
+  "label": "พัตต์ระยะสั้นพลาด",
+  "area": "putt"
+ },
+ {
+  "id": "lag_putt",
+  "label": "พัตต์ไกลระยะไม่ได้ (3 พัตต์)",
+  "area": "putt"
+ },
+ {
+  "id": "chip",
+  "label": "ชิปไม่สม่ำเสมอ",
+  "area": "chip"
+ },
+ {
+  "id": "bunker",
+  "label": "ออกบังเกอร์ไม่ได้",
+  "area": "bunker"
+ }
+]
