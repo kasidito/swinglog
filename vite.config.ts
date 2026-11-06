@@ -13,8 +13,9 @@ export default defineConfig(({ mode }) => ({
       : VitePWA({
           registerType: 'autoUpdate',
           injectRegister: false,
-          includeAssets: ['icon.svg'],
+          includeAssets: ['icon.svg', 'apple-touch-icon.png'],
           workbox: {
+            globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
             // Cache the pose model and its WASM after first use so swing analysis also works offline.
             runtimeCaching: [
               {
@@ -29,11 +30,15 @@ export default defineConfig(({ mode }) => ({
             short_name: 'SwingLog',
             description: 'จัดเซสชันฝึกกอล์ฟตามเวลาและอาการ',
             lang: 'th',
-            theme_color: '#1F6B3A',
-            background_color: '#F6F8F3',
+            theme_color: '#0B1210',
+            background_color: '#0B1210',
             display: 'standalone',
             start_url: '.',
-            icons: [{ src: 'icon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any maskable' }],
+            icons: [
+              { src: 'icon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' },
+              { src: 'icon-192.png', sizes: '192x192', type: 'image/png', purpose: 'any maskable' },
+              { src: 'icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any maskable' },
+            ],
           },
         }),
   ],

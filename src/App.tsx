@@ -17,7 +17,7 @@ const FLIGHTS: { id: Flight; label: string; path: string }[] = [
   { id: 'fade', label: 'fade', path: 'M14 26C14 14 16 6 19 2' },
   { id: 'slice', label: 'สไลซ์', path: 'M20 26C20 16 22 8 26 2' },
 ];
-const VERSION = '1.4.0';
+const VERSION = '2.0.0';
 
 function symptomText(id: string | null, left: boolean) {
   if (id === null) return { name: 'ให้แอปเลือก', desc: 'ไม่แน่ใจ ผสมหลายแบบ' };
@@ -38,6 +38,13 @@ const SYM_ICON: Record<string, string> = {
   short_putt: 'M4 17h16M12 17a3 3 0 0 0 0-6M5 12h4', lag_putt: 'M3 17h18M6 13h3M11 13h3M16 13h3',
   chip: 'M3 18c4-9 10-11 18-6M3 18h18', bunker: 'M3 16c3-3 6 3 9 0s6 3 9 0M12 12a2 2 0 1 0 0-4a2 2 0 0 0 0 4',
 };
+const FLAG_COLORS = ['red', 'white', 'yellow', 'blue'] as const;
+const Wordmark = () => (
+  <span className="wordmark" aria-label="SwingLog">
+    <svg width="18" height="22" viewBox="0 0 18 22" aria-hidden="true"><path d="M3 21V2" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" /><path d="M3 2h12l-3.5 4.5L15 11H3z" fill="var(--flag-yellow)" /></svg>
+    <span>Swing<b>Log</b></span>
+  </span>
+);
 const Icon = ({ d, size = 22 }: { d: string; size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={d} /></svg>
 );
@@ -149,56 +156,55 @@ function HomeScreen({ state, active, onStart, onResume, onAbandon }: {
 
   return (
     <>
-      <header className="hero">
-        <span className="brand"><Icon d={I.flag} size={18} />SwingLog</span>
+      <header className="masthead">
+        <Wordmark />
         <h1>วันนี้ฝึกอะไรดี</h1>
-        <p>{suggestion ? <>ลูกที่บันทึกไว้ส่วนใหญ่ออกเป็น{symptomText(suggestion, left).name} ลองแก้ตรงนี้ก่อนไหม</> : 'เลือกเวลาที่มีกับปัญหาที่เจอ แล้วแอปจะจัดดริลให้'}</p>
+        {suggestion && <p className="lede">ลูกที่บันทึกไว้ส่วนใหญ่ออกเป็น<strong>{symptomText(suggestion, left).name}</strong> แอปเลือกให้แล้ว เปลี่ยนได้</p>}
       </header>
       {active && (
-        <div className="notice stack">
-          <strong>มีเซสชันค้างอยู่ ({active.doneDrillIds.length}/{active.drillIds.length} ดริล)</strong>
-          <div className="row">
-            <button type="button" className="btn btn-small" onClick={onResume}>ทำต่อ</button>
-            <button type="button" className="btn btn-ghost" onClick={onAbandon}>ทิ้งเซสชันนี้</button>
-          </div>
+        <div className="notice row">
+          <span>มีเซสชันค้าง ทำไป {active.doneDrillIds.length} จาก {active.drillIds.length} ดริล</span>
+          <span className="spacer" />
+          <button type="button" className="btn btn-small" onClick={onResume}>ทำต่อ</button>
+          <button type="button" className="btn btn-ghost" onClick={onAbandon}>ทิ้ง</button>
         </div>
       )}
-      <section>
-        <p className="q" id="unit-q">นับเป็นอะไร</p>
-        <div className="seg seg-pill" role="group" aria-labelledby="unit-q">
-          <button type="button" className="chip" aria-pressed={unit === 'min'} onClick={() => { setUnit('min'); setAmount(15); }}>เวลา (นาที)</button>
-          <button type="button" className="chip" aria-pressed={unit === 'ball'} onClick={() => { setUnit('ball'); setAmount(BALLS_PER_TRAY); }}>ถาดลูก (ในช่องตี)</button>
+      <section className="board" aria-labelledby="amt-q">
+        <div className="board-head">
+          <h2 id="amt-q">{unit === 'min' ? 'มีเวลาเท่าไหร่' : 'ซื้อลูกกี่ถาด'}</h2>
+          <div className="unit-switch" role="group" aria-label="นับเป็น">
+            <button type="button" aria-pressed={unit === 'min'} onClick={() => { setUnit('min'); setAmount(15); }}>นาที</button>
+            <button type="button" aria-pressed={unit === 'ball'} onClick={() => { setUnit('ball'); setAmount(BALLS_PER_TRAY); }}>ถาด</button>
+          </div>
         </div>
-      </section>
-      <section>
-        <p className="q" id="amt-q">{unit === 'min' ? 'มีเวลาเท่าไหร่' : 'ซื้อลูกกี่ถาด'}</p>
-        <div className="row" role="group" aria-labelledby="amt-q">
+        <div className="amounts" role="group" aria-labelledby="amt-q">
           {amounts.map((a) => (
-            <button key={a} type="button" className="chip" aria-pressed={amt === a} onClick={() => setAmount(a)}>
-              {unit === 'min' ? `${a} นาที` : `${a / BALLS_PER_TRAY} ถาด (${a} ลูก)`}
+            <button key={a} type="button" className="amount" aria-pressed={amt === a} onClick={() => setAmount(a)}>
+              <span className="num">{unit === 'min' ? a : a / BALLS_PER_TRAY}</span>
+              <span className="unit">{unit === 'min' ? 'นาที' : `ถาด, ${a} ลูก`}</span>
             </button>
           ))}
         </div>
       </section>
-      <section>
-        <p className="q" id="sym-q">อาการที่เจอ</p>
-        <div className="symgrid" role="group" aria-labelledby="sym-q">
+      <section aria-labelledby="sym-q">
+        <h2 id="sym-q" className="section-title">ปัญหาที่เจอ</h2>
+        <div className="symlist" role="group" aria-labelledby="sym-q">
           {options.map((id) => {
             const t = symptomText(id, left);
             const icon = SYM_ICON[id ?? 'auto'] ?? SYM_ICON.auto;
             return (
               <button key={id ?? 'auto'} type="button" className="sym" aria-pressed={chosen === id} onClick={() => setSymptom(id)}>
-                <span className="sym-icon" style={left && (id === 'slice' || id === 'hook') ? { transform: 'scaleX(-1)' } : undefined}><Icon d={icon} size={24} /></span>
-                <span><span className="sym-name">{t.name}</span>{suggestion && id === suggestion && <span className="tag">แนะนำ</span>}<small>{t.desc}</small></span>
+                <span className="sym-icon" style={left && (id === 'slice' || id === 'hook') ? { transform: 'scaleX(-1)' } : undefined}><Icon d={icon} size={22} /></span>
+                <span className="sym-text"><span className="sym-name">{t.name}{suggestion && id === suggestion && <span className="tag">แนะนำ</span>}</span><small>{t.desc}</small></span>
               </button>
             );
           })}
         </div>
-        {unit === 'ball' && <p className="muted">โหมดถาดเลือกเฉพาะดริลสวิงเต็มในช่องตี ลูกที่เหลือใช้ตีอิสระได้</p>}
-        {unit === 'min' && !st.hasGreen && <p className="muted">ซ่อนอาการพัตต์และชิปไว้ เพราะตั้งค่าว่าไม่มีกรีนซ้อม</p>}
+        {unit === 'ball' && <p className="muted">โหมดถาดใช้เฉพาะดริลสวิงเต็มในช่องตี ลูกที่เหลือเป็นตีอิสระ</p>}
+        {unit === 'min' && !st.hasGreen && <p className="muted">ซ่อนพัตต์และชิปไว้ เพราะตั้งค่าว่าไม่มีกรีนซ้อม</p>}
       </section>
       <div className="spacer" />
-      <button type="button" className="btn btn-primary" onClick={() => onStart(unit, amt, chosen)}>เริ่มเซสชัน</button>
+      <button type="button" className="btn btn-primary dock" onClick={() => onStart(unit, amt, chosen)}>เริ่มเซสชัน</button>
     </>
   );
 }
@@ -212,48 +218,43 @@ function SessionScreen({ session, notices, state, onOpen, onDone, onFinish, onAb
   const title = session.mode === 'preround' ? 'ก่อนออกรอบ' : symptomText(session.symptomId, state.settings.handedness === 'left').name;
   return (
     <>
-      <header className="session-head">
-        <div>
-          <h1>{title}</h1>
-          <p className="muted" style={{ margin: 0 }}>{session.unit === 'min' ? `${session.amount} นาที` : `${session.amount / BALLS_PER_TRAY} ถาด, ${session.amount} ลูก`}{shots ? `, บันทึกวิถีลูก ${shots} ลูก` : ''}</p>
-        </div>
-        <div className="score" aria-label={`ทำแล้ว ${done} จาก ${total} ดริล`}><strong>{done}</strong><span>/{total}</span></div>
+      <header className="masthead">
+        <h1>{title}</h1>
+        <p className="lede">{session.unit === 'min' ? `${session.amount} นาที` : `${session.amount / BALLS_PER_TRAY} ถาด, ${session.amount} ลูก`}, ทำแล้ว {done} จาก {total} ดริล{shots ? `, บันทึกวิถีลูก ${shots} ลูก` : ''}</p>
       </header>
       {notices.map((n) => <div key={n} className="notice">{n}</div>)}
-      <div className="scorecard" role="table" aria-label="สกอร์การ์ดเซสชัน">
-        <div className="sc-row sc-head" role="row">
-          <span role="columnheader">หลุม</span><span role="columnheader">ดริล</span><span role="columnheader">นาที</span><span role="columnheader">ลูก</span><span role="columnheader">เสร็จ</span>
-        </div>
+      <ol className="lane" aria-label="ดริลในเซสชัน เรียงจากใกล้ไปไกล">
         {session.drillIds.map((id, i) => {
           const d = drillById(id);
           const isDone = session.doneDrillIds.includes(id);
-          if (!d) return <div key={id} className="sc-row" role="row"><span className="no">{i + 1}</span><span className="muted">ดริลนี้ถูกเลิกใช้แล้ว</span></div>;
+          const isNext = !isDone && session.drillIds.findIndex((x) => !session.doneDrillIds.includes(x)) === i;
+          const dist = 100 + i * 50;
+          const flag = FLAG_COLORS[i % FLAG_COLORS.length];
+          if (!d) return <li key={id} className="lane-row"><span className="muted">ดริลนี้ถูกเลิกใช้แล้ว</span></li>;
           return (
-            <div key={id} className={`sc-row${isDone ? ' done' : ''}`} role="row">
-              <span className="no" role="cell">{i + 1}</span>
-              <button type="button" className="open" role="cell" onClick={() => onOpen(id)}>
-                <span className="name">{d.name}</span>
-                <span className="muted">{d.isWarmup ? 'อุ่นเครื่อง, ' : ''}{d.equipment.map((e) => EQUIP[e] ?? e).join(', ')}</span>
-              </button>
-              <span className="num" role="cell">{d.minutes}</span>
-              <span className="num" role="cell">{d.balls ?? '-'}</span>
-              <span role="cell">
-                <button type="button" className="sc-check" aria-pressed={isDone} disabled={isDone} onClick={() => onDone(id)} aria-label={isDone ? `${d.name} เสร็จแล้ว` : `ทำ ${d.name} เสร็จแล้ว`}>
-                  {isDone && <Icon d={I.check} size={20} />}
-                </button>
+            <li key={id} className={`lane-row${isDone ? ' done' : ''}${isNext ? ' next' : ''}`}>
+              <span className="marker" aria-hidden="true">
+                <svg width="28" height="34" viewBox="0 0 28 34"><path d="M6 32V3" className="pole" /><path d="M6 3h17l-5 6 5 6H6z" className={isDone ? 'flag lit' : 'flag'} style={isDone ? undefined : { fill: `var(--flag-${flag})` }} /></svg>
+                <span className="dist">{dist}</span>
               </span>
-            </div>
+              <button type="button" className="open" onClick={() => onOpen(id)}>
+                <span className="name">{d.name}</span>
+                <span className="meta">{d.isWarmup ? 'อุ่นเครื่อง, ' : ''}{d.minutes} นาที{d.balls ? `, ${d.balls} ลูก` : ''}</span>
+              </button>
+              <button type="button" className="check" aria-pressed={isDone} disabled={isDone} onClick={() => onDone(id)} aria-label={isDone ? `${d.name} เสร็จแล้ว` : `ทำ ${d.name} เสร็จแล้ว`}>
+                {isDone ? <Icon d={I.check} size={20} /> : 'เสร็จ'}
+              </button>
+            </li>
           );
         })}
         {session.freeHit > 0 && (
-          <div className="sc-row sc-free" role="row">
-            <span className="no" role="cell"><Icon d={I.flag} size={16} /></span>
-            <span role="cell"><span className="name">ตีอิสระ</span><span className="muted">ลูกที่เหลือจากถาด ตีตามสบาย</span></span>
-            <span className="num" role="cell">-</span><span className="num" role="cell">{session.freeHit}</span><span role="cell" />
-          </div>
+          <li className="lane-row free">
+            <span className="marker" aria-hidden="true"><span className="dist">ตี</span></span>
+            <span className="open"><span className="name">ตีอิสระ {session.freeHit} ลูก</span><span className="meta">ลูกที่เหลือจากถาด ตีตามสบาย</span></span>
+          </li>
         )}
-      </div>
-      <p className="muted" style={{ margin: 0 }}>แตะชื่อดริลเพื่อดูขั้นตอนและบันทึกวิถีลูก</p>
+      </ol>
+      <p className="muted" style={{ margin: 0 }}>แตะชื่อดริลเพื่อดูขั้นตอน ภาพประกอบ และบันทึกวิถีลูก</p>
       <div className="spacer" />
       {allDone
         ? <button type="button" className="btn btn-primary" onClick={onFinish}>จบเซสชัน</button>
@@ -328,20 +329,33 @@ function DrillScreen({ drill, session, state, onBack, onDone, onShot }: {
 
 function Distribution({ flights }: { flights: Flight[] }) {
   if (!flights.length) return <p className="muted">ไม่ได้บันทึกวิถีลูกในเซสชันนี้</p>;
+  const counts = FLIGHTS.map((f) => flights.filter((x) => x === f.id).length);
+  const max = Math.max(...counts, 1);
+  // Top-down view of the bay: tee at bottom, five landing lanes fan out; lane length = share of shots.
+  const angles = [-34, -16, 0, 16, 34];
   return (
-    <div className="stack">
-      {FLIGHTS.map((f) => {
-        const n = flights.filter((x) => x === f.id).length;
-        const pct = Math.round((n / flights.length) * 100);
-        return (
-          <div key={f.id} className="row" style={{ flexWrap: 'nowrap' }}>
-            <span style={{ width: 52 }}>{f.label}</span>
-            <div className="progress" style={{ flex: 1 }}><span style={{ width: `${pct}%` }} /></div>
-            <span className="muted" style={{ width: 64, textAlign: 'right' }}>{n} ({pct}%)</span>
-          </div>
-        );
-      })}
-    </div>
+    <figure className="fan">
+      <svg viewBox="0 0 300 170" role="img" aria-label={FLIGHTS.map((f, i) => `${f.label} ${counts[i]} ลูก`).join(', ')}>
+        {[60, 100, 140].map((r) => <path key={r} d={`M ${150 - r * Math.sin(0.7)} ${160 - r * Math.cos(0.7)} A ${r} ${r} 0 0 1 ${150 + r * Math.sin(0.7)} ${160 - r * Math.cos(0.7)}`} className="fan-arc" />)}
+        {FLIGHTS.map((f, i) => {
+          const len = 24 + (counts[i] / max) * 120;
+          const rad = (angles[i] * Math.PI) / 180;
+          const x = 150 + len * Math.sin(rad), y = 160 - len * Math.cos(rad);
+          return (
+            <g key={f.id} className={f.id === 'straight' ? 'fan-lane on' : 'fan-lane'} opacity={counts[i] ? 1 : 0.35}>
+              <line x1="150" y1="160" x2={x} y2={y} />
+              <circle cx={x} cy={y} r={counts[i] ? 5 + (counts[i] / max) * 5 : 3} />
+            </g>
+          );
+        })}
+        <circle cx="150" cy="160" r="4" className="fan-tee" />
+      </svg>
+      <figcaption className="fan-key">
+        {FLIGHTS.map((f, i) => (
+          <span key={f.id} className={f.id === 'straight' ? 'on' : undefined}><b>{counts[i]}</b>{f.label}</span>
+        ))}
+      </figcaption>
+    </figure>
   );
 }
 
@@ -352,12 +366,11 @@ function SummaryScreen({ state, sessionId, onHome }: { state: AppState; sessionI
   if (!s) return <p>ไม่พบเซสชัน</p>;
   return (
     <>
-      <h1>ฝึกเสร็จแล้ว</h1>
-      <div className="row">
-        <div className="card" style={{ flex: 1 }}><div className="stat">{s.doneDrillIds.length}/{s.drillIds.length}</div><span className="muted">ดริลที่ทำ</span></div>
-        <div className="card" style={{ flex: 1 }}><div className="stat">{pct === null ? '-' : `${pct}%`}</div><span className="muted">ลูกตรง (ประมาณ)</span></div>
-      </div>
-      <section className="card"><h2 style={{ marginBottom: 8 }}>วิถีลูก</h2><Distribution flights={flights} /></section>
+      <header className="masthead">
+        <h1>ฝึกเสร็จแล้ว</h1>
+        <p className="lede">ทำ {s.doneDrillIds.length} จาก {s.drillIds.length} ดริล{flights.length ? <>, ลูกตรงราว <strong>{pct}%</strong> จาก {flights.length} ลูกที่บันทึก</> : ''}</p>
+      </header>
+      <section><h2 className="section-title">ลูกไปทางไหน</h2><div className="card"><Distribution flights={flights} /></div></section>
       {suggestSymptom(state.shots.map((x) => x.flight)) && <div className="notice">ครั้งหน้าแอปจะแนะนำอาการจากลูกที่บันทึกไว้</div>}
       <div className="spacer" />
       <button type="button" className="btn btn-primary" onClick={onHome}>กลับหน้าแรก</button>
@@ -381,7 +394,7 @@ function HistoryScreen({ state, onDelete }: { state: AppState; onDelete: (id: st
       <h1>ฝึกไปแล้ว {done.length} ครั้ง</h1>
       {done.length === 0 ? <p className="muted">ยังไม่มีเซสชันที่จบ เริ่มเซสชันแรกได้จากแท็บ ฝึก</p> : (
         <>
-          <div className="card"><div className="stat">{pct5 === null ? '-' : `${pct5}%`}</div><span className="muted">ลูกตรงใน 5 เซสชันล่าสุด (ประมาณ จากที่บันทึก)</span></div>
+          {pct5 !== null && <p className="lede">5 เซสชันล่าสุด ลูกตรงราว <strong>{pct5}%</strong> จากที่บันทึก</p>}
           <div className="stack">
             {done.map((s) => {
               const fl = state.shots.filter((x) => x.sessionId === s.id).map((x) => x.flight);

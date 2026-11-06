@@ -161,7 +161,7 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
       {camOpen && <CameraCapture left={left} onClose={() => setCamOpen(false)} onCapture={(f) => { setCamOpen(false); pick(f); }} onFallback={() => { setCamOpen(false); camInput.current?.click(); }} />}
       <button type="button" className="btn btn-primary" onClick={() => setCamOpen(true)}>เปิดกล้องพร้อมกรอบจัดตำแหน่ง</button>
       <div className="seg">
-        <button type="button" className="btn btn-secondary" onClick={() => camInput.current?.click()}>กล้องของเครื่อง (สโลว์)</button>
+        <button type="button" className="btn btn-secondary" onClick={() => camInput.current?.click()}>กล้องเครื่อง, สโลว์</button>
         <button type="button" className="btn btn-secondary" onClick={() => fileInput.current?.click()}>เลือกจากคลัง</button>
       </div>
 

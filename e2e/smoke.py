@@ -1,4 +1,4 @@
-import sys, json
+import sys, json, re
 from playwright.sync_api import sync_playwright
 path = sys.argv[1]
 errors = []
@@ -13,10 +13,10 @@ with sync_playwright() as p:
     pg.get_by_role("button", name="30 นาที").click()
     pg.get_by_role("button", name="สไลซ์").first.click()
     pg.get_by_role("button", name="เริ่มเซสชัน").click()
-    pg.get_by_role("table", name="สกอร์การ์ดเซสชัน").wait_for()
+    pg.get_by_role("list", name=re.compile("^ดริลในเซสชัน")).wait_for()
     pg.screenshot(path="/home/claude/e2e/2-session.png", full_page=True)
-    n = pg.locator(".sc-row .open").count()
-    pg.locator(".sc-row .open").nth(1).click()
+    n = pg.locator(".lane-row:not(.free) .open").count()
+    pg.locator(".lane-row:not(.free) .open").nth(1).click()
     pg.get_by_role("heading", level=1).wait_for()
     for f in ["ตรง", "สไลซ์", "สไลซ์", "fade", "ตรง"]:
         pg.get_by_role("group", name="บันทึกวิถีลูก").get_by_role("button", name=f).click()
@@ -40,9 +40,9 @@ with sync_playwright() as p:
     pg.screenshot(path="/home/claude/e2e/5-settings-dark.png", full_page=True)
     pg.get_by_role("button", name="ฝึก").click()
     home = pg.locator("main").inner_text()
-    pg.get_by_role("button", name="ถาดลูก (ในช่องตี)").click()
+    pg.get_by_role("button", name="ถาด", exact=True).click()
     pg.get_by_role("button", name="เริ่มเซสชัน").click()
-    pg.get_by_role("table", name="สกอร์การ์ดเซสชัน").wait_for()
+    pg.get_by_role("list", name=re.compile("^ดริลในเซสชัน")).wait_for()
     ball = pg.locator("main").inner_text()
     pg.screenshot(path="/home/claude/e2e/6-ball-dark.png", full_page=True)
     # reload persists?
