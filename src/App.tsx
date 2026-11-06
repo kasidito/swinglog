@@ -3,9 +3,10 @@ import {
   BALLS_PER_TRAY, DRILLS, PREROUND, SYMPTOMS, Drill, Flight, buildSession, fullSwing,
   straightPct, suggestSymptom, symptomAvailable,
 } from './engine';
+import Analyze from './Analyze';
 import { AppState, Session, defaultState, isPersistent, load, requestPersist, save, uid } from './store';
 
-type Screen = 'home' | 'session' | 'drill' | 'summary' | 'history' | 'settings';
+type Screen = 'home' | 'session' | 'drill' | 'summary' | 'history' | 'settings' | 'video';
 const drillById = (id: string) => DRILLS.find((d) => d.id === id);
 const EQUIP: Record<string, string> = { driver: 'ไดรเวอร์', iron: 'เหล็ก', wedge: 'เวดจ์', putter: 'พัตเตอร์', alignment_stick: 'ไม้ชี้แนว', tee: 'ที', towel: 'ผ้า' };
 const FLIGHTS: { id: Flight; label: string; path: string }[] = [
@@ -15,7 +16,7 @@ const FLIGHTS: { id: Flight; label: string; path: string }[] = [
   { id: 'fade', label: 'fade', path: 'M14 26C14 14 16 6 19 2' },
   { id: 'slice', label: 'สไลซ์', path: 'M20 26C20 16 22 8 26 2' },
 ];
-const VERSION = '1.0.0';
+const VERSION = '1.1.0';
 
 function symptomText(id: string | null, left: boolean) {
   if (id === null) return { name: 'ไม่แน่ใจ ให้แอปจัดให้', desc: 'ผสมดริลหลายแบบ' };
@@ -35,6 +36,7 @@ const I = {
   flag: 'M5 21V4M5 4l12 4-12 5', check: 'M5 12l5 5 9-10', clock: 'M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0-18M12 7v5l3 2',
   gear: 'M12 9a3 3 0 1 0 0 6a3 3 0 0 0 0-6M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1',
   back: 'M15 18l-6-6 6-6',
+  cam: 'M3 7h4l2-3h6l2 3h4v13H3zM12 10a3.5 3.5 0 1 0 0 7a3.5 3.5 0 0 0 0-7',
 };
 
 export default function App() {
@@ -100,16 +102,18 @@ export default function App() {
   else if (screen === 'drill' && active && drillId) body = <DrillScreen drill={drillById(drillId)!} session={active} state={state} onBack={() => go('session')} onDone={() => { markDone(drillId); go('session'); }} onShot={(f) => logShot(drillId, f)} />;
   else if (screen === 'summary' && summaryId) body = <SummaryScreen state={state} sessionId={summaryId} onHome={() => go('home')} />;
   else if (screen === 'history') body = <HistoryScreen state={state} onDelete={(id) => update((s) => ({ ...s, sessions: s.sessions.filter((x) => x.id !== id), shots: s.shots.filter((x) => x.sessionId !== id) }))} />;
+  else if (screen === 'video') body = <Analyze left={settings.handedness === 'left'} canLog={!!active} onLog={(f) => logShot('video', f)} />;
   else if (screen === 'settings') body = <SettingsScreen state={state} onChange={(patch) => update((s) => ({ ...s, settings: { ...s.settings, ...patch } }))} onReset={() => setState(defaultState())} />;
   else body = <HomeScreen state={state} active={active} onStart={startSession} onResume={() => go('session')} onAbandon={abandon} />;
 
-  const tab = screen === 'history' ? 'history' : screen === 'settings' ? 'settings' : 'home';
+  const tab = screen === 'history' ? 'history' : screen === 'settings' ? 'settings' : screen === 'video' ? 'video' : 'home';
   return (
     <div className="app">
       <main className="screen">{body}</main>
       {screen !== 'drill' && (
         <nav className="tabs" aria-label="เมนูหลัก">
           <button type="button" aria-current={tab === 'home' ? 'page' : undefined} onClick={() => go(active && screen !== 'home' ? 'session' : 'home')}><Icon d={I.flag} />ฝึก</button>
+          <button type="button" aria-current={tab === 'video' ? 'page' : undefined} onClick={() => go('video')}><Icon d={I.cam} />วิดีโอ</button>
           <button type="button" aria-current={tab === 'history' ? 'page' : undefined} onClick={() => go('history')}><Icon d={I.clock} />ประวัติ</button>
           <button type="button" aria-current={tab === 'settings' ? 'page' : undefined} onClick={() => go('settings')}><Icon d={I.gear} />ตั้งค่า</button>
         </nav>
