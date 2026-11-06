@@ -17,7 +17,7 @@ const FLIGHTS: { id: Flight; label: string; path: string }[] = [
   { id: 'fade', label: 'fade', path: 'M14 26C14 14 16 6 19 2' },
   { id: 'slice', label: 'สไลซ์', path: 'M20 26C20 16 22 8 26 2' },
 ];
-const VERSION = '2.0.0';
+const VERSION = '2.1.0';
 
 function symptomText(id: string | null, left: boolean) {
   if (id === null) return { name: 'ให้แอปเลือก', desc: 'ไม่แน่ใจ ผสมหลายแบบ' };
@@ -52,6 +52,9 @@ const I = {
   flag: 'M5 21V4M5 4l12 4-12 5', check: 'M5 12l5 5 9-10', clock: 'M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0-18M12 7v5l3 2',
   gear: 'M12 9a3 3 0 1 0 0 6a3 3 0 0 0 0-6M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1',
   back: 'M15 18l-6-6 6-6',
+  ball: 'M12 4a8 8 0 1 0 0 16a8 8 0 0 0 0-16M9.5 9.5h.01M13 8.5h.01M14.5 11.5h.01M11 12.5h.01',
+  tool: 'M5 19L19 5M15 5h4v4',
+  cal: 'M4 6h16v14H4zM4 10h16M8 3v4M16 3v4',
   cam: 'M3 7h4l2-3h6l2 3h4v13H3zM12 10a3.5 3.5 0 1 0 0 7a3.5 3.5 0 0 0 0-7',
 };
 
@@ -254,6 +257,11 @@ function SessionScreen({ session, notices, state, onOpen, onDone, onFinish, onAb
           </li>
         )}
       </ol>
+      <div className="totals" aria-label="รวมทั้งเซสชัน">
+        <span><Icon d={I.clock} size={18} /><b>{session.drillIds.reduce((a, id) => a + (drillById(id)?.minutes ?? 0), 0)}</b> นาที</span>
+        <span><Icon d={I.ball} size={18} /><b>{session.drillIds.reduce((a, id) => a + (drillById(id)?.balls ?? 0), 0) + session.freeHit}</b> ลูก</span>
+        <span><Icon d={I.check} size={18} /><b>{done}/{total}</b> ดริล</span>
+      </div>
       <p className="muted" style={{ margin: 0 }}>แตะชื่อดริลเพื่อดูขั้นตอน ภาพประกอบ และบันทึกวิถีลูก</p>
       <div className="spacer" />
       {allDone
@@ -283,16 +291,21 @@ function DrillScreen({ drill, session, state, onBack, onDone, onShot }: {
   const isDone = session.doneDrillIds.includes(drill.id);
   return (
     <>
-      <button type="button" className="btn btn-ghost" style={{ alignSelf: 'flex-start' }} onClick={onBack}>กลับไปรายการดริล</button>
-      <div className="stack">
-        <h1>{drill.name}</h1>
-        <div className="row">
-          {drill.isWarmup && <span className="badge">อุ่นเครื่อง</span>}
-          {drill.sources.length < 2 && <span className="badge">รอตรวจสอบเนื้อหา</span>}
-        </div>
-        <p style={{ margin: 0 }}>{drill.goal}</p>
-        <p className="muted" style={{ margin: 0 }}>{drill.minutes} นาที, {drill.equipment.map((e) => EQUIP[e] ?? e).join(', ')}{drill.balls ? `, ${drill.balls} ลูก` : ''}</p>
+      <div className="topbar">
+        <button type="button" className="back" onClick={onBack} aria-label="กลับไปรายการดริล"><Icon d={I.back} size={22} /></button>
+        <span className="muted">ดริล {session.drillIds.indexOf(drill.id) + 1} จาก {session.drillIds.length}</span>
       </div>
+      <header className="masthead">
+        <h1>{drill.name}</h1>
+        <p className="lede">{drill.goal}</p>
+        <div className="facts">
+          <span><Icon d={I.clock} size={16} />{drill.minutes} นาที</span>
+          {drill.balls ? <span><Icon d={I.ball} size={16} />{drill.balls} ลูก</span> : null}
+          {drill.equipment.map((e) => <span key={e}><Icon d={I.tool} size={16} />{EQUIP[e] ?? e}</span>)}
+          {drill.isWarmup && <span className="hot">อุ่นเครื่อง</span>}
+          {drill.sources.length < 2 && <span>รอตรวจสอบเนื้อหา</span>}
+        </div>
+      </header>
       <DrillDiagram id={drill.id} left={left} />
       <section className="card">
         <h2 style={{ marginBottom: 8 }}>ขั้นตอน</h2>
@@ -301,7 +314,7 @@ function DrillScreen({ drill, session, state, onBack, onDone, onShot }: {
       </section>
       {fullSwing(drill) && (
         <section className="stack">
-          <div className="row"><p className="q" style={{ margin: 0 }}>ลูกนี้ไปทางไหน</p><span className="spacer" /><span className="muted">บันทึกแล้ว {shots.length}{drill.balls ? ` จาก ${drill.balls}` : ''} ลูก</span></div>
+          <div className="row"><h2>ลูกนี้ไปทางไหน</h2><span className="spacer" /><span className="muted">บันทึกแล้ว {shots.length}{drill.balls ? ` จาก ${drill.balls}` : ''} ลูก</span></div>
           <div className="flights" role="group" aria-label="บันทึกวิถีลูก">
             {(left ? [...FLIGHTS].reverse() : FLIGHTS).map((f) => (
               <button key={f.id} type="button" className={`flight${flash === f.id ? ' flash' : ''}`} onClick={() => tap(f.id)}>
@@ -309,6 +322,16 @@ function DrillScreen({ drill, session, state, onBack, onDone, onShot }: {
               </button>
             ))}
           </div>
+          {shots.length > 0 && (() => {
+            const st = shots.filter((x) => x.flight === 'straight').length;
+            const p = Math.round((st / shots.length) * 100);
+            return (
+              <div className="straight">
+                <span><b>{p}%</b> ตรง <span className="muted">({st}/{shots.length} ลูก)</span></span>
+                <div className="progress"><span style={{ width: `${p}%` }} /></div>
+              </div>
+            );
+          })()}
           <span className="muted" aria-live="polite">{flash ? `บันทึก ${FLIGHTS.find((f) => f.id === flash)!.label} แล้ว` : 'แตะหลังตีแต่ละลูก ไม่บันทึกก็ได้'}</span>
         </section>
       )}
@@ -385,29 +408,51 @@ function ConfirmButton({ label, confirmLabel, onConfirm }: { label: string; conf
 }
 
 function HistoryScreen({ state, onDelete }: { state: AppState; onDelete: (id: string) => void }) {
-  const done = useMemo(() => state.sessions.filter((s) => s.status === 'completed').slice().reverse(), [state.sessions]);
-  const fmt = new Intl.DateTimeFormat('th-TH', { dateStyle: 'medium', timeStyle: 'short' });
-  const last5 = done.slice(0, 5).map((s) => s.id);
-  const pct5 = straightPct(state.shots.filter((x) => last5.includes(x.sessionId)).map((x) => x.flight));
+  const [range, setRange] = useState<0 | 7 | 30>(0);
+  const all = useMemo(() => state.sessions.filter((s) => s.status === 'completed').slice().reverse(), [state.sessions]);
+  const since = range ? Date.now() - range * 86400000 : 0;
+  const done = all.filter((s) => new Date(s.startedAt).getTime() >= since);
+  const fmtDay = new Intl.DateTimeFormat('th-TH', { day: 'numeric' });
+  const fmtMon = new Intl.DateTimeFormat('th-TH', { month: 'short' });
+  const fmtTime = new Intl.DateTimeFormat('th-TH', { timeStyle: 'short' });
+  const ids = done.map((s) => s.id);
+  const fl = state.shots.filter((x) => ids.includes(x.sessionId)).map((x) => x.flight);
+  const pct = straightPct(fl);
   return (
     <>
-      <h1>ฝึกไปแล้ว {done.length} ครั้ง</h1>
-      {done.length === 0 ? <p className="muted">ยังไม่มีเซสชันที่จบ เริ่มเซสชันแรกได้จากแท็บ ฝึก</p> : (
+      <header className="masthead">
+        <h1>ประวัติ</h1>
+        <div className="unit-switch" role="group" aria-label="ช่วงเวลา" style={{ alignSelf: 'flex-start' }}>
+          {([[0, 'ทั้งหมด'], [7, '7 วัน'], [30, '30 วัน']] as const).map(([v, l]) => (
+            <button key={v} type="button" aria-pressed={range === v} onClick={() => setRange(v)}>{l}</button>
+          ))}
+        </div>
+      </header>
+      {all.length === 0 ? <p className="muted">ยังไม่มีเซสชันที่จบ เริ่มเซสชันแรกได้จากแท็บ ฝึก</p> : (
         <>
-          {pct5 !== null && <p className="lede">5 เซสชันล่าสุด ลูกตรงราว <strong>{pct5}%</strong> จากที่บันทึก</p>}
-          <div className="stack">
-            {done.map((s) => {
-              const fl = state.shots.filter((x) => x.sessionId === s.id).map((x) => x.flight);
-              const p = straightPct(fl);
-              return (
-                <div key={s.id} className="card stack">
-                  <div className="row"><strong>{s.mode === 'preround' ? 'ก่อนออกรอบ' : symptomText(s.symptomId, state.settings.handedness === 'left').name}</strong><span className="spacer" /><span className="muted">{fmt.format(new Date(s.startedAt))}</span></div>
-                  <span className="muted">ดริล {s.doneDrillIds.length}/{s.drillIds.length}, {s.unit === 'min' ? `${s.amount} นาที` : `${s.amount} ลูก`}, บันทึก {fl.length} ลูก{p !== null ? `, ตรง ${p}%` : ''}</span>
-                  <ConfirmButton label="ลบ" confirmLabel="แตะอีกครั้งเพื่อลบ" onConfirm={() => onDelete(s.id)} />
-                </div>
-              );
-            })}
-          </div>
+          <section className="board">
+            <p className="lede" style={{ maxWidth: 'none' }}>ฝึก <strong>{done.length}</strong> ครั้ง{pct !== null ? <>, ลูกตรงราว <strong>{pct}%</strong> จาก {fl.length} ลูกที่บันทึก</> : ', ยังไม่ได้บันทึกวิถีลูก'}</p>
+            {pct !== null && <div className="progress"><span style={{ width: `${pct}%` }} /></div>}
+          </section>
+          {done.length === 0 ? <p className="muted">ไม่มีเซสชันในช่วงนี้</p> : (
+            <ul className="hist">
+              {done.map((s) => {
+                const f = state.shots.filter((x) => x.sessionId === s.id).map((x) => x.flight);
+                const p = straightPct(f);
+                const d = new Date(s.startedAt);
+                return (
+                  <li key={s.id}>
+                    <span className="date"><b>{fmtDay.format(d)}</b>{fmtMon.format(d)}</span>
+                    <span className="info">
+                      <strong>{s.mode === 'preround' ? 'ก่อนออกรอบ' : symptomText(s.symptomId, state.settings.handedness === 'left').name}</strong>
+                      <span className="muted">{fmtTime.format(d)}, {s.unit === 'min' ? `${s.amount} นาที` : `${s.amount} ลูก`}, ดริล {s.doneDrillIds.length}/{s.drillIds.length}{p !== null ? `, ตรง ${p}%` : ''}</span>
+                    </span>
+                    <ConfirmButton label="ลบ" confirmLabel="ยืนยันลบ" onConfirm={() => onDelete(s.id)} />
+                  </li>
+                );
+              })}
+            </ul>
+          )}
         </>
       )}
     </>

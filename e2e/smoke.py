@@ -31,7 +31,7 @@ with sync_playwright() as p:
     txt = pg.locator("main").inner_text()
     pg.screenshot(path="/home/claude/e2e/4-summary.png", full_page=True)
     pg.get_by_role("button", name="ประวัติ").click()
-    pg.get_by_role("heading", name="ฝึกไปแล้ว 1 ครั้ง").wait_for()
+    pg.locator(".hist li").first.wait_for()
     pg.get_by_role("button", name="ตั้งค่า").click()
     pg.get_by_role("button", name="มืด (กลางคืน)").click()
     pg.get_by_label("ตัวอักษรใหญ่").check()

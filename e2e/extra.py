@@ -18,7 +18,7 @@ with sync_playwright() as p:
     pg.locator('input[type=file][accept*=json]').set_input_files("backup.json")
     pg.get_by_role("button", name="ยืนยันการนำเข้า").click()
     pg.get_by_role("button", name="ประวัติ").click()
-    pg.get_by_role("heading", name="ฝึกไปแล้ว 1 ครั้ง").wait_for()
+    pg.locator(".hist li").first.wait_for()
     pg.get_by_role("button", name="ฝึก").click()
     bunker = "ออกบังเกอร์ไม่ได้" in pg.locator("main").inner_text()
     b.close()

@@ -24,7 +24,8 @@ The app looks like a driving range at night: dark ground, floodlight-white text,
 - **Range lane** (session screen): each drill is a flag at 100/150/200/250, using the flag colours in order. A finished drill's flag turns turf green. The next drill sits under a soft floodlight glow and gets the yellow "เสร็จ" ("Done") button.
 - **Amount board** (home screen): large condensed numbers, like the sign at a hitting bay.
 - **Dispersion fan** (summary screen): seen from the tee, five lanes fan out and each one's length shows its share of shots. Straight is turf green.
-- **App icon**: a yellow flag on a white pole under a floodlight glow, a white ball on a turf horizon, all on the night ground. Files: public/icon.svg, icon-192.png, icon-512.png, apple-touch-icon.png.
+- **App icon** (2.1): the owner's golfer concept redrawn as a clean vector. A white line-art golfer at the top of the swing and a white ball on a yellow swoosh, on fairway green #0D5C33. Files: public/icon.svg, icon-192.png, icon-512.png, apple-touch-icon.png.
+- **Borrowed from the owner's mockup** (2.1): session totals row (minutes, balls, drills done); drill header with a back arrow, "ดริล x จาก y" ("drill x of y") and fact chips (time, balls, equipment); live straight % with a bar in the flight panel; history with ทั้งหมด/7 วัน/30 วัน (all/7 days/30 days) filters, a straight % bar and dated rows.
 
 ## Rules
 - No emoji. Icons are inline SVG.

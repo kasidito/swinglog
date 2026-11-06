@@ -212,3 +212,26 @@ line.d-path { stroke-dasharray: 5 3; }
 /* Home start action stays above the tab bar, in thumb reach */
 .dock { position: sticky; bottom: 70px; z-index: 5; box-shadow: 0 8px 24px rgba(0,0,0,.35), 0 0 0 6px var(--ground); }
 :root[data-theme="light"] .dock { box-shadow: 0 8px 24px rgba(11,18,16,.18), 0 0 0 6px var(--ground); }
+
+/* Session totals footer */
+.totals { display: flex; gap: 8px; justify-content: space-between; padding: 12px 14px; border: 1px solid var(--rule); border-radius: var(--r); background: var(--panel); color: var(--ink-2); font-size: var(--fs-small); }
+.totals span { display: inline-flex; align-items: center; gap: 6px; }
+.totals b { font-family: var(--font-num); font-size: 22px; font-weight: 700; color: var(--ink); line-height: 1; }
+
+/* Drill header */
+.topbar { display: flex; align-items: center; gap: 8px; margin: -6px 0 -10px -10px; }
+.back { width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.facts { display: flex; flex-wrap: wrap; gap: 6px; }
+.facts span { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--rule-strong); font-size: var(--fs-small); color: var(--ink-2); }
+.facts .hot { border-color: var(--accent-ink); color: var(--accent-ink); }
+.straight { display: flex; flex-direction: column; gap: 6px; }
+.straight b { font-family: var(--font-num); font-size: 26px; color: var(--turf); line-height: 1; }
+
+/* History rows */
+.hist { list-style: none; margin: 0; padding: 0; background: var(--panel); border: 1px solid var(--rule); border-radius: var(--r); overflow: hidden; }
+.hist li { display: flex; align-items: center; gap: 12px; padding: 10px 8px 10px 12px; border-top: 1px solid var(--rule); }
+.hist li:first-child { border-top: 0; }
+.hist .date { flex: none; width: 44px; display: flex; flex-direction: column; align-items: center; font-size: 11px; color: var(--ink-2); line-height: 1.2; }
+.hist .date b { font-family: var(--font-num); font-size: 24px; color: var(--ink); line-height: 1; }
+.hist .info { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.hist .btn-ghost { font-size: var(--fs-small); }
