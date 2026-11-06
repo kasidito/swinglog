@@ -17,7 +17,7 @@ const FLIGHTS: { id: Flight; label: string; path: string }[] = [
   { id: 'fade', label: 'fade', path: 'M14 26C14 14 16 6 19 2' },
   { id: 'slice', label: 'สไลซ์', path: 'M20 26C20 16 22 8 26 2' },
 ];
-const VERSION = '2.1.0';
+const VERSION = '2.1.1';
 
 function symptomText(id: string | null, left: boolean) {
   if (id === null) return { name: 'ให้แอปเลือก', desc: 'ไม่แน่ใจ ผสมหลายแบบ' };

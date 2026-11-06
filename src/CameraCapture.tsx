@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import { GUIDE_TIPS, View, guideLayout } from './guide';
 
 const MAX_SECONDS = 12;
+// The guide is drawn for a portrait 9:16 frame. Some phones (iPhone Safari) hand back a landscape stream
+// even when held upright, so the preview is cropped to 9:16 and the recording is cropped the same way.
+const FRAME = 9 / 16;
 
 function pickMime() {
   if (typeof MediaRecorder === 'undefined') return '';
@@ -17,7 +20,10 @@ export default function CameraCapture({ left, onCapture, onClose, onFallback }: 
   const recorder = useRef<MediaRecorder | null>(null);
   const chunks = useRef<Blob[]>([]);
   const [view, setView] = useState<View>('dtl');
-  const [aspect, setAspect] = useState(9 / 16);
+  const aspect = FRAME;
+  const stage = useRef<HTMLDivElement>(null);
+  const [box, setBox] = useState<{ w: number; h: number } | null>(null);
+  const raf = useRef(0);
   const [error, setError] = useState('');
   const [recording, setRecording] = useState(false);
   const [secs, setSecs] = useState(0);
@@ -38,8 +44,45 @@ export default function CameraCapture({ left, onCapture, onClose, onFallback }: 
         setError('เปิดกล้องในแอปไม่ได้ (อาจยังไม่ได้อนุญาตให้ใช้กล้อง) ใช้กล้องของเครื่องแทนได้');
       }
     })();
-    return () => { cancelled = true; stream.current?.getTracks().forEach((t) => t.stop()); };
+    return () => { cancelled = true; cancelAnimationFrame(raf.current); stream.current?.getTracks().forEach((t) => t.stop()); };
   }, []);
+
+  // Fit a 9:16 frame inside the stage, whatever the screen size.
+  useEffect(() => {
+    const el = stage.current;
+    if (!el) return;
+    const fit = () => {
+      const { width, height } = el.getBoundingClientRect();
+      const h = Math.min(height, width / FRAME);
+      setBox({ w: Math.floor(h * FRAME), h: Math.floor(h) });
+    };
+    fit();
+    const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(fit) : null;
+    ro?.observe(el);
+    window.addEventListener('resize', fit);
+    return () => { ro?.disconnect(); window.removeEventListener('resize', fit); };
+  }, []);
+
+  /** A stream whose picture matches the 9:16 guide: the camera stream itself if it is already portrait,
+   *  otherwise a centre crop drawn onto a canvas. */
+  const recordSource = (): MediaStream => {
+    const v = video.current, src = stream.current!;
+    if (!v || !v.videoWidth || !v.videoHeight) return src;
+    const vw = v.videoWidth, vh = v.videoHeight;
+    if (Math.abs(vw / vh - FRAME) < 0.02) return src;
+    const canvas = document.createElement('canvas');
+    if (typeof canvas.captureStream !== 'function') return src;
+    const sh = vw / vh > FRAME ? vh : vw / FRAME;
+    const sw = sh * FRAME;
+    const sx = (vw - sw) / 2, sy = (vh - sh) / 2;
+    const k = Math.min(1, 1280 / sh); // keep the canvas light enough for 60 fps on a phone
+    canvas.width = Math.round((sw * k) / 2) * 2; canvas.height = Math.round((sh * k) / 2) * 2;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return src;
+    const draw = () => { ctx.drawImage(v, sx, sy, sw, sh, 0, 0, canvas.width, canvas.height); raf.current = requestAnimationFrame(draw); };
+    draw();
+    return canvas.captureStream(60);
+  };
 
   useEffect(() => {
     if (!recording) return;
@@ -54,12 +97,13 @@ export default function CameraCapture({ left, onCapture, onClose, onFallback }: 
     if (!stream.current) return;
     const mime = pickMime();
     try {
-      const r = new MediaRecorder(stream.current, mime ? { mimeType: mime } : undefined);
+      const r = new MediaRecorder(recordSource(), mime ? { mimeType: mime } : undefined);
       chunks.current = [];
       r.ondataavailable = (e) => { if (e.data.size) chunks.current.push(e.data); };
       r.onstop = () => {
         const type = r.mimeType || mime || 'video/webm';
         const file = new File(chunks.current, `swing.${type.includes('mp4') ? 'mp4' : 'webm'}`, { type });
+        cancelAnimationFrame(raf.current);
         stream.current?.getTracks().forEach((t) => t.stop());
         onCapture(file);
       };
@@ -92,10 +136,9 @@ export default function CameraCapture({ left, onCapture, onClose, onFallback }: 
         <button type="button" className="cam-btn" aria-expanded={showTips} onClick={() => setShowTips((v) => !v)}>วิธีตั้ง</button>
       </div>
 
-      <div className="cam-stage">
-        <div className="cam-frame" style={{ aspectRatio: String(aspect) }}>
-          <video ref={video} playsInline muted autoPlay
-            onLoadedMetadata={(e) => { const v = e.currentTarget; if (v.videoWidth && v.videoHeight) setAspect(v.videoWidth / v.videoHeight); }} />
+      <div className="cam-stage" ref={stage}>
+        <div className="cam-frame" style={box ? { width: box.w, height: box.h } : undefined}>
+          <video ref={video} playsInline muted autoPlay />
           {!error && (
             <>
               <svg className="cam-guide" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">

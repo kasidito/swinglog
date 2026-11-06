@@ -149,9 +149,9 @@ ol.steps li::marker { font-family: var(--font-num); font-weight: 700; color: var
 .cam-seg { display: flex; background: rgba(255,255,255,.12); border-radius: 999px; padding: 3px; }
 .cam-seg button { min-height: 38px; padding: 0 14px; border: 0; border-radius: 999px; background: transparent; color: #fff; font-weight: 600; cursor: pointer; }
 .cam-seg button[aria-pressed="true"] { background: #F5C451; color: #0B1210; }
-.cam-stage { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; }
-.cam-frame { position: relative; height: 100%; max-width: 100%; max-height: 100%; }
-.cam-frame video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.cam-stage { flex: 1; min-height: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.cam-frame { position: relative; width: 100%; aspect-ratio: 9 / 16; max-height: 100%; overflow: hidden; background: #000; }
+.cam-frame video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .cam-guide { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .g-zone { fill: rgba(245,196,81,.07); stroke: #F5C451; stroke-width: .6; stroke-dasharray: 2 1.5; vector-effect: non-scaling-stroke; }
 .g-line { fill: none; stroke: #fff; stroke-width: 1.5; stroke-dasharray: 6 5; vector-effect: non-scaling-stroke; opacity: .85; }
