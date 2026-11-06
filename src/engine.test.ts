@@ -123,3 +123,10 @@ describe('parseBackup', () => {
     expect(parseBackup('not json')).toBeNull();
   });
 });
+
+import { DIAGRAMS } from './DrillDiagram';
+describe('drill diagrams', () => {
+  it('every drill has an illustration', () => {
+    expect(DRILLS.filter((d) => !DIAGRAMS[d.id]).map((d) => d.id)).toEqual([]);
+  });
+});

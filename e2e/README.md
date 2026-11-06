@@ -11,3 +11,5 @@ python3 extra.py ../dist-single/index.html   # pose fallback offline, backup imp
 ```
 
 The scripts expect Chrome at /usr/bin/google-chrome; change `executable_path` if needed.
+
+python3 cam.py ../dist-single      # in-app camera with framing guide (fake camera device)

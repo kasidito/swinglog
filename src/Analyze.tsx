@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type { Flight } from './engine';
 import { Pt, bezierAt, controlPoint, lineAngle, shapeHint } from './trace';
+import CameraCapture from './CameraCapture';
 import { BONES, Landmarks, PoseMetrics, detectPose, headMove, poseMetrics } from './pose';
 
 type Mode = 'view' | 'line' | 'trace';
@@ -26,6 +27,7 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
   const [ref, setRef] = useState<PoseMetrics | null>(null);
   const [poseMsg, setPoseMsg] = useState('');
   const [busy, setBusy] = useState(false);
+  const [camOpen, setCamOpen] = useState(false);
   const video = useRef<HTMLVideoElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
   const camInput = useRef<HTMLInputElement>(null);
@@ -156,8 +158,10 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
       <h1>ดูวงสวิง</h1>
       <input ref={camInput} type="file" accept="video/*" capture="environment" hidden onChange={(e) => pick(e.target.files?.[0])} />
       <input ref={fileInput} type="file" accept="video/*" hidden onChange={(e) => pick(e.target.files?.[0])} />
+      {camOpen && <CameraCapture left={left} onClose={() => setCamOpen(false)} onCapture={(f) => { setCamOpen(false); pick(f); }} onFallback={() => { setCamOpen(false); camInput.current?.click(); }} />}
+      <button type="button" className="btn btn-primary" onClick={() => setCamOpen(true)}>เปิดกล้องพร้อมกรอบจัดตำแหน่ง</button>
       <div className="seg">
-        <button type="button" className="btn btn-small" onClick={() => camInput.current?.click()}>ถ่ายวิดีโอ</button>
+        <button type="button" className="btn btn-secondary" onClick={() => camInput.current?.click()}>กล้องของเครื่อง (สโลว์)</button>
         <button type="button" className="btn btn-secondary" onClick={() => fileInput.current?.click()}>เลือกจากคลัง</button>
       </div>
 
@@ -165,10 +169,11 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
         <section className="card stack">
           <h2>วิธีถ่ายให้ดูง่าย</h2>
           <ul style={{ margin: 0, paddingLeft: '1.2em' }}>
-            <li>วางมือถือนิ่งบนขาตั้งหรือพิงถุงกอล์ฟ ไม่ถือถ่าย</li>
-            <li>ถ่ายจากด้านหลังตัวผู้ตี มองไปทางเป้า (down-the-line) เพื่อดูวิถีลูก หรือถ่ายจากด้านหน้าเพื่อดูท่าทาง</li>
-            <li>ให้เห็นตัวเต็มตั้งแต่หัวถึงเท้า</li>
-            <li>ใช้โหมดสโลว์โมชันของกล้องถ้ามี ดูได้ชัดกว่า</li>
+            <li>วางมือถือนิ่งบนขาตั้งหรือพิงถุงกอล์ฟ แนวตั้ง ไม่ถือถ่าย</li>
+            <li>ห่างผู้ตี 2.5-3.5 เมตร กล้องสูงระดับมือตอน address (ประมาณเอว)</li>
+            <li>ด้านหลัง: ตรงแนวมือ หันไปทางเป้า ดูวิถีลูกและระนาบสวิง ส่วนด้านหน้า: ตั้งฉากกับแนวเป้า ตรงกลางเท้า ดูหัวและการถ่ายน้ำหนัก</li>
+            <li>ตัวคนสูงประมาณ 2 ใน 3 ของจอ เหลือที่ด้านบนให้เห็นไม้ตอน top</li>
+            <li>กล้องในแอปมีกรอบช่วยจัดตำแหน่ง ส่วนกล้องของเครื่องถ่ายสโลว์โมชันได้ชัดกว่า</li>
           </ul>
           <p className="muted" style={{ margin: 0 }}>วิดีโอไม่ถูกส่งออกจากเครื่อง และไม่ถูกเก็บในแอป ปิดหน้านี้แล้ววิดีโอจะหายจากแอป (ยังอยู่ในคลังรูปของคุณ)</p>
         </section>

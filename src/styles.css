@@ -121,3 +121,56 @@ ol.steps { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column
 .tabs button[aria-current="page"] { color: var(--text); font-weight: 700; }
 .switch { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: var(--tap-min); }
 .switch input { width: 24px; height: 24px; accent-color: var(--primary); }
+
+/* In-app camera with framing guide */
+.cam { position: fixed; inset: 0; z-index: 50; background: #000; color: #fff; display: flex; flex-direction: column; padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom); }
+.cam-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 12px; }
+.cam-btn { min-height: var(--tap-min); padding: 0 14px; border-radius: var(--radius-pill); border: 1px solid rgba(255,255,255,.5); background: rgba(0,0,0,.4); color: #fff; font-weight: 600; cursor: pointer; }
+.cam-seg { display: flex; background: rgba(255,255,255,.14); border-radius: var(--radius-pill); padding: 3px; }
+.cam-seg button { min-height: 38px; padding: 0 14px; border: 0; border-radius: var(--radius-pill); background: transparent; color: #fff; font-weight: 600; cursor: pointer; }
+.cam-seg button[aria-pressed="true"] { background: var(--flag); color: #14231A; }
+.cam-stage { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; }
+.cam-frame { position: relative; height: 100%; max-width: 100%; max-height: 100%; }
+.cam-frame video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.cam-guide { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.g-zone { fill: rgba(228,176,74,.08); stroke: #E4B04A; stroke-width: .6; stroke-dasharray: 2 1.5; vector-effect: non-scaling-stroke; }
+.g-line { fill: none; stroke: #fff; stroke-width: 1.5; stroke-dasharray: 6 5; vector-effect: non-scaling-stroke; opacity: .85; }
+.g-hands { stroke: #E4B04A; stroke-width: 3; vector-effect: non-scaling-stroke; }
+.g-ball { fill: rgba(255,255,255,.25); stroke: #fff; stroke-width: 2; vector-effect: non-scaling-stroke; }
+.g-target { stroke: #7FD69A; stroke-width: 2; stroke-dasharray: 8 6; vector-effect: non-scaling-stroke; }
+.g-top { stroke: rgba(255,255,255,.45); stroke-width: 1; stroke-dasharray: 3 6; vector-effect: non-scaling-stroke; }
+.cam-label { position: absolute; transform: translate(-50%, -50%); font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: var(--radius-pill); background: rgba(0,0,0,.55); color: #fff; white-space: nowrap; pointer-events: none; }
+.cam-rec { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); background: #C62828; color: #fff; font-weight: 700; font-size: 13px; padding: 4px 12px; border-radius: var(--radius-pill); }
+.cam-tips { position: absolute; left: 12px; right: 12px; top: calc(64px + env(safe-area-inset-top)); background: rgba(14,21,18,.88); border-radius: 16px; padding: 12px 14px; font-size: 14px; display: flex; flex-direction: column; gap: 6px; }
+.cam-tips ul { margin: 0; padding-left: 1.2em; }
+.cam-tips span { color: #CFE3D5; font-size: 13px; }
+.cam-bottom { height: 96px; display: flex; align-items: center; justify-content: center; }
+.cam-shutter { width: 72px; height: 72px; border-radius: 50%; border: 5px solid #fff; background: #E4B04A; cursor: pointer; }
+.cam-shutter.on { background: #C62828; border-radius: 20px; }
+
+/* Drill station diagrams */
+:root { --grass: #E3EEDD; --green-zone: #CFE6C6; --sand: #EFE2C2; --good: rgba(31,107,58,.18); --tee: #FFFFFF; --towel: #8FB3E0; }
+:root[data-theme="dark"] { --grass: #1A2A20; --green-zone: #203826; --sand: #3A3324; --good: rgba(127,214,154,.22); --tee: #EEF3EE; --towel: #5E83B3; }
+.diagram { margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.diagram svg { width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--border); display: block; }
+.d-bg { fill: var(--grass); }
+.d-zone-green { fill: var(--green-zone); }
+.d-zone-sand { fill: var(--sand); }
+.d-zone-good { fill: var(--good); stroke: var(--primary); stroke-width: .8; stroke-dasharray: 3 2; }
+.d-ball { fill: #FFFFFF; stroke: var(--text); stroke-width: 1.2; }
+.d-ball.ghost { fill: none; stroke-dasharray: 2 2; }
+.d-feet rect { fill: var(--text); }
+.d-feet.ghost rect { fill: none; stroke: var(--text); stroke-width: 1; stroke-dasharray: 3 2; }
+.d-stick { stroke: var(--flag); stroke-width: 3.5; stroke-linecap: round; }
+.d-tee { fill: var(--tee); stroke: var(--text); stroke-width: 1; }
+.d-towel { fill: var(--towel); stroke: var(--text); stroke-width: .8; }
+.d-hole { fill: var(--text); }
+.d-dash { stroke: var(--text-muted); stroke-width: 1.2; stroke-dasharray: 4 3; }
+.d-path, .d-path-line { fill: none; stroke: var(--primary); stroke-width: 2; stroke-linecap: round; }
+.d-path { fill: none; }
+line.d-path { stroke-dasharray: 5 3; }
+.d-club { stroke: var(--text); stroke-width: 3; stroke-linecap: round; }
+.d-hand { fill: #D9B38C; stroke: var(--text); stroke-width: 1; }
+.d-arrowhead { fill: var(--primary); }
+.d-target line { stroke: var(--primary); stroke-width: 2; }
+.d-target text, .d-text { font-family: "Noto Sans Thai", system-ui, sans-serif; font-size: 9px; font-weight: 600; fill: var(--text); text-anchor: middle; }

@@ -1,0 +1,30 @@
+import sys, json, threading, http.server, functools
+from playwright.sync_api import sync_playwright
+root = sys.argv[1]
+H = functools.partial(http.server.SimpleHTTPRequestHandler, directory=root)
+srv = http.server.ThreadingHTTPServer(("127.0.0.1", 8765), H)
+threading.Thread(target=srv.serve_forever, daemon=True).start()
+errors=[]
+with sync_playwright() as p:
+    b = p.chromium.launch(executable_path="/usr/bin/google-chrome", args=["--no-sandbox","--use-fake-device-for-media-stream","--use-fake-ui-for-media-stream"])
+    ctx = b.new_context(viewport={"width": 390, "height": 844}, permissions=["camera"])
+    pg = ctx.new_page()
+    pg.on("pageerror", lambda e: errors.append(str(e)))
+    pg.goto("http://127.0.0.1:8765/index.html")
+    pg.get_by_role("button", name="วิดีโอ").click()
+    pg.get_by_role("button", name="เปิดกล้องพร้อมกรอบจัดตำแหน่ง").click()
+    pg.wait_for_function("document.querySelector('.cam video') && document.querySelector('.cam video').videoWidth > 0", timeout=15000)
+    pg.wait_for_timeout(500)
+    pg.screenshot(path="c1-dtl.png")
+    pg.get_by_role("button", name="ด้านหน้า").click()
+    pg.get_by_role("button", name="วิธีตั้ง").click()
+    pg.screenshot(path="c2-face.png")
+    pg.get_by_role("button", name="เริ่มอัด").click()
+    pg.wait_for_timeout(2500)
+    pg.get_by_role("button", name="หยุดอัด").click()
+    pg.wait_for_function("document.querySelector('main video') && document.querySelector('main video').readyState >= 1", timeout=15000)
+    has_player = pg.locator("main video").count()
+    pg.screenshot(path="c3-recorded.png")
+    b.close()
+srv.shutdown()
+print(json.dumps({"player": has_player, "errors": errors}))

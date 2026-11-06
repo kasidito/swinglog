@@ -4,6 +4,7 @@ import {
   straightPct, suggestSymptom, symptomAvailable,
 } from './engine';
 import Analyze from './Analyze';
+import DrillDiagram from './DrillDiagram';
 import { AppState, Session, defaultState, isPersistent, load, requestPersist, save, uid } from './store';
 
 type Screen = 'home' | 'session' | 'drill' | 'summary' | 'history' | 'settings' | 'video';
@@ -16,7 +17,7 @@ const FLIGHTS: { id: Flight; label: string; path: string }[] = [
   { id: 'fade', label: 'fade', path: 'M14 26C14 14 16 6 19 2' },
   { id: 'slice', label: 'สไลซ์', path: 'M20 26C20 16 22 8 26 2' },
 ];
-const VERSION = '1.3.1';
+const VERSION = '1.4.0';
 
 function symptomText(id: string | null, left: boolean) {
   if (id === null) return { name: 'ให้แอปเลือก', desc: 'ไม่แน่ใจ ผสมหลายแบบ' };
@@ -291,6 +292,7 @@ function DrillScreen({ drill, session, state, onBack, onDone, onShot }: {
         <p style={{ margin: 0 }}>{drill.goal}</p>
         <p className="muted" style={{ margin: 0 }}>{drill.minutes} นาที, {drill.equipment.map((e) => EQUIP[e] ?? e).join(', ')}{drill.balls ? `, ${drill.balls} ลูก` : ''}</p>
       </div>
+      <DrillDiagram id={drill.id} left={left} />
       <section className="card">
         <h2 style={{ marginBottom: 8 }}>ขั้นตอน</h2>
         <ol className="steps">{drill.steps.map((s) => <li key={s}>{s}</li>)}</ol>
