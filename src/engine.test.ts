@@ -21,9 +21,9 @@ describe('content', () => {
   it('drill ids are unique', () => {
     expect(new Set(DRILLS.map((d) => d.id)).size).toBe(DRILLS.length);
   });
-  it('reports drills with fewer than 2 sources (warning, not failure)', () => {
+  it('every drill has at least 2 sources', () => {
     const weak = DRILLS.filter((d) => d.sources.length < 2).map((d) => d.id);
-    expect(weak).toEqual(['half-swing-warmup', 'split-grip', 'feet-together']);
+    expect(weak).toEqual([]);
   });
 });
 
@@ -110,5 +110,16 @@ describe('suggestSymptom', () => {
   it('straightPct', () => {
     expect(straightPct([])).toBeNull();
     expect(straightPct(['straight', 'slice', 'straight', 'hook'])).toBe(50);
+  });
+});
+
+import { parseBackup } from './App';
+describe('parseBackup', () => {
+  it('accepts a SwingLog export and rejects anything else', () => {
+    const ok = JSON.stringify({ schemaVersion: 1, settings: { handedness: 'left' }, sessions: [], shots: [] });
+    expect(parseBackup(ok)?.settings.handedness).toBe('left');
+    expect(parseBackup(ok)?.settings.hasGreen).toBe(true);
+    expect(parseBackup('{"foo":1}')).toBeNull();
+    expect(parseBackup('not json')).toBeNull();
   });
 });

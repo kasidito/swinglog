@@ -3,3 +3,6 @@ dist/
 dist-single/
 *.log
 .DS_Store
+e2e/*.mp4
+e2e/*.png
+e2e/backup.json

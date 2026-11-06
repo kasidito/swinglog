@@ -1,0 +1,38 @@
+import sys, json
+from playwright.sync_api import sync_playwright
+errors=[]
+with sync_playwright() as p:
+    b = p.chromium.launch(executable_path="/usr/bin/google-chrome", args=["--no-sandbox"])
+    pg = b.new_page(viewport={"width": 390, "height": 844})
+    pg.on("pageerror", lambda e: errors.append(str(e)))
+    pg.goto("file://" + sys.argv[1])
+    pg.get_by_role("button", name="30 นาที").click()
+    pg.get_by_role("button", name="เริ่มเซสชัน").click()
+    pg.get_by_role("button", name="วิดีโอ").click()
+    pg.get_by_role("heading", name="ดูวงสวิง").wait_for()
+    pg.screenshot(path="v1-empty.png", full_page=True)
+    pg.locator('input[type=file]').nth(1).set_input_files("test.mp4")
+    pg.wait_for_function("document.querySelector('video') && document.querySelector('video').readyState >= 1")
+    pg.get_by_role("button", name="เดินหน้าหนึ่งเฟรม").click()
+    pg.get_by_role("button", name="เดินหน้าหนึ่งเฟรม").click()
+    t = pg.evaluate("document.querySelector('video').currentTime")
+    # draw a line
+    pg.get_by_role("button", name="ลากเส้น").click()
+    box = pg.locator("canvas").bounding_box()
+    pg.mouse.move(box["x"]+100, box["y"]+400); pg.mouse.down(); pg.mouse.move(box["x"]+200, box["y"]+300, steps=5); pg.mouse.up()
+    pg.get_by_role("button", name="ลากเส้น").click()
+    # trace: start bottom middle, apex high, land right (slice)
+    pg.get_by_role("button", name="วาดวิถีลูก").click()
+    pg.locator("canvas").scroll_into_view_if_needed()
+    box = pg.locator("canvas").bounding_box()
+    for fx, fy in [(0.5, 0.9), (0.5, 0.2), (0.68, 0.4)]:
+        pg.mouse.click(box["x"]+box["width"]*fx, box["y"]+box["height"]*fy)
+    pg.get_by_role("heading", name="ลูกนี้ไปทางไหน").wait_for()
+    hint = pg.locator("section.card p.muted strong").inner_text()
+    pg.get_by_role("button", name="บันทึกลงเซสชัน").click()
+    msg = pg.locator("p[aria-live]").inner_text()
+    pg.screenshot(path="v2-traced.png", full_page=True)
+    pg.get_by_role("button", name="ฝึก").click()
+    sess = pg.locator("main").inner_text()
+    b.close()
+print(json.dumps({"stepped_time": round(t,3), "hint": hint, "msg": msg, "logged": "บันทึกวิถีลูก 1 ลูก" in sess, "errors": errors}, ensure_ascii=False))

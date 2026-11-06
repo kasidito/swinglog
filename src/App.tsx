@@ -16,7 +16,7 @@ const FLIGHTS: { id: Flight; label: string; path: string }[] = [
   { id: 'fade', label: 'fade', path: 'M14 26C14 14 16 6 19 2' },
   { id: 'slice', label: 'สไลซ์', path: 'M20 26C20 16 22 8 26 2' },
 ];
-const VERSION = '1.1.0';
+const VERSION = '1.2.0';
 
 function symptomText(id: string | null, left: boolean) {
   if (id === null) return { name: 'ไม่แน่ใจ ให้แอปจัดให้', desc: 'ผสมดริลหลายแบบ' };
@@ -103,7 +103,7 @@ export default function App() {
   else if (screen === 'summary' && summaryId) body = <SummaryScreen state={state} sessionId={summaryId} onHome={() => go('home')} />;
   else if (screen === 'history') body = <HistoryScreen state={state} onDelete={(id) => update((s) => ({ ...s, sessions: s.sessions.filter((x) => x.id !== id), shots: s.shots.filter((x) => x.sessionId !== id) }))} />;
   else if (screen === 'video') body = <Analyze left={settings.handedness === 'left'} canLog={!!active} onLog={(f) => logShot('video', f)} />;
-  else if (screen === 'settings') body = <SettingsScreen state={state} onChange={(patch) => update((s) => ({ ...s, settings: { ...s.settings, ...patch } }))} onReset={() => setState(defaultState())} />;
+  else if (screen === 'settings') body = <SettingsScreen state={state} onChange={(patch) => update((s) => ({ ...s, settings: { ...s.settings, ...patch } }))} onReset={() => setState(defaultState())} onImport={(n) => setState(n)} />;
   else body = <HomeScreen state={state} active={active} onStart={startSession} onResume={() => go('session')} onAbandon={abandon} />;
 
   const tab = screen === 'history' ? 'history' : screen === 'settings' ? 'settings' : screen === 'video' ? 'video' : 'home';
@@ -376,8 +376,26 @@ function HistoryScreen({ state, onDelete }: { state: AppState; onDelete: (id: st
   );
 }
 
-function SettingsScreen({ state, onChange, onReset }: { state: AppState; onChange: (p: Partial<AppState['settings']>) => void; onReset: () => void }) {
+export function parseBackup(text: string): AppState | null {
+  try {
+    const d = JSON.parse(text);
+    if (d && d.schemaVersion === 1 && Array.isArray(d.sessions) && Array.isArray(d.shots) && d.settings) {
+      return { schemaVersion: 1, settings: { ...defaultState().settings, ...d.settings }, sessions: d.sessions, shots: d.shots };
+    }
+  } catch { /* invalid JSON */ }
+  return null;
+}
+
+function SettingsScreen({ state, onChange, onReset, onImport }: { state: AppState; onChange: (p: Partial<AppState['settings']>) => void; onReset: () => void; onImport: (s: AppState) => void }) {
   const s = state.settings;
+  const [pending, setPending] = useState<AppState | null>(null);
+  const [importMsg, setImportMsg] = useState('');
+  const readFile = async (f: File | undefined) => {
+    if (!f) return;
+    const parsed = parseBackup(await f.text());
+    if (!parsed) { setPending(null); setImportMsg('ไฟล์นี้ไม่ใช่ข้อมูลสำรองของ SwingLog'); return; }
+    setPending(parsed); setImportMsg(`พบ ${parsed.sessions.length} เซสชัน ${parsed.shots.length} ลูก ข้อมูลในเครื่องนี้จะถูกแทนที่`);
+  };
   const [copied, setCopied] = useState('');
   const copyData = async () => {
     try { await navigator.clipboard.writeText(JSON.stringify(state)); setCopied('คัดลอกข้อมูลแล้ว วางเก็บไว้ในโน้ตได้'); }
@@ -427,6 +445,12 @@ function SettingsScreen({ state, onChange, onReset }: { state: AppState; onChang
           <button type="button" className="btn btn-secondary" onClick={copyData}>คัดลอกข้อมูล</button>
         </div>
         {copied && <span className="muted" aria-live="polite">{copied}</span>}
+        <label className="btn btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+          นำเข้าข้อมูลสำรอง (JSON)
+          <input type="file" accept="application/json,.json" hidden onChange={(e) => readFile(e.target.files?.[0])} />
+        </label>
+        {importMsg && <span className="muted" aria-live="polite">{importMsg}</span>}
+        {pending && <button type="button" className="btn btn-small" onClick={() => { onImport(pending); setPending(null); setImportMsg('นำเข้าข้อมูลแล้ว'); }}>ยืนยันการนำเข้า</button>}
         <ConfirmButton label="ลบข้อมูลทั้งหมด" confirmLabel="แตะอีกครั้งเพื่อลบทั้งหมด" onConfirm={onReset} />
       </section>
       <p className="muted">SwingLog v{VERSION} · ฟรี ไม่มีโฆษณา · ดริลเขียนใหม่จากแหล่งที่อ้างอิง ไม่ใช่คำแนะนำจากโค้ช</p>

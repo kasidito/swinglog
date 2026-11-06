@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type { Flight } from './engine';
 import { Pt, bezierAt, controlPoint, lineAngle, shapeHint } from './trace';
+import { BONES, Landmarks, PoseMetrics, detectPose, headMove, poseMetrics } from './pose';
 
 type Mode = 'view' | 'line' | 'trace';
 interface Line { a: Pt; b: Pt }
@@ -21,6 +22,10 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
   const [duration, setDuration] = useState(0);
   const [flight, setFlight] = useState<Flight | null>(null);
   const [msg, setMsg] = useState('');
+  const [pose, setPose] = useState<Landmarks | null>(null);
+  const [ref, setRef] = useState<PoseMetrics | null>(null);
+  const [poseMsg, setPoseMsg] = useState('');
+  const [busy, setBusy] = useState(false);
   const video = useRef<HTMLVideoElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
   const camInput = useRef<HTMLInputElement>(null);
@@ -31,7 +36,7 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
   const pick = (f: File | undefined) => {
     if (!f) return;
     setUrl(URL.createObjectURL(f));
-    setLines([]); setTrace([]); setFlight(null); setMsg(''); setMode('view'); setTime(0);
+    setLines([]); setTrace([]); setFlight(null); setMsg(''); setMode('view'); setTime(0); setPose(null); setRef(null); setPoseMsg('');
   };
 
   const sizeCanvas = () => {
@@ -61,6 +66,19 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
       ctx.fillRect(bx + 6 * dpr, by - 18 * dpr, 44 * dpr, 20 * dpr);
       ctx.fillStyle = '#FFFFFF'; ctx.fillText(`${deg}°`, bx + 10 * dpr, by - 3 * dpr);
     }
+    if (pose) {
+      for (const [color, w] of [['#0E1512', 6], ['#5CC8FF', 3]] as const) {
+        stroke(color, w);
+        for (const [i, j] of BONES) { const [ax, ay] = P(pose[i]), [bx, by] = P(pose[j]); ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(bx, by); ctx.stroke(); }
+      }
+      const [hx, hy] = P(pose[0]);
+      ctx.strokeStyle = '#5CC8FF'; ctx.lineWidth = 3 * dpr; ctx.beginPath(); ctx.arc(hx, hy, 14 * dpr, 0, Math.PI * 2); ctx.stroke();
+      if (ref) {
+        const [rx, ry] = P(ref.head);
+        ctx.setLineDash([6 * dpr, 6 * dpr]); ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 2 * dpr;
+        ctx.beginPath(); ctx.arc(rx, ry, 14 * dpr, 0, Math.PI * 2); ctx.stroke(); ctx.setLineDash([]);
+      }
+    }
     if (trace.length === 3) {
       const [s, a, l] = trace; const cp = controlPoint(s, a, l);
       for (const [color, w] of [['#0E1512', 7], ['#E4B04A', 4]] as const) {
@@ -77,7 +95,7 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
     });
   };
 
-  useEffect(draw, [lines, draft, trace]);
+  useEffect(draw, [lines, draft, trace, pose, ref]);
   useEffect(() => {
     const on = () => sizeCanvas();
     window.addEventListener('resize', on);
@@ -108,6 +126,25 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
     const v = video.current; if (!v) return;
     v.pause(); v.currentTime = Math.min(v.duration || 0, Math.max(0, v.currentTime + d));
   };
+  const analyzePose = async (asRef: boolean) => {
+    const v = video.current; if (!v) return;
+    v.pause(); setBusy(true); setPoseMsg('กำลังวิเคราะห์ท่า ครั้งแรกต้องโหลดโมเดลประมาณ 5 MB…');
+    try {
+      const lm = await detectPose(v);
+      if (!lm) { setPose(null); setPoseMsg('ไม่เจอตัวคนในเฟรมนี้ ลองเฟรมที่เห็นตัวเต็มและแสงพอ'); return; }
+      setPose(lm);
+      const m = poseMetrics(lm, v.videoWidth || v.clientWidth, v.videoHeight || v.clientHeight);
+      if (asRef || !ref) { setRef(m); setPoseMsg(`ตั้งเฟรมนี้เป็นท่า address แล้ว · ลำตัวเอียง ${m.spineDeg}° จากแนวตั้ง · เลื่อนไปเฟรมอื่นแล้วกด "ตรวจท่าเฟรมนี้" เพื่อเทียบ`); return; }
+      const d = headMove(ref, m, v.videoWidth || v.clientWidth, v.videoHeight || v.clientHeight);
+      const side = d.xPct === 0 ? 'ไม่ขยับซ้ายขวา' : `ขยับ${d.xPct > 0 ? 'ขวา' : 'ซ้าย'} ${Math.abs(d.xPct)}%`;
+      const up = d.yPct === 0 ? 'ไม่ขยับขึ้นลง' : `${d.yPct > 0 ? 'ลง' : 'ขึ้น'} ${Math.abs(d.yPct)}%`;
+      const warn = Math.abs(d.xPct) > 10 || Math.abs(d.yPct) > 8 ? ' · หัวขยับมากกว่าปกติ ลองดริลยืนเท้าชิดหรือเช็กแนวยืน' : '';
+      setPoseMsg(`เทียบกับ address: หัว${side}, ${up} (เทียบความสูงตัว) · ลำตัวเอียง ${m.spineDeg}° (${d.spineChange >= 0 ? '+' : ''}${d.spineChange}°)${warn}`);
+    } catch {
+      setPoseMsg('โหลดตัววิเคราะห์ท่าไม่ได้ ต้องต่ออินเทอร์เน็ตครั้งแรก และใช้ได้ในแอปที่ kasidito.github.io/swinglog เท่านั้น (ไม่ทำงานในหน้าพรีวิว)');
+    } finally { setBusy(false); }
+  };
+
   const save = () => {
     if (!flight) return;
     onLog(flight); setMsg(`บันทึก ${FLIGHT_LABEL[flight]} ลงเซสชันแล้ว`);
@@ -169,6 +206,18 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
             </div>
             {mode === 'line' && <p className="muted" style={{ margin: 0 }}>ลากนิ้วบนวิดีโอเพื่อวาดเส้น เช่น แนวหลัง แนวไม้ตอน address ตัวเลขคือองศาจากแนวนอน</p>}
             {mode === 'trace' && <p className="notice" style={{ margin: 0 }}>แตะ {['จุดที่ลูกออก', 'จุดสูงสุด', 'จุดที่ลูกตก'][trace.length]} ({trace.length + 1}/3) เลื่อนวิดีโอไปเฟรมที่เห็นลูกก่อนแตะได้</p>}
+          </section>
+
+          <section className="card stack">
+            <h2>ท่าทาง (AI ประมาณการ)</h2>
+            <p className="muted" style={{ margin: 0 }}>เลื่อนไปเฟรมตั้งท่า (address) แล้วกดตั้งเป็นจุดอ้างอิง จากนั้นเลื่อนไปเฟรมอื่น เช่น top หรือ impact แล้วกดตรวจ แอปจะเทียบการขยับของหัวและมุมลำตัว ถ่ายจากด้านหน้าจะเห็นการขยับซ้ายขวาชัดที่สุด</p>
+            <div className="row">
+              <button type="button" className="btn btn-secondary" disabled={busy} onClick={() => analyzePose(true)}>ตั้งเป็น address</button>
+              <button type="button" className="btn btn-small" disabled={busy} onClick={() => analyzePose(false)}>ตรวจท่าเฟรมนี้</button>
+              {pose && <button type="button" className="btn btn-ghost" onClick={() => { setPose(null); setRef(null); setPoseMsg(''); }}>ล้าง</button>}
+            </div>
+            {poseMsg && <p className="muted" style={{ margin: 0 }} aria-live="polite">{poseMsg}</p>}
+            <p className="muted" style={{ margin: 0 }}>วัดจากกล้องตัวเดียวแบบ 2 มิติ ไม่ได้ติดตามหัวไม้ ใช้ดูแนวโน้ม ไม่ใช่ตัวเลขแม่นยำ</p>
           </section>
 
           {trace.length === 3 && (

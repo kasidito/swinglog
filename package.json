@@ -1,7 +1,7 @@
 {
   "name": "swinglog",
   "private": true,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,6 +10,7 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@mediapipe/tasks-vision": "^0.10.14",
     "idb-keyval": "6.2.1",
     "react": "18.3.1",
     "react-dom": "18.3.1"

@@ -12,6 +12,16 @@ export default defineConfig(({ mode }) => ({
       : VitePWA({
           registerType: 'autoUpdate',
           includeAssets: ['icon.svg'],
+          workbox: {
+            // Cache the pose model and its WASM after first use so swing analysis also works offline.
+            runtimeCaching: [
+              {
+                urlPattern: ({ url }) => url.hostname === 'storage.googleapis.com' || (url.hostname === 'cdn.jsdelivr.net' && url.pathname.includes('@mediapipe/tasks-vision')),
+                handler: 'CacheFirst',
+                options: { cacheName: 'pose-assets', expiration: { maxEntries: 10 }, cacheableResponse: { statuses: [0, 200] } },
+              },
+            ],
+          },
           manifest: {
             name: 'SwingLog',
             short_name: 'SwingLog',

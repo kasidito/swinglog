@@ -50,7 +50,16 @@
    "ค่อย ๆ เพิ่มเป็นสามในสี่วงใน 3 ลูกสุดท้าย"
   ],
   "isWarmup": true,
-  "sources": [],
+  "sources": [
+   {
+    "title": "GOLF.com – 10-minute golf warm-up",
+    "url": "https://golf.com/instruction/10-minute-golf-warm-up/"
+   },
+   {
+    "title": "GOLF.com – Kellie Stenzel 5-minute warm-up",
+    "url": "https://golf.com/?p=14176472"
+   }
+  ],
   "version": 1
  },
  {
@@ -125,7 +134,7 @@
  {
   "id": "split-grip",
   "name": "จับไม้แยกมือ",
-  "goal": "ให้ลำตัวหมุนเปิดผ่านลูก ลดการพลิกหน้าไม้ปิด",
+  "goal": "ให้ลำตัวหมุนผ่านลูก ลดการใช้มือพลิกหน้าไม้ปิด",
   "area": "iron",
   "symptoms": [
    "hook"
@@ -145,6 +154,10 @@
    {
     "title": "Golf Monthly – How to fix a hook",
     "url": "https://www.golfmonthly.com/videos/driving-tips/what-causes-a-hook-and-how-do-i-cure-it"
+   },
+   {
+    "title": "Golf Digest – Leadbetter split-grip drill",
+    "url": "https://www.golfdigest.com/story/leadbetter_gd0406"
    }
   ],
   "version": 1
@@ -173,6 +186,14 @@
    {
     "title": "Golf Monthly – How to fix a hook",
     "url": "https://www.golfmonthly.com/videos/driving-tips/what-causes-a-hook-and-how-do-i-cure-it"
+   },
+   {
+    "title": "Today's Golfer – Feet together drill",
+    "url": "https://todays-golfer.com/tips-and-tuition/iron-play/video-tips/2008/november/feet-together-drill"
+   },
+   {
+    "title": "PGA.com – Three drills to improve performance",
+    "url": "https://www.pga.com/story/three-drills-to-improve-your-golf-performance"
    }
   ],
   "version": 1
@@ -595,6 +616,69 @@
    {
     "title": "Titleist – Bunker line drill",
     "url": "https://titleist.com/instruction/bunker-line-drill"
+   }
+  ],
+  "version": 1
+ },
+ {
+  "id": "bunker-bill",
+  "name": "ธนบัตรในทราย",
+  "goal": "เอาทรายออกเป็นแผ่นยาวเท่าธนบัตร ไม่ขุดลึกหรือตีโดนลูกก่อน",
+  "area": "bunker",
+  "symptoms": [
+   "bunker"
+  ],
+  "minutes": 8,
+  "balls": 10,
+  "equipment": [
+   "wedge"
+  ],
+  "steps": [
+   "วาดกรอบสี่เหลี่ยมยาวเท่าธนบัตรในทราย ให้ลูกอยู่กลางกรอบ",
+   "เปิดหน้าไม้ ให้หัวไม้เข้าทรายที่ขอบหลังของกรอบ",
+   "สวิงต่อจนจบท่า ให้ทรายทั้งกรอบกระเด็นออกไปพร้อมลูก"
+  ],
+  "isWarmup": false,
+  "sources": [
+   {
+    "title": "GOLF.com – $100 bill bunker drill",
+    "url": "https://golf.com/instruction/bunker-shots/100-bill-bunker-drill-brech-spradley/?amp=1"
+   },
+   {
+    "title": "WomensGolf.com – How much sand to take",
+    "url": "https://womensgolf.com/how-much-sand-should-you-take"
+   }
+  ],
+  "version": 1
+ },
+ {
+  "id": "bunker-tee-entry",
+  "name": "ทีกำหนดจุดเข้าออก",
+  "goal": "ให้หัวไม้เข้าและออกจากทรายตรงจุดเดิมทุกครั้ง",
+  "area": "bunker",
+  "symptoms": [
+   "bunker"
+  ],
+  "minutes": 8,
+  "balls": 10,
+  "equipment": [
+   "wedge",
+   "tee"
+  ],
+  "steps": [
+   "ปักทีลงทรายหลังลูกราว 5 ซม. และหน้าลูกราว 10 ซม.",
+   "สวิงให้หัวไม้เข้าทรายที่ทีหลังและออกที่ทีหน้า",
+   "ทำได้ 7 ใน 10 แล้วลองเอาทีออกแต่จินตนาการว่ายังอยู่"
+  ],
+  "isWarmup": false,
+  "sources": [
+   {
+    "title": "Today's Golfer – How to beat bunkers",
+    "url": "https://www.todays-golfer.com/tips-and-tuition/bunker-play/video-tips/2011/july/how-to-beat-bunkers"
+   },
+   {
+    "title": "GolfMagic – Greenside bunker oval drill",
+    "url": "https://www.golfmagic.com/european-tour/former-european-tour-pro-reveals-perfect-greenside-bunker-drill"
    }
   ],
   "version": 1
