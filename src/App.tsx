@@ -136,7 +136,7 @@ function HomeScreen({ state, active, onStart, onResume, onAbandon }: {
 
   return (
     <>
-      <div><p className="eyebrow">ฝึกกอล์ฟ</p><h1>วันนี้ฝึกอะไรดี</h1></div>
+      <div><p className="eyebrow">SwingLog</p><h1>วันนี้ฝึกอะไรดี</h1></div>
       {active && (
         <div className="notice stack">
           <strong>มีเซสชันค้างอยู่ ({active.doneDrillIds.length}/{active.drillIds.length} ดริล)</strong>
@@ -383,7 +383,7 @@ function SettingsScreen({ state, onChange, onReset }: { state: AppState; onChang
     const blob = new Blob([JSON.stringify({ ...state, exportedAt: new Date().toISOString() }, null, 2)], { type: 'application/json' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = `golf-practice-${new Date().toISOString().slice(0, 10)}.json`;
+    a.download = `swinglog-${new Date().toISOString().slice(0, 10)}.json`;
     a.click();
     setTimeout(() => URL.revokeObjectURL(a.href), 1000);
   };
@@ -425,7 +425,7 @@ function SettingsScreen({ state, onChange, onReset }: { state: AppState; onChang
         {copied && <span className="muted" aria-live="polite">{copied}</span>}
         <ConfirmButton label="ลบข้อมูลทั้งหมด" confirmLabel="แตะอีกครั้งเพื่อลบทั้งหมด" onConfirm={onReset} />
       </section>
-      <p className="muted">ฝึกกอล์ฟ v{VERSION} · ฟรี ไม่มีโฆษณา · ดริลเขียนใหม่จากแหล่งที่อ้างอิง ไม่ใช่คำแนะนำจากโค้ช</p>
+      <p className="muted">SwingLog v{VERSION} · ฟรี ไม่มีโฆษณา · ดริลเขียนใหม่จากแหล่งที่อ้างอิง ไม่ใช่คำแนะนำจากโค้ช</p>
     </>
   );
 }

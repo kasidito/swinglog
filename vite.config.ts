@@ -12,8 +12,8 @@ export default defineConfig(({ mode }) => ({
           registerType: 'autoUpdate',
           includeAssets: ['icon.svg'],
           manifest: {
-            name: 'ฝึกกอล์ฟ',
-            short_name: 'ฝึกกอล์ฟ',
+            name: 'SwingLog',
+            short_name: 'SwingLog',
             description: 'จัดเซสชันฝึกกอล์ฟตามเวลาและอาการ',
             lang: 'th',
             theme_color: '#1F6B3A',

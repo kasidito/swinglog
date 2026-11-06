@@ -36,7 +36,7 @@ export const defaultState = (): AppState => ({
   shots: [],
 });
 
-const KEY = 'golf-practice-v1';
+const KEY = 'golf-practice-v1'; // kept after the SwingLog rename so existing data still loads
 let persistent = true;
 
 export async function load(): Promise<AppState> {
