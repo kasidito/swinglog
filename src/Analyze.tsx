@@ -134,12 +134,12 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
       if (!lm) { setPose(null); setPoseMsg('ไม่เจอตัวคนในเฟรมนี้ ลองเฟรมที่เห็นตัวเต็มและแสงพอ'); return; }
       setPose(lm);
       const m = poseMetrics(lm, v.videoWidth || v.clientWidth, v.videoHeight || v.clientHeight);
-      if (asRef || !ref) { setRef(m); setPoseMsg(`ตั้งเฟรมนี้เป็นท่า address แล้ว · ลำตัวเอียง ${m.spineDeg}° จากแนวตั้ง · เลื่อนไปเฟรมอื่นแล้วกด "ตรวจท่าเฟรมนี้" เพื่อเทียบ`); return; }
+      if (asRef || !ref) { setRef(m); setPoseMsg(`ตั้งเฟรมนี้เป็นท่า address แล้ว ลำตัวเอียง ${m.spineDeg}° จากแนวตั้ง จากนั้นเลื่อนไปเฟรมอื่นแล้วกด "ตรวจท่าเฟรมนี้" เพื่อเทียบ`); return; }
       const d = headMove(ref, m, v.videoWidth || v.clientWidth, v.videoHeight || v.clientHeight);
       const side = d.xPct === 0 ? 'ไม่ขยับซ้ายขวา' : `ขยับ${d.xPct > 0 ? 'ขวา' : 'ซ้าย'} ${Math.abs(d.xPct)}%`;
       const up = d.yPct === 0 ? 'ไม่ขยับขึ้นลง' : `${d.yPct > 0 ? 'ลง' : 'ขึ้น'} ${Math.abs(d.yPct)}%`;
-      const warn = Math.abs(d.xPct) > 10 || Math.abs(d.yPct) > 8 ? ' · หัวขยับมากกว่าปกติ ลองดริลยืนเท้าชิดหรือเช็กแนวยืน' : '';
-      setPoseMsg(`เทียบกับ address: หัว${side}, ${up} (เทียบความสูงตัว) · ลำตัวเอียง ${m.spineDeg}° (${d.spineChange >= 0 ? '+' : ''}${d.spineChange}°)${warn}`);
+      const warn = Math.abs(d.xPct) > 10 || Math.abs(d.yPct) > 8 ? '. หัวขยับมากกว่าปกติ ลองดริลยืนเท้าชิดหรือเช็กแนวยืน' : '';
+      setPoseMsg(`เทียบกับ address: หัว${side}, ${up} (เทียบความสูงตัว), ลำตัวเอียง ${m.spineDeg}° (${d.spineChange >= 0 ? '+' : ''}${d.spineChange}°)${warn}`);
     } catch {
       setPoseMsg('โหลดตัววิเคราะห์ท่าไม่ได้ ต้องต่ออินเทอร์เน็ตครั้งแรก และใช้ได้ในแอปที่ kasidito.github.io/swinglog เท่านั้น (ไม่ทำงานในหน้าพรีวิว)');
     } finally { setBusy(false); }
@@ -153,7 +153,7 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
   const flights = left ? [...ORDER].reverse() : ORDER;
   return (
     <>
-      <div><p className="eyebrow">SwingLog</p><h1>ดูวงสวิง</h1></div>
+      <h1>ดูวงสวิง</h1>
       <input ref={camInput} type="file" accept="video/*" capture="environment" hidden onChange={(e) => pick(e.target.files?.[0])} />
       <input ref={fileInput} type="file" accept="video/*" hidden onChange={(e) => pick(e.target.files?.[0])} />
       <div className="seg">

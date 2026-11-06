@@ -13,10 +13,10 @@ with sync_playwright() as p:
     pg.get_by_role("button", name="30 นาที").click()
     pg.get_by_role("button", name="สไลซ์").first.click()
     pg.get_by_role("button", name="เริ่มเซสชัน").click()
-    pg.get_by_role("heading", name="เซสชันวันนี้").wait_for()
+    pg.get_by_role("table", name="สกอร์การ์ดเซสชัน").wait_for()
     pg.screenshot(path="/home/claude/e2e/2-session.png", full_page=True)
-    n = pg.locator(".card.drill .open").count()
-    pg.locator(".card.drill .open").nth(1).click()
+    n = pg.locator(".sc-row .open").count()
+    pg.locator(".sc-row .open").nth(1).click()
     pg.get_by_role("heading", level=1).wait_for()
     for f in ["ตรง", "สไลซ์", "สไลซ์", "fade", "ตรง"]:
         pg.get_by_role("group", name="บันทึกวิถีลูก").get_by_role("button", name=f).click()
@@ -24,8 +24,8 @@ with sync_playwright() as p:
     pg.get_by_role("button", name="เสร็จ", exact=True).click()
     # mark remaining done
     import re
-    while pg.get_by_role("button", name=re.compile("เสร็จแล้ว$")).count():
-        pg.get_by_role("button", name=re.compile("เสร็จแล้ว$")).first.click()
+    while pg.get_by_role("button", name=re.compile("^ทำ .*เสร็จแล้ว$")).count():
+        pg.get_by_role("button", name=re.compile("^ทำ .*เสร็จแล้ว$")).first.click()
     pg.get_by_role("button", name="จบเซสชัน").click()
     pg.get_by_role("heading", name="ฝึกเสร็จแล้ว").wait_for()
     txt = pg.locator("main").inner_text()
@@ -42,7 +42,7 @@ with sync_playwright() as p:
     home = pg.locator("main").inner_text()
     pg.get_by_role("button", name="ถาดลูก (ในช่องตี)").click()
     pg.get_by_role("button", name="เริ่มเซสชัน").click()
-    pg.get_by_role("heading", name="เซสชันวันนี้").wait_for()
+    pg.get_by_role("table", name="สกอร์การ์ดเซสชัน").wait_for()
     ball = pg.locator("main").inner_text()
     pg.screenshot(path="/home/claude/e2e/6-ball-dark.png", full_page=True)
     # reload persists?

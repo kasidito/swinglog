@@ -16,10 +16,10 @@ const FLIGHTS: { id: Flight; label: string; path: string }[] = [
   { id: 'fade', label: 'fade', path: 'M14 26C14 14 16 6 19 2' },
   { id: 'slice', label: 'สไลซ์', path: 'M20 26C20 16 22 8 26 2' },
 ];
-const VERSION = '1.2.0';
+const VERSION = '1.3.0';
 
 function symptomText(id: string | null, left: boolean) {
-  if (id === null) return { name: 'ไม่แน่ใจ ให้แอปจัดให้', desc: 'ผสมดริลหลายแบบ' };
+  if (id === null) return { name: 'ให้แอปเลือก', desc: 'ไม่แน่ใจ ผสมหลายแบบ' };
   if (id === PREROUND) return { name: 'ก่อนออกรอบ', desc: 'อุ่นเครื่องและสร้างความมั่นใจ ไม่แก้สวิง' };
   const s = SYMPTOMS.find((x) => x.id === id);
   if (!s) return { name: id, desc: '' };
@@ -29,6 +29,14 @@ function symptomText(id: string | null, left: boolean) {
   return { name, desc };
 }
 
+const SYM_ICON: Record<string, string> = {
+  auto: 'M4 12h4M16 12h4M12 4v4M12 16v4M7 7l2 2M15 15l2 2M17 7l-2 2M9 15l-2 2',
+  preround: 'M6 21V4M6 4l11 4-11 5M3 21h9',
+  slice: 'M8 21C8 12 10 6 18 3', hook: 'M16 21C16 12 14 6 6 3',
+  contact: 'M3 18h18M7 18c1-4 3-7 5-7s3 2 3 4M12 11a2 2 0 1 0 0-4a2 2 0 0 0 0 4',
+  short_putt: 'M4 17h16M12 17a3 3 0 0 0 0-6M5 12h4', lag_putt: 'M3 17h18M6 13h3M11 13h3M16 13h3',
+  chip: 'M3 18c4-9 10-11 18-6M3 18h18', bunker: 'M3 16c3-3 6 3 9 0s6 3 9 0M12 12a2 2 0 1 0 0-4a2 2 0 0 0 0 4',
+};
 const Icon = ({ d, size = 22 }: { d: string; size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={d} /></svg>
 );
@@ -140,7 +148,11 @@ function HomeScreen({ state, active, onStart, onResume, onAbandon }: {
 
   return (
     <>
-      <div><p className="eyebrow">SwingLog</p><h1>วันนี้ฝึกอะไรดี</h1></div>
+      <header className="hero">
+        <span className="brand"><Icon d={I.flag} size={18} />SwingLog</span>
+        <h1>วันนี้ฝึกอะไรดี</h1>
+        <p>{suggestion ? <>ลูกที่บันทึกไว้ส่วนใหญ่ออกเป็น{symptomText(suggestion, left).name} ลองแก้ตรงนี้ก่อนไหม</> : 'เลือกเวลาที่มีกับปัญหาที่เจอ แล้วแอปจะจัดดริลให้'}</p>
+      </header>
       {active && (
         <div className="notice stack">
           <strong>มีเซสชันค้างอยู่ ({active.doneDrillIds.length}/{active.drillIds.length} ดริล)</strong>
@@ -152,7 +164,7 @@ function HomeScreen({ state, active, onStart, onResume, onAbandon }: {
       )}
       <section>
         <p className="q" id="unit-q">นับเป็นอะไร</p>
-        <div className="seg" role="group" aria-labelledby="unit-q">
+        <div className="seg seg-pill" role="group" aria-labelledby="unit-q">
           <button type="button" className="chip" aria-pressed={unit === 'min'} onClick={() => { setUnit('min'); setAmount(15); }}>เวลา (นาที)</button>
           <button type="button" className="chip" aria-pressed={unit === 'ball'} onClick={() => { setUnit('ball'); setAmount(BALLS_PER_TRAY); }}>ถาดลูก (ในช่องตี)</button>
         </div>
@@ -169,13 +181,14 @@ function HomeScreen({ state, active, onStart, onResume, onAbandon }: {
       </section>
       <section>
         <p className="q" id="sym-q">อาการที่เจอ</p>
-        {suggestion && <p className="muted" style={{ marginTop: -4 }}>จากลูกที่บันทึกไว้ แนะนำ: <strong>{symptomText(suggestion, left).name}</strong></p>}
-        <div className="row" role="group" aria-labelledby="sym-q">
+        <div className="symgrid" role="group" aria-labelledby="sym-q">
           {options.map((id) => {
             const t = symptomText(id, left);
+            const icon = SYM_ICON[id ?? 'auto'] ?? SYM_ICON.auto;
             return (
-              <button key={id ?? 'auto'} type="button" className="chip tall" aria-pressed={chosen === id} onClick={() => setSymptom(id)}>
-                {t.name}{suggestion && id === suggestion ? ' (แนะนำ)' : ''}<small>{t.desc}</small>
+              <button key={id ?? 'auto'} type="button" className="sym" aria-pressed={chosen === id} onClick={() => setSymptom(id)}>
+                <span className="sym-icon" style={left && (id === 'slice' || id === 'hook') ? { transform: 'scaleX(-1)' } : undefined}><Icon d={icon} size={24} /></span>
+                <span><span className="sym-name">{t.name}</span>{suggestion && id === suggestion && <span className="tag">แนะนำ</span>}<small>{t.desc}</small></span>
               </button>
             );
           })}
@@ -198,38 +211,48 @@ function SessionScreen({ session, notices, state, onOpen, onDone, onFinish, onAb
   const title = session.mode === 'preround' ? 'ก่อนออกรอบ' : symptomText(session.symptomId, state.settings.handedness === 'left').name;
   return (
     <>
-      <div>
-        <p className="eyebrow">{session.unit === 'min' ? `${session.amount} นาที` : `${session.amount / BALLS_PER_TRAY} ถาด · ${session.amount} ลูก`} · {title}</p>
-        <h1>เซสชันวันนี้</h1>
-      </div>
-      <div className="stack">
-        <div className="progress" role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={done} aria-label="ความคืบหน้า"><span style={{ width: `${total ? (done / total) * 100 : 0}%` }} /></div>
-        <span className="muted">ทำแล้ว {done} จาก {total} ดริล · บันทึกวิถีลูก {shots} ลูก</span>
-      </div>
+      <header className="session-head">
+        <div>
+          <h1>{title}</h1>
+          <p className="muted" style={{ margin: 0 }}>{session.unit === 'min' ? `${session.amount} นาที` : `${session.amount / BALLS_PER_TRAY} ถาด, ${session.amount} ลูก`}{shots ? `, บันทึกวิถีลูก ${shots} ลูก` : ''}</p>
+        </div>
+        <div className="score" aria-label={`ทำแล้ว ${done} จาก ${total} ดริล`}><strong>{done}</strong><span>/{total}</span></div>
+      </header>
       {notices.map((n) => <div key={n} className="notice">{n}</div>)}
-      <div className="stack">
-        {session.drillIds.map((id) => {
+      <div className="scorecard" role="table" aria-label="สกอร์การ์ดเซสชัน">
+        <div className="sc-row sc-head" role="row">
+          <span role="columnheader">หลุม</span><span role="columnheader">ดริล</span><span role="columnheader">นาที</span><span role="columnheader">ลูก</span><span role="columnheader">เสร็จ</span>
+        </div>
+        {session.drillIds.map((id, i) => {
           const d = drillById(id);
-          if (!d) return <div key={id} className="card muted">ดริลนี้ถูกเลิกใช้แล้ว</div>;
           const isDone = session.doneDrillIds.includes(id);
+          if (!d) return <div key={id} className="sc-row" role="row"><span className="no">{i + 1}</span><span className="muted">ดริลนี้ถูกเลิกใช้แล้ว</span></div>;
           return (
-            <div key={id} className={`card drill${isDone ? ' done' : ''}`}>
-              <span className="disc"><Icon d={isDone ? I.check : I.flag} /></span>
-              <button type="button" className="open" onClick={() => onOpen(id)}>
-                <span className="name">{d.name}{d.isWarmup ? ' · อุ่นเครื่อง' : ''}</span>
-                <span className="muted">{d.minutes} นาที · {d.equipment.map((e) => EQUIP[e] ?? e).join(', ')}{d.balls ? ` · ${d.balls} ลูก` : ''}</span>
+            <div key={id} className={`sc-row${isDone ? ' done' : ''}`} role="row">
+              <span className="no" role="cell">{i + 1}</span>
+              <button type="button" className="open" role="cell" onClick={() => onOpen(id)}>
+                <span className="name">{d.name}</span>
+                <span className="muted">{d.isWarmup ? 'อุ่นเครื่อง, ' : ''}{d.equipment.map((e) => EQUIP[e] ?? e).join(', ')}</span>
               </button>
-              {!isDone && <button type="button" className="btn btn-small" onClick={() => onDone(id)} aria-label={`ทำ ${d.name} เสร็จแล้ว`}>เสร็จ</button>}
+              <span className="num" role="cell">{d.minutes}</span>
+              <span className="num" role="cell">{d.balls ?? '-'}</span>
+              <span role="cell">
+                <button type="button" className="sc-check" aria-pressed={isDone} disabled={isDone} onClick={() => onDone(id)} aria-label={isDone ? `${d.name} เสร็จแล้ว` : `ทำ ${d.name} เสร็จแล้ว`}>
+                  {isDone && <Icon d={I.check} size={20} />}
+                </button>
+              </span>
             </div>
           );
         })}
         {session.freeHit > 0 && (
-          <div className="card drill">
-            <span className="disc"><Icon d={I.flag} /></span>
-            <div className="open"><span className="name">ตีอิสระ {session.freeHit} ลูก</span><span className="muted">ลูกที่เหลือจากถาด ตีตามสบาย</span></div>
+          <div className="sc-row sc-free" role="row">
+            <span className="no" role="cell"><Icon d={I.flag} size={16} /></span>
+            <span role="cell"><span className="name">ตีอิสระ</span><span className="muted">ลูกที่เหลือจากถาด ตีตามสบาย</span></span>
+            <span className="num" role="cell">-</span><span className="num" role="cell">{session.freeHit}</span><span role="cell" />
           </div>
         )}
       </div>
+      <p className="muted" style={{ margin: 0 }}>แตะชื่อดริลเพื่อดูขั้นตอนและบันทึกวิถีลูก</p>
       <div className="spacer" />
       {allDone
         ? <button type="button" className="btn btn-primary" onClick={onFinish}>จบเซสชัน</button>
@@ -266,7 +289,7 @@ function DrillScreen({ drill, session, state, onBack, onDone, onShot }: {
           {drill.sources.length < 2 && <span className="badge">รอตรวจสอบเนื้อหา</span>}
         </div>
         <p style={{ margin: 0 }}>{drill.goal}</p>
-        <p className="muted" style={{ margin: 0 }}>{drill.minutes} นาที · {drill.equipment.map((e) => EQUIP[e] ?? e).join(', ')}{drill.balls ? ` · ${drill.balls} ลูก` : ''}</p>
+        <p className="muted" style={{ margin: 0 }}>{drill.minutes} นาที, {drill.equipment.map((e) => EQUIP[e] ?? e).join(', ')}{drill.balls ? `, ${drill.balls} ลูก` : ''}</p>
       </div>
       <section className="card">
         <h2 style={{ marginBottom: 8 }}>ขั้นตอน</h2>
@@ -327,7 +350,7 @@ function SummaryScreen({ state, sessionId, onHome }: { state: AppState; sessionI
   if (!s) return <p>ไม่พบเซสชัน</p>;
   return (
     <>
-      <div><p className="eyebrow">สรุปเซสชัน</p><h1>ฝึกเสร็จแล้ว</h1></div>
+      <h1>ฝึกเสร็จแล้ว</h1>
       <div className="row">
         <div className="card" style={{ flex: 1 }}><div className="stat">{s.doneDrillIds.length}/{s.drillIds.length}</div><span className="muted">ดริลที่ทำ</span></div>
         <div className="card" style={{ flex: 1 }}><div className="stat">{pct === null ? '-' : `${pct}%`}</div><span className="muted">ลูกตรง (ประมาณ)</span></div>
@@ -353,7 +376,7 @@ function HistoryScreen({ state, onDelete }: { state: AppState; onDelete: (id: st
   const pct5 = straightPct(state.shots.filter((x) => last5.includes(x.sessionId)).map((x) => x.flight));
   return (
     <>
-      <div><p className="eyebrow">ประวัติ</p><h1>ฝึกไปแล้ว {done.length} ครั้ง</h1></div>
+      <h1>ฝึกไปแล้ว {done.length} ครั้ง</h1>
       {done.length === 0 ? <p className="muted">ยังไม่มีเซสชันที่จบ เริ่มเซสชันแรกได้จากแท็บ ฝึก</p> : (
         <>
           <div className="card"><div className="stat">{pct5 === null ? '-' : `${pct5}%`}</div><span className="muted">ลูกตรงใน 5 เซสชันล่าสุด (ประมาณ จากที่บันทึก)</span></div>
@@ -364,7 +387,7 @@ function HistoryScreen({ state, onDelete }: { state: AppState; onDelete: (id: st
               return (
                 <div key={s.id} className="card stack">
                   <div className="row"><strong>{s.mode === 'preround' ? 'ก่อนออกรอบ' : symptomText(s.symptomId, state.settings.handedness === 'left').name}</strong><span className="spacer" /><span className="muted">{fmt.format(new Date(s.startedAt))}</span></div>
-                  <span className="muted">ดริล {s.doneDrillIds.length}/{s.drillIds.length} · {s.unit === 'min' ? `${s.amount} นาที` : `${s.amount} ลูก`} · บันทึก {fl.length} ลูก{p !== null ? ` · ตรง ${p}%` : ''}</span>
+                  <span className="muted">ดริล {s.doneDrillIds.length}/{s.drillIds.length}, {s.unit === 'min' ? `${s.amount} นาที` : `${s.amount} ลูก`}, บันทึก {fl.length} ลูก{p !== null ? `, ตรง ${p}%` : ''}</span>
                   <ConfirmButton label="ลบ" confirmLabel="แตะอีกครั้งเพื่อลบ" onConfirm={() => onDelete(s.id)} />
                 </div>
               );
@@ -414,10 +437,10 @@ function SettingsScreen({ state, onChange, onReset, onImport }: { state: AppStat
   );
   return (
     <>
-      <div><p className="eyebrow">ตั้งค่า</p><h1>ตั้งค่า</h1></div>
+      <h1>ตั้งค่า</h1>
       <section>
         <p className="q" id="hand-q">ถนัดมือ</p>
-        <div className="seg" role="group" aria-labelledby="hand-q">
+        <div className="seg seg-pill" role="group" aria-labelledby="hand-q">
           <button type="button" className="chip" aria-pressed={s.handedness === 'right'} onClick={() => onChange({ handedness: 'right' })}>ถนัดขวา</button>
           <button type="button" className="chip" aria-pressed={s.handedness === 'left'} onClick={() => onChange({ handedness: 'left' })}>ถนัดซ้าย</button>
         </div>
@@ -453,7 +476,7 @@ function SettingsScreen({ state, onChange, onReset, onImport }: { state: AppStat
         {pending && <button type="button" className="btn btn-small" onClick={() => { onImport(pending); setPending(null); setImportMsg('นำเข้าข้อมูลแล้ว'); }}>ยืนยันการนำเข้า</button>}
         <ConfirmButton label="ลบข้อมูลทั้งหมด" confirmLabel="แตะอีกครั้งเพื่อลบทั้งหมด" onConfirm={onReset} />
       </section>
-      <p className="muted">SwingLog v{VERSION} · ฟรี ไม่มีโฆษณา · ดริลเขียนใหม่จากแหล่งที่อ้างอิง ไม่ใช่คำแนะนำจากโค้ช</p>
+      <p className="muted">SwingLog v{VERSION}. ฟรี ไม่มีโฆษณา ดริลเขียนใหม่จากแหล่งที่อ้างอิง ไม่ใช่คำแนะนำจากโค้ช</p>
     </>
   );
 }
