@@ -1,0 +1,8 @@
+interface:
+  display_name: Ponytail Review
+  short_description: 'Quality review of a change: is the logic right, is it safe,
+    does it hold under real load, is risky code tested, is it fa'
+  default_prompt: Use $ponytail-review for the requested task within the repository
+    constraints.
+policy:
+  allow_implicit_invocation: false

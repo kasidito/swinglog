@@ -1,0 +1,57 @@
+{
+  "codex_version": "codex-cli 0.167.0-alpha.4",
+  "method": "skills/list",
+  "model_request_made": false,
+  "repository_skills": [
+    {
+      "name": "domain-modeling",
+      "path": ".agents/skills/domain-modeling/SKILL.md",
+      "scope": "repo",
+      "enabled": true
+    },
+    {
+      "name": "karpathy-guidelines",
+      "path": ".agents/skills/karpathy-guidelines/SKILL.md",
+      "scope": "repo",
+      "enabled": true
+    },
+    {
+      "name": "performance-optimization",
+      "path": ".agents/skills/performance-optimization/SKILL.md",
+      "scope": "repo",
+      "enabled": true
+    },
+    {
+      "name": "ponytail-review",
+      "path": ".agents/skills/ponytail-review/SKILL.md",
+      "scope": "repo",
+      "enabled": true
+    },
+    {
+      "name": "systematic-debugging",
+      "path": ".agents/skills/systematic-debugging/SKILL.md",
+      "scope": "repo",
+      "enabled": true
+    },
+    {
+      "name": "ui-ux-pro-max",
+      "path": ".agents/skills/ui-ux-pro-max/SKILL.md",
+      "scope": "repo",
+      "enabled": true
+    },
+    {
+      "name": "verify-and-stop",
+      "path": ".agents/skills/verify-and-stop/SKILL.md",
+      "scope": "repo",
+      "enabled": true
+    },
+    {
+      "name": "webapp-testing",
+      "path": ".agents/skills/webapp-testing/SKILL.md",
+      "scope": "repo",
+      "enabled": true
+    }
+  ],
+  "errors": [],
+  "limitations": "Discovery and parsing only; no model-driven workflow or physical-device validation."
+}
