@@ -1,0 +1,8 @@
+interface:
+  display_name: Karpathy Guidelines
+  short_description: Behavioral guidelines to reduce common LLM coding mistakes. Use
+    when writing, reviewing, or refactoring code to avoid ov
+  default_prompt: Use $karpathy-guidelines for the requested task within the repository
+    constraints.
+policy:
+  allow_implicit_invocation: false

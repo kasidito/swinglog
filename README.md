@@ -19,3 +19,7 @@ PWA ฟรีที่จัดเซสชันฝึกกอล์ฟตา�
 - `src/store.ts` เก็บข้อมูลใน IndexedDB (idb-keyval) ถ้าเก็บไม่ได้จะทำงานในหน่วยความจำ
 - `src/content/*.json` คลังดริลและอาการ
 - `src/App.tsx` หน้าจอทั้งหมด
+
+## Repository Agent Skills
+
+See [SKILLS-INVENTORY.md](SKILLS-INVENTORY.md) for the curated Codex skills, invocation examples, upstream licenses and verification. Validate changes with `python3 scripts/verify-skills.py`.

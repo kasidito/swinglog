@@ -1,0 +1,8 @@
+interface:
+  display_name: Performance Optimization
+  short_description: Optimizes application performance across frontend, backend, queries,
+    and databases. Use when performance requirements ex
+  default_prompt: Use $performance-optimization for the requested task within the
+    repository constraints.
+policy:
+  allow_implicit_invocation: false

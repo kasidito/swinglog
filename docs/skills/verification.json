@@ -1,0 +1,40 @@
+{
+  "reviewed_on": "2026-11-07",
+  "base_commit": "3bc3da1ef01b028eaeb7aef4da449d10fa954070",
+  "python": "3.12.14",
+  "node": "v24.22.1",
+  "chromium": "Chromium 156.0.8078.79 built on Debian GNU/Linux 13 (trixie)",
+  "playwright_python": "1.62.0",
+  "static_validation": {
+    "command": "python3 scripts/verify-skills.py",
+    "status": "passed",
+    "skills": 8,
+    "skill_files": 121
+  },
+  "negative_tests": {
+    "command": "python3 scripts/test-verify-skills.py",
+    "status": "passed",
+    "tests": 7
+  },
+  "ui_search": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 python3 .agents/skills/ui-ux-pro-max/scripts/search.py 'focus not obscured' --domain ux",
+    "status": "passed",
+    "results": 3,
+    "network_or_credentials_required": false
+  },
+  "codex_discovery": {
+    "command": "python3 scripts/verify-skills.py --codex --write-evidence",
+    "status": "passed",
+    "evidence": "codex-discovery.json"
+  },
+  "not_executed": [
+    "upstream installation scripts",
+    "lifecycle hooks",
+    "MCP servers",
+    "credentialed provider commands",
+    "vendored diagnostic shell script",
+    "webapp-testing helper/examples",
+    "full model-driven skill quality evaluations",
+    "application tests (no application changes)"
+  ]
+}

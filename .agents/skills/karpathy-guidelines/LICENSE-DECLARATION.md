@@ -1,0 +1,1 @@
+Upstream declares MIT in SKILL.md frontmatter and README.md. No standalone LICENSE or copyright notice is supplied at the pinned revision; none has been invented here. The upstream README is preserved in docs/skills/upstream/multica-ai--andrej-karpathy-skills/README.md.

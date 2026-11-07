@@ -6,3 +6,7 @@ dist-single/
 e2e/*.mp4
 e2e/*.png
 e2e/backup.json
+
+# Python caches from local skill and verification helpers
+__pycache__/
+*.pyc

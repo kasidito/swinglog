@@ -1,0 +1,8 @@
+interface:
+  display_name: Verify And Stop
+  short_description: Prove existing work meets acceptance conditions without expanding
+    scope. Use for validation-only tasks, completion check
+  default_prompt: Use $verify-and-stop for the requested task within the repository
+    constraints.
+policy:
+  allow_implicit_invocation: false
