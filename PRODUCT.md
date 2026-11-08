@@ -26,8 +26,10 @@ A free practice planner for the range bay, not a scorecard or GPS app. It sugges
 
 ## Capabilities and Constraints
 
-- Session planner (minutes or trays, symptom, facility filter, pre-round mode), 20 drills with steps, sources and top-down station diagrams, one-tap ball-flight log, history with straight %, settings (left-handed, dark, large text), JSON backup and import.
+- Session planner (minutes or trays, symptom, facility filter, pre-round mode), 20 drills with manually selected photographic illustration steps, self-checks, sources and secondary station diagrams, one-tap ball-flight log, history with straight %, settings (left-handed, dark, large text), JSON backup and import.
+- Six foundations: grip, feet/alignment, posture, ball position, club-specific setup and swing sequence. Related lessons return to the same drill step. Illustrations use a fictional AI-generated demonstrator; they are not professional certification or biomechanical measurements.
 - Video: in-app camera with framing guide, native camera or library, 0.25-1x and frame stepping, angle lines, 3-tap tracer with shape hint, MediaPipe pose (head movement, spine tilt vs address).
+- PR #12's separate analysis lab retains selected-clip phase marking, local pose worker, evidence frames, baseline ball tracking, correction, cancellation and JSON results. It cannot measure 3D flight, ball speed, spin or carry from this camera.
 - Offline PWA on GitHub Pages; all data on the device (IndexedDB); videos never uploaded or stored.
 - Everything free: no ads, no paid services, no accounts.
 - Thai first.
@@ -41,7 +43,9 @@ A free practice planner for the range bay, not a scorecard or GPS app. It sugges
 
 ## Evidence on Hand
 
-- Drill content: `src/content/drills.json` (20 drills, 2+ sources each, not yet reviewed by a professional).
+- Drill content: `src/content/drills.json` (20 original IDs, 2+ source links each; not all legacy references independently verified).
+- `src/content/coaching.json`: six foundations and 20 three-step drill sequences. Local generated media, exact prompts and screening notes are inventoried in `docs/coaching/`.
+- Professional golf review and comprehension tests with three real beginners have not occurred. Automated tests and agent screening must not be presented as either.
 - Personas in project docs are AI-simulated, not real users. No testimonials, user counts or results exist; none may be invented.
 
 ## Product Principles
@@ -53,4 +57,4 @@ A free practice planner for the range bay, not a scorecard or GPS app. It sugges
 
 ## Accessibility & Inclusion
 
-Readable in direct sun and at night; large-text option; tap targets at least 44 px; left-handed golfers get mirrored diagrams and flight icons.
+Readable in direct sun and at night; light defaults for new users, existing theme preferences retained; large-text option; tap targets at least 44 px. Source handedness is normalized per illustration, then adapted for left/right golfers without mirroring Thai text. Steps do not autoplay, images can be zoomed, and instruction progress is saved locally.

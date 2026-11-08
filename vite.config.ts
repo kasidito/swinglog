@@ -42,7 +42,7 @@ export default defineConfig(({ mode }) => ({
           includeAssets: ['icon.svg', 'apple-touch-icon.png'],
           workbox: {
             clientsClaim: true,
-            globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
+            globPatterns: ['**/*.{js,css,html,svg,png,webp,woff2}'],
             // Cache the pose model and its WASM after first use so swing analysis also works offline.
             runtimeCaching: [
               {
@@ -55,10 +55,10 @@ export default defineConfig(({ mode }) => ({
           manifest: {
             name: 'SwingLog',
             short_name: 'SwingLog',
-            description: 'จัดเซสชันฝึกกอล์ฟตามเวลาและอาการ',
+            description: 'คู่มือฝึกกอล์ฟทีละขั้น วางแผนซ้อมและดูวงสวิง',
             lang: 'th',
-            theme_color: '#0B1210',
-            background_color: '#0B1210',
+            theme_color: '#205B3E',
+            background_color: '#F7F7F0',
             display: 'standalone',
             start_url: '.',
             icons: [

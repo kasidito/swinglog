@@ -160,7 +160,7 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
   const flights = left ? [...ORDER].reverse() : ORDER;
   return (
     <>
-      <h1>ดูวงสวิง</h1>
+      <header className="masthead"><h1>ดูวงสวิงของคุณ</h1><p className="lede">ดูช้า ๆ ขีดแนว แล้วเทียบกับเฟรมจริง</p></header>
       <input ref={camInput} type="file" accept="video/*" capture="environment" hidden onChange={(e) => pick(e.target.files?.[0])} />
       <input ref={fileInput} type="file" accept="video/*" hidden onChange={(e) => pick(e.target.files?.[0])} />
       {camOpen && <CameraCapture left={left} onClose={() => setCamOpen(false)} onCapture={(f) => { setCamOpen(false); pick(f); }} onFallback={() => { setCamOpen(false); camInput.current?.click(); }} />}
@@ -210,8 +210,6 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
             <span className="spacer" /><span className="muted">{time.toFixed(2)} / {duration ? duration.toFixed(2) : '-'} วิ</span>
           </div>
 
-          {clip && <VideoLab key={url} url={url} clip={clip} video={video} time={time} left={left} />}
-
           <section className="stack">
             <p className="q" style={{ margin: 0 }} id="tool-q">เครื่องมือ</p>
             <div className="row" role="group" aria-labelledby="tool-q">
@@ -222,6 +220,8 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
             {mode === 'line' && <p className="muted" style={{ margin: 0 }}>ลากนิ้วบนวิดีโอเพื่อวาดเส้น เช่น แนวหลัง แนวไม้ตอน address ตัวเลขคือองศาจากแนวนอน</p>}
             {mode === 'trace' && <p className="notice" style={{ margin: 0 }}>แตะ {['จุดที่ลูกออก', 'จุดสูงสุด', 'จุดที่ลูกตก'][trace.length]} ({trace.length + 1}/3) เลื่อนวิดีโอไปเฟรมที่เห็นลูกก่อนแตะได้</p>}
           </section>
+
+          {clip && <details className="lab-disclosure"><summary>ห้องทดลอง · วิเคราะห์ท่าและติดตามลูก</summary><p className="muted">ผลประมาณจากภาพ 2 มิติ ตรวจคู่กับเฟรมหลักฐาน ไม่ใช่ค่าจาก launch monitor</p><VideoLab key={url} url={url} clip={clip} video={video} time={time} left={left} /></details>}
 
           <section className="card stack">
             <h2>ท่าทาง (AI ประมาณการ)</h2>

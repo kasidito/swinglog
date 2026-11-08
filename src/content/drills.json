@@ -29,6 +29,10 @@
    {
     "title": "GOLF.com – Three ways to practice with an alignment stick",
     "url": "https://golf.com/instruction/three-ways-practice-alignment-stick-play-smart"
+   },
+   {
+    "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+    "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
    }
   ],
   "version": 1
@@ -58,6 +62,10 @@
    {
     "title": "GOLF.com – Kellie Stenzel 5-minute warm-up",
     "url": "https://golf.com/?p=14176472"
+   },
+   {
+    "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+    "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
    }
   ],
   "version": 1
@@ -78,22 +86,22 @@
    "alignment_stick"
   ],
   "steps": [
-   "ปักหรือวางไม้ชี้แนว 2 อันเป็นช่องแคบหน้าลูก กว้างกว่าหัวไม้เล็กน้อย",
-   "สวิงให้หัวไม้ผ่านช่องโดยไม่แตะไม้",
-   "แตะไม้เกิน 3 ใน 10 ลูก ให้ขยายช่อง ผ่านได้สบายแล้วค่อยแคบลง"
+   "วางไม้ชี้แนวราบเป็นช่องกว้างกว่าหัวไม้ — ไม่มีไม้ปักตั้งหรือปลายแหลมอยู่ในแนวสวิง",
+   "ตั้งหัวไม้ตรงกลางช่องหลังลูก — หัวไม้มีที่ว่างทั้งสองด้าน",
+   "ซ้อมผ่านช่องช้า ๆ ก่อนตีเบา — ไม่โดนไม้ชี้แนว ถ้าโดนให้หยุดและขยายช่อง"
   ],
   "isWarmup": false,
   "sources": [
    {
-    "title": "Golf swing path drills (golfblog)",
-    "url": "https://golfblog.pages.dev/posts/2025/10/golf-swing-path-drills-to-eliminate-hooks-and"
-   },
-   {
     "title": "Bruce Bolt – Golf alignment drills",
     "url": "https://brucebolt.us/blogs/news/golf-alignment-drills-how-to-aim-correctly"
+   },
+   {
+    "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+    "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
    }
   ],
-  "version": 1
+  "version": 2
  },
  {
   "id": "anti-slice-stick",
@@ -110,9 +118,9 @@
    "alignment_stick"
   ],
   "steps": [
-   "ปักไม้ชี้แนวเอียงนอกลูกเล็กน้อย ด้านไกลตัว",
-   "ตีลูกโดยไม่ให้ไม้กอล์ฟหรือแขนโดนไม้ชี้แนวตอนลงมา",
-   "เริ่มด้วยครึ่งวงก่อน แล้วค่อยเพิ่มความเร็ว"
+   "วางไม้ราบนอกแนวลูกให้พ้นทางไม้ — ไม่ปักไม้เอียงเข้าหาตัวหรือแนวสวิง",
+   "ซ้อมครึ่งวงช้า ๆ ด้านในไม้ชี้แนว — หัวไม้และมือไม่แตะอุปกรณ์",
+   "ตีเบาเมื่อซ้อมผ่านได้โดยไม่ชน — หากชนให้หยุดและเว้นช่องเพิ่ม ไม่ฝืนหลบ"
   ],
   "isWarmup": false,
   "sources": [
@@ -127,9 +135,13 @@
    {
     "title": "Bruce Bolt – Golf alignment drills",
     "url": "https://brucebolt.us/blogs/news/golf-alignment-drills-how-to-aim-correctly"
+   },
+   {
+    "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+    "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
    }
   ],
-  "version": 1
+  "version": 2
  },
  {
   "id": "split-grip",
@@ -158,6 +170,10 @@
    {
     "title": "Golf Digest – Leadbetter split-grip drill",
     "url": "https://www.golfdigest.com/story/leadbetter_gd0406"
+   },
+   {
+    "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+    "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
    }
   ],
   "version": 1
@@ -194,6 +210,10 @@
    {
     "title": "PGA.com – Three drills to improve performance",
     "url": "https://www.pga.com/story/three-drills-to-improve-your-golf-performance"
+   },
+   {
+    "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+    "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
    }
   ],
   "version": 1
@@ -234,6 +254,10 @@
    {
     "title": "HackMotion – Low point control drills",
     "url": "https://hackmotion.com/low-point-control-drills/"
+   },
+   {
+    "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+    "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
    }
   ],
   "version": 1
@@ -270,6 +294,10 @@
    {
     "title": "CaddieHQ – Stop hitting fat iron shots",
     "url": "https://www.caddiehq.com/resources/how-to-stop-hitting-fat-golf-shots-with-irons"
+   },
+   {
+    "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+    "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
    }
   ],
   "version": 1
@@ -302,6 +330,10 @@
    {
     "title": "CaddieHQ – Stop hitting fat iron shots",
     "url": "https://www.caddiehq.com/resources/how-to-stop-hitting-fat-golf-shots-with-irons"
+   },
+   {
+    "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+    "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
    }
   ],
   "version": 1
@@ -335,6 +367,10 @@
    {
     "title": "GOLF.com – 10 fixes to stop hitting the toe",
     "url": "https://golf.com/instruction/10-fixes-stop-hitting-toe-golf-club/"
+   },
+   {
+    "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+    "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
    }
   ],
   "version": 1
@@ -360,6 +396,10 @@
   ],
   "isWarmup": false,
   "sources": [
+   {
+    "title": "Kevin Britt, PGA · Putting gate training",
+    "url": "https://carolinas.pga.com/news/elite-level-training-kevin-britt-pga/"
+   },
    {
     "title": "HackMotion – Gate putting drill",
     "url": "https://hackmotion.com/gate-putting-drill/"
@@ -434,8 +474,8 @@
   "isWarmup": false,
   "sources": [
    {
-    "title": "Scratch drills – 3-6-9 ladder",
-    "url": "https://scratch-7lo.pages.dev/drills"
+    "title": "Brendon Elliott, PGA · Ladder putting challenge",
+    "url": "https://www.pga.com/story/putting-practice-games-that-lead-to-big-gains-part-2"
    },
    {
     "title": "GOLFZON Leadbetter – 6 putting drills",
@@ -543,6 +583,10 @@
    {
     "title": "GolfPass – Chipping landing spot drill",
     "url": "https://www.golfpass.com.au/watch/daily-video-tips/chipping-landing-spot-drill"
+   },
+   {
+    "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+    "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
    }
   ],
   "version": 1
@@ -576,6 +620,10 @@
    {
     "title": "CaddieHQ – How to work on short game",
     "url": "https://www.caddiehq.com/resources/how-to-work-on-short-game-golf"
+   },
+   {
+    "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+    "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
    }
   ],
   "version": 1
@@ -666,9 +714,9 @@
    "tee"
   ],
   "steps": [
-   "ปักทีลงทรายหลังลูกราว 5 ซม. และหน้าลูกราว 10 ซม.",
-   "สวิงให้หัวไม้เข้าทรายที่ทีหลังและออกที่ทีหน้า",
-   "ทำได้ 7 ใน 10 แล้วลองเอาทีออกแต่จินตนาการว่ายังอยู่"
+   "วางทีเตี้ยข้างแนวเข้าและออกจากทราย — ทีเป็นจุดเทียบด้านข้าง ต้องพ้นทางหัวไม้",
+   "เล็งจุดเข้าทรายด้านหลังลูก — เริ่มราว 5 ซม. หลังลูกและ 10 ซม. หน้า เป็นจุดฝึก ไม่ใช่กฎตายตัว",
+   "พาไม้ผ่านไปถึงแนวทีด้านหน้า — ดูรอยทรายแล้วเอาทีออกเมื่อตั้งจุดได้เอง"
   ],
   "isWarmup": false,
   "sources": [
@@ -681,6 +729,6 @@
     "url": "https://www.golfmagic.com/european-tour/former-european-tour-pro-reveals-perfect-greenside-bunker-drill"
    }
   ],
-  "version": 1
+  "version": 2
  }
 ]
