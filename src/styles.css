@@ -1,20 +1,17 @@
-/* SwingLog: "Floodlit bay". Night range is the home world; daylight is the variant.
-   Distance-flag palette carries data: red 100, white 150, yellow 200, blue 250, turf = done/straight. */
-:root, :root[data-theme="dark"] {
-  --ground: #0B1210; --panel: #121B18; --panel-2: #18231F; --rule: #24332D; --rule-strong: #34463E;
-  --ink: #F2F5F0; --ink-2: #A9B8B0; --ink-3: #7C8C84;
-  --flag-red: #EF5350; --flag-white: #F2F5F0; --flag-yellow: #F5C451; --flag-blue: #5B9BFF; --turf: #45C47E;
-  --action: #F5C451; --on-action: #0B1210; --accent-ink: #F5C451; --notice-bg: #1E2A1B; --notice-ink: #E8E2C4;
-  --flood: radial-gradient(120% 60% at 50% -10%, rgba(242,245,240,.07), transparent 60%);
-  color-scheme: dark;
+/* SwingLog — an illustrated coach handbook. Light is the default. */
+:root, :root[data-theme="light"] {
+  --ground:#F7F7F0; --panel:#FFFFFF; --panel-2:#EDF2E9; --rule:#D8DFD3; --rule-strong:#A3B29F;
+  --ink:#18382B; --ink-2:#52604F; --ink-3:#626D60;
+  --flag-red:#B84439; --flag-white:#FFFFFF; --flag-yellow:#AA781B; --flag-blue:#326694; --turf:#21613F;
+  --action:#205B3E; --on-action:#FFFFFF; --accent-ink:#245D40; --notice-bg:#E9F0E2; --notice-ink:#29432E;
+  --flood:none; color-scheme:light;
 }
-:root[data-theme="light"] {
-  --ground: #ECEFEA; --panel: #FFFFFF; --panel-2: #F5F7F3; --rule: #CDD5CE; --rule-strong: #A9B5AC;
-  --ink: #0B1210; --ink-2: #4A5650; --ink-3: #66726B;
-  --flag-red: #D63A37; --flag-white: #FFFFFF; --flag-yellow: #E0A800; --flag-blue: #2F6FE0; --turf: #1E8A50;
-  --action: #F2B705; --on-action: #0B1210; --accent-ink: #855F00; --notice-bg: #FFF3CF; --notice-ink: #3A3010;
-  --flood: none;
-  color-scheme: light;
+:root[data-theme="dark"] {
+  --ground:#121D17; --panel:#1B2A21; --panel-2:#25382A; --rule:#394C3D; --rule-strong:#617660;
+  --ink:#F2F3E9; --ink-2:#C2CDBB; --ink-3:#A3B59F;
+  --flag-red:#F19B86; --flag-white:#F2F3E9; --flag-yellow:#E0C28A; --flag-blue:#9BC4E6; --turf:#A6D2A2;
+  --action:#BEDBB1; --on-action:#183425; --accent-ink:#BEDBB1; --notice-bg:#293B27; --notice-ink:#D8E8CE;
+  --flood:none; color-scheme:dark;
 }
 :root {
   /* aliases kept for components that predate the redesign */
@@ -235,3 +232,146 @@ line.d-path { stroke-dasharray: 5 3; }
 .hist .date b { font-family: var(--font-num); font-size: 24px; color: var(--ink); line-height: 1; }
 .hist .info { flex: 1; min-width: 0; display: flex; flex-direction: column; }
 .hist .btn-ghost { font-size: var(--fs-small); }
+
+/* Experimental video analysis extends the existing Floodlit bay tokens. */
+.analysis-lab { border-block: 1px solid var(--rule-strong); padding-block: 24px; margin-block: 12px; }
+.analysis-lab p { margin: 0; overflow-wrap: anywhere; }
+.analysis-lab h3 { font-size: 1rem; margin: 16px 0 0; }
+.analysis-lab fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.analysis-lab legend { font-weight: 600; margin-bottom: 8px; }
+.analysis-range { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.analysis-range label { display: grid; gap: 6px; }
+.analysis-range input { width: 100%; min-height: 44px; padding: 8px; color: var(--ink); background: var(--panel); border: 1px solid var(--rule-strong); border-radius: 8px; font: inherit; }
+.analysis-marks { list-style: none; padding: 0; margin: 0; }
+.analysis-marks li { border-top: 1px solid var(--rule); padding: 12px 0; display: grid; gap: 8px; }
+.analysis-proof { display: block; width: 100%; height: auto; background: var(--panel); border-radius: 8px; }
+.analysis-proof.picking { cursor: crosshair; touch-action: none; outline: 2px solid var(--action); outline-offset: 3px; }
+.analysis-lab .btn, .analysis-lab .chip { min-height: 44px; white-space: normal; }
+.analysis-meta { color: var(--ink-2); font-size: var(--fs-small); }
+.analysis-lab progress { width: 100%; accent-color: var(--action); }
+
+/* Coach handbook: generous paper margins, image-first instructions, calm controls. */
+:root { --r:18px; --r-sm:12px; --fs-small:14px; --fs-h1:32px; --font-num:var(--font-ui); }
+.app { max-width:720px; }
+.app-header { display:flex; justify-content:space-between; align-items:center; padding:calc(12px + env(safe-area-inset-top)) 24px 10px; border-bottom:1px solid var(--rule); }
+.wordmark { font-size:23px; letter-spacing:-.045em; color:var(--ink); gap:8px; }
+.wordmark b { color:inherit; }
+.wordmark svg { width:21px; height:25px; }
+.wordmark svg path:last-child { fill:var(--action); }
+.header-settings { width:44px; height:44px; display:grid; place-items:center; border:1px solid var(--rule); border-radius:50%; background:var(--panel); cursor:pointer; }
+.screen { padding:28px 24px 116px; gap:26px; min-width:0; }
+.screen > * { min-width:0; }
+.masthead { gap:12px; }
+h1 { line-height:1.4; letter-spacing:-.025em; }
+.heading-soft { color:var(--ink-2); }
+.lede { line-height:1.65; max-width:none; }
+.board { padding:20px; gap:18px; }
+.board-head { flex-wrap:wrap; }
+.unit-switch button { min-height:44px; }
+.amount { border-radius:12px; min-height:84px; gap:4px; background:transparent; }
+.amount .num { font-size:30px; line-height:1.2; letter-spacing:-.04em; }
+.amount .unit { font-size:var(--fs-small); }
+.amount[aria-pressed="true"] { box-shadow:inset 0 0 0 1px var(--action); }
+.sym { min-height:72px; padding:14px 36px 14px 16px; }
+.sym[aria-pressed="true"] { background:var(--panel-2); }
+.sym[aria-pressed="true"]::after { width:8px; height:8px; right:16px; }
+.sym-icon { border-radius:10px; width:38px; height:38px; background:var(--panel-2); }
+.btn { border-radius:12px; padding:10px 16px; line-height:1.45; }
+.btn-primary { min-height:56px; }
+.btn-small { background:var(--action); color:var(--on-action); }
+.dock, :root[data-theme="light"] .dock { position:static; box-shadow:none; }
+.tabs { position:fixed; bottom:0; left:50%; transform:translateX(-50%); width:min(100%,720px); z-index:8; background:var(--ground); padding:8px 8px calc(8px + env(safe-area-inset-bottom)); backdrop-filter:none; }
+.tabs button { min-height:60px; gap:5px; font-size:13px; color:var(--ink-2); border-radius:12px; flex:1; }
+.tabs button[aria-current="page"] { background:var(--panel-2); color:var(--ink); }
+.tabs button[aria-current="page"]::before { display:none; }
+.coaching-entry { display:grid; grid-template-columns:43% 1fr; padding:0; overflow:hidden; border:1px solid var(--rule); border-radius:var(--r); background:var(--panel-2); text-align:left; cursor:pointer; }
+.coaching-entry > span { display:flex; flex-direction:column; justify-content:center; gap:12px; padding:16px; }
+.coaching-entry strong { font-size:21px; line-height:1.6; }
+.coaching-entry > span > span { font-size:var(--fs-small); }
+.coaching-entry small { color:var(--ink-2); font-size:11px; }
+.coaching-entry .coaching-photo { height:100%; aspect-ratio:3/4; }
+.practice-recap { display:grid; gap:6px; border-block:1px solid var(--rule); padding:18px 0; }
+.practice-recap small { color:var(--ink-2); font-size:var(--fs-small); }
+.lane-row { grid-template-columns:36px minmax(0,1fr) auto; gap:10px; padding:18px 14px; }
+.marker svg { display:none; }
+.dist { font-size:18px; color:var(--ink-2); }
+.lane-row.next { background:var(--panel-2); background-image:none; }
+.lane-row .name { font-size:var(--fs-body); line-height:1.6; }
+.lane-row .meta { margin-top:4px; }
+.totals { flex-wrap:wrap; row-gap:14px; }
+.check { min-width:52px; border-radius:12px; padding:0 8px; }
+.coaching-photo { position:relative; aspect-ratio:1; overflow:hidden; width:100%; background:#ECEDE4; color:#29432E; }
+.photo-mirror { width:100%; height:100%; }
+.coaching-photo img { display:block; width:300%; max-width:none; height:100%; object-fit:fill; }
+.media-fallback { position:absolute; inset:0; margin:0; display:grid; place-content:center; padding:24px; font-size:14px; text-align:center; }
+.instruction { display:flex; flex-direction:column; gap:16px; }
+.instruction-meta { display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap; color:var(--ink-2); font-size:var(--fs-small); }
+.photo-button { position:relative; width:100%; padding:0; border:1px solid var(--rule); border-radius:var(--r); overflow:hidden; background:var(--panel-2); cursor:zoom-in; }
+.expand-label { position:absolute; bottom:12px; right:12px; background:#FFFEF8; color:#18382B; padding:7px 12px; border-radius:8px; font-size:var(--fs-small); box-shadow:0 1px 8px #18382B18; }
+.target-label { position:absolute; top:12px; left:12px; max-width:calc(100% - 24px); background:#FFFEF8; color:#18382B; padding:6px 10px; border-radius:8px; font-size:var(--fs-small); text-align:left; }
+.image-key { display:flex; gap:8px 16px; justify-content:space-between; flex-wrap:wrap; color:var(--ink-2); font-size:var(--fs-small); line-height:1.65; }
+.step-copy h2 { display:flex; align-items:flex-start; gap:12px; font-size:22px; line-height:1.65; }
+.step-number { flex:none; display:grid; place-items:center; width:34px; height:34px; font-size:16px; background:var(--action); color:var(--on-action); border-radius:50%; }
+.self-check { padding:16px 18px; background:var(--panel-2); border-radius:12px; margin-top:16px; }
+.self-check strong { font-size:var(--fs-small); }
+.self-check p { margin:4px 0 0; line-height:1.75; }
+.step-navigation { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.step-picker { display:flex; justify-content:center; gap:8px; flex-wrap:wrap; }
+.step-picker button { width:44px; height:44px; border:1px solid var(--rule); border-radius:50%; background:transparent; color:var(--ink-2); cursor:pointer; }
+.step-picker button[aria-pressed="true"] { background:var(--action); color:var(--on-action); border-color:var(--action); }
+.hand-key { color:var(--ink-2); text-align:center; margin:0; font-size:var(--fs-small); }
+.illustration-note { color:var(--ink-2); font-size:var(--fs-small); line-height:1.75; margin:0; }
+.related-lesson { display:grid; gap:12px; padding-block:20px; border-block:1px solid var(--rule); }
+.related-lesson button { display:flex; gap:10px; justify-content:space-between; align-items:center; text-align:left; flex-wrap:wrap; padding:12px 0; border:0; background:transparent; color:var(--ink); cursor:pointer; min-height:44px; font-weight:600; }
+.related-lesson button span { font-size:var(--fs-small); color:var(--ink-2); font-weight:400; }
+.related-lesson p { margin:0; }
+.diagram-details summary, .lab-disclosure summary { padding-block:16px; min-height:52px; cursor:pointer; font-weight:600; }
+.diagram-details, .lab-disclosure { border-block:1px solid var(--rule); }
+.diagram-details[open] .diagram { margin:8px 0 16px; }
+.text-back { align-self:flex-start; border:0; padding:8px 0; min-height:44px; background:transparent; color:var(--ink-2); cursor:pointer; }
+.lesson-list { display:grid; gap:0; border-top:1px solid var(--rule); }
+.lesson-row { display:grid; grid-template-columns:112px minmax(0,1fr); gap:18px; width:100%; text-align:left; padding:20px 0; border:0; border-bottom:1px solid var(--rule); background:transparent; cursor:pointer; }
+.lesson-row .coaching-photo { border-radius:12px; }
+.lesson-row > span { display:flex; flex-direction:column; justify-content:center; gap:5px; }
+.lesson-row small { font-size:var(--fs-small); color:var(--ink-2); }
+.lesson-row strong { font-size:18px; line-height:1.6; }
+.grip-options { border-top:1px solid var(--rule); padding-top:24px; }
+.grip-options dt { font-weight:600; margin-top:20px; }
+.grip-options dd { margin:6px 0 0; line-height:1.75; }
+.photo-dialog { padding:20px; width:min(96vw,760px); max-height:92dvh; border:1px solid var(--rule-strong); border-radius:18px; background:var(--ground); color:var(--ink); }
+.photo-dialog::backdrop { background:#0E1C17C9; }
+.dialog-toolbar { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:16px; }
+.zoom-scroll { max-height:57dvh; overflow:auto; border-radius:12px; }
+.zoom-control { display:flex; gap:16px; align-items:center; margin-top:16px; }
+.zoom-control input { flex:1; min-width:0; min-height:44px; accent-color:var(--action); }
+.flights .flight { font-size:var(--fs-small); min-height:84px; border-radius:12px; }
+.fan-key, .hist .date, .facts span { font-size:var(--fs-small); }
+.hist li { padding:18px 12px; }
+.card { padding:20px; }
+.cam-seg button, .cam-top .btn, .cam-shutter { min-height:44px; }
+.cam-seg button[aria-pressed="true"] { background:#BEDBB1; color:#183425; }
+.cam-shutter { background:#BEDBB1; }
+.sources { overflow-wrap:anywhere; }
+.sources h2 { margin-bottom:12px; }
+.guide-icon { display:inline-block; vertical-align:-3px; flex-shrink:0; }
+.step-navigation .btn, .text-back { display:inline-flex; align-items:center; justify-content:center; gap:8px; }
+.target-label { display:inline-flex; align-items:center; gap:6px; }
+:root[data-large="true"] .tabs button { font-size:16px; }
+:root[data-large="true"] .step-copy h2 { font-size:24px; }
+:root[data-large="true"] .lesson-row { grid-template-columns:88px minmax(0,1fr); gap:12px; }
+@media (min-width:640px) {
+  .app-header { padding-inline:40px; }
+  .screen { padding:36px 40px 116px; gap:32px; }
+  .coaching-entry { grid-template-columns:38% 1fr; }
+  .coaching-entry > span { padding:28px; }
+  .coaching-entry strong { font-size:28px; }
+  .instruction .photo-button { max-width:520px; align-self:center; }
+}
+@media (max-width:375px) {
+  .screen { padding-inline:18px; }
+  .app-header { padding-inline:18px; }
+  .coaching-entry > span { padding:12px; gap:8px; }
+  .coaching-entry strong { font-size:19px; }
+  .lesson-row { grid-template-columns:90px minmax(0,1fr); gap:12px; }
+  .tabs button { font-size:12px; }
+}

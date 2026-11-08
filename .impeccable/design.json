@@ -1,0 +1,710 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-08T10:07:16.662152+00:00",
+  "title": "Design System: SwingLog",
+  "extensions": {
+    "colorMeta": {
+      "action": {
+        "role": "primary",
+        "displayName": "Action",
+        "tonalRamp": [
+          "oklch(15% 0.0196 158.8)",
+          "oklch(27% 0.0432 158.8)",
+          "oklch(39% 0.0628 158.8)",
+          "oklch(51% 0.0785 158.8)",
+          "oklch(63% 0.0785 158.8)",
+          "oklch(75% 0.0628 158.8)",
+          "oklch(87% 0.0392 158.8)",
+          "oklch(95% 0.0157 158.8)"
+        ]
+      },
+      "on-action": {
+        "role": "neutral",
+        "displayName": "On Action",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.9)",
+          "oklch(27% 0.0000 89.9)",
+          "oklch(39% 0.0000 89.9)",
+          "oklch(51% 0.0000 89.9)",
+          "oklch(63% 0.0000 89.9)",
+          "oklch(75% 0.0000 89.9)",
+          "oklch(87% 0.0000 89.9)",
+          "oklch(95% 0.0000 89.9)"
+        ]
+      },
+      "ground": {
+        "role": "neutral",
+        "displayName": "Ground",
+        "tonalRamp": [
+          "oklch(15% 0.0023 106.6)",
+          "oklch(27% 0.0051 106.6)",
+          "oklch(39% 0.0074 106.6)",
+          "oklch(51% 0.0092 106.6)",
+          "oklch(63% 0.0092 106.6)",
+          "oklch(75% 0.0074 106.6)",
+          "oklch(87% 0.0046 106.6)",
+          "oklch(95% 0.0018 106.6)"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.9)",
+          "oklch(27% 0.0000 89.9)",
+          "oklch(39% 0.0000 89.9)",
+          "oklch(51% 0.0000 89.9)",
+          "oklch(63% 0.0000 89.9)",
+          "oklch(75% 0.0000 89.9)",
+          "oklch(87% 0.0000 89.9)",
+          "oklch(95% 0.0000 89.9)"
+        ]
+      },
+      "panel-2": {
+        "role": "neutral",
+        "displayName": "Panel 2",
+        "tonalRamp": [
+          "oklch(15% 0.0033 130.8)",
+          "oklch(27% 0.0072 130.8)",
+          "oklch(39% 0.0104 130.8)",
+          "oklch(51% 0.0130 130.8)",
+          "oklch(63% 0.0130 130.8)",
+          "oklch(75% 0.0104 130.8)",
+          "oklch(87% 0.0065 130.8)",
+          "oklch(95% 0.0026 130.8)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "tonalRamp": [
+          "oklch(15% 0.0045 131.9)",
+          "oklch(27% 0.0098 131.9)",
+          "oklch(39% 0.0142 131.9)",
+          "oklch(51% 0.0178 131.9)",
+          "oklch(63% 0.0178 131.9)",
+          "oklch(75% 0.0142 131.9)",
+          "oklch(87% 0.0089 131.9)",
+          "oklch(95% 0.0036 131.9)"
+        ]
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Rule Strong",
+        "tonalRamp": [
+          "oklch(15% 0.0079 139.1)",
+          "oklch(27% 0.0174 139.1)",
+          "oklch(39% 0.0253 139.1)",
+          "oklch(51% 0.0316 139.1)",
+          "oklch(63% 0.0316 139.1)",
+          "oklch(75% 0.0253 139.1)",
+          "oklch(87% 0.0158 139.1)",
+          "oklch(95% 0.0063 139.1)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0113 165.0)",
+          "oklch(27% 0.0248 165.0)",
+          "oklch(39% 0.0360 165.0)",
+          "oklch(51% 0.0450 165.0)",
+          "oklch(63% 0.0450 165.0)",
+          "oklch(75% 0.0360 165.0)",
+          "oklch(87% 0.0225 165.0)",
+          "oklch(95% 0.0090 165.0)"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Ink 2",
+        "tonalRamp": [
+          "oklch(15% 0.0080 140.1)",
+          "oklch(27% 0.0176 140.1)",
+          "oklch(39% 0.0256 140.1)",
+          "oklch(51% 0.0320 140.1)",
+          "oklch(63% 0.0320 140.1)",
+          "oklch(75% 0.0256 140.1)",
+          "oklch(87% 0.0160 140.1)",
+          "oklch(95% 0.0064 140.1)"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Ink 3",
+        "tonalRamp": [
+          "oklch(15% 0.0060 140.8)",
+          "oklch(27% 0.0133 140.8)",
+          "oklch(39% 0.0193 140.8)",
+          "oklch(51% 0.0241 140.8)",
+          "oklch(63% 0.0241 140.8)",
+          "oklch(75% 0.0193 140.8)",
+          "oklch(87% 0.0121 140.8)",
+          "oklch(95% 0.0048 140.8)"
+        ]
+      },
+      "accent-ink": {
+        "role": "primary",
+        "displayName": "Accent Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0193 158.4)",
+          "oklch(27% 0.0425 158.4)",
+          "oklch(39% 0.0619 158.4)",
+          "oklch(51% 0.0773 158.4)",
+          "oklch(63% 0.0773 158.4)",
+          "oklch(75% 0.0619 158.4)",
+          "oklch(87% 0.0387 158.4)",
+          "oklch(95% 0.0155 158.4)"
+        ]
+      },
+      "turf": {
+        "role": "neutral",
+        "displayName": "Turf",
+        "tonalRamp": [
+          "oklch(15% 0.0216 156.7)",
+          "oklch(27% 0.0475 156.7)",
+          "oklch(39% 0.0690 156.7)",
+          "oklch(51% 0.0863 156.7)",
+          "oklch(63% 0.0863 156.7)",
+          "oklch(75% 0.0690 156.7)",
+          "oklch(87% 0.0431 156.7)",
+          "oklch(95% 0.0173 156.7)"
+        ]
+      },
+      "notice-bg": {
+        "role": "neutral",
+        "displayName": "Notice Bg",
+        "tonalRamp": [
+          "oklch(15% 0.0050 128.7)",
+          "oklch(27% 0.0110 128.7)",
+          "oklch(39% 0.0160 128.7)",
+          "oklch(51% 0.0200 128.7)",
+          "oklch(63% 0.0200 128.7)",
+          "oklch(75% 0.0160 128.7)",
+          "oklch(87% 0.0100 128.7)",
+          "oklch(95% 0.0040 128.7)"
+        ]
+      },
+      "notice-ink": {
+        "role": "neutral",
+        "displayName": "Notice Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0121 149.5)",
+          "oklch(27% 0.0266 149.5)",
+          "oklch(39% 0.0387 149.5)",
+          "oklch(51% 0.0484 149.5)",
+          "oklch(63% 0.0484 149.5)",
+          "oklch(75% 0.0387 149.5)",
+          "oklch(87% 0.0242 149.5)",
+          "oklch(95% 0.0097 149.5)"
+        ]
+      },
+      "flag-red": {
+        "role": "neutral",
+        "displayName": "Flag Red",
+        "tonalRamp": [
+          "oklch(15% 0.0300 28.5)",
+          "oklch(27% 0.0660 28.5)",
+          "oklch(39% 0.0960 28.5)",
+          "oklch(51% 0.1200 28.5)",
+          "oklch(63% 0.1200 28.5)",
+          "oklch(75% 0.0960 28.5)",
+          "oklch(87% 0.0600 28.5)",
+          "oklch(95% 0.0240 28.5)"
+        ]
+      },
+      "flag-white": {
+        "role": "neutral",
+        "displayName": "Flag White",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.9)",
+          "oklch(27% 0.0000 89.9)",
+          "oklch(39% 0.0000 89.9)",
+          "oklch(51% 0.0000 89.9)",
+          "oklch(63% 0.0000 89.9)",
+          "oklch(75% 0.0000 89.9)",
+          "oklch(87% 0.0000 89.9)",
+          "oklch(95% 0.0000 89.9)"
+        ]
+      },
+      "flag-yellow": {
+        "role": "neutral",
+        "displayName": "Flag Yellow",
+        "tonalRamp": [
+          "oklch(15% 0.0297 77.1)",
+          "oklch(27% 0.0652 77.1)",
+          "oklch(39% 0.0949 77.1)",
+          "oklch(51% 0.1186 77.1)",
+          "oklch(63% 0.1186 77.1)",
+          "oklch(75% 0.0949 77.1)",
+          "oklch(87% 0.0593 77.1)",
+          "oklch(95% 0.0237 77.1)"
+        ]
+      },
+      "flag-blue": {
+        "role": "neutral",
+        "displayName": "Flag Blue",
+        "tonalRamp": [
+          "oklch(15% 0.0232 247.6)",
+          "oklch(27% 0.0509 247.6)",
+          "oklch(39% 0.0741 247.6)",
+          "oklch(51% 0.0926 247.6)",
+          "oklch(63% 0.0926 247.6)",
+          "oklch(75% 0.0741 247.6)",
+          "oklch(87% 0.0463 247.6)",
+          "oklch(95% 0.0185 247.6)"
+        ]
+      },
+      "dark-action": {
+        "role": "primary",
+        "displayName": "Dark Action",
+        "tonalRamp": [
+          "oklch(15% 0.0162 136.0)",
+          "oklch(27% 0.0356 136.0)",
+          "oklch(39% 0.0518 136.0)",
+          "oklch(51% 0.0647 136.0)",
+          "oklch(63% 0.0647 136.0)",
+          "oklch(75% 0.0518 136.0)",
+          "oklch(87% 0.0324 136.0)",
+          "oklch(95% 0.0129 136.0)"
+        ]
+      },
+      "dark-on-action": {
+        "role": "neutral",
+        "displayName": "Dark On Action",
+        "tonalRamp": [
+          "oklch(15% 0.0110 158.7)",
+          "oklch(27% 0.0243 158.7)",
+          "oklch(39% 0.0353 158.7)",
+          "oklch(51% 0.0441 158.7)",
+          "oklch(63% 0.0441 158.7)",
+          "oklch(75% 0.0353 158.7)",
+          "oklch(87% 0.0221 158.7)",
+          "oklch(95% 0.0088 158.7)"
+        ]
+      },
+      "dark-ground": {
+        "role": "neutral",
+        "displayName": "Dark Ground",
+        "tonalRamp": [
+          "oklch(15% 0.0049 160.3)",
+          "oklch(27% 0.0108 160.3)",
+          "oklch(39% 0.0158 160.3)",
+          "oklch(51% 0.0197 160.3)",
+          "oklch(63% 0.0197 160.3)",
+          "oklch(75% 0.0158 160.3)",
+          "oklch(87% 0.0099 160.3)",
+          "oklch(95% 0.0039 160.3)"
+        ]
+      },
+      "dark-panel": {
+        "role": "neutral",
+        "displayName": "Dark Panel",
+        "tonalRamp": [
+          "oklch(15% 0.0066 157.7)",
+          "oklch(27% 0.0145 157.7)",
+          "oklch(39% 0.0211 157.7)",
+          "oklch(51% 0.0264 157.7)",
+          "oklch(63% 0.0264 157.7)",
+          "oklch(75% 0.0211 157.7)",
+          "oklch(87% 0.0132 157.7)",
+          "oklch(95% 0.0053 157.7)"
+        ]
+      },
+      "dark-panel-2": {
+        "role": "neutral",
+        "displayName": "Dark Panel 2",
+        "tonalRamp": [
+          "oklch(15% 0.0087 152.3)",
+          "oklch(27% 0.0192 152.3)",
+          "oklch(39% 0.0280 152.3)",
+          "oklch(51% 0.0350 152.3)",
+          "oklch(63% 0.0350 152.3)",
+          "oklch(75% 0.0280 152.3)",
+          "oklch(87% 0.0175 152.3)",
+          "oklch(95% 0.0070 152.3)"
+        ]
+      },
+      "dark-rule": {
+        "role": "neutral",
+        "displayName": "Dark Rule",
+        "tonalRamp": [
+          "oklch(15% 0.0087 150.9)",
+          "oklch(27% 0.0191 150.9)",
+          "oklch(39% 0.0277 150.9)",
+          "oklch(51% 0.0346 150.9)",
+          "oklch(63% 0.0346 150.9)",
+          "oklch(75% 0.0277 150.9)",
+          "oklch(87% 0.0173 150.9)",
+          "oklch(95% 0.0069 150.9)"
+        ]
+      },
+      "dark-rule-strong": {
+        "role": "neutral",
+        "displayName": "Dark Rule Strong",
+        "tonalRamp": [
+          "oklch(15% 0.0105 143.8)",
+          "oklch(27% 0.0230 143.8)",
+          "oklch(39% 0.0335 143.8)",
+          "oklch(51% 0.0419 143.8)",
+          "oklch(63% 0.0419 143.8)",
+          "oklch(75% 0.0335 143.8)",
+          "oklch(87% 0.0209 143.8)",
+          "oklch(95% 0.0084 143.8)"
+        ]
+      },
+      "dark-ink": {
+        "role": "neutral",
+        "displayName": "Dark Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0033 111.3)",
+          "oklch(27% 0.0073 111.3)",
+          "oklch(39% 0.0106 111.3)",
+          "oklch(51% 0.0133 111.3)",
+          "oklch(63% 0.0133 111.3)",
+          "oklch(75% 0.0106 111.3)",
+          "oklch(87% 0.0066 111.3)",
+          "oklch(95% 0.0027 111.3)"
+        ]
+      },
+      "dark-ink-2": {
+        "role": "neutral",
+        "displayName": "Dark Ink 2",
+        "tonalRamp": [
+          "oklch(15% 0.0068 133.0)",
+          "oklch(27% 0.0151 133.0)",
+          "oklch(39% 0.0219 133.0)",
+          "oklch(51% 0.0274 133.0)",
+          "oklch(63% 0.0274 133.0)",
+          "oklch(75% 0.0219 133.0)",
+          "oklch(87% 0.0137 133.0)",
+          "oklch(95% 0.0055 133.0)"
+        ]
+      },
+      "dark-ink-3": {
+        "role": "neutral",
+        "displayName": "Dark Ink 3",
+        "tonalRamp": [
+          "oklch(15% 0.0092 140.0)",
+          "oklch(27% 0.0203 140.0)",
+          "oklch(39% 0.0295 140.0)",
+          "oklch(51% 0.0368 140.0)",
+          "oklch(63% 0.0368 140.0)",
+          "oklch(75% 0.0295 140.0)",
+          "oklch(87% 0.0184 140.0)",
+          "oklch(95% 0.0074 140.0)"
+        ]
+      },
+      "dark-turf": {
+        "role": "neutral",
+        "displayName": "Dark Turf",
+        "tonalRamp": [
+          "oklch(15% 0.0202 142.7)",
+          "oklch(27% 0.0444 142.7)",
+          "oklch(39% 0.0646 142.7)",
+          "oklch(51% 0.0808 142.7)",
+          "oklch(63% 0.0808 142.7)",
+          "oklch(75% 0.0646 142.7)",
+          "oklch(87% 0.0404 142.7)",
+          "oklch(95% 0.0162 142.7)"
+        ]
+      },
+      "dark-notice-bg": {
+        "role": "neutral",
+        "displayName": "Dark Notice Bg",
+        "tonalRamp": [
+          "oklch(15% 0.0104 142.1)",
+          "oklch(27% 0.0229 142.1)",
+          "oklch(39% 0.0333 142.1)",
+          "oklch(51% 0.0417 142.1)",
+          "oklch(63% 0.0417 142.1)",
+          "oklch(75% 0.0333 142.1)",
+          "oklch(87% 0.0208 142.1)",
+          "oklch(95% 0.0083 142.1)"
+        ]
+      },
+      "dark-notice-ink": {
+        "role": "neutral",
+        "displayName": "Dark Notice Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0097 133.2)",
+          "oklch(27% 0.0213 133.2)",
+          "oklch(39% 0.0310 133.2)",
+          "oklch(51% 0.0387 133.2)",
+          "oklch(63% 0.0387 133.2)",
+          "oklch(75% 0.0310 133.2)",
+          "oklch(87% 0.0193 133.2)",
+          "oklch(95% 0.0077 133.2)"
+        ]
+      },
+      "dark-flag-red": {
+        "role": "neutral",
+        "displayName": "Dark Flag Red",
+        "tonalRamp": [
+          "oklch(15% 0.0270 34.4)",
+          "oklch(27% 0.0595 34.4)",
+          "oklch(39% 0.0865 34.4)",
+          "oklch(51% 0.1082 34.4)",
+          "oklch(63% 0.1082 34.4)",
+          "oklch(75% 0.0865 34.4)",
+          "oklch(87% 0.0541 34.4)",
+          "oklch(95% 0.0216 34.4)"
+        ]
+      },
+      "dark-flag-white": {
+        "role": "neutral",
+        "displayName": "Dark Flag White",
+        "tonalRamp": [
+          "oklch(15% 0.0033 111.3)",
+          "oklch(27% 0.0073 111.3)",
+          "oklch(39% 0.0106 111.3)",
+          "oklch(51% 0.0133 111.3)",
+          "oklch(63% 0.0133 111.3)",
+          "oklch(75% 0.0106 111.3)",
+          "oklch(87% 0.0066 111.3)",
+          "oklch(95% 0.0027 111.3)"
+        ]
+      },
+      "dark-flag-yellow": {
+        "role": "neutral",
+        "displayName": "Dark Flag Yellow",
+        "tonalRamp": [
+          "oklch(15% 0.0201 82.7)",
+          "oklch(27% 0.0441 82.7)",
+          "oklch(39% 0.0642 82.7)",
+          "oklch(51% 0.0803 82.7)",
+          "oklch(63% 0.0803 82.7)",
+          "oklch(75% 0.0642 82.7)",
+          "oklch(87% 0.0401 82.7)",
+          "oklch(95% 0.0161 82.7)"
+        ]
+      },
+      "dark-flag-blue": {
+        "role": "neutral",
+        "displayName": "Dark Flag Blue",
+        "tonalRamp": [
+          "oklch(15% 0.0163 243.7)",
+          "oklch(27% 0.0358 243.7)",
+          "oklch(39% 0.0521 243.7)",
+          "oklch(51% 0.0652 243.7)",
+          "oklch(63% 0.0652 243.7)",
+          "oklch(75% 0.0521 243.7)",
+          "oklch(87% 0.0326 243.7)",
+          "oklch(95% 0.0130 243.7)"
+        ]
+      },
+      "photo-ground": {
+        "role": "neutral",
+        "displayName": "Photo Ground",
+        "tonalRamp": [
+          "oklch(15% 0.0030 111.8)",
+          "oklch(27% 0.0066 111.8)",
+          "oklch(39% 0.0096 111.8)",
+          "oklch(51% 0.0120 111.8)",
+          "oklch(63% 0.0120 111.8)",
+          "oklch(75% 0.0096 111.8)",
+          "oklch(87% 0.0060 111.8)",
+          "oklch(95% 0.0024 111.8)"
+        ]
+      },
+      "photo-label": {
+        "role": "neutral",
+        "displayName": "Photo Label",
+        "tonalRamp": [
+          "oklch(15% 0.0020 98.9)",
+          "oklch(27% 0.0044 98.9)",
+          "oklch(39% 0.0064 98.9)",
+          "oklch(51% 0.0080 98.9)",
+          "oklch(63% 0.0080 98.9)",
+          "oklch(75% 0.0064 98.9)",
+          "oklch(87% 0.0040 98.9)",
+          "oklch(95% 0.0016 98.9)"
+        ]
+      },
+      "dialog-backdrop": {
+        "role": "neutral",
+        "displayName": "Dialog Backdrop",
+        "tonalRamp": [
+          "oklch(15% 0.0055 169.6)",
+          "oklch(27% 0.0121 169.6)",
+          "oklch(39% 0.0176 169.6)",
+          "oklch(51% 0.0220 169.6)",
+          "oklch(63% 0.0220 169.6)",
+          "oklch(75% 0.0176 169.6)",
+          "oklch(87% 0.0110 169.6)",
+          "oklch(95% 0.0044 169.6)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Page task headings."
+      },
+      "instruction": {
+        "displayName": "Instruction",
+        "purpose": "One short Thai action per instructional step."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Section labels."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Instructional and reading text."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Supporting copy, metadata and captions."
+      },
+      "amount": {
+        "displayName": "Amount",
+        "purpose": "Time and tray selection; uses the same Anuphan family."
+      }
+    },
+    "shadows": [
+      {
+        "name": "photo-label",
+        "value": "0 1px 8px #18382B18",
+        "purpose": "Local separation for the zoom label over a photograph; no general card shadow."
+      }
+    ],
+    "motion": [
+      {
+        "name": "button-press",
+        "value": "transform .1s",
+        "purpose": "Button press feedback to scale(.98). Disabled by reduced motion."
+      },
+      {
+        "name": "state-background",
+        "value": "background .15s",
+        "purpose": "Background state changes. Disabled by reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "640px"
+      },
+      {
+        "name": "narrow-max",
+        "value": "375px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Full-width action for starting or continuing practice.",
+      "html": "<button class=\"ds-control ds-primary\">เริ่มซ้อม</button>",
+      "css": ".ds-control {font-family:var(--font-ui);font-size:16px;min-height:44px;border-radius:12px;padding:10px 16px;cursor:pointer;transition:transform .1s,background .15s;} .ds-control:hover {filter:none;} .ds-primary {width:100%;min-height:56px;background:var(--action);color:var(--on-action);border:0;font-weight:700;font-size:17px;line-height:1.45;} .ds-control:focus-visible {outline:2px solid var(--action);outline-offset:2px;} .ds-control:active {transform:scale(.98);} .ds-control:disabled {background:var(--panel-2);color:var(--ink-3);cursor:not-allowed;}"
+    },
+    {
+      "name": "Secondary button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Outlined step or supporting action.",
+      "html": "<button class=\"ds-control ds-secondary\">ก่อนหน้า</button>",
+      "css": ".ds-control {font-family:var(--font-ui);font-size:16px;min-height:44px;border-radius:12px;padding:10px 16px;cursor:pointer;transition:transform .1s,background .15s;} .ds-control:hover {filter:none;} .ds-secondary {background:transparent;color:var(--ink);border:1px solid var(--rule-strong);font-weight:600;line-height:1.45;} .ds-control:focus-visible {outline:2px solid var(--action);outline-offset:2px;} .ds-control:active {transform:scale(.98);} .ds-control:disabled {background:var(--panel-2);color:var(--ink-3);cursor:not-allowed;}"
+    },
+    {
+      "name": "Ghost button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Quiet underlined action.",
+      "html": "<button class=\"ds-control ds-ghost\">ทิ้ง</button>",
+      "css": ".ds-control {font-family:var(--font-ui);font-size:16px;min-height:44px;border-radius:12px;padding:10px 16px;cursor:pointer;transition:transform .1s,background .15s;} .ds-control:hover {filter:none;} .ds-ghost {background:transparent;color:var(--ink-2);border:0;font-weight:500;text-decoration:underline;text-underline-offset:3px;} .ds-control:focus-visible {outline:2px solid var(--action);outline-offset:2px;} .ds-control:active {transform:scale(.98);} .ds-control:disabled {background:var(--panel-2);color:var(--ink-3);cursor:not-allowed;}"
+    },
+    {
+      "name": "Choice chip",
+      "kind": "chip",
+      "refersTo": "chip-selected",
+      "description": "Pressed state for a filter or preference.",
+      "html": "<button class=\"ds-control ds-chip\" aria-pressed=\"true\">ทั้งหมด</button>",
+      "css": ".ds-control {font-family:var(--font-ui);font-size:16px;min-height:44px;border-radius:12px;padding:10px 16px;cursor:pointer;transition:transform .1s,background .15s;} .ds-control:hover {filter:none;} .ds-chip {border:1px solid var(--ink);border-radius:999px;padding:0 16px;background:var(--ink);color:var(--ground);font-weight:600;} .ds-control:focus-visible {outline:2px solid var(--action);outline-offset:2px;} .ds-control:active {transform:scale(.98);} .ds-control:disabled {background:var(--panel-2);color:var(--ink-3);cursor:not-allowed;}"
+    },
+    {
+      "name": "Paper card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "A single bordered reading surface.",
+      "html": "<section class=\"ds-card\"><h2>ซ้อมวันนี้</h2><p>เลือกเวลาที่มี แล้วฝึกทีละเรื่อง</p></section>",
+      "css": ".ds-card {font-family:var(--font-ui);background:var(--panel);color:var(--ink);border:1px solid var(--rule);border-radius:18px;padding:20px;} .ds-card h2 {font-size:17px;line-height:1.35;margin:0;font-weight:600;} .ds-card p {font-size:16px;line-height:1.5;margin:12px 0 0;color:var(--ink-2);}"
+    },
+    {
+      "name": "Numeric input",
+      "kind": "input",
+      "refersTo": "input-number",
+      "description": "Minimum-height analysis field.",
+      "html": "<label class=\"ds-field\">เริ่ม <input class=\"ds-control ds-number\" type=\"number\" value=\"0\" /></label>",
+      "css": ".ds-control {font-family:var(--font-ui);font-size:16px;min-height:44px;border-radius:12px;padding:10px 16px;cursor:pointer;transition:transform .1s,background .15s;} .ds-control:hover {filter:none;} .ds-field {display:grid;gap:6px;font-family:var(--font-ui);color:var(--ink);} .ds-number {width:100%;padding:8px;border:1px solid var(--rule-strong);border-radius:8px;background:var(--panel);color:var(--ink);} .ds-control:focus-visible {outline:2px solid var(--action);outline-offset:2px;} .ds-control:active {transform:scale(.98);} .ds-control:disabled {background:var(--panel-2);color:var(--ink-3);cursor:not-allowed;}"
+    },
+    {
+      "name": "Selected practice amount",
+      "kind": "button",
+      "refersTo": "amount-selected",
+      "description": "Selected time with a separately readable unit.",
+      "html": "<button class=\"ds-control ds-amount\" aria-pressed=\"true\"><strong>15</strong><span>นาที</span></button>",
+      "css": ".ds-control {font-family:var(--font-ui);font-size:16px;min-height:44px;border-radius:12px;padding:10px 16px;cursor:pointer;transition:transform .1s,background .15s;} .ds-control:hover {filter:none;} .ds-amount {display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:84px;padding:6px 4px;min-width:84px;border:1px solid var(--action);background:var(--action);color:var(--on-action);box-shadow:inset 0 0 0 1px var(--action);} .ds-amount strong {font-size:30px;line-height:1.2;font-weight:700;letter-spacing:-.04em;font-variant-numeric:tabular-nums;} .ds-amount span {font-size:14px;} .ds-control:focus-visible {outline:2px solid var(--action);outline-offset:2px;} .ds-control:active {transform:scale(.98);} .ds-control:disabled {background:var(--panel-2);color:var(--ink-3);cursor:not-allowed;}"
+    },
+    {
+      "name": "Four-tab navigation",
+      "kind": "nav",
+      "refersTo": "navigation-active",
+      "description": "Fixed in the app; preview shows its internal row. Drill screens hide it.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"เมนูหลัก\"><button class=\"ds-control ds-tab\" aria-current=\"page\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" aria-hidden=\"true\"><path d=\"M6 21V4m0 0c4-3 8 3 12 0v9c-4 3-8-3-12 0\"/></svg>ฝึก</button><button class=\"ds-control ds-tab\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" aria-hidden=\"true\"><path d=\"M4 4h6l2 2 2-2h6v16h-6l-2 2-2-2H4zM12 6v16\"/></svg>ท่าพื้นฐาน</button><button class=\"ds-control ds-tab\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" aria-hidden=\"true\"><path d=\"M3 5h13v14H3zM16 10l5-3v10l-5-3\"/></svg>วิดีโอ</button><button class=\"ds-control ds-tab\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" aria-hidden=\"true\"><path d=\"M12 8v4l3 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0\"/></svg>ประวัติ</button></nav>",
+      "css": ".ds-control {font-family:var(--font-ui);font-size:16px;min-height:44px;border-radius:12px;padding:10px 16px;cursor:pointer;transition:transform .1s,background .15s;} .ds-control:hover {filter:none;} .ds-nav {display:flex;background:var(--ground);border-top:1px solid var(--rule);padding:8px;gap:0;} .ds-tab {display:flex;flex:1;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-height:60px;font-size:13px;background:transparent;border:0;color:var(--ink-2);padding:0 3px;} .ds-tab[aria-current=\"page\"] {background:var(--panel-2);color:var(--ink);font-weight:600;} .ds-control:focus-visible {outline:2px solid var(--action);outline-offset:2px;} .ds-control:active {transform:scale(.98);} .ds-control:disabled {background:var(--panel-2);color:var(--ink-3);cursor:not-allowed;}"
+    },
+    {
+      "name": "Observable self-check",
+      "kind": "custom",
+      "refersTo": "self-check",
+      "description": "Supporting instruction immediately after the action.",
+      "html": "<section class=\"ds-check\"><strong>เช็กตัวเอง</strong><p>ลองช้า ๆ แล้วสังเกตท่าของตัวเอง</p></section>",
+      "css": ".ds-check {font-family:var(--font-ui);padding:16px 18px;background:var(--panel-2);color:var(--ink);border-radius:12px;} .ds-check strong {font-size:14px;font-weight:700;} .ds-check p {font-size:16px;line-height:1.75;margin:4px 0 0;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Coach Handbook",
+    "overview": "SwingLog is a calm, practical handbook opened beside a hitting bay. Cream paper, forest controls and generous margins let a realistic fictional human demonstration lead the golfer into one short Thai action and an observable self-check. The screen supports reading and doing at the golfer’s pace.\n\nThe story runs from practice plan to session, illustrated steps, shot logging and history. The opening setup photograph and time selector establish that purpose. Light is the default for new users; saved light, dark or device preferences remain respected. This document replaces the former “Floodlit bay” direction and records the current code, rather than a pixel composition.",
+    "keyCharacteristics": [
+      "Image first; one action and one observable self-check per step.",
+      "Cream and forest in daylight; deep green and pastel action in dark mode.",
+      "One Anuphan voice for Thai, Latin and numerals.",
+      "Manual steps, image zoom and a persistent four-tab shell."
+    ],
+    "rules": [
+      {
+        "name": "The Image–Action–Check Rule",
+        "body": "Present the demonstration, one short Thai action, then an observable self-check in that order. Diagrams remain supplementary.",
+        "section": "components"
+      },
+      {
+        "name": "The One Voice Rule",
+        "body": "Use self-hosted Anuphan for interface text and numerals. Numeric measures may use tabular figures, without a second display family.",
+        "section": "typography"
+      },
+      {
+        "name": "The Paper Surface Rule",
+        "body": "Use tonal surfaces and fine rules for grouping. Resting cards and the start action have no floating shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do pair every instructional step with a visible demonstration, short Thai action and observable self-check.",
+      "Do keep Thai copy and target labels outside the mirrored image wrapper; normalize source handedness per asset before adapting it to the golfer.",
+      "Do keep interactive targets at least 44px and reserve 116px beneath main content for fixed navigation.",
+      "Do retain saved theme and instruction progress, support large text and reduced motion, and allow image zoom.",
+      "Do label AI illustrations as fictional and keep professional review and tests with three real beginners explicitly pending."
+    ],
+    "donts": [
+      "Don’t autoplay instructional steps or make a diagram the primary human demonstration.",
+      "Don’t reintroduce the condensed numeral face, floodlight glow or yellow primary action from the superseded design.",
+      "Don’t use emoji, gradient text or decorative nested card grids; use inline SVG and rule-separated rows.",
+      "Don’t present AI illustrations, simulated personas or automated screening as professional approval, real-user validation or measured ball-flight evidence."
+    ]
+  }
+}

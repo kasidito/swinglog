@@ -29,12 +29,12 @@ export const DIAGRAMS: Record<string, El[]> = {
   ],
   'path-gate': [
     { t: 'feet', ...F }, { t: 'ball', ...B },
-    { t: 'tee', x: 102, y: 116 }, { t: 'tee', x: 122, y: 116 }, { t: 'tee', x: 102, y: 84 }, { t: 'tee', x: 122, y: 84 },
+    { t: 'stick', x1: 98, y1: 132, x2: 98, y2: 68 }, { t: 'stick', x1: 126, y1: 132, x2: 126, y2: 68 },
     { t: 'line', x1: 112, y1: 132, x2: 112, y2: 68, kind: 'path' }, { t: 'text', x: 156, y: 66, s: 'ช่องให้หัวไม้ผ่าน' },
   ],
   'anti-slice-stick': [
     { t: 'feet', ...F }, { t: 'ball', ...B }, { t: 'stick', x1: 140, y1: 126, x2: 132, y2: 80 },
-    { t: 'line', x1: 128, y1: 128, x2: 104, y2: 74, kind: 'path' }, { t: 'text', x: 160, y: 70, s: 'อย่าแตะไม้นี้' },
+    { t: 'line', x1: 128, y1: 128, x2: 104, y2: 74, kind: 'path' }, { t: 'text', x: 154, y: 66, s: 'ไม้ราบพ้นทาง' },
   ],
   'split-grip': [{ t: 'grip', gap: 26 }],
   'feet-together': [{ t: 'feet', x: 84, y: 100, gap: 2 }, { t: 'ball', x: 108, y: 100 }, { t: 'text', x: 84, y: 136, s: 'เท้าชิด' }],
@@ -99,7 +99,8 @@ export const DIAGRAMS: Record<string, El[]> = {
   ],
   'bunker-tee-entry': [
     { t: 'zone', x: 0, y: 30, w: 200, h: 120, kind: 'sand' }, { t: 'feet', x: 78, y: 96 }, { t: 'ball', x: 111, y: 96 },
-    { t: 'tee', x: 111, y: 110 }, { t: 'tee', x: 111, y: 70 }, { t: 'text', x: 146, y: 112, s: 'เข้า 5 ซม.' }, { t: 'text', x: 146, y: 72, s: 'ออก 10 ซม.' },
+    { t: 'tee', x: 138, y: 110 }, { t: 'tee', x: 138, y: 70 }, { t: 'text', x: 166, y: 112, s: 'แนวเข้า' }, { t: 'text', x: 166, y: 72, s: 'แนวออก' },
+    { t: 'line', x1: 111, y1: 122, x2: 111, y2: 60, kind: 'path' }, { t: 'text', x: 105, y: 144, s: 'วางทีข้างทางหัวไม้' },
   ],
 };
 

@@ -5,9 +5,13 @@ import {
 } from './engine';
 import Analyze from './Analyze';
 import DrillDiagram from './DrillDiagram';
+import InstructionViewer, { CoachingImage } from './InstructionViewer';
+import Learn from './Learn';
+import { lessonById } from './coaching';
+import GuideIcon from './GuideIcon';
 import { AppState, Session, defaultState, isPersistent, load, requestPersist, save, uid } from './store';
 
-type Screen = 'home' | 'session' | 'drill' | 'summary' | 'history' | 'settings' | 'video';
+type Screen = 'home' | 'session' | 'drill' | 'summary' | 'history' | 'settings' | 'video' | 'learn';
 const drillById = (id: string) => DRILLS.find((d) => d.id === id);
 const EQUIP: Record<string, string> = { driver: 'ไดรเวอร์', iron: 'เหล็ก', wedge: 'เวดจ์', putter: 'พัตเตอร์', alignment_stick: 'ไม้ชี้แนว', tee: 'ที', towel: 'ผ้า' };
 const FLIGHTS: { id: Flight; label: string; path: string }[] = [
@@ -50,7 +54,7 @@ const Icon = ({ d, size = 22 }: { d: string; size?: number }) => (
 );
 const I = {
   flag: 'M5 21V4M5 4l12 4-12 5', check: 'M5 12l5 5 9-10', clock: 'M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0-18M12 7v5l3 2',
-  gear: 'M12 9a3 3 0 1 0 0 6a3 3 0 0 0 0-6M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1',
+  gear: 'M9 2h6v3l2 1 2-2 3 5-2 2v2l2 2-3 5-2-2-2 1v3H9v-3l-2-1-2 2-3-5 2-2v-2L2 9l3-5 2 2 2-1zM12 8a4 4 0 1 0 0 8a4 4 0 0 0 0-8',
   back: 'M15 18l-6-6 6-6',
   ball: 'M12 4a8 8 0 1 0 0 16a8 8 0 0 0 0-16M9.5 9.5h.01M13 8.5h.01M14.5 11.5h.01M11 12.5h.01',
   tool: 'M5 19L19 5M15 5h4v4',
@@ -64,6 +68,8 @@ export default function App() {
   const [drillId, setDrillId] = useState<string | null>(null);
   const [summaryId, setSummaryId] = useState<string | null>(null);
   const [notices, setNotices] = useState<string[]>([]);
+  const [lessonId, setLessonId] = useState<string | null>(null);
+  const [lessonReturn, setLessonReturn] = useState<'learn' | 'drill'>('learn');
 
   useEffect(() => { load().then(setState); requestPersist(); }, []);
   useEffect(() => { if (state) save(state); }, [state]);
@@ -81,6 +87,9 @@ export default function App() {
   const update = (fn: (s: AppState) => AppState) => setState((s) => (s ? fn(s) : s));
   const active = state.sessions.find((s) => s.status === 'active') ?? null;
   const go = (s: Screen) => { setScreen(s); window.scrollTo(0, 0); };
+  const progress = state.coachingProgress ?? {};
+  const setStep = (id: string, n: number) => update(s => ({ ...s, coachingProgress: { ...s.coachingProgress, [id]: n } }));
+  const openLesson = (id: string, fromDrill = false) => { setLessonId(id); setLessonReturn(fromDrill ? 'drill' : 'learn'); go('learn'); };
 
   const startSession = (unit: 'min' | 'ball', amount: number, symptomId: string | null) => {
     const recent = state.sessions.filter((s) => s.status === 'completed').slice(-3).flatMap((s) => s.doneDrillIds);
@@ -118,31 +127,33 @@ export default function App() {
 
   let body: JSX.Element;
   if (screen === 'session' && active) body = <SessionScreen session={active} notices={notices} onOpen={(id) => { setDrillId(id); go('drill'); }} onDone={markDone} onFinish={finish} onAbandon={abandon} state={state} />;
-  else if (screen === 'drill' && active && drillId) body = <DrillScreen drill={drillById(drillId)!} session={active} state={state} onBack={() => go('session')} onDone={() => { markDone(drillId); go('session'); }} onShot={(f) => logShot(drillId, f)} />;
+  else if (screen === 'drill' && active && drillId && drillById(drillId)) body = <DrillScreen drill={drillById(drillId)!} session={active} state={state} step={progress[drillId] ?? 0} onStep={n => setStep(drillId, n)} onLesson={id => openLesson(id, true)} onBack={() => go('session')} onDone={() => { markDone(drillId); go('session'); }} onShot={(f) => logShot(drillId, f)} />;
+  else if (screen === 'learn') body = <Learn id={lessonId} left={settings.handedness === 'left'} progress={progress} onStep={setStep} onOpen={id => openLesson(id)} returnToDrill={lessonReturn === 'drill' && !!active} onBack={() => { if (lessonReturn === 'drill' && active) go('drill'); else { setLessonId(null); go('learn'); } }} />;
   else if (screen === 'summary' && summaryId) body = <SummaryScreen state={state} sessionId={summaryId} onHome={() => go('home')} />;
   else if (screen === 'history') body = <HistoryScreen state={state} onDelete={(id) => update((s) => ({ ...s, sessions: s.sessions.filter((x) => x.id !== id), shots: s.shots.filter((x) => x.sessionId !== id) }))} />;
   else if (screen === 'video') body = <Analyze left={settings.handedness === 'left'} canLog={!!active} onLog={(f) => logShot('video', f)} />;
   else if (screen === 'settings') body = <SettingsScreen state={state} onChange={(patch) => update((s) => ({ ...s, settings: { ...s.settings, ...patch } }))} onReset={() => setState(defaultState())} onImport={(n) => setState(n)} />;
-  else body = <HomeScreen state={state} active={active} onStart={startSession} onResume={() => go('session')} onAbandon={abandon} />;
+  else body = <HomeScreen state={state} active={active} onStart={startSession} onResume={() => go('session')} onAbandon={abandon} onLearn={() => openLesson('alignment')} />;
 
-  const tab = screen === 'history' ? 'history' : screen === 'settings' ? 'settings' : screen === 'video' ? 'video' : 'home';
+  const tab = screen === 'history' ? 'history' : screen === 'learn' ? 'learn' : screen === 'video' ? 'video' : 'home';
   return (
     <div className="app">
+      <header className="app-header"><Wordmark /><button type="button" className="header-settings" aria-label="ตั้งค่า" onClick={() => go('settings')}><Icon d={I.gear} /></button></header>
       <main className="screen">{body}</main>
       {screen !== 'drill' && (
         <nav className="tabs" aria-label="เมนูหลัก">
           <button type="button" aria-current={tab === 'home' ? 'page' : undefined} onClick={() => go(active && screen !== 'home' ? 'session' : 'home')}><Icon d={I.flag} />ฝึก</button>
+          <button type="button" aria-current={tab === 'learn' ? 'page' : undefined} onClick={() => { setLessonId(null); setLessonReturn('learn'); go('learn'); }}><Icon d="M4 4h6l2 2 2-2h6v16h-6l-2 2-2-2H4zM12 6v16" />ท่าพื้นฐาน</button>
           <button type="button" aria-current={tab === 'video' ? 'page' : undefined} onClick={() => go('video')}><Icon d={I.cam} />วิดีโอ</button>
           <button type="button" aria-current={tab === 'history' ? 'page' : undefined} onClick={() => go('history')}><Icon d={I.clock} />ประวัติ</button>
-          <button type="button" aria-current={tab === 'settings' ? 'page' : undefined} onClick={() => go('settings')}><Icon d={I.gear} />ตั้งค่า</button>
         </nav>
       )}
     </div>
   );
 }
 
-function HomeScreen({ state, active, onStart, onResume, onAbandon }: {
-  state: AppState; active: Session | null; onStart: (u: 'min' | 'ball', a: number, s: string | null) => void; onResume: () => void; onAbandon: () => void;
+function HomeScreen({ state, active, onStart, onResume, onAbandon, onLearn }: {
+  state: AppState; active: Session | null; onStart: (u: 'min' | 'ball', a: number, s: string | null) => void; onResume: () => void; onAbandon: () => void; onLearn: () => void;
 }) {
   const st = state.settings;
   const [unit, setUnit] = useState<'min' | 'ball'>(st.lastUnit);
@@ -160,8 +171,8 @@ function HomeScreen({ state, active, onStart, onResume, onAbandon }: {
   return (
     <>
       <header className="masthead">
-        <Wordmark />
-        <h1>วันนี้ฝึกอะไรดี</h1>
+        <h1>ซ้อมวันนี้<br /><span className="heading-soft">ให้เข้าใจมากขึ้น</span></h1>
+        <p className="lede">เลือกเวลาที่มี แล้วฝึกทีละเรื่อง</p>
         {suggestion && <p className="lede">ลูกที่บันทึกไว้ส่วนใหญ่ออกเป็น<strong>{symptomText(suggestion, left).name}</strong> แอปเลือกให้แล้ว เปลี่ยนได้</p>}
       </header>
       {active && (
@@ -172,6 +183,10 @@ function HomeScreen({ state, active, onStart, onResume, onAbandon }: {
           <button type="button" className="btn btn-ghost" onClick={onAbandon}>ทิ้ง</button>
         </div>
       )}
+      <button type="button" className="coaching-entry" onClick={onLearn}>
+        <CoachingImage id="alignment" frame={1} left={left} alt="ผู้สาธิตตั้งแนวเท้าขนานไม้ชี้แนว โดยมีลูกอยู่หน้าหัวไม้" />
+        <span><strong>ตั้งท่าให้พร้อม<br />ก่อนลูกแรก</strong><span>ดูแนวยืนทีละขั้น <GuideIcon kind="right" /></span><small>ภาพประกอบ AI · รอโปรตรวจ</small></span>
+      </button>
       <section className="board" aria-labelledby="amt-q">
         <div className="board-head">
           <h2 id="amt-q">{unit === 'min' ? 'มีเวลาเท่าไหร่' : 'ซื้อลูกกี่ถาด'}</h2>
@@ -190,7 +205,7 @@ function HomeScreen({ state, active, onStart, onResume, onAbandon }: {
         </div>
       </section>
       <section aria-labelledby="sym-q">
-        <h2 id="sym-q" className="section-title">ปัญหาที่เจอ</h2>
+        <h2 id="sym-q" className="section-title">วันนี้อยากฝึกเรื่องไหน</h2>
         <div className="symlist" role="group" aria-labelledby="sym-q">
           {options.map((id) => {
             const t = symptomText(id, left);
@@ -206,7 +221,7 @@ function HomeScreen({ state, active, onStart, onResume, onAbandon }: {
         {unit === 'ball' && <p className="muted">โหมดถาดใช้เฉพาะดริลสวิงเต็มในช่องตี ลูกที่เหลือเป็นตีอิสระ</p>}
         {unit === 'min' && !st.hasGreen && <p className="muted">ซ่อนพัตต์และชิปไว้ เพราะตั้งค่าว่าไม่มีกรีนซ้อม</p>}
       </section>
-      <div className="spacer" />
+      <div className="practice-recap"><strong>แผนที่เลือก</strong><span>{unit === 'min' ? `${amt} นาที` : `${amt / BALLS_PER_TRAY} ถาด · ${amt} ลูก`} · {symptomText(chosen, left).name}</span><small>ดูรายการดริลและภาพสอนก่อนลงมือได้ในขั้นถัดไป</small></div>
       <button type="button" className="btn btn-primary dock" onClick={() => onStart(unit, amt, chosen)}>เริ่มเซสชัน</button>
     </>
   );
@@ -231,7 +246,7 @@ function SessionScreen({ session, notices, state, onOpen, onDone, onFinish, onAb
           const d = drillById(id);
           const isDone = session.doneDrillIds.includes(id);
           const isNext = !isDone && session.drillIds.findIndex((x) => !session.doneDrillIds.includes(x)) === i;
-          const dist = 100 + i * 50;
+          const dist = String(i + 1).padStart(2, '0');
           const flag = FLAG_COLORS[i % FLAG_COLORS.length];
           if (!d) return <li key={id} className="lane-row"><span className="muted">ดริลนี้ถูกเลิกใช้แล้ว</span></li>;
           return (
@@ -280,15 +295,17 @@ function FlightIcon({ path, mirror }: { path: string; mirror: boolean }) {
   );
 }
 
-function DrillScreen({ drill, session, state, onBack, onDone, onShot }: {
-  drill: Drill; session: Session; state: AppState; onBack: () => void; onDone: () => void; onShot: (f: Flight) => void;
+function DrillScreen({ drill, session, state, step, onStep, onLesson, onBack, onDone, onShot }: {
+  drill: Drill; session: Session; state: AppState; step: number; onStep: (n: number) => void; onLesson: (id: string) => void; onBack: () => void; onDone: () => void; onShot: (f: Flight) => void;
 }) {
   const left = state.settings.handedness === 'left';
   const shots = state.shots.filter((s) => s.sessionId === session.id && s.drillId === drill.id);
   const [flash, setFlash] = useState<Flight | null>(null);
   const timer = useRef<number>();
+  useEffect(() => () => window.clearTimeout(timer.current), []);
   const tap = (f: Flight) => { onShot(f); setFlash(f); window.clearTimeout(timer.current); timer.current = window.setTimeout(() => setFlash(null), 350); };
   const isDone = session.doneDrillIds.includes(drill.id);
+  const lesson = lessonById(drill.id);
   return (
     <>
       <div className="topbar">
@@ -306,12 +323,9 @@ function DrillScreen({ drill, session, state, onBack, onDone, onShot }: {
           {drill.sources.length < 2 && <span>รอตรวจสอบเนื้อหา</span>}
         </div>
       </header>
-      <DrillDiagram id={drill.id} left={left} />
-      <section className="card">
-        <h2 style={{ marginBottom: 8 }}>ขั้นตอน</h2>
-        <ol className="steps">{drill.steps.map((s) => <li key={s}>{s}</li>)}</ol>
-        {left && <p className="muted">คนถนัดซ้าย: สลับซ้าย/ขวาในขั้นตอน</p>}
-      </section>
+      {lesson ? <InstructionViewer lesson={lesson} left={left} step={step} onStep={onStep} /> : <ol className="steps">{drill.steps.map(s => <li key={s}>{s}</li>)}</ol>}
+      {lesson && <section className="related-lesson"><h2>ทบทวนก่อนลอง</h2>{lesson.related.map(id => <button type="button" key={id} onClick={() => onLesson(id)}>{lessonById(id)?.title} <span>เปิดบทเรียน <GuideIcon kind="right" /></span></button>)}<p className="muted">กลับมาดริลนี้ได้ ขั้นตอนและลูกที่บันทึกไว้ยังอยู่</p></section>}
+      <details className="diagram-details"><summary>ดูผังอุปกรณ์และแนวตีเพิ่มเติม</summary><DrillDiagram id={drill.id} left={left} /></details>
       {fullSwing(drill) && (
         <section className="stack">
           <div className="row"><h2>ลูกนี้ไปทางไหน</h2><span className="spacer" /><span className="muted">บันทึกแล้ว {shots.length}{drill.balls ? ` จาก ${drill.balls}` : ''} ลูก</span></div>
@@ -463,7 +477,8 @@ export function parseBackup(text: string): AppState | null {
   try {
     const d = JSON.parse(text);
     if (d && d.schemaVersion === 1 && Array.isArray(d.sessions) && Array.isArray(d.shots) && d.settings) {
-      return { schemaVersion: 1, settings: { ...defaultState().settings, ...d.settings }, sessions: d.sessions, shots: d.shots };
+      const coachingProgress = Object.fromEntries(Object.entries(d.coachingProgress ?? {}).filter(([id, n]) => lessonById(id) && Number.isInteger(n) && Number(n) >= 0 && Number(n) < lessonById(id)!.steps.length));
+      return { schemaVersion: 1, settings: { ...defaultState().settings, ...d.settings }, sessions: d.sessions, shots: d.shots, coachingProgress: coachingProgress as Record<string, number> };
     }
   } catch { /* invalid JSON */ }
   return null;
@@ -471,6 +486,7 @@ export function parseBackup(text: string): AppState | null {
 
 function SettingsScreen({ state, onChange, onReset, onImport }: { state: AppState; onChange: (p: Partial<AppState['settings']>) => void; onReset: () => void; onImport: (s: AppState) => void }) {
   const s = state.settings;
+  const importInput = useRef<HTMLInputElement>(null);
   const [pending, setPending] = useState<AppState | null>(null);
   const [importMsg, setImportMsg] = useState('');
   const readFile = async (f: File | undefined) => {
@@ -528,10 +544,8 @@ function SettingsScreen({ state, onChange, onReset, onImport }: { state: AppStat
           <button type="button" className="btn btn-secondary" onClick={copyData}>คัดลอกข้อมูล</button>
         </div>
         {copied && <span className="muted" aria-live="polite">{copied}</span>}
-        <label className="btn btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
-          นำเข้าข้อมูลสำรอง (JSON)
-          <input type="file" accept="application/json,.json" hidden onChange={(e) => readFile(e.target.files?.[0])} />
-        </label>
+        <button type="button" className="btn btn-secondary" onClick={() => importInput.current?.click()}>นำเข้าข้อมูลสำรอง (JSON)</button>
+        <input ref={importInput} type="file" accept="application/json,.json" hidden onChange={(e) => readFile(e.target.files?.[0])} />
         {importMsg && <span className="muted" aria-live="polite">{importMsg}</span>}
         {pending && <button type="button" className="btn btn-small" onClick={() => { onImport(pending); setPending(null); setImportMsg('นำเข้าข้อมูลแล้ว'); }}>ยืนยันการนำเข้า</button>}
         <ConfirmButton label="ลบข้อมูลทั้งหมด" confirmLabel="แตะอีกครั้งเพื่อลบทั้งหมด" onConfirm={onReset} />

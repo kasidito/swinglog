@@ -1,0 +1,29 @@
+{
+  "browser": "156.0.8078.79",
+  "url": "http://localhost:5177/",
+  "checks": [
+    "keyboard ball placement",
+    "metadata, honest time-step labels and 360/390/768px overflow",
+    "manual phase order rejects reversed markers and supports correction",
+    "synthetic ball follows expected endpoint (90 points), JSON provenance without media bytes",
+    "manual correction truncates downstream track and can resume",
+    "loss stops without fabricated landing; replacing clip resets results",
+    "cancellation returns controls with partial evidence",
+    "invalid range validation and navigation abort/reset",
+    "real MediaPipe classic worker, visibility gate and address comparison (non-golf public sample)",
+    "PWA offline reload and fresh pose worker after assets prepared",
+    "cold model download failure preserves manual tools",
+    "invalid video codec/file recovery",
+    "no page exceptions or off-origin upload requests"
+  ],
+  "pose_sample": true,
+  "page_errors": [],
+  "external_request_methods": [
+    "GET"
+  ],
+  "limits": [
+    "Generated ball scenes are not real golf validation",
+    "Public pose sample is not a swing",
+    "No physical iPhone or Safari codec testing"
+  ]
+}

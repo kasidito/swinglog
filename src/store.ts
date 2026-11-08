@@ -27,11 +27,11 @@ export interface Session {
 
 export interface Shot { id: string; sessionId: string; drillId: string; flight: Flight; createdAt: string }
 
-export interface AppState { schemaVersion: 1; settings: Settings; sessions: Session[]; shots: Shot[] }
+export interface AppState { schemaVersion: 1; settings: Settings; sessions: Session[]; shots: Shot[]; coachingProgress?: Record<string, number> }
 
 export const defaultState = (): AppState => ({
   schemaVersion: 1,
-  settings: { handedness: 'right', hasGreen: true, hasBunker: false, theme: 'dark', largeText: false, lastUnit: 'min', lastAmount: 15 },
+  settings: { handedness: 'right', hasGreen: true, hasBunker: false, theme: 'light', largeText: false, lastUnit: 'min', lastAmount: 15 },
   sessions: [],
   shots: [],
 });
