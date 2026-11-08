@@ -1,0 +1,1186 @@
+[
+  {
+    "id": "grip",
+    "title": "จับไม้ให้มือทำงานร่วมกัน",
+    "kind": "foundation",
+    "related": [
+      "grip"
+    ],
+    "camera": "detail",
+    "sources": [
+      {
+        "title": "Kellie Stenzel · Golf grip fundamentals",
+        "url": "https://golf.com/instruction/10-golf-grip-fundamentals-improve-your-game/"
+      },
+      {
+        "title": "PGA · Grip and alignment",
+        "url": "https://www.pga.com/story/hit-the-golf-ball-where-you-want"
+      }
+    ],
+    "steps": [
+      {
+        "action": "วางกริปพาดโคนนิ้วมือข้างนำ",
+        "check": "นิ้วโอบกริปได้ ไม่ฝังด้ามลึกกลางฝ่ามือ",
+        "alt": "จับไม้ให้มือทำงานร่วมกัน: วางกริปพาดโคนนิ้วมือข้างนำ — นิ้วโอบกริปได้ ไม่ฝังด้ามลึกกลางฝ่ามือ",
+        "frame": 0,
+        "focus": "มือและกริป"
+      },
+      {
+        "action": "วางมือข้างตามคลุมหัวแม่มือข้างนำ",
+        "check": "หัวแม่มือข้างนำอยู่ใต้ฝ่ามือข้างตาม",
+        "alt": "จับไม้ให้มือทำงานร่วมกัน: วางมือข้างตามคลุมหัวแม่มือข้างนำ — หัวแม่มือข้างนำอยู่ใต้ฝ่ามือข้างตาม",
+        "frame": 1,
+        "focus": "มือและกริป"
+      },
+      {
+        "action": "จับให้สองมือชิดกันอย่างสบาย",
+        "check": "ลองขยับข้อมือเบา ๆ โดยไม่เจ็บและไม้ไม่ลื่น",
+        "alt": "จับไม้ให้มือทำงานร่วมกัน: จับให้สองมือชิดกันอย่างสบาย — ลองขยับข้อมือเบา ๆ โดยไม่เจ็บและไม้ไม่ลื่น",
+        "frame": 2,
+        "focus": "มือและกริป"
+      }
+    ]
+  },
+  {
+    "id": "alignment",
+    "title": "วางเท้าและแนวเป้า",
+    "kind": "foundation",
+    "related": [
+      "alignment"
+    ],
+    "camera": "front",
+    "sources": [
+      {
+        "title": "PGA · Grip and alignment",
+        "url": "https://www.pga.com/story/hit-the-golf-ball-where-you-want"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ],
+    "steps": [
+      {
+        "action": "เลือกจุดเล็งใกล้ ๆ บนแนวเป้า",
+        "check": "ลูก จุดเล็ง และเป้าอยู่บนแนวเดียวกัน",
+        "alt": "วางเท้าและแนวเป้า: เลือกจุดเล็งใกล้ ๆ บนแนวเป้า — ลูก จุดเล็ง และเป้าอยู่บนแนวเดียวกัน",
+        "frame": 0,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "วางแนวปลายเท้าขนานกับแนวเป้า",
+        "check": "ไม้ชี้แนววางราบ ไม่อยู่ในทางหัวไม้",
+        "alt": "วางเท้าและแนวเป้า: วางแนวปลายเท้าขนานกับแนวเป้า — ไม้ชี้แนววางราบ ไม่อยู่ในทางหัวไม้",
+        "frame": 1,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "หันหน้าไม้ไปยังจุดเล็ง",
+        "check": "แนวเท้าขนานกับแนวลูก ไม่ชี้ไปรวมที่เป้า",
+        "alt": "วางเท้าและแนวเป้า: หันหน้าไม้ไปยังจุดเล็ง — แนวเท้าขนานกับแนวลูก ไม่ชี้ไปรวมที่เป้า",
+        "frame": 2,
+        "focus": "เท้าและตำแหน่งลูก"
+      }
+    ]
+  },
+  {
+    "id": "posture",
+    "title": "จัดลำตัวให้เคลื่อนไหวได้",
+    "kind": "foundation",
+    "related": [
+      "posture"
+    ],
+    "camera": "side",
+    "sources": [
+      {
+        "title": "Amy Taylor, PGA · Set-up for different clubs",
+        "url": "https://www.pgaplay.co.uk/learn/understanding-correct-ball-position-and-set-up-for-different-clubs/"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ],
+    "steps": [
+      {
+        "action": "ยืนสบายแล้วผ่อนหัวเข่า",
+        "check": "น้ำหนักไม่เทไปปลายเท้าหรือส้นจนเสียสมดุล",
+        "alt": "จัดลำตัวให้เคลื่อนไหวได้: ยืนสบายแล้วผ่อนหัวเข่า — น้ำหนักไม่เทไปปลายเท้าหรือส้นจนเสียสมดุล",
+        "frame": 0,
+        "focus": "สะโพกและแนวแขน"
+      },
+      {
+        "action": "พับตัวจากสะโพกเข้าหาลูก",
+        "check": "หลังไม่เกร็งและไม่มีอาการเจ็บ",
+        "alt": "จัดลำตัวให้เคลื่อนไหวได้: พับตัวจากสะโพกเข้าหาลูก — หลังไม่เกร็งและไม่มีอาการเจ็บ",
+        "frame": 1,
+        "focus": "สะโพกและแนวแขน"
+      },
+      {
+        "action": "ปล่อยแขนลงมาจับไม้",
+        "check": "ไม่ต้องเอื้อมมือหรือยกไหล่เข้าหาไม้",
+        "alt": "จัดลำตัวให้เคลื่อนไหวได้: ปล่อยแขนลงมาจับไม้ — ไม่ต้องเอื้อมมือหรือยกไหล่เข้าหาไม้",
+        "frame": 2,
+        "focus": "สะโพกและแนวแขน"
+      }
+    ]
+  },
+  {
+    "id": "ball-position",
+    "title": "วางลูกให้เหมาะกับช็อต",
+    "kind": "foundation",
+    "related": [
+      "club-setup"
+    ],
+    "camera": "front",
+    "sources": [
+      {
+        "title": "Amy Taylor, PGA · Set-up for different clubs",
+        "url": "https://www.pgaplay.co.uk/learn/understanding-correct-ball-position-and-set-up-for-different-clubs/"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ],
+    "steps": [
+      {
+        "action": "เริ่มเวดจ์โดยวางลูกใกล้กลางเท้า",
+        "check": "ใช้เป็นจุดเริ่มต้น แล้วปรับกับช็อตและโค้ช",
+        "alt": "วางลูกให้เหมาะกับช็อต: เริ่มเวดจ์โดยวางลูกใกล้กลางเท้า — ใช้เป็นจุดเริ่มต้น แล้วปรับกับช็อตและโค้ช",
+        "frame": 0,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "ตั้งเหล็กกลางโดยวางลูกใกล้กลางเท้า",
+        "check": "ลูกอยู่บนแนวตี ไม่ชิดปลายเท้าจนเกินไป",
+        "alt": "วางลูกให้เหมาะกับช็อต: ตั้งเหล็กกลางโดยวางลูกใกล้กลางเท้า — ลูกอยู่บนแนวตี ไม่ชิดปลายเท้าจนเกินไป",
+        "frame": 1,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "เลื่อนลูกไดรเวอร์ใกล้ส้นเท้าข้างนำ",
+        "check": "ลูกอยู่บนทีและไม่ต้องเอื้อมไปจับไม้",
+        "alt": "วางลูกให้เหมาะกับช็อต: เลื่อนลูกไดรเวอร์ใกล้ส้นเท้าข้างนำ — ลูกอยู่บนทีและไม่ต้องเอื้อมไปจับไม้",
+        "frame": 2,
+        "focus": "เท้าและตำแหน่งลูก"
+      }
+    ]
+  },
+  {
+    "id": "club-setup",
+    "title": "ตั้งท่าตามชนิดไม้",
+    "kind": "foundation",
+    "related": [
+      "ball-position"
+    ],
+    "camera": "front",
+    "sources": [
+      {
+        "title": "Amy Taylor, PGA · Set-up for different clubs",
+        "url": "https://www.pgaplay.co.uk/learn/understanding-correct-ball-position-and-set-up-for-different-clubs/"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ],
+    "steps": [
+      {
+        "action": "ใช้ฐานยืนแคบลงเมื่อจับเวดจ์",
+        "check": "หมุนตัวได้โดยเท้าไม่ล้มเข้าหากัน",
+        "alt": "ตั้งท่าตามชนิดไม้: ใช้ฐานยืนแคบลงเมื่อจับเวดจ์ — หมุนตัวได้โดยเท้าไม่ล้มเข้าหากัน",
+        "frame": 0,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "ขยายฐานยืนให้สมดุลเมื่อจับเหล็ก",
+        "check": "แขนห้อยสบาย ไม่กำหนดระยะยืนจากรูป",
+        "alt": "ตั้งท่าตามชนิดไม้: ขยายฐานยืนให้สมดุลเมื่อจับเหล็ก — แขนห้อยสบาย ไม่กำหนดระยะยืนจากรูป",
+        "frame": 1,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "ขยายฐานยืนสำหรับไดรเวอร์",
+        "check": "คงสมดุลได้ ไม่ฝืนเอียงหลัง",
+        "alt": "ตั้งท่าตามชนิดไม้: ขยายฐานยืนสำหรับไดรเวอร์ — คงสมดุลได้ ไม่ฝืนเอียงหลัง",
+        "frame": 2,
+        "focus": "เท้าและตำแหน่งลูก"
+      }
+    ]
+  },
+  {
+    "id": "swing-sequence",
+    "title": "ค่อย ๆ ต่อวงสวิง",
+    "kind": "foundation",
+    "related": [
+      "posture"
+    ],
+    "camera": "front",
+    "sources": [
+      {
+        "title": "PGA · Grip and alignment",
+        "url": "https://www.pga.com/story/hit-the-golf-ball-where-you-want"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ],
+    "steps": [
+      {
+        "action": "ตั้งท่าให้มั่นคงก่อนเริ่ม",
+        "check": "หน้าไม้เริ่มหลังลูกและพื้นที่รอบตัวว่าง",
+        "alt": "ค่อย ๆ ต่อวงสวิง: ตั้งท่าให้มั่นคงก่อนเริ่ม — หน้าไม้เริ่มหลังลูกและพื้นที่รอบตัวว่าง",
+        "frame": 0,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "หมุนอกพาไม้ขึ้นครึ่งวง",
+        "check": "แขนไปกับลำตัว ไม่ดึงขึ้นด้วยไหล่ข้างเดียว",
+        "alt": "ค่อย ๆ ต่อวงสวิง: หมุนอกพาไม้ขึ้นครึ่งวง — แขนไปกับลำตัว ไม่ดึงขึ้นด้วยไหล่ข้างเดียว",
+        "frame": 1,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "หมุนผ่านไปจบอย่างสมดุล",
+        "check": "ค้างจบท่าได้โดยไม่ต้องก้าวพยุง",
+        "alt": "ค่อย ๆ ต่อวงสวิง: หมุนผ่านไปจบอย่างสมดุล — ค้างจบท่าได้โดยไม่ต้องก้าวพยุง",
+        "frame": 2,
+        "focus": "เท้าและตำแหน่งลูก"
+      }
+    ]
+  },
+  {
+    "id": "setup-alignment",
+    "title": "เช็กแนวยืนด้วยไม้ชี้แนว",
+    "kind": "drill",
+    "related": [
+      "alignment"
+    ],
+    "camera": "front",
+    "sources": [
+      {
+        "title": "Bruce Bolt – Golf alignment drills",
+        "url": "https://brucebolt.us/blogs/news/golf-alignment-drills-how-to-aim-correctly"
+      },
+      {
+        "title": "GOLF.com – Three ways to practice with an alignment stick",
+        "url": "https://golf.com/instruction/three-ways-practice-alignment-stick-play-smart"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ],
+    "steps": [
+      {
+        "action": "วางไม้ชี้แนวขนานกับแนวเป้า",
+        "check": "ไม้ชี้แนวราบกับพื้นและพ้นทางหัวไม้",
+        "alt": "เช็กแนวยืนด้วยไม้ชี้แนว: วางไม้ชี้แนวขนานกับแนวเป้า — ไม้ชี้แนวราบกับพื้นและพ้นทางหัวไม้",
+        "frame": 0,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "ตั้งแนวปลายเท้าให้ขนานกับไม้",
+        "check": "ลูกอยู่ห่างไม้พอให้หัวไม้ผ่านได้",
+        "alt": "เช็กแนวยืนด้วยไม้ชี้แนว: ตั้งแนวปลายเท้าให้ขนานกับไม้ — ลูกอยู่ห่างไม้พอให้หัวไม้ผ่านได้",
+        "frame": 1,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "ตีเบา ๆ โดยรักษาแนวตั้งต้น",
+        "check": "กลับมาตั้งท่าซ้ำได้โดยไม่ขยับไม้ชี้แนว",
+        "alt": "เช็กแนวยืนด้วยไม้ชี้แนว: ตีเบา ๆ โดยรักษาแนวตั้งต้น — กลับมาตั้งท่าซ้ำได้โดยไม่ขยับไม้ชี้แนว",
+        "frame": 2,
+        "focus": "เท้าและตำแหน่งลูก"
+      }
+    ]
+  },
+  {
+    "id": "half-swing-warmup",
+    "title": "สวิงครึ่งวงอุ่นเครื่อง",
+    "kind": "drill",
+    "related": [
+      "swing-sequence"
+    ],
+    "camera": "front",
+    "sources": [
+      {
+        "title": "GOLF.com – 10-minute golf warm-up",
+        "url": "https://golf.com/instruction/10-minute-golf-warm-up/"
+      },
+      {
+        "title": "GOLF.com – Kellie Stenzel 5-minute warm-up",
+        "url": "https://golf.com/?p=14176472"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ],
+    "steps": [
+      {
+        "action": "ตั้งท่าด้วยเวดจ์อย่างผ่อนคลาย",
+        "check": "กริปไม่บีบแน่นจนแขนเกร็ง",
+        "alt": "สวิงครึ่งวงอุ่นเครื่อง: ตั้งท่าด้วยเวดจ์อย่างผ่อนคลาย — กริปไม่บีบแน่นจนแขนเกร็ง",
+        "frame": 0,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "พาไม้ขึ้นแค่ระดับเอว",
+        "check": "ลำตัวหมุนไปกับแขนโดยไม่ฝืนช่วงการเคลื่อนไหว",
+        "alt": "สวิงครึ่งวงอุ่นเครื่อง: พาไม้ขึ้นแค่ระดับเอว — ลำตัวหมุนไปกับแขนโดยไม่ฝืนช่วงการเคลื่อนไหว",
+        "frame": 1,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "สวิงผ่านแล้วค้างจบท่า",
+        "check": "ยืนค้างได้โดยไม่เซ ไม่ต้องรีบเพิ่มความแรง",
+        "alt": "สวิงครึ่งวงอุ่นเครื่อง: สวิงผ่านแล้วค้างจบท่า — ยืนค้างได้โดยไม่เซ ไม่ต้องรีบเพิ่มความแรง",
+        "frame": 2,
+        "focus": "เท้าและตำแหน่งลูก"
+      }
+    ]
+  },
+  {
+    "id": "path-gate",
+    "title": "ประตูไม้ชี้แนว",
+    "kind": "drill",
+    "related": [
+      "alignment"
+    ],
+    "camera": "top",
+    "sources": [
+      {
+        "title": "Bruce Bolt – Golf alignment drills",
+        "url": "https://brucebolt.us/blogs/news/golf-alignment-drills-how-to-aim-correctly"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ],
+    "steps": [
+      {
+        "action": "วางไม้ชี้แนวราบเป็นช่องกว้างกว่าหัวไม้",
+        "check": "ไม่มีไม้ปักตั้งหรือปลายแหลมอยู่ในแนวสวิง",
+        "alt": "ประตูไม้ชี้แนว: วางไม้ชี้แนวราบเป็นช่องกว้างกว่าหัวไม้ — ไม่มีไม้ปักตั้งหรือปลายแหลมอยู่ในแนวสวิง",
+        "frame": 0,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "ตั้งหัวไม้ตรงกลางช่องหลังลูก",
+        "check": "หัวไม้มีที่ว่างทั้งสองด้าน",
+        "alt": "ประตูไม้ชี้แนว: ตั้งหัวไม้ตรงกลางช่องหลังลูก — หัวไม้มีที่ว่างทั้งสองด้าน",
+        "frame": 1,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "ซ้อมผ่านช่องช้า ๆ ก่อนตีเบา",
+        "check": "ไม่โดนไม้ชี้แนว ถ้าโดนให้หยุดและขยายช่อง",
+        "alt": "ประตูไม้ชี้แนว: ซ้อมผ่านช่องช้า ๆ ก่อนตีเบา — ไม่โดนไม้ชี้แนว ถ้าโดนให้หยุดและขยายช่อง",
+        "frame": 2,
+        "focus": "เท้าและตำแหน่งลูก"
+      }
+    ]
+  },
+  {
+    "id": "anti-slice-stick",
+    "title": "ไม้ชี้แนวกันตัดเข้า",
+    "kind": "drill",
+    "related": [
+      "swing-sequence"
+    ],
+    "camera": "front",
+    "sources": [
+      {
+        "title": "GOLF.com – Andrew Rice anti-slice drill",
+        "url": "https://golf.com/instruction/how-to-fix-slice-andrew-rice-drill/"
+      },
+      {
+        "title": "PGA.com – Fix your slice with an alignment stick",
+        "url": "https://pga.com/story/how-to-fix-your-slice-with-an-alignment-stick"
+      },
+      {
+        "title": "Bruce Bolt – Golf alignment drills",
+        "url": "https://brucebolt.us/blogs/news/golf-alignment-drills-how-to-aim-correctly"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ],
+    "steps": [
+      {
+        "action": "วางไม้ราบนอกแนวลูกให้พ้นทางไม้",
+        "check": "ไม่ปักไม้เอียงเข้าหาตัวหรือแนวสวิง",
+        "alt": "ไม้ชี้แนวกันตัดเข้า: วางไม้ราบนอกแนวลูกให้พ้นทางไม้ — ไม่ปักไม้เอียงเข้าหาตัวหรือแนวสวิง",
+        "frame": 0,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "ซ้อมครึ่งวงช้า ๆ ด้านในไม้ชี้แนว",
+        "check": "หัวไม้และมือไม่แตะอุปกรณ์",
+        "alt": "ไม้ชี้แนวกันตัดเข้า: ซ้อมครึ่งวงช้า ๆ ด้านในไม้ชี้แนว — หัวไม้และมือไม่แตะอุปกรณ์",
+        "frame": 1,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "ตีเบาเมื่อซ้อมผ่านได้โดยไม่ชน",
+        "check": "หากชนให้หยุดและเว้นช่องเพิ่ม ไม่ฝืนหลบ",
+        "alt": "ไม้ชี้แนวกันตัดเข้า: ตีเบาเมื่อซ้อมผ่านได้โดยไม่ชน — หากชนให้หยุดและเว้นช่องเพิ่ม ไม่ฝืนหลบ",
+        "frame": 2,
+        "focus": "เท้าและตำแหน่งลูก"
+      }
+    ]
+  },
+  {
+    "id": "split-grip",
+    "title": "จับไม้แยกมือ",
+    "kind": "drill",
+    "related": [
+      "grip"
+    ],
+    "camera": "front",
+    "sources": [
+      {
+        "title": "Golf Monthly – How to fix a hook",
+        "url": "https://www.golfmonthly.com/videos/driving-tips/what-causes-a-hook-and-how-do-i-cure-it"
+      },
+      {
+        "title": "Golf Digest – Leadbetter split-grip drill",
+        "url": "https://www.golfdigest.com/story/leadbetter_gd0406"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ],
+    "steps": [
+      {
+        "action": "เลื่อนมือข้างตามลงให้มีช่องว่าง",
+        "check": "สองมือยังจับไม้เดียวกัน ไม่บิดข้อมือจนเจ็บ",
+        "alt": "จับไม้แยกมือ: เลื่อนมือข้างตามลงให้มีช่องว่าง — สองมือยังจับไม้เดียวกัน ไม่บิดข้อมือจนเจ็บ",
+        "frame": 0,
+        "focus": "มือและกริป"
+      },
+      {
+        "action": "หมุนอกพาไม้ขึ้นครึ่งวงช้า ๆ",
+        "check": "มือเคลื่อนไปกับอกโดยไม่กระชาก",
+        "alt": "จับไม้แยกมือ: หมุนอกพาไม้ขึ้นครึ่งวงช้า ๆ — มือเคลื่อนไปกับอกโดยไม่กระชาก",
+        "frame": 1,
+        "focus": "มือและกริป"
+      },
+      {
+        "action": "หมุนผ่านไปทางเป้าด้วยวงสั้น",
+        "check": "ลองกลับมาจับปกติแล้วตีเบา ๆ เพื่อเทียบความรู้สึก",
+        "alt": "จับไม้แยกมือ: หมุนผ่านแล้วกลับมาจับปกติ — ลองตีเบาด้วยกริปปกติแล้วเทียบความรู้สึก",
+        "frame": 2,
+        "focus": "มือและกริป"
+      }
+    ]
+  },
+  {
+    "id": "feet-together",
+    "title": "ยืนเท้าชิด",
+    "kind": "drill",
+    "related": [
+      "posture"
+    ],
+    "camera": "front",
+    "sources": [
+      {
+        "title": "Golf Monthly – How to fix a hook",
+        "url": "https://www.golfmonthly.com/videos/driving-tips/what-causes-a-hook-and-how-do-i-cure-it"
+      },
+      {
+        "title": "Today's Golfer – Feet together drill",
+        "url": "https://todays-golfer.com/tips-and-tuition/iron-play/video-tips/2008/november/feet-together-drill"
+      },
+      {
+        "title": "PGA.com – Three drills to improve performance",
+        "url": "https://www.pga.com/story/three-drills-to-improve-your-golf-performance"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ],
+    "steps": [
+      {
+        "action": "ขยับเท้ามาชิดกันแล้วตั้งไม้",
+        "check": "ยืนได้โดยไม่โยกหรือเจ็บ",
+        "alt": "ยืนเท้าชิด: ขยับเท้ามาชิดกันแล้วตั้งไม้ — ยืนได้โดยไม่โยกหรือเจ็บ",
+        "frame": 0,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "หมุนไม้ขึ้นช้า ๆ ในวงสั้น",
+        "check": "ไม่เพิ่มความยาววงจนเสียสมดุล",
+        "alt": "ยืนเท้าชิด: หมุนไม้ขึ้นช้า ๆ ในวงสั้น — ไม่เพิ่มความยาววงจนเสียสมดุล",
+        "frame": 1,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "หมุนผ่านโดยไม่ก้าวพยุงตัว",
+        "check": "หากเซให้ลดความเร็วหรือแยกเท้าเล็กน้อย",
+        "alt": "ยืนเท้าชิด: หมุนผ่านโดยไม่ก้าวพยุงตัว — หากเซให้ลดความเร็วหรือแยกเท้าเล็กน้อย",
+        "frame": 2,
+        "focus": "เท้าและตำแหน่งลูก"
+      }
+    ]
+  },
+  {
+    "id": "towel-low-point",
+    "title": "ผ้าหลังลูก",
+    "kind": "drill",
+    "related": [
+      "ball-position"
+    ],
+    "camera": "front",
+    "sources": [
+      {
+        "title": "Hole19 – Improve iron contact",
+        "url": "https://www.hole19golf.com/the-19th-hole/improve-iron-contact-in-golf"
+      },
+      {
+        "title": "CaddieHQ – Stop hitting fat iron shots",
+        "url": "https://www.caddiehq.com/resources/how-to-stop-hitting-fat-golf-shots-with-irons"
+      },
+      {
+        "title": "GolfWRX – Low point towel drill",
+        "url": "https://golfwrx.com/?p=363044"
+      },
+      {
+        "title": "HackMotion – Low point control drills",
+        "url": "https://hackmotion.com/low-point-control-drills/"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ],
+    "steps": [
+      {
+        "action": "วางผ้าด้านหลังลูกให้มีช่องว่าง",
+        "check": "ผ้าอยู่ข้างตามของลูกและวางราบ",
+        "alt": "ผ้าหลังลูก: วางผ้าด้านหลังลูกให้มีช่องว่าง — ผ้าอยู่ข้างตามของลูกและวางราบ",
+        "frame": 0,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "ตั้งหัวไม้หลังลูกโดยไม่แตะผ้า",
+        "check": "เริ่มจากครึ่งวง ไม่เร่งผ่านผ้า",
+        "alt": "ผ้าหลังลูก: ตั้งหัวไม้หลังลูกโดยไม่แตะผ้า — เริ่มจากครึ่งวง ไม่เร่งผ่านผ้า",
+        "frame": 1,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "ตีลูกก่อนพื้นโดยไม่โดนผ้า",
+        "check": "ถ้าโดนผ้าให้หยุดและเพิ่มช่องว่าง",
+        "alt": "ผ้าหลังลูก: ตีลูกก่อนพื้นโดยไม่โดนผ้า — ถ้าโดนผ้าให้หยุดและเพิ่มช่องว่าง",
+        "frame": 2,
+        "focus": "เท้าและตำแหน่งลูก"
+      }
+    ]
+  },
+  {
+    "id": "line-drill",
+    "title": "เส้นบนพื้น",
+    "kind": "drill",
+    "related": [
+      "ball-position"
+    ],
+    "camera": "front",
+    "sources": [
+      {
+        "title": "CaddieHQ – How to stop taking bad divots",
+        "url": "https://www.caddiehq.com/resources/how-to-stop-taking-divots-in-golf"
+      },
+      {
+        "title": "HackMotion – Low point control drills",
+        "url": "https://hackmotion.com/low-point-control-drills/"
+      },
+      {
+        "title": "CaddieHQ – Stop hitting fat iron shots",
+        "url": "https://www.caddiehq.com/resources/how-to-stop-hitting-fat-golf-shots-with-irons"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ],
+    "steps": [
+      {
+        "action": "ทำเส้นสั้นบนพื้นที่อนุญาตให้ฝึก",
+        "check": "เส้นที่ชี้เข้าหาตัวใช้เช็กจุดสัมผัส ส่วนเส้นขนานแนวเท้าใช้ช่วยเล็ง",
+        "alt": "เส้นบนพื้น: ทำเส้นสั้นบนพื้นที่อนุญาตให้ฝึก — เส้นพาดขวางแนวตี ไม่ใช่ขนานแนวตี",
+        "frame": 0,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "วางลูกบนเส้นแล้วตั้งหัวไม้",
+        "check": "ไม่วาดเส้นบนเสื่อหรือกรีนโดยไม่ได้รับอนุญาต",
+        "alt": "เส้นบนพื้น: วางลูกบนเส้นแล้วตั้งหัวไม้ — ไม่วาดเส้นบนเสื่อหรือกรีนโดยไม่ได้รับอนุญาต",
+        "frame": 1,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "สังเกตรอยสัมผัสฝั่งเป้าหลังตี",
+        "check": "บนเสื่อให้ฟังเสียงสัมผัส ไม่ตีขุดเพื่อสร้างรอย",
+        "alt": "เส้นบนพื้น: สังเกตรอยสัมผัสฝั่งเป้าหลังตี — บนเสื่อให้ฟังเสียงสัมผัส ไม่ตีขุดเพื่อสร้างรอย",
+        "frame": 2,
+        "focus": "เท้าและตำแหน่งลูก"
+      }
+    ]
+  },
+  {
+    "id": "step-through",
+    "title": "ก้าวตามไปข้างหน้า",
+    "kind": "drill",
+    "related": [
+      "swing-sequence"
+    ],
+    "camera": "front",
+    "sources": [
+      {
+        "title": "Hole19 – Improve iron contact",
+        "url": "https://www.hole19golf.com/the-19th-hole/improve-iron-contact-in-golf"
+      },
+      {
+        "title": "CaddieHQ – Stop hitting fat iron shots",
+        "url": "https://www.caddiehq.com/resources/how-to-stop-hitting-fat-golf-shots-with-irons"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ],
+    "steps": [
+      {
+        "action": "เริ่มด้วยฐานยืนแคบที่ยังทรงตัวได้",
+        "check": "ไม่มีลูกหรืออุปกรณ์กีดขวางทางก้าว",
+        "alt": "ก้าวตามไปข้างหน้า: เริ่มด้วยฐานยืนแคบที่ยังทรงตัวได้ — ไม่มีลูกหรืออุปกรณ์กีดขวางทางก้าว",
+        "frame": 0,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "พาไม้ขึ้นครึ่งวงอย่างช้า ๆ",
+        "check": "ไม่กระโดดหรือเหวี่ยงตัวไปด้านข้าง",
+        "alt": "ก้าวตามไปข้างหน้า: พาไม้ขึ้นครึ่งวงอย่างช้า ๆ — ไม่กระโดดหรือเหวี่ยงตัวไปด้านข้าง",
+        "frame": 1,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "ปล่อยเท้าข้างตามก้าวไปทางเป้า",
+        "check": "ก้าวได้ราบรื่น ถ้าเซให้ซ้อมโดยไม่ตีลูก",
+        "alt": "ก้าวตามไปข้างหน้า: ปล่อยเท้าข้างตามก้าวไปทางเป้า — ก้าวได้ราบรื่น ถ้าเซให้ซ้อมโดยไม่ตีลูก",
+        "frame": 2,
+        "focus": "เท้าและตำแหน่งลูก"
+      }
+    ]
+  },
+  {
+    "id": "tee-gate-driver",
+    "title": "ประตูทีหน้าไดรเวอร์",
+    "kind": "drill",
+    "related": [
+      "club-setup"
+    ],
+    "camera": "front",
+    "sources": [
+      {
+        "title": "GOLFTEC – What causes toe hits",
+        "url": "https://golftec.com/video/what-causes-toe-hits-and-how-to-correct-them"
+      },
+      {
+        "title": "GOLF.com – 10 fixes to stop hitting the toe",
+        "url": "https://golf.com/instruction/10-fixes-stop-hitting-toe-golf-club/"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ],
+    "steps": [
+      {
+        "action": "ตั้งทีสั้นเป็นช่องข้างหัวไดรเวอร์",
+        "check": "ใช้ทีเตี้ยยืดหยุ่นและมีช่องเผื่อหัวไม้",
+        "alt": "ประตูทีหน้าไดรเวอร์: ตั้งทีสั้นเป็นช่องข้างหัวไดรเวอร์ — ใช้ทีเตี้ยยืดหยุ่นและมีช่องเผื่อหัวไม้",
+        "frame": 0,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "วางหัวไม้กลางช่องหลังลูกบนที",
+        "check": "ลูกอยู่บนทีหลัก ไม่ใช่ทีข้างช่อง",
+        "alt": "ประตูทีหน้าไดรเวอร์: วางหัวไม้กลางช่องหลังลูกบนที — ลูกอยู่บนทีหลัก ไม่ใช่ทีข้างช่อง",
+        "frame": 1,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "ตีเบาแล้วตรวจว่าทีข้างไม้ยังอยู่",
+        "check": "ถ้าโดนทีข้างช่อง ให้ขยายช่องก่อนลองใหม่",
+        "alt": "ประตูทีหน้าไดรเวอร์: ตีเบาแล้วตรวจว่าทีข้างไม้ยังอยู่ — ถ้าโดนทีข้างช่อง ให้ขยายช่องก่อนลองใหม่",
+        "frame": 2,
+        "focus": "เท้าและตำแหน่งลูก"
+      }
+    ]
+  },
+  {
+    "id": "putt-gate",
+    "title": "ประตูพัตต์",
+    "kind": "drill",
+    "related": [
+      "alignment"
+    ],
+    "camera": "top",
+    "sources": [
+      {
+        "title": "Kevin Britt, PGA · Putting gate training",
+        "url": "https://carolinas.pga.com/news/elite-level-training-kevin-britt-pga/"
+      },
+      {
+        "title": "HackMotion – Gate putting drill",
+        "url": "https://hackmotion.com/gate-putting-drill/"
+      },
+      {
+        "title": "MyGolfSpy – First 3 putting drills",
+        "url": "https://mygolfspy.com/news-opinion/instruction/the-first-3-putting-drills-beginners-should-learn/"
+      },
+      {
+        "title": "Plum Creek – Short putting practice drills",
+        "url": "https://plumcreekgolf.com/contact/news/quickly-master-your-stroke-with-these-short-putting-practice-drills"
+      }
+    ],
+    "steps": [
+      {
+        "action": "วางทีข้างส้นและปลายพัตเตอร์",
+        "check": "ช่องกว้างกว่าหัวพัตเตอร์ ไม่หนีบไม้",
+        "alt": "ประตูพัตต์: วางทีข้างส้นและปลายพัตเตอร์ — ช่องกว้างกว่าหัวพัตเตอร์ ไม่หนีบไม้",
+        "frame": 0,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "ตั้งหน้าไม้หลังลูกตรงกลางช่อง",
+        "check": "เริ่มใกล้หลุมที่ระยะสบาย",
+        "alt": "ประตูพัตต์: ตั้งหน้าไม้หลังลูกตรงกลางช่อง — เริ่มใกล้หลุมที่ระยะสบาย",
+        "frame": 1,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "พัตต์ผ่านช่องโดยไม่แตะที",
+        "check": "เมื่อติดทีให้ขยายช่อง แล้วค่อยลดภายหลัง",
+        "alt": "ประตูพัตต์: พัตต์ผ่านช่องโดยไม่แตะที — เมื่อติดทีให้ขยายช่อง แล้วค่อยลดภายหลัง",
+        "frame": 2,
+        "focus": "เท้าและตำแหน่งลูก"
+      }
+    ]
+  },
+  {
+    "id": "clock-drill",
+    "title": "นาฬิการอบหลุม",
+    "kind": "drill",
+    "related": [
+      "alignment"
+    ],
+    "camera": "top",
+    "sources": [
+      {
+        "title": "Plum Creek – Short putting practice drills",
+        "url": "https://plumcreekgolf.com/contact/news/quickly-master-your-stroke-with-these-short-putting-practice-drills"
+      },
+      {
+        "title": "GOLFZON Leadbetter – 6 putting drills",
+        "url": "https://www.golfzonleadbetter.com/blogs/master-your-putting-game-6-effective-putting-drills-for-precision-speed-alignment"
+      },
+      {
+        "title": "Southwest Greens – Compact green drills",
+        "url": "https://www.southwestgreens.com/blog/practice-drills-you-can-practice-on-a-compact-putting-green"
+      }
+    ],
+    "steps": [
+      {
+        "action": "วางลูกเป็นวงรอบหลุม",
+        "check": "แต่ละลูกอยู่ห่างหลุมใกล้เคียงกัน",
+        "alt": "นาฬิการอบหลุม: วางลูกเป็นวงรอบหลุม — แต่ละลูกอยู่ห่างหลุมใกล้เคียงกัน",
+        "frame": 0,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "พัตต์ทีละลูกเข้าหาหลุมกลางวง",
+        "check": "หน้าไม้เล็งเข้าหาหลุม ไม่ใช้แนววงเป็นแนวเท้า",
+        "alt": "นาฬิการอบหลุม: พัตต์ทีละลูกเข้าหาหลุมกลางวง — หน้าไม้เล็งเข้าหาหลุม ไม่ใช้แนววงเป็นแนวเท้า",
+        "frame": 1,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "เดินไปจุดถัดไปแล้วตั้งท่าใหม่",
+        "check": "บันทึกจำนวนที่ลงก่อนเริ่มรอบใหม่",
+        "alt": "นาฬิการอบหลุม: เดินไปจุดถัดไปแล้วตั้งท่าใหม่ — บันทึกจำนวนที่ลงก่อนเริ่มรอบใหม่",
+        "frame": 2,
+        "focus": "เท้าและตำแหน่งลูก"
+      }
+    ]
+  },
+  {
+    "id": "ladder-369",
+    "title": "บันได 1–2–3 เมตร",
+    "kind": "drill",
+    "related": [
+      "alignment"
+    ],
+    "camera": "top",
+    "sources": [
+      {
+        "title": "Brendon Elliott, PGA · Ladder putting challenge",
+        "url": "https://www.pga.com/story/putting-practice-games-that-lead-to-big-gains-part-2"
+      },
+      {
+        "title": "GOLFZON Leadbetter – 6 putting drills",
+        "url": "https://www.golfzonleadbetter.com/blogs/master-your-putting-game-6-effective-putting-drills-for-precision-speed-alignment"
+      }
+    ],
+    "steps": [
+      {
+        "action": "วางลูกบนแนวเดียวกันสามระยะ",
+        "check": "จุดเริ่มอยู่ที่ 1 / 2 / 3 เมตร ตามชื่อดริล",
+        "alt": "บันได 1–2–3 เมตร: วางลูกบนแนวเดียวกันสามระยะ — จุดเริ่มอยู่ที่ 1 / 2 / 3 เมตร ตามชื่อดริล",
+        "frame": 0,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "เริ่มพัตต์จากลูกใกล้หลุม",
+        "check": "ตั้งหน้าไม้ใหม่ทุกลูก ไม่รีบไล่ตี",
+        "alt": "บันได 1–2–3 เมตร: เริ่มพัตต์จากลูกใกล้หลุม — ตั้งหน้าไม้ใหม่ทุกลูก ไม่รีบไล่ตี",
+        "frame": 1,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "ขยับไประยะถัดไปเมื่อลงหลุม",
+        "check": "ถ้าพลาดให้กลับระยะใกล้โดยไม่เร่งจังหวะ",
+        "alt": "บันได 1–2–3 เมตร: ขยับไประยะถัดไปเมื่อลงหลุม — ถ้าพลาดให้กลับระยะใกล้โดยไม่เร่งจังหวะ",
+        "frame": 2,
+        "focus": "เท้าและตำแหน่งลูก"
+      }
+    ]
+  },
+  {
+    "id": "lag-ladder",
+    "title": "บันไดพัตต์ไกล",
+    "kind": "drill",
+    "related": [
+      "alignment"
+    ],
+    "camera": "top",
+    "sources": [
+      {
+        "title": "GOLFTEC – Lag and ladder putting drills",
+        "url": "https://scramble.golftec.com/blog/2016/02/lag-and-ladder-putting-drills-to-eliminate-three-putts/"
+      },
+      {
+        "title": "Montana Coaches – Clinic putting notes (PDF)",
+        "url": "https://montanacoaches.com/wp-content/uploads/2025/08/Clinic-Putting-Notes.pdf"
+      },
+      {
+        "title": "Plum Creek – Short putting practice drills",
+        "url": "https://plumcreekgolf.com/contact/news/quickly-master-your-stroke-with-these-short-putting-practice-drills"
+      }
+    ],
+    "steps": [
+      {
+        "action": "ตั้งจุดพัตต์ไกลเพิ่มระยะทีละจุด",
+        "check": "ใช้จุดเริ่ม 3 / 6 / 9 / 12 เมตร เมื่อพื้นที่พอ",
+        "alt": "บันไดพัตต์ไกล: ตั้งจุดพัตต์ไกลเพิ่มระยะทีละจุด — ใช้จุดเริ่ม 3 / 6 / 9 / 12 เมตร เมื่อพื้นที่พอ",
+        "frame": 0,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "พัตต์จากจุดใกล้ด้วยจังหวะสม่ำเสมอ",
+        "check": "ไม่กระตุกข้อมือเพื่อเร่งความเร็ว",
+        "alt": "บันไดพัตต์ไกล: พัตต์จากจุดใกล้ด้วยจังหวะสม่ำเสมอ — ไม่กระตุกข้อมือเพื่อเร่งความเร็ว",
+        "frame": 1,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "ขยับไกลขึ้นแล้วปรับขนาดสโตรก",
+        "check": "ดูว่าลูกหยุดใกล้หลุมเพียงใดก่อนเปลี่ยนจุด",
+        "alt": "บันไดพัตต์ไกล: ขยับไกลขึ้นแล้วปรับขนาดสโตรก — ดูว่าลูกหยุดใกล้หลุมเพียงใดก่อนเปลี่ยนจุด",
+        "frame": 2,
+        "focus": "เท้าและตำแหน่งลูก"
+      }
+    ]
+  },
+  {
+    "id": "lag-safe-zone",
+    "title": "โซนปลอดภัยหลังหลุม",
+    "kind": "drill",
+    "related": [
+      "alignment"
+    ],
+    "camera": "top",
+    "sources": [
+      {
+        "title": "GOLFZON Leadbetter – 6 putting drills",
+        "url": "https://www.golfzonleadbetter.com/blogs/master-your-putting-game-6-effective-putting-drills-for-precision-speed-alignment"
+      },
+      {
+        "title": "CaddieHQ – How to practice short game",
+        "url": "https://www.caddiehq.com/resources/how-to-practice-golf-short-game"
+      }
+    ],
+    "steps": [
+      {
+        "action": "วางไม้ราบเป็นขอบหลังหลุม",
+        "check": "ไม้ขอบอยู่หลังหลุมราว 60 ซม. ไม่กีดขวางคนอื่น",
+        "alt": "โซนปลอดภัยหลังหลุม: วางไม้ราบเป็นขอบหลังหลุม — ไม้ขอบอยู่หลังหลุมราว 60 ซม. ไม่กีดขวางคนอื่น",
+        "frame": 0,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "พัตต์ให้ลูกเดินทางพ้นหลุม",
+        "check": "เลือกแนวที่ไม่มีคนอยู่ด้านหลัง",
+        "alt": "โซนปลอดภัยหลังหลุม: พัตต์ให้ลูกเดินทางพ้นหลุม — เลือกแนวที่ไม่มีคนอยู่ด้านหลัง",
+        "frame": 1,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "เช็กว่าลูกหยุดก่อนถึงไม้ขอบ",
+        "check": "ลูกที่สั้นกว่าหลุมหรือชนขอบยังไม่เข้าโซน",
+        "alt": "โซนปลอดภัยหลังหลุม: เช็กว่าลูกหยุดก่อนถึงไม้ขอบ — ลูกที่สั้นกว่าหลุมหรือชนขอบยังไม่เข้าโซน",
+        "frame": 2,
+        "focus": "เท้าและตำแหน่งลูก"
+      }
+    ]
+  },
+  {
+    "id": "landing-towel",
+    "title": "ผ้าจุดตกลูกชิป",
+    "kind": "drill",
+    "related": [
+      "ball-position"
+    ],
+    "camera": "front",
+    "sources": [
+      {
+        "title": "CaddieHQ – How to work on short game",
+        "url": "https://www.caddiehq.com/resources/how-to-work-on-short-game-golf"
+      },
+      {
+        "title": "CaddieHQ – How to practice short game",
+        "url": "https://www.caddiehq.com/resources/how-to-practice-golf-short-game"
+      },
+      {
+        "title": "GolfPass – Chipping landing spot drill",
+        "url": "https://www.golfpass.com.au/watch/daily-video-tips/chipping-landing-spot-drill"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ],
+    "steps": [
+      {
+        "action": "วางผ้าเป็นจุดตกบนกรีน",
+        "check": "พื้นที่ระหว่างลูกกับผ้าโล่งและปลอดคน",
+        "alt": "ผ้าจุดตกลูกชิป: วางผ้าเป็นจุดตกบนกรีน — พื้นที่ระหว่างลูกกับผ้าโล่งและปลอดคน",
+        "frame": 0,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "ตั้งเวดจ์แล้วชิปด้วยวงสั้น",
+        "check": "ไม่ต้องตักลูกด้วยข้อมือ",
+        "alt": "ผ้าจุดตกลูกชิป: ตั้งเวดจ์แล้วชิปด้วยวงสั้น — ไม่ต้องตักลูกด้วยข้อมือ",
+        "frame": 1,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "นับลูกที่ตกบนผ้าก่อนกลิ้งต่อ",
+        "check": "แยกจุดตกครั้งแรกออกจากจุดที่ลูกหยุด",
+        "alt": "ผ้าจุดตกลูกชิป: นับลูกที่ตกบนผ้าก่อนกลิ้งต่อ — แยกจุดตกครั้งแรกออกจากจุดที่ลูกหยุด",
+        "frame": 2,
+        "focus": "เท้าและตำแหน่งลูก"
+      }
+    ]
+  },
+  {
+    "id": "landing-club-ladder",
+    "title": "ไม้ต่างกันจุดตกเดียว",
+    "kind": "drill",
+    "related": [
+      "club-setup"
+    ],
+    "camera": "front",
+    "sources": [
+      {
+        "title": "GolfPass – Chipping landing spot drill",
+        "url": "https://www.golfpass.com.au/watch/daily-video-tips/chipping-landing-spot-drill"
+      },
+      {
+        "title": "CaddieHQ – How to work on short game",
+        "url": "https://www.caddiehq.com/resources/how-to-work-on-short-game-golf"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ],
+    "steps": [
+      {
+        "action": "ใช้เวดจ์ชิปไปยังผ้าจุดตก",
+        "check": "วางไม้สำรองพ้นแนวสวิง",
+        "alt": "ไม้ต่างกันจุดตกเดียว: ใช้เวดจ์ชิปไปยังผ้าจุดตก — วางไม้สำรองพ้นแนวสวิง",
+        "frame": 0,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "เปลี่ยนเป็นเหล็ก 8 โดยใช้จุดตกเดิม",
+        "check": "มุ่งจุดตกเดิม ไม่เร่งให้ระยะรวมเท่ากัน",
+        "alt": "ไม้ต่างกันจุดตกเดียว: เปลี่ยนเป็นเหล็ก 8 โดยใช้จุดตกเดิม — มุ่งจุดตกเดิม ไม่เร่งให้ระยะรวมเท่ากัน",
+        "frame": 1,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "ลองเหล็ก 6 แล้วเทียบระยะกลิ้ง",
+        "check": "จดทั้งจุดตกและจุดหยุด พื้นกรีนมีผลด้วย",
+        "alt": "ไม้ต่างกันจุดตกเดียว: ลองเหล็ก 6 แล้วเทียบระยะกลิ้ง — จดทั้งจุดตกและจุดหยุด พื้นกรีนมีผลด้วย",
+        "frame": 2,
+        "focus": "เท้าและตำแหน่งลูก"
+      }
+    ]
+  },
+  {
+    "id": "bunker-line",
+    "title": "เส้นในทราย",
+    "kind": "drill",
+    "related": [
+      "posture"
+    ],
+    "camera": "front",
+    "sources": [
+      {
+        "title": "Golf Compendium – Line drill in bunkers",
+        "url": "https://www.golfcompendium.com/2021/11/line-drill-bunkers-point-of-entry.html"
+      },
+      {
+        "title": "CaddieHQ – How to work on short game",
+        "url": "https://www.caddiehq.com/resources/how-to-work-on-short-game-golf"
+      },
+      {
+        "title": "GolfMagic – Bunker practice drills",
+        "url": "https://www.golfmagic.com/node/98793"
+      },
+      {
+        "title": "Titleist – Bunker line drill",
+        "url": "https://titleist.com/instruction/bunker-line-drill"
+      }
+    ],
+    "steps": [
+      {
+        "action": "ลากเส้นขวางแนวตีในบังเกอร์ซ้อม",
+        "check": "ทำเฉพาะพื้นที่ซ้อมที่อนุญาตให้ขีดทราย",
+        "alt": "เส้นในทราย: ลากเส้นขวางแนวตีในบังเกอร์ซ้อม — ทำเฉพาะพื้นที่ซ้อมที่อนุญาตให้ขีดทราย",
+        "frame": 0,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "ซ้อมให้ไม้เข้าทรายตรงเส้นโดยไม่มีลูก",
+        "check": "ให้ทรายพาลูกออก ไม่พยายามโดนลูกก่อน",
+        "alt": "เส้นในทราย: ซ้อมให้ไม้เข้าทรายตรงเส้นโดยไม่มีลูก — ให้ทรายพาลูกออก ไม่พยายามโดนลูกก่อน",
+        "frame": 1,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "วางลูกฝั่งเป้าถัดจากเส้นแล้วลองตี",
+        "check": "หากหน้าทรายแข็งหรือเปียก ให้ขอคำแนะนำเฉพาะ",
+        "alt": "เส้นในทราย: วางลูกฝั่งเป้าถัดจากเส้นแล้วลองตี — หากหน้าทรายแข็งหรือเปียก ให้ขอคำแนะนำเฉพาะ",
+        "frame": 2,
+        "focus": "เท้าและตำแหน่งลูก"
+      }
+    ]
+  },
+  {
+    "id": "bunker-bill",
+    "title": "ธนบัตรในทราย",
+    "kind": "drill",
+    "related": [
+      "club-setup"
+    ],
+    "camera": "front",
+    "sources": [
+      {
+        "title": "GOLF.com – $100 bill bunker drill",
+        "url": "https://golf.com/instruction/bunker-shots/100-bill-bunker-drill-brech-spradley/?amp=1"
+      },
+      {
+        "title": "WomensGolf.com – How much sand to take",
+        "url": "https://womensgolf.com/how-much-sand-should-you-take"
+      }
+    ],
+    "steps": [
+      {
+        "action": "วาดกรอบเล็กในทรายโดยให้ลูกอยู่กลาง",
+        "check": "กรอบเป็นเพียงจุดสังเกต ไม่ต้องวางธนบัตรจริง",
+        "alt": "ธนบัตรในทราย: วาดกรอบเล็กในทรายโดยให้ลูกอยู่กลาง — กรอบเป็นเพียงจุดสังเกต ไม่ต้องวางธนบัตรจริง",
+        "frame": 0,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "เปิดหน้าเวดจ์ก่อนจับกริป",
+        "check": "เปิดหน้าไม้ก่อนจับ ไม่บิดมือค้างภายหลัง",
+        "alt": "ธนบัตรในทราย: เปิดหน้าเวดจ์ก่อนจับกริป — เปิดหน้าไม้ก่อนจับ ไม่บิดมือค้างภายหลัง",
+        "frame": 1,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "สวิงผ่านทรายใต้กรอบไปฝั่งเป้า",
+        "check": "ทรายถูกพาผ่านใต้ลูก ไม่หยุดไม้ที่จุดเข้า",
+        "alt": "ธนบัตรในทราย: สวิงผ่านทรายใต้กรอบไปฝั่งเป้า — ทรายถูกพาผ่านใต้ลูก ไม่หยุดไม้ที่จุดเข้า",
+        "frame": 2,
+        "focus": "เท้าและตำแหน่งลูก"
+      }
+    ]
+  },
+  {
+    "id": "bunker-tee-entry",
+    "title": "ทีกำหนดจุดเข้าออก",
+    "kind": "drill",
+    "related": [
+      "ball-position"
+    ],
+    "camera": "front",
+    "sources": [
+      {
+        "title": "Today's Golfer – How to beat bunkers",
+        "url": "https://www.todays-golfer.com/tips-and-tuition/bunker-play/video-tips/2011/july/how-to-beat-bunkers"
+      },
+      {
+        "title": "GolfMagic – Greenside bunker oval drill",
+        "url": "https://www.golfmagic.com/european-tour/former-european-tour-pro-reveals-perfect-greenside-bunker-drill"
+      }
+    ],
+    "steps": [
+      {
+        "action": "วางทีเตี้ยข้างแนวเข้าและออกจากทราย",
+        "check": "ทีเป็นจุดเทียบด้านข้าง ต้องพ้นทางหัวไม้",
+        "alt": "ทีกำหนดจุดเข้าออก: วางทีเตี้ยข้างแนวเข้าและออกจากทราย — ทีเป็นจุดเทียบด้านข้าง ต้องพ้นทางหัวไม้",
+        "frame": 0,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "เล็งจุดเข้าทรายด้านหลังลูก",
+        "check": "เริ่มราว 5 ซม. หลังลูกและ 10 ซม. หน้า เป็นจุดฝึก ไม่ใช่กฎตายตัว",
+        "alt": "ทีกำหนดจุดเข้าออก: เล็งจุดเข้าทรายด้านหลังลูก — เริ่มราว 5 ซม. หลังลูกและ 10 ซม. หน้า เป็นจุดฝึก ไม่ใช่กฎตายตัว",
+        "frame": 1,
+        "focus": "เท้าและตำแหน่งลูก"
+      },
+      {
+        "action": "พาไม้ผ่านไปถึงแนวทีด้านหน้า",
+        "check": "ดูรอยทรายแล้วเอาทีออกเมื่อตั้งจุดได้เอง",
+        "alt": "ทีกำหนดจุดเข้าออก: พาไม้ผ่านไปถึงแนวทีด้านหน้า — ดูรอยทรายแล้วเอาทีออกเมื่อตั้งจุดได้เอง",
+        "frame": 2,
+        "focus": "เท้าและตำแหน่งลูก"
+      }
+    ]
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "checks": [
+    "drill → foundation → drill retains instruction step and logged ball",
+    "keyboard image zoom, pan container, Escape and focus restoration",
+    "legacy backup, completed session and existing shot meaning preserved",
+    "all 20 existing drills have loaded images, manual step selection and self-checks",
+    "six foundation lessons and every image step load",
+    "24 viewport/theme/text-size/handedness combinations: settings, library, lesson, plan, video, history",
+    "active session and last instruction step survive page reload",
+    "offline reload, all 6 lessons and all 20 drill images from local PWA cache",
+    "missing-image fallback retains readable action and self-check",
+    "no browser runtime errors"
+  ],
+  "errors": []
+}

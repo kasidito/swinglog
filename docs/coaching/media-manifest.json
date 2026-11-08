@@ -1,0 +1,1184 @@
+[
+  {
+    "id": "grip",
+    "path": "/workspace/generated_images/exec-6c8bd6bc-a28c-478a-a445-919ee7a9de60.png",
+    "prompt": "Create one premium photorealistic golf instruction contact sheet, landscape, exactly THREE EQUAL WIDTH SQUARE PANELS side by side, no gaps, no borders, no lettering, no labels, no arrows. Cream-white studio background and matching consistent lighting. A fictional adult Thai male golf instructor, olive green polo, beige trousers, white plain shoes, no glove, no logos. This is a precise educational photographic illustration, NOT decorative artwork. All panels show only anatomically correct hands and the iron grip close up from the golfer's own perspective for a RIGHT HANDED golfer. PANEL LEFT: left lead hand holds the black rubber grip diagonally across the bases of the fingers, palm not wrapping too deep, left thumb resting down the right side of the handle. PANEL CENTER: right trail hand approaches and its palm covers the left thumb; clearly show the two distinct hands, five fingers per hand and a single continuous golf shaft extending downward. PANEL RIGHT: completed neutral two-hand grip, right little finger gently overlaps between left index and middle fingers, no twisted wrists, hands touch with no large gap. Each panel has sufficient surrounding empty space, same hand size, matching sleeves, same black grip, show whole fingers uncropped. Meticulous realistic human anatomy, single cylindrical club shaft, sharp fine detail. Do not add text or diagrams.",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Close hands seen from golfer own viewpoint. 1 left LEAD hand alone holds black iron grip across bases of fingers, left thumb rests along shaft. 2 add right TRAIL palm over left thumb, separate anatomically correct fingers visible. 3 two hands touch in a comfortable neutral completed ten-finger grip, all fingers on grip; same single iron shaft.",
+    "file": "public/coaching/grip.webp",
+    "previousAttempts": [],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 62410,
+    "directions": {
+      "hand": "left",
+      "target": "detail"
+    },
+    "sources": [
+      {
+        "title": "Kellie Stenzel · Golf grip fundamentals",
+        "url": "https://golf.com/instruction/10-golf-grip-fundamentals-improve-your-game/"
+      },
+      {
+        "title": "PGA · Grip and alignment",
+        "url": "https://www.pga.com/story/hit-the-golf-ball-where-you-want"
+      }
+    ]
+  },
+  {
+    "id": "alignment",
+    "prompt": "Keep the same three-panel contact sheet and instructor. Change ONLY the RIGHTMOST panel: golfer looks to the RIGHT of the image toward target, while keeping the iron head immediately behind white ball in center of stance. Target is viewer RIGHT for this right handed golfer. Preserve the other panels exactly. No text.",
+    "path": "/workspace/generated_images/exec-a16da96f-28e1-4ac0-a424-24fc92b3d92d.png",
+    "reference": "/workspace/generated_images/exec-7c2ec805-2ce5-4adc-845a-69480d405daf.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Full body front-on golfer facing camera, target LEFT of image. 1 standing behind ball looking left along target line, one alignment rod flat on ground between ball line and toes parallel target line. 2 address iron with feet and shoulders parallel ground rod, ball outside rod away from toes. 3 same address eyes glance to left target, iron face perpendicular target line, both feet flat. Rod safely away from club.",
+    "file": "public/coaching/alignment.webp",
+    "previousAttempts": [
+      {
+        "path": "/workspace/generated_images/exec-7c2ec805-2ce5-4adc-845a-69480d405daf.png",
+        "prompt": "Photorealistic golf coaching contact sheet exactly THREE equal square panels side by side. Same fictional Thai male olive polo beige trousers white shoes. Front view, target LEFT in all panels. Same equipment in every panel: single white golf ball EXACTLY CENTERED BETWEEN HIS TWO FEET and 40cm in front of toes; a yellow rod horizontal parallel target along toes safely behind ball; iron clubhead DIRECTLY BEHIND THE BALL on its RIGHT side touching grass in panels2and3. Panel1 kneeling placing horizontal rod by toes; panel2 full body standing at iron address, hands in front crotch, club shaft angles naturally to ball centered feet; panel3 SAME address gazing LEFT toward target. Show complete body club and ball, do NOT place ball outside stance, do NOT turn head right, no extra balls. Pale sage turf cream practice studio. No text symbols lines annotations. Consistent face anatomy five fingers.",
+        "selected": false
+      }
+    ],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 117280,
+    "directions": {
+      "hand": "right",
+      "target": "right"
+    },
+    "sources": [
+      {
+        "title": "PGA · Grip and alignment",
+        "url": "https://www.pga.com/story/hit-the-golf-ball-where-you-want"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ]
+  },
+  {
+    "id": "posture",
+    "prompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Full body SIDE profile golfer facing RIGHT of image, target into background. 1 standing tall iron held lightly ahead of thighs. 2 hinge forward from hips spine naturally long knees soft. 3 address iron arms hang freely under shoulders hands on grip and clubhead behind white ball, feet fully grounded. Same side viewpoint all panels. CRITICAL: for front views white ball must be BETWEEN feet, clubhead immediately next to ball. Use reference ONLY for fictional instructor face and clothing, obey specified action.",
+    "path": "/workspace/generated_images/exec-6ea465eb-09cc-4db2-b62a-7d5e1dea84e2.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Full body SIDE profile golfer facing RIGHT of image, target into background. 1 standing tall iron held lightly ahead of thighs. 2 hinge forward from hips spine naturally long knees soft. 3 address iron arms hang freely under shoulders hands on grip and clubhead behind white ball, feet fully grounded. Same side viewpoint all panels.",
+    "file": "public/coaching/posture.webp",
+    "previousAttempts": [],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 117998,
+    "directions": {
+      "hand": "right",
+      "target": "depth"
+    },
+    "sources": [
+      {
+        "title": "Amy Taylor, PGA · Set-up for different clubs",
+        "url": "https://www.pgaplay.co.uk/learn/understanding-correct-ball-position-and-set-up-for-different-clubs/"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ]
+  },
+  {
+    "id": "ball-position",
+    "prompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Front view waist down, target LEFT. Same golfer at address. 1 wedge narrow stance white ball near middle between feet. 2 seven iron slightly wider stance white ball near middle. 3 driver wide comfortable stance white ball on short tee near INSIDE LEFT lead heel, black driver head behind ball. Show clubhead ball both shoes in every panel. CRITICAL: for front views white ball must be BETWEEN feet, clubhead immediately next to ball. Use reference ONLY for fictional instructor face and clothing, obey specified action.",
+    "path": "/workspace/generated_images/exec-49a24f5c-1bc0-42d4-a6b4-d5b7bf3b9b7b.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Front view waist down, target LEFT. Same golfer at address. 1 wedge narrow stance white ball near middle between feet. 2 seven iron slightly wider stance white ball near middle. 3 driver wide comfortable stance white ball on short tee near INSIDE LEFT lead heel, black driver head behind ball. Show clubhead ball both shoes in every panel.",
+    "file": "public/coaching/ball-position.webp",
+    "previousAttempts": [],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 122386,
+    "directions": {
+      "hand": "right",
+      "target": "right"
+    },
+    "sources": [
+      {
+        "title": "Amy Taylor, PGA · Set-up for different clubs",
+        "url": "https://www.pgaplay.co.uk/learn/understanding-correct-ball-position-and-set-up-for-different-clubs/"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ]
+  },
+  {
+    "id": "club-setup",
+    "prompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Front-on full-body target LEFT. 1 wedge address narrow comfortable stance white ball middle hands relaxed. 2 seven iron address comfortable medium stance ball middle, longer shaft than wedge. 3 black driver address comfortably wider stance ball on short tee inside LEFT lead heel, long shaft, gentle upper body tilt away from target, no exaggerated angles. CRITICAL: for front views white ball must be BETWEEN feet, clubhead immediately next to ball. Use reference ONLY for fictional instructor face and clothing, obey specified action.",
+    "path": "/workspace/generated_images/exec-3139af31-32c7-42d0-bf86-ff0c91e0ad86.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Front-on full-body target LEFT. 1 wedge address narrow comfortable stance white ball middle hands relaxed. 2 seven iron address comfortable medium stance ball middle, longer shaft than wedge. 3 black driver address comfortably wider stance ball on short tee inside LEFT lead heel, long shaft, gentle upper body tilt away from target, no exaggerated angles.",
+    "file": "public/coaching/club-setup.webp",
+    "previousAttempts": [],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 118304,
+    "directions": {
+      "hand": "right",
+      "target": "right"
+    },
+    "sources": [
+      {
+        "title": "Amy Taylor, PGA · Set-up for different clubs",
+        "url": "https://www.pgaplay.co.uk/learn/understanding-correct-ball-position-and-set-up-for-different-clubs/"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ]
+  },
+  {
+    "id": "swing-sequence",
+    "prompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Full-body front view target LEFT. 1 iron address white ball middle stance. 2 controlled half backswing shaft around waist height on RIGHT trail side chest turns with arms. 3 half follow-through hands around waist height on LEFT target side chest turned left and trail heel lightly lifts, balanced lead leg. No multiple clubs or motion trails. CRITICAL: for front views white ball must be BETWEEN feet, clubhead immediately next to ball. Use reference ONLY for fictional instructor face and clothing, obey specified action.",
+    "path": "/workspace/generated_images/exec-393bfa0a-8c08-459e-90e7-349a0a29849a.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Full-body front view target LEFT. 1 iron address white ball middle stance. 2 controlled half backswing shaft around waist height on RIGHT trail side chest turns with arms. 3 half follow-through hands around waist height on LEFT target side chest turned left and trail heel lightly lifts, balanced lead leg. No multiple clubs or motion trails.",
+    "file": "public/coaching/swing-sequence.webp",
+    "previousAttempts": [],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 138072,
+    "directions": {
+      "hand": "right",
+      "target": "right"
+    },
+    "sources": [
+      {
+        "title": "PGA · Grip and alignment",
+        "url": "https://www.pga.com/story/hit-the-golf-ball-where-you-want"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ]
+  },
+  {
+    "id": "setup-alignment",
+    "prompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Full body front view target LEFT. 1 golfer kneels to place one yellow alignment rod flat parallel target line along toes, safely clear of white ball. 2 golfer iron address both toes parallel rod ball ahead of feet toward camera. 3 balanced gentle half follow-through toward LEFT, rod unmoved safely away from swing. CRITICAL: for front views white ball must be BETWEEN feet, clubhead immediately next to ball. Use reference ONLY for fictional instructor face and clothing, obey specified action.",
+    "path": "/workspace/generated_images/exec-d88d4aa4-1e72-41bd-8927-1faeee143702.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Full body front view target LEFT. 1 golfer kneels to place one yellow alignment rod flat parallel target line along toes, safely clear of white ball. 2 golfer iron address both toes parallel rod ball ahead of feet toward camera. 3 balanced gentle half follow-through toward LEFT, rod unmoved safely away from swing.",
+    "file": "public/coaching/setup-alignment.webp",
+    "previousAttempts": [],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 135346,
+    "directions": {
+      "hand": "right",
+      "target": "right"
+    },
+    "sources": [
+      {
+        "title": "Bruce Bolt – Golf alignment drills",
+        "url": "https://brucebolt.us/blogs/news/golf-alignment-drills-how-to-aim-correctly"
+      },
+      {
+        "title": "GOLF.com – Three ways to practice with an alignment stick",
+        "url": "https://golf.com/instruction/three-ways-practice-alignment-stick-play-smart"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ]
+  },
+  {
+    "id": "half-swing-warmup",
+    "prompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Full body front target LEFT wedge white ball central. 1 comfortable wedge address. 2 short backswing hands at waist on RIGHT side chest turns. 3 controlled waist-high follow-through LEFT with stable finish and relaxed shoulders. CRITICAL: for front views white ball must be BETWEEN feet, clubhead immediately next to ball. Use reference ONLY for fictional instructor face and clothing, obey specified action.",
+    "path": "/workspace/generated_images/exec-fefc72cc-ef7a-4df9-ac6e-9d9e19e8e580.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Full body front target LEFT wedge white ball central. 1 comfortable wedge address. 2 short backswing hands at waist on RIGHT side chest turns. 3 controlled waist-high follow-through LEFT with stable finish and relaxed shoulders.",
+    "file": "public/coaching/half-swing-warmup.webp",
+    "previousAttempts": [],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 129738,
+    "directions": {
+      "hand": "right",
+      "target": "right"
+    },
+    "sources": [
+      {
+        "title": "GOLF.com – 10-minute golf warm-up",
+        "url": "https://golf.com/instruction/10-minute-golf-warm-up/"
+      },
+      {
+        "title": "GOLF.com – Kellie Stenzel 5-minute warm-up",
+        "url": "https://golf.com/?p=14176472"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ]
+  },
+  {
+    "id": "path-gate",
+    "prompt": "Educational photorealistic golf drill THREE equal square panels side by side. Camera looks straight down overhead at feet, hands, iron head, two yellow rods and white ball; crop torso, legs at bottom of frame, facing TOP of image. Ball directly ahead of feet near TOP middle. Target LEFT of image. Two yellow alignment rods lie FLAT HORIZONTALLY LEFT TO RIGHT, parallel to each other and the target. White ball centered in broad lane BETWEEN the horizontal rods. Clubhead travels LEFT along lane. LEFT PANEL hands arranging horizontal rods around centered ball; CENTER PANEL golfer at iron address with clubhead immediately RIGHT of ball in lane; RIGHT PANEL low short follow-through clubhead LEFT of original ball position in lane, rods untouched. Same fictional adult Thai male olive polo beige trousers white golf shoes. Correct hands single continuous shaft. Simple pale green turf. No text, arrows, lettering, no upright poles, no vertical rods.",
+    "path": "/workspace/generated_images/exec-10f71830-f5f3-4a9e-82d9-ca17d1c1777b.png",
+    "hint": "Generated images are saved to /workspace/generated_images as /workspace/generated_images/exec-10f71830-f5f3-4a9e-82d9-ca17d1c1777b.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. High overhead oblique instructional view, target TOP. Full golfer feet, iron head and white ball clearly visible. Two yellow alignment sticks lie FLAT on ground PARALLEL to target, one either side of ball creating a broad lane wider than clubhead, no upright poles. 1 golfer places two flat rods and ball center lane. 2 iron head directly behind ball centered between rods at address. 3 low slow practice iron follow-through toward TOP through lane, rods untouched. Same layout all panels.",
+    "file": "public/coaching/path-gate.webp",
+    "previousAttempts": [],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 292700,
+    "directions": {
+      "hand": "right",
+      "target": "left"
+    },
+    "sources": [
+      {
+        "title": "Bruce Bolt – Golf alignment drills",
+        "url": "https://brucebolt.us/blogs/news/golf-alignment-drills-how-to-aim-correctly"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ]
+  },
+  {
+    "id": "anti-slice-stick",
+    "prompt": "Keep this three-panel golf teaching image and same instructor. RIGHTMOST panel has an incorrect extra golf ball stuck to clubhead. REMOVE that extra ball from the clubhead, leave only the original white ball on turf central. Clubhead passes safely INSIDE and above the flat yellow rod with visible clearance. Dry rehearsal not actual shot. No text. Preserve other panels.",
+    "path": "/workspace/generated_images/exec-8017692e-5a71-487d-a38a-17ff3b8f6505.png",
+    "reference": "/workspace/generated_images/exec-5c1b0d5c-353a-4a8d-8d55-7264cd63d401.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. High oblique view target TOP. Safe ground drill no upright poles. 1 golfer puts ONE yellow rod FLAT beyond outside edge of ball farther away from toes, rod diagonally points slightly right of target, safely clear of clubhead lane. 2 iron at address white ball well inside rod with broad safe gap. 3 slow low half follow-through iron passes inside rod without touching; both feet visible. No pole angled up toward golfer.",
+    "file": "public/coaching/anti-slice-stick.webp",
+    "previousAttempts": [
+      {
+        "path": "/workspace/generated_images/exec-5c1b0d5c-353a-4a8d-8d55-7264cd63d401.png",
+        "prompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. High oblique view target TOP. Safe ground drill no upright poles. 1 golfer puts ONE yellow rod FLAT beyond outside edge of ball farther away from toes, rod diagonally points slightly right of target, safely clear of clubhead lane. 2 iron at address white ball well inside rod with broad safe gap. 3 slow low half follow-through iron passes inside rod without touching; both feet visible. No pole angled up toward golfer. CRITICAL: front-view ball BETWEEN feet, clubhead immediately next to ball. Use reference ONLY for instructor face and clothing, obey the specified action and equipment.",
+        "selected": false
+      }
+    ],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 144350,
+    "directions": {
+      "hand": "right",
+      "target": "right"
+    },
+    "sources": [
+      {
+        "title": "GOLF.com – Andrew Rice anti-slice drill",
+        "url": "https://golf.com/instruction/how-to-fix-slice-andrew-rice-drill/"
+      },
+      {
+        "title": "PGA.com – Fix your slice with an alignment stick",
+        "url": "https://pga.com/story/how-to-fix-your-slice-with-an-alignment-stick"
+      },
+      {
+        "title": "Bruce Bolt – Golf alignment drills",
+        "url": "https://brucebolt.us/blogs/news/golf-alignment-drills-how-to-aim-correctly"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ]
+  },
+  {
+    "id": "split-grip",
+    "prompt": "Recreate clear golf SPLIT-HAND drill three equal square photo panels. Same olive polo fictional Thai man beige trousers seen waist-up to knees, plain cream studio. ONE single iron with ONE black grip only at upper end and ONE straight unbroken steel shaft extending down from grip to a single iron head. LEFT LEAD hand holds upper black grip, RIGHT TRAIL hand grasps bare SILVER STEEL SHAFT 12cm below left hand, conspicuous bare silver gap between hands. Never add black rubber to lower hand. Panel1 iron address hands separated. Panel2 slow short backswing toward viewer LEFT, hands separated on SAME single shaft. Panel3 short follow-through toward viewer RIGHT, hands separated on SAME shaft. Carefully preserve continuous single club geometry. No text.",
+    "path": "/workspace/generated_images/exec-86088e03-73a0-43f2-b76f-f787cbf2a659.png",
+    "reference": "/workspace/generated_images/exec-0a04d097-eb17-4f47-8beb-447b57fa222b.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Full body front target LEFT. 1 iron address lead LEFT hand high on grip and RIGHT trail hand lower leaving visible palm-width gap on shaft. 2 very slow half backswing hands separated with chest turn RIGHT. 3 slow half follow-through hands still separated chest toward LEFT target. One continuous club shaft; not a full power shot.",
+    "file": "public/coaching/split-grip.webp",
+    "previousAttempts": [
+      {
+        "path": "/workspace/generated_images/exec-df3bff32-d127-4e00-bc07-e882a34a01be.png",
+        "prompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Full body front target LEFT. 1 iron address lead LEFT hand high on grip and RIGHT trail hand lower leaving visible palm-width gap on shaft. 2 very slow half backswing hands separated with chest turn RIGHT. 3 slow half follow-through hands still separated chest toward LEFT target. One continuous club shaft; not a full power shot. CRITICAL: front-view ball BETWEEN feet, clubhead immediately next to ball. Use reference ONLY for instructor face and clothing, obey the specified action and equipment.",
+        "selected": false
+      },
+      {
+        "path": "/workspace/generated_images/exec-0a04d097-eb17-4f47-8beb-447b57fa222b.png",
+        "prompt": "Edit this three panel golf contact sheet to clearly teach a SPLIT GRIP. In every panel move RIGHT TRAIL hand 12 centimeters DOWN THE SHAFT away from LEFT lead hand, leaving a clearly visible open section of steel shaft BETWEEN HANDS. Do not change club continuity or model identity. Crop each panel closer from shoulders to knees so the gap is unmistakable, same three distinct positions address, short backswing, short follow-through. No text.",
+        "reference": "/workspace/generated_images/exec-df3bff32-d127-4e00-bc07-e882a34a01be.png",
+        "selected": false
+      }
+    ],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 72116,
+    "directions": {
+      "hand": "right",
+      "target": "right"
+    },
+    "sources": [
+      {
+        "title": "Golf Monthly – How to fix a hook",
+        "url": "https://www.golfmonthly.com/videos/driving-tips/what-causes-a-hook-and-how-do-i-cure-it"
+      },
+      {
+        "title": "Golf Digest – Leadbetter split-grip drill",
+        "url": "https://www.golfdigest.com/story/leadbetter_gd0406"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ]
+  },
+  {
+    "id": "feet-together",
+    "prompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Full body front target LEFT. 1 address iron both white shoes close together ball middle. 2 short slow half backswing feet still together. 3 controlled short follow-through chest turns LEFT feet remain touching and golfer balanced. Show all feet and clubhead. CRITICAL: front-view ball BETWEEN feet, clubhead immediately next to ball. Use reference ONLY for instructor face and clothing, obey the specified action and equipment.",
+    "path": "/workspace/generated_images/exec-fee08dfa-6a5b-4371-9260-f4d4a502e230.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Full body front target LEFT. 1 address iron both white shoes close together ball middle. 2 short slow half backswing feet still together. 3 controlled short follow-through chest turns LEFT feet remain touching and golfer balanced. Show all feet and clubhead.",
+    "file": "public/coaching/feet-together.webp",
+    "previousAttempts": [],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 128654,
+    "directions": {
+      "hand": "right",
+      "target": "right"
+    },
+    "sources": [
+      {
+        "title": "Golf Monthly – How to fix a hook",
+        "url": "https://www.golfmonthly.com/videos/driving-tips/what-causes-a-hook-and-how-do-i-cure-it"
+      },
+      {
+        "title": "Today's Golfer – Feet together drill",
+        "url": "https://todays-golfer.com/tips-and-tuition/iron-play/video-tips/2008/november/feet-together-drill"
+      },
+      {
+        "title": "PGA.com – Three drills to improve performance",
+        "url": "https://www.pga.com/story/three-drills-to-improve-your-golf-performance"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ]
+  },
+  {
+    "id": "towel-low-point",
+    "prompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Low front three-quarter view target LEFT. 1 golfer at address places small folded beige towel about fifteen centimeters RIGHT behind ball along target line. 2 iron address behind white ball towel clearly behind to RIGHT with gap. 3 low follow-through club LEFT of ball towel untouched and divot mark LEFT target side of original ball. Show shoes hands club towel. CRITICAL: front-view ball BETWEEN feet, clubhead immediately next to ball. Use reference ONLY for instructor face and clothing, obey the specified action and equipment.",
+    "path": "/workspace/generated_images/exec-62d64e24-81ae-445d-a619-16dde8f21752.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Low front three-quarter view target LEFT. 1 golfer at address places small folded beige towel about fifteen centimeters RIGHT behind ball along target line. 2 iron address behind white ball towel clearly behind to RIGHT with gap. 3 low follow-through club LEFT of ball towel untouched and divot mark LEFT target side of original ball. Show shoes hands club towel.",
+    "file": "public/coaching/towel-low-point.webp",
+    "previousAttempts": [],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 128020,
+    "directions": {
+      "hand": "left",
+      "target": "left"
+    },
+    "sources": [
+      {
+        "title": "Hole19 – Improve iron contact",
+        "url": "https://www.hole19golf.com/the-19th-hole/improve-iron-contact-in-golf"
+      },
+      {
+        "title": "CaddieHQ – Stop hitting fat iron shots",
+        "url": "https://www.caddiehq.com/resources/how-to-stop-hitting-fat-golf-shots-with-irons"
+      },
+      {
+        "title": "GolfWRX – Low point towel drill",
+        "url": "https://golfwrx.com/?p=363044"
+      },
+      {
+        "title": "HackMotion – Low point control drills",
+        "url": "https://hackmotion.com/low-point-control-drills/"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ]
+  },
+  {
+    "id": "line-drill",
+    "prompt": "Keep panels1and2 exactly. Fix ONLY rightmost panel: golfer holds club in short FOLLOW-THROUGH toward RIGHT of image, chest turned toward RIGHT and gaze RIGHT, trail heel (viewer LEFT) lightly lifts. Clubhead on RIGHT side of body not left. Keep white cross and small turf brush mark to RIGHT of center line. Same instructor same three square panels no text.",
+    "path": "/workspace/generated_images/exec-079a90b6-4976-48f3-9cd7-4c1fe9949805.png",
+    "reference": "/workspace/generated_images/exec-de22c16c-e864-450e-bfba-4280053fda7a.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Front low three-quarter target LEFT turf. 1 golfer draws short chalk line across target line at right angles near ball position. 2 iron addresses white ball ON chalk line between feet. 3 low follow-through iron LEFT of line shallow turf brush mark LEFT target side of line. Single chalk line, no debris flying.",
+    "file": "public/coaching/line-drill.webp",
+    "previousAttempts": [
+      {
+        "path": "/workspace/generated_images/exec-d477f125-11a0-4327-8407-776399f2b2f5.png",
+        "prompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Front low three-quarter target LEFT turf. 1 golfer draws short chalk line across target line at right angles near ball position. 2 iron addresses white ball ON chalk line between feet. 3 low follow-through iron LEFT of line shallow turf brush mark LEFT target side of line. Single chalk line, no debris flying. CRITICAL: front-view ball BETWEEN feet, clubhead immediately next to ball. Use reference ONLY for instructor face and clothing, obey the specified action and equipment.",
+        "selected": false
+      },
+      {
+        "path": "/workspace/generated_images/exec-de22c16c-e864-450e-bfba-4280053fda7a.png",
+        "prompt": "Correct the white chalk line in ALL THREE panels. It must run FRONT TO BACK on the turf from bottom toward golfer, at RIGHT ANGLES to the horizontal target line LEFT TO RIGHT. It must NOT run horizontally parallel feet. Panel1 golfer draws that vertical-in-image depth line; panel2 white ball ON that line and iron immediately behind it; panel3 small turf brush mark on RIGHT target side of chalk line, controlled follow-through toward RIGHT. Same instructor, three equal square panels, no text.",
+        "reference": "/workspace/generated_images/exec-d477f125-11a0-4327-8407-776399f2b2f5.png",
+        "selected": false
+      }
+    ],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 129968,
+    "directions": {
+      "hand": "right",
+      "target": "right"
+    },
+    "sources": [
+      {
+        "title": "CaddieHQ – How to stop taking bad divots",
+        "url": "https://www.caddiehq.com/resources/how-to-stop-taking-divots-in-golf"
+      },
+      {
+        "title": "HackMotion – Low point control drills",
+        "url": "https://hackmotion.com/low-point-control-drills/"
+      },
+      {
+        "title": "CaddieHQ – Stop hitting fat iron shots",
+        "url": "https://www.caddiehq.com/resources/how-to-stop-hitting-fat-golf-shots-with-irons"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ]
+  },
+  {
+    "id": "step-through",
+    "prompt": "Keep first two panels. Correct RIGHTMOST panel to show a WALKING step through toward RIGHT of image, NOT a normal finish. Golfer's anatomical RIGHT trail foot (viewer LEFT originally) has now STEPPED PAST the anatomical LEFT lead foot toward RIGHT of image and is planted to the RIGHT of the original lead foot. The original lead foot remains behind, just lifting its heel as if walking to the RIGHT. Club held in short follow-through toward RIGHT, body naturally faces RIGHT. Show both whole shoes and full body, no crossing legs. Same instructor and three equal panels. No text.",
+    "path": "/workspace/generated_images/exec-935c2de4-4260-4616-8b46-e87a2df0a8b3.png",
+    "reference": "/workspace/generated_images/exec-1e2e9d26-3849-4493-a279-c6541681c0cb.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Full body front target LEFT. 1 iron address narrow stance. 2 slow half backswing hands RIGHT side with comfortable body turn. 3 after low swing through golfer RIGHT trail foot steps past LEFT lead foot toward LEFT target, club in follow-through, clear unobstructed ground. Natural walking finish.",
+    "file": "public/coaching/step-through.webp",
+    "previousAttempts": [
+      {
+        "path": "/workspace/generated_images/exec-1e2e9d26-3849-4493-a279-c6541681c0cb.png",
+        "prompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Full body front target LEFT. 1 iron address narrow stance. 2 slow half backswing hands RIGHT side with comfortable body turn. 3 after low swing through golfer RIGHT trail foot steps past LEFT lead foot toward LEFT target, club in follow-through, clear unobstructed ground. Natural walking finish. CRITICAL: front-view ball BETWEEN feet, clubhead immediately next to ball. Use reference ONLY for instructor face and clothing, obey the specified action and equipment.",
+        "selected": false
+      }
+    ],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 133616,
+    "directions": {
+      "hand": "right",
+      "target": "right"
+    },
+    "sources": [
+      {
+        "title": "Hole19 – Improve iron contact",
+        "url": "https://www.hole19golf.com/the-19th-hole/improve-iron-contact-in-golf"
+      },
+      {
+        "title": "CaddieHQ – Stop hitting fat iron shots",
+        "url": "https://www.caddiehq.com/resources/how-to-stop-hitting-fat-golf-shots-with-irons"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ]
+  },
+  {
+    "id": "tee-gate-driver",
+    "prompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Low front three-quarter target LEFT. 1 driver at address white ball on short tee near left lead heel, two extra SHORT flexible tees either side of driver head with broad clearance. 2 black driver head centered behind ball between short tees. 3 controlled low driver follow-through toward LEFT extra tees untouched. No tall rods or unsafe obstacles. CRITICAL: do NOT copy reference ball/rod setup; use reference ONLY for the instructor face and clothes. Obey this drill equipment instructions. Face-on RIGHT HANDED target is viewer RIGHT, lead left foot appears viewer RIGHT. Clearly visible ball and clubhead at address.",
+    "path": "/workspace/generated_images/exec-888c322c-4938-4474-a575-a72fe4c16bee.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Low front three-quarter target LEFT. 1 driver at address white ball on short tee near left lead heel, two extra SHORT flexible tees either side of driver head with broad clearance. 2 black driver head centered behind ball between short tees. 3 controlled low driver follow-through toward LEFT extra tees untouched. No tall rods or unsafe obstacles.",
+    "file": "public/coaching/tee-gate-driver.webp",
+    "previousAttempts": [],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 139128,
+    "directions": {
+      "hand": "right",
+      "target": "right"
+    },
+    "sources": [
+      {
+        "title": "GOLFTEC – What causes toe hits",
+        "url": "https://golftec.com/video/what-causes-toe-hits-and-how-to-correct-them"
+      },
+      {
+        "title": "GOLF.com – 10 fixes to stop hitting the toe",
+        "url": "https://golf.com/instruction/10-fixes-stop-hitting-toe-golf-club/"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ]
+  },
+  {
+    "id": "putt-gate",
+    "prompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Overhead oblique putting green target TOP. 1 same golfer in putting address places two SHORT tees outside heel and toe of putter with clearance white ball central. 2 putter behind ball centered between tees feet visible at side. 3 short straight putting follow-through head passes between tees ball rolls toward hole TOP, tees unmoved. CRITICAL: do NOT copy reference ball/rod setup; use reference ONLY for the instructor face and clothes. Obey this drill equipment instructions. Face-on RIGHT HANDED target is viewer RIGHT, lead left foot appears viewer RIGHT. Clearly visible ball and clubhead at address.",
+    "path": "/workspace/generated_images/exec-dd3516d2-cf4d-4f43-8b63-e32844b7e7a9.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Overhead oblique putting green target TOP. 1 same golfer in putting address places two SHORT tees outside heel and toe of putter with clearance white ball central. 2 putter behind ball centered between tees feet visible at side. 3 short straight putting follow-through head passes between tees ball rolls toward hole TOP, tees unmoved.",
+    "file": "public/coaching/putt-gate.webp",
+    "previousAttempts": [],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 139592,
+    "directions": {
+      "hand": "right",
+      "target": "right"
+    },
+    "sources": [
+      {
+        "title": "Kevin Britt, PGA · Putting gate training",
+        "url": "https://carolinas.pga.com/news/elite-level-training-kevin-britt-pga/"
+      },
+      {
+        "title": "HackMotion – Gate putting drill",
+        "url": "https://hackmotion.com/gate-putting-drill/"
+      },
+      {
+        "title": "MyGolfSpy – First 3 putting drills",
+        "url": "https://mygolfspy.com/news-opinion/instruction/the-first-3-putting-drills-beginners-should-learn/"
+      },
+      {
+        "title": "Plum Creek – Short putting practice drills",
+        "url": "https://plumcreekgolf.com/contact/news/quickly-master-your-stroke-with-these-short-putting-practice-drills"
+      }
+    ]
+  },
+  {
+    "id": "clock-drill",
+    "prompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Elevated wide view putting green, target is CENTER hole. 1 eight white balls in evenly spaced circle around center hole approximately one meter radius, golfer stands outside circle. 2 golfer addresses one ball putting toward central hole. 3 golfer walks to next ball around same circle holding putter, hole and remaining balls visible. No extra holes. CRITICAL: do NOT copy reference ball/rod setup; use reference ONLY for the instructor face and clothes. Obey this drill equipment instructions. Face-on RIGHT HANDED target is viewer RIGHT, lead left foot appears viewer RIGHT. Clearly visible ball and clubhead at address.",
+    "path": "/workspace/generated_images/exec-f8bbfbe0-56d4-46e8-8f2b-18e4879a2af2.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Elevated wide view putting green, target is CENTER hole. 1 eight white balls in evenly spaced circle around center hole approximately one meter radius, golfer stands outside circle. 2 golfer addresses one ball putting toward central hole. 3 golfer walks to next ball around same circle holding putter, hole and remaining balls visible. No extra holes.",
+    "file": "public/coaching/clock-drill.webp",
+    "previousAttempts": [],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 138864,
+    "directions": {
+      "hand": "left",
+      "target": "hole"
+    },
+    "sources": [
+      {
+        "title": "Plum Creek – Short putting practice drills",
+        "url": "https://plumcreekgolf.com/contact/news/quickly-master-your-stroke-with-these-short-putting-practice-drills"
+      },
+      {
+        "title": "GOLFZON Leadbetter – 6 putting drills",
+        "url": "https://www.golfzonleadbetter.com/blogs/master-your-putting-game-6-effective-putting-drills-for-precision-speed-alignment"
+      },
+      {
+        "title": "Southwest Greens – Compact green drills",
+        "url": "https://www.southwestgreens.com/blog/practice-drills-you-can-practice-on-a-compact-putting-green"
+      }
+    ]
+  },
+  {
+    "id": "ladder-369",
+    "prompt": "Replace this three-panel contact sheet with a clear golf ladder putting drill seen from elevated wide front three-quarter view. Same golfer, olive polo beige pants white shoes. Hole is at FAR RIGHT of every panel. THREE white balls at equal spaced one two three meter stations LEFT of hole. LEFT panel golfer stands aside with putter and all three ball stations visible. CENTER panel golfer addresses the RIGHTMOST ball NEAREST hole, the other two balls are further LEFT behind him. RIGHT panel after sinking nearest ball, golfer addresses MIDDLE ball, with one ball still at farthest LEFT station. Do not show golfer addressing farthest ball first. All three stations remain in same coordinates each panel, one hole at far right, no text or extra equipment.",
+    "path": "/workspace/generated_images/exec-182a37e6-c114-49a5-ad9e-ea1b9c042371.png",
+    "reference": "/workspace/generated_images/exec-cee33582-ec59-4201-bb3c-7d827f13ea8e.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Elevated oblique putting green target TOP hole. 1 three white balls in straight line progressively farther from hole at one two three meter positions, golfer side of nearest. 2 golfer putts nearest ball toward hole, remaining two behind. 3 golfer addresses next farther ball on same line, hole and one farther ball visible. Same three stations.",
+    "file": "public/coaching/ladder-369.webp",
+    "previousAttempts": [
+      {
+        "path": "/workspace/generated_images/exec-cee33582-ec59-4201-bb3c-7d827f13ea8e.png",
+        "prompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Elevated oblique putting green target TOP hole. 1 three white balls in straight line progressively farther from hole at one two three meter positions, golfer side of nearest. 2 golfer putts nearest ball toward hole, remaining two behind. 3 golfer addresses next farther ball on same line, hole and one farther ball visible. Same three stations. CRITICAL: do NOT copy reference ball/rod setup; use reference ONLY for the instructor face and clothes. Obey this drill equipment instructions. Face-on RIGHT HANDED target is viewer RIGHT, lead left foot appears viewer RIGHT. Clearly visible ball and clubhead at address.",
+        "selected": false
+      }
+    ],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 143318,
+    "directions": {
+      "hand": "right",
+      "target": "hole"
+    },
+    "sources": [
+      {
+        "title": "Brendon Elliott, PGA · Ladder putting challenge",
+        "url": "https://www.pga.com/story/putting-practice-games-that-lead-to-big-gains-part-2"
+      },
+      {
+        "title": "GOLFZON Leadbetter – 6 putting drills",
+        "url": "https://www.golfzonleadbetter.com/blogs/master-your-putting-game-6-effective-putting-drills-for-precision-speed-alignment"
+      }
+    ]
+  },
+  {
+    "id": "lag-ladder",
+    "prompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Elevated wide putting green view target TOP. 1 golfer with putter surveys four flat small tee stations progressively farther from a single hole. 2 golfer addresses white ball at nearest station aiming hole. 3 golfer at farther station makes longer controlled putting follow-through, white ball near hole. Show scale spacious green no written distances. CRITICAL: do NOT copy reference ball/rod setup; use reference ONLY for the instructor face and clothes. Obey this drill equipment instructions. Face-on RIGHT HANDED target is viewer RIGHT, lead left foot appears viewer RIGHT. Clearly visible ball and clubhead at address.",
+    "path": "/workspace/generated_images/exec-f37e3a86-b181-448d-a1fa-ba148db0ac94.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Elevated wide putting green view target TOP. 1 golfer with putter surveys four flat small tee stations progressively farther from a single hole. 2 golfer addresses white ball at nearest station aiming hole. 3 golfer at farther station makes longer controlled putting follow-through, white ball near hole. Show scale spacious green no written distances.",
+    "file": "public/coaching/lag-ladder.webp",
+    "previousAttempts": [],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 125438,
+    "directions": {
+      "hand": "right",
+      "target": "hole"
+    },
+    "sources": [
+      {
+        "title": "GOLFTEC – Lag and ladder putting drills",
+        "url": "https://scramble.golftec.com/blog/2016/02/lag-and-ladder-putting-drills-to-eliminate-three-putts/"
+      },
+      {
+        "title": "Montana Coaches – Clinic putting notes (PDF)",
+        "url": "https://montanacoaches.com/wp-content/uploads/2025/08/Clinic-Putting-Notes.pdf"
+      },
+      {
+        "title": "Plum Creek – Short putting practice drills",
+        "url": "https://plumcreekgolf.com/contact/news/quickly-master-your-stroke-with-these-short-putting-practice-drills"
+      }
+    ]
+  },
+  {
+    "id": "lag-safe-zone",
+    "prompt": "Keep first two panels unchanged. In RIGHTMOST panel plant both shoe soles FLAT on the green; putting finish must not lift either heel or move feet. Short putting follow-through, not a full swing. Preserve hole and white ball stopped between hole and flat spare club beyond hole. Three equal square panels no text.",
+    "path": "/workspace/generated_images/exec-bb7d61c6-36bc-4ca8-9291-47e6a628e64a.png",
+    "reference": "/workspace/generated_images/exec-fcd1066e-b889-4f4c-8470-f999b7a9bdf1.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Elevated oblique putting green target TOP. 1 golfer places a spare iron FLAT sixty centimeters BEYOND hole perpendicular putting line. 2 golfer addresses white ball several meters BELOW hole with putter, spare iron visible beyond hole. 3 white ball stops between hole and flat iron, golfer holds balanced putting finish. One hole only.",
+    "file": "public/coaching/lag-safe-zone.webp",
+    "previousAttempts": [
+      {
+        "path": "/workspace/generated_images/exec-fcd1066e-b889-4f4c-8470-f999b7a9bdf1.png",
+        "prompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Elevated oblique putting green target TOP. 1 golfer places a spare iron FLAT sixty centimeters BEYOND hole perpendicular putting line. 2 golfer addresses white ball several meters BELOW hole with putter, spare iron visible beyond hole. 3 white ball stops between hole and flat iron, golfer holds balanced putting finish. One hole only. CRITICAL: do NOT copy reference ball/rod setup; use reference ONLY for the instructor face and clothes. Obey this drill equipment instructions. Face-on RIGHT HANDED target is viewer RIGHT, lead left foot appears viewer RIGHT. Clearly visible ball and clubhead at address.",
+        "selected": false
+      }
+    ],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 131938,
+    "directions": {
+      "hand": "right",
+      "target": "hole"
+    },
+    "sources": [
+      {
+        "title": "GOLFZON Leadbetter – 6 putting drills",
+        "url": "https://www.golfzonleadbetter.com/blogs/master-your-putting-game-6-effective-putting-drills-for-precision-speed-alignment"
+      },
+      {
+        "title": "CaddieHQ – How to practice short game",
+        "url": "https://www.caddiehq.com/resources/how-to-practice-golf-short-game"
+      }
+    ]
+  },
+  {
+    "id": "landing-towel",
+    "prompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Wide front three-quarter golf green target LEFT. 1 golfer at fringe with wedge white ball near feet, small beige towel flat on green to LEFT as landing target. 2 short chip backswing golfer eyes ball towel clearly ahead LEFT. 3 low chip follow-through white ball resting on towel to LEFT, single clear ball, no imaginary trajectory. Full body and target towel visible. CRITICAL: use reference ONLY for same instructor identity and clothes. Environment must be actual outdoor chipping green or real sand bunker as specified. Face-on RIGHT HANDED target is viewer RIGHT; place landing towel to viewer RIGHT, sand entry behind ball to viewer LEFT. Clubhead directly beside white ball at address. No duplicated balls or clubs.",
+    "path": "/workspace/generated_images/exec-76f23334-7fda-4861-b291-099de2599ab2.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Wide front three-quarter golf green target LEFT. 1 golfer at fringe with wedge white ball near feet, small beige towel flat on green to LEFT as landing target. 2 short chip backswing golfer eyes ball towel clearly ahead LEFT. 3 low chip follow-through white ball resting on towel to LEFT, single clear ball, no imaginary trajectory. Full body and target towel visible.",
+    "file": "public/coaching/landing-towel.webp",
+    "previousAttempts": [],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 174200,
+    "directions": {
+      "hand": "right",
+      "target": "right"
+    },
+    "sources": [
+      {
+        "title": "CaddieHQ – How to work on short game",
+        "url": "https://www.caddiehq.com/resources/how-to-work-on-short-game-golf"
+      },
+      {
+        "title": "CaddieHQ – How to practice short game",
+        "url": "https://www.caddiehq.com/resources/how-to-practice-golf-short-game"
+      },
+      {
+        "title": "GolfPass – Chipping landing spot drill",
+        "url": "https://www.golfpass.com.au/watch/daily-video-tips/chipping-landing-spot-drill"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ]
+  },
+  {
+    "id": "landing-club-ladder",
+    "prompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Wide front three-quarter green target LEFT. 1 golfer wedge address fringe towel landing target LEFT, two spare irons laid safely flat behind golfer away from swing. 2 same golfer chips using eight iron to same towel, one spare wedge and six iron safely behind. 3 same golfer chips with six iron toward same towel, ball resting farther LEFT past towel to illustrate rollout. Consistent towel position. CRITICAL: use reference ONLY for same instructor identity and clothes. Environment must be actual outdoor chipping green or real sand bunker as specified. Face-on RIGHT HANDED target is viewer RIGHT; place landing towel to viewer RIGHT, sand entry behind ball to viewer LEFT. Clubhead directly beside white ball at address. No duplicated balls or clubs.",
+    "path": "/workspace/generated_images/exec-ac7b7830-a78d-45cb-879b-a248f5ff618d.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Wide front three-quarter green target LEFT. 1 golfer wedge address fringe towel landing target LEFT, two spare irons laid safely flat behind golfer away from swing. 2 same golfer chips using eight iron to same towel, one spare wedge and six iron safely behind. 3 same golfer chips with six iron toward same towel, ball resting farther LEFT past towel to illustrate rollout. Consistent towel position.",
+    "file": "public/coaching/landing-club-ladder.webp",
+    "previousAttempts": [],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 185204,
+    "directions": {
+      "hand": "right",
+      "target": "right"
+    },
+    "sources": [
+      {
+        "title": "GolfPass – Chipping landing spot drill",
+        "url": "https://www.golfpass.com.au/watch/daily-video-tips/chipping-landing-spot-drill"
+      },
+      {
+        "title": "CaddieHQ – How to work on short game",
+        "url": "https://www.caddiehq.com/resources/how-to-work-on-short-game-golf"
+      },
+      {
+        "title": "Joanna Coe · Grip, stance, posture and alignment (Titleist)",
+        "url": "https://www.titleist.co.uk/videos/instruction/four-golf-fundamentals"
+      }
+    ]
+  },
+  {
+    "id": "bunker-line",
+    "prompt": "Correct the practice line in this three-panel golf instruction photograph. Target is RIGHT of image. The sand line must run FRONT TO BACK in depth, from bottom of image toward the golfer's feet, perpendicular to target line. Remove current horizontal line. Panel1 draw depth line with club. Panel2 club enters sand ON depth line without any ball. Panel3 white ball is just a few centimeters to RIGHT of depth line, sand wedge hovers just LEFT of line ready for sand-first shot. Same golfer olive polo beige pants white shoes, same three square panels, no text. Do not add a towel.",
+    "path": "/workspace/generated_images/exec-a998c9fb-b89a-4042-8ceb-09ea8c8dcabf.png",
+    "reference": "/workspace/generated_images/exec-49462c27-1002-4cd0-84ba-bc65d4ae5d78.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Front three-quarter bunker target LEFT. 1 golfer wedge draws short straight line across sand perpendicular target, no ball yet. 2 short wedge practice swing contacts sand AT line without ball. 3 white ball a few centimeters LEFT target side of line at address, wedge behind line ready to enter sand. Firm stable footprints, no dramatic sand explosion.",
+    "file": "public/coaching/bunker-line.webp",
+    "previousAttempts": [
+      {
+        "path": "/workspace/generated_images/exec-49462c27-1002-4cd0-84ba-bc65d4ae5d78.png",
+        "prompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Front three-quarter bunker target LEFT. 1 golfer wedge draws short straight line across sand perpendicular target, no ball yet. 2 short wedge practice swing contacts sand AT line without ball. 3 white ball a few centimeters LEFT target side of line at address, wedge behind line ready to enter sand. Firm stable footprints, no dramatic sand explosion. CRITICAL: use reference ONLY for same instructor identity and clothes. Environment must be actual outdoor chipping green or real sand bunker as specified. Face-on RIGHT HANDED target is viewer RIGHT; place landing towel to viewer RIGHT, sand entry behind ball to viewer LEFT. Clubhead directly beside white ball at address. No duplicated balls or clubs.",
+        "selected": false
+      }
+    ],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 217574,
+    "directions": {
+      "hand": "right",
+      "target": "right"
+    },
+    "sources": [
+      {
+        "title": "Golf Compendium – Line drill in bunkers",
+        "url": "https://www.golfcompendium.com/2021/11/line-drill-bunkers-point-of-entry.html"
+      },
+      {
+        "title": "CaddieHQ – How to work on short game",
+        "url": "https://www.caddiehq.com/resources/how-to-work-on-short-game-golf"
+      },
+      {
+        "title": "GolfMagic – Bunker practice drills",
+        "url": "https://www.golfmagic.com/node/98793"
+      },
+      {
+        "title": "Titleist – Bunker line drill",
+        "url": "https://titleist.com/instruction/bunker-line-drill"
+      }
+    ]
+  },
+  {
+    "id": "bunker-bill",
+    "prompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Low front three-quarter bunker target LEFT. 1 golfer draws a small rectangle in sand with white ball at center no paper money. 2 sand wedge face slightly open before gripping, resting ABOVE sand behind right edge of rectangle, golfer balanced. 3 controlled follow-through wedge through rectangle leaving shallow sand entry from RIGHT rear edge to LEFT front edge, ball no longer there, small natural sand splash. Same feet position. CRITICAL: use reference ONLY for same instructor identity and clothes. Environment must be actual outdoor chipping green or real sand bunker as specified. Face-on RIGHT HANDED target is viewer RIGHT; place landing towel to viewer RIGHT, sand entry behind ball to viewer LEFT. Clubhead directly beside white ball at address. No duplicated balls or clubs.",
+    "path": "/workspace/generated_images/exec-523ba5a6-5ca4-4dff-9056-814dfc67c515.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Low front three-quarter bunker target LEFT. 1 golfer draws a small rectangle in sand with white ball at center no paper money. 2 sand wedge face slightly open before gripping, resting ABOVE sand behind right edge of rectangle, golfer balanced. 3 controlled follow-through wedge through rectangle leaving shallow sand entry from RIGHT rear edge to LEFT front edge, ball no longer there, small natural sand splash. Same feet position.",
+    "file": "public/coaching/bunker-bill.webp",
+    "previousAttempts": [],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 187150,
+    "directions": {
+      "hand": "right",
+      "target": "right"
+    },
+    "sources": [
+      {
+        "title": "GOLF.com – $100 bill bunker drill",
+        "url": "https://golf.com/instruction/bunker-shots/100-bill-bunker-drill-brech-spradley/?amp=1"
+      },
+      {
+        "title": "WomensGolf.com – How much sand to take",
+        "url": "https://womensgolf.com/how-much-sand-should-you-take"
+      }
+    ]
+  },
+  {
+    "id": "bunker-tee-entry",
+    "prompt": "Make the two short tees in ALL THREE panels sit well OFF the club swing path, toward the camera, at least 20cm BELOW the horizontal line through white ball. Blue tee to LEFT of ball station is a rear ENTRY marker, yellow tee to RIGHT is EXIT marker. Club must never travel through either tee. Keep golfer, centered white ball and club identical. Panel3 sand track through ball position ABOVE both tees, with tees untouched safely in foreground. Three equal square panels no text.",
+    "path": "/workspace/generated_images/exec-6fac8552-6e57-4cac-bfb1-2349e2bef739.png",
+    "reference": "/workspace/generated_images/exec-c9cf478f-25ec-4ca3-8280-6de53d11797b.png",
+    "initialPrompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Low front three-quarter bunker target LEFT. 1 white ball central with two SHORT flexible tees as markers safely offset sideways from swing lane: one behind RIGHT of ball and one ahead LEFT of ball, not under club. 2 golfer sand wedge hovers behind ball aligned with rear marker, both shoes stable. 3 controlled follow-through shallow sand track passes from rear station to front station, marker tees untouched offset aside. No rigid poles.",
+    "file": "public/coaching/bunker-tee-entry.webp",
+    "previousAttempts": [
+      {
+        "path": "/workspace/generated_images/exec-c9cf478f-25ec-4ca3-8280-6de53d11797b.png",
+        "prompt": "A photorealistic educational golf coaching contact sheet, exactly THREE EQUAL WIDTH SQUARE PANELS side by side in one landscape image with no gaps or borders. No text, letters, numbers, arrows, motion trails or watermarks. Same fictional adult Thai male instructor in every panel: short black hair, olive green polo, beige trousers, plain white golf shoes, no hat, no glove, no logos. Soft bright daylight, calm pale sage practice turf and cream background, clean minimal practice facility, natural anatomy. One continuous correctly connected golf club shaft, anatomically plausible five-finger hands, clear clubhead, equipment and feet. Consistent face and clothing. RIGHT HANDED golfer: LEFT is lead hand and foot, RIGHT is trail. Show only the specific action for each panel, not a collage inside a panel. Leave 8 percent margin around body and equipment. Low front three-quarter bunker target LEFT. 1 white ball central with two SHORT flexible tees as markers safely offset sideways from swing lane: one behind RIGHT of ball and one ahead LEFT of ball, not under club. 2 golfer sand wedge hovers behind ball aligned with rear marker, both shoes stable. 3 controlled follow-through shallow sand track passes from rear station to front station, marker tees untouched offset aside. No rigid poles. CRITICAL: use reference ONLY for same instructor identity and clothes. Environment must be actual outdoor chipping green or real sand bunker as specified. Face-on RIGHT HANDED target is viewer RIGHT; place landing towel to viewer RIGHT, sand entry behind ball to viewer LEFT. Clubhead directly beside white ball at address. No duplicated balls or clubs.",
+        "selected": false
+      }
+    ],
+    "review": {
+      "visual": "agent-screened-draft",
+      "professional": "not-performed",
+      "beginnerComprehension": "not-performed",
+      "checks": [
+        "visible hand/handle contact",
+        "single club continuity",
+        "feet and ball/equipment placement",
+        "action continuity"
+      ],
+      "notes": "Visual screening only. Occluded fingers, clubface orientation and technical suitability require a named golf professional."
+    },
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 189840,
+    "directions": {
+      "hand": "right",
+      "target": "right"
+    },
+    "sources": [
+      {
+        "title": "Today's Golfer – How to beat bunkers",
+        "url": "https://www.todays-golfer.com/tips-and-tuition/bunker-play/video-tips/2011/july/how-to-beat-bunkers"
+      },
+      {
+        "title": "GolfMagic – Greenside bunker oval drill",
+        "url": "https://www.golfmagic.com/european-tour/former-european-tour-pro-reveals-perfect-greenside-bunker-drill"
+      }
+    ]
+  }
+]

@@ -21,6 +21,9 @@ def passed(name):
 
 def select(page, path):
     page.locator('input[type=file]').nth(1).set_input_files(str(path))
+    page.locator('.lab-disclosure').wait_for()
+    if page.locator('.lab-disclosure').get_attribute('open') is None:
+        page.locator('.lab-disclosure > summary').click()
     page.locator('.analysis-lab').wait_for()
 
 def seek(page, time):

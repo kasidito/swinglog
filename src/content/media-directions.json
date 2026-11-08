@@ -1,0 +1,106 @@
+{
+  "grip": {
+    "hand": "left",
+    "target": "detail"
+  },
+  "alignment": {
+    "hand": "right",
+    "target": "right"
+  },
+  "posture": {
+    "hand": "right",
+    "target": "depth"
+  },
+  "ball-position": {
+    "hand": "right",
+    "target": "right"
+  },
+  "club-setup": {
+    "hand": "right",
+    "target": "right"
+  },
+  "swing-sequence": {
+    "hand": "right",
+    "target": "right"
+  },
+  "setup-alignment": {
+    "hand": "right",
+    "target": "right"
+  },
+  "half-swing-warmup": {
+    "hand": "right",
+    "target": "right"
+  },
+  "path-gate": {
+    "hand": "right",
+    "target": "left"
+  },
+  "anti-slice-stick": {
+    "hand": "right",
+    "target": "right"
+  },
+  "split-grip": {
+    "hand": "right",
+    "target": "right"
+  },
+  "feet-together": {
+    "hand": "right",
+    "target": "right"
+  },
+  "towel-low-point": {
+    "hand": "left",
+    "target": "left"
+  },
+  "line-drill": {
+    "hand": "right",
+    "target": "right"
+  },
+  "step-through": {
+    "hand": "right",
+    "target": "right"
+  },
+  "tee-gate-driver": {
+    "hand": "right",
+    "target": "right"
+  },
+  "putt-gate": {
+    "hand": "right",
+    "target": "right"
+  },
+  "clock-drill": {
+    "hand": "left",
+    "target": "hole"
+  },
+  "ladder-369": {
+    "hand": "right",
+    "target": "hole"
+  },
+  "lag-ladder": {
+    "hand": "right",
+    "target": "hole"
+  },
+  "lag-safe-zone": {
+    "hand": "right",
+    "target": "hole"
+  },
+  "landing-towel": {
+    "hand": "right",
+    "target": "right"
+  },
+  "landing-club-ladder": {
+    "hand": "right",
+    "target": "right"
+  },
+  "bunker-line": {
+    "hand": "right",
+    "target": "right"
+  },
+  "bunker-bill": {
+    "hand": "right",
+    "target": "right"
+  },
+  "bunker-tee-entry": {
+    "hand": "right",
+    "target": "right"
+  }
+}
