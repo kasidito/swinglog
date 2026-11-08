@@ -1,0 +1,55 @@
+{
+  "browser": "156.0.8078.79",
+  "url": "http://localhost:5175/",
+  "checks": [
+    "keyboard ball placement",
+    "metadata, honest time-step labels and 360/390/768px overflow",
+    "manual phase order rejects reversed markers and supports correction",
+    "synthetic ball follows expected endpoint (90 points), JSON provenance without media bytes",
+    "manual correction truncates downstream track and can resume",
+    "loss stops without fabricated landing; replacing clip resets results",
+    "cancellation returns controls with partial evidence",
+    "invalid range validation and navigation abort/reset",
+    "real MediaPipe classic worker, visibility gate and address comparison (non-golf public sample)",
+    "PWA offline reload and fresh pose worker after assets prepared",
+    "cold model download failure preserves manual tools",
+    "invalid video codec/file recovery",
+    "no page exceptions or off-origin upload requests"
+  ],
+  "pose_sample": true,
+  "page_errors": [],
+  "external_request_methods": [
+    "GET"
+  ],
+  "limits": [
+    "Generated ball scenes are not real golf validation",
+    "Public pose sample is not a swing",
+    "No physical iPhone or Safari codec testing"
+  ],
+  "reviewed_on": "2026-11-08",
+  "base_commit": "3bc3da1ef01b028eaeb7aef4da449d10fa954070",
+  "unit_tests": {
+    "command": "npm test",
+    "passed": 50,
+    "files": 5
+  },
+  "builds": {
+    "npm run build": "passed",
+    "npm run build:single": "passed"
+  },
+  "development_worker": "Real inference passed after a clean development-server restart",
+  "camera": "Fake landscape camera recording retained native 1280x720, no center crop",
+  "diff_check": "git diff --check passed",
+  "source_sha256": {
+    "src/Analyze.tsx": "6e05c2824e860529b2b3ebc4f87496272d4640276bd7072da26ba26b4c3726ac",
+    "src/CameraCapture.tsx": "0231964f7440b140a4e5c3e2ecfaac821458ddc669e73623a3df0431fedb4c9e",
+    "src/VideoLab.tsx": "ad4b0da9298061c6a2fda824512fa4a9c2815b6547d91e0d2d4b243e47013432",
+    "src/analysis.test.ts": "70a693b1e780b38482f22b0f534c4d5e53eead3484993fd20224835329f9a5a0",
+    "src/analysis.ts": "fc73758c42ffdef8b478d70062de001f485d5deeaefcc8eac1354127797258c1",
+    "src/pose.ts": "f11313379e08cb4f5980cf6be340f7e304510c830686cdb2ebf9ea255b2410c2",
+    "src/pose.worker.ts": "c0f8f2995a70ebfd75709051410e3af551cd9fb002ce44541335117dfc212421",
+    "src/styles.css": "e5d6d8e05d9414925abcc7763f37c66b467deef8fcc723a84129fa782965523a",
+    "src/video-processing.ts": "774feb32aa53a2e19af0ad2774d7402af1f1dd57790bde16f55db07183c48580",
+    "vite.config.ts": "17a21ef88fc6240c75bc3001871833513fd27069635d7291b9b0989839c6fd03"
+  }
+}

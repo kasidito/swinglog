@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import type { Flight } from './engine';
 import { Pt, bezierAt, controlPoint, lineAngle, shapeHint } from './trace';
 import CameraCapture from './CameraCapture';
+import VideoLab from './VideoLab';
+import type { ClipInfo } from './analysis';
 import { BONES, Landmarks, PoseMetrics, detectPose, headMove, poseMetrics } from './pose';
 
 type Mode = 'view' | 'line' | 'trace';
@@ -12,6 +14,8 @@ const ORDER: Flight[] = ['hook', 'draw', 'straight', 'fade', 'slice'];
 const STEP = 1 / 30;
 
 export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog: boolean; onLog: (f: Flight) => void }) {
+  const [file, setFile] = useState<File | null>(null);
+  const [clip, setClip] = useState<ClipInfo | null>(null);
   const [url, setUrl] = useState<string | null>(null);
   const [mode, setMode] = useState<Mode>('view');
   const [lines, setLines] = useState<Line[]>([]);
@@ -37,6 +41,7 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
 
   const pick = (f: File | undefined) => {
     if (!f) return;
+    setFile(f); setClip(null); setDuration(0); setPlaying(false); setSpeed(0.5); setBusy(false); setCamOpen(false);
     setUrl(URL.createObjectURL(f));
     setLines([]); setTrace([]); setFlight(null); setMsg(''); setMode('view'); setTime(0); setPose(null); setRef(null); setPoseMsg('');
   };
@@ -140,10 +145,10 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
       const d = headMove(ref, m, v.videoWidth || v.clientWidth, v.videoHeight || v.clientHeight);
       const side = d.xPct === 0 ? 'ไม่ขยับซ้ายขวา' : `ขยับ${d.xPct > 0 ? 'ขวา' : 'ซ้าย'} ${Math.abs(d.xPct)}%`;
       const up = d.yPct === 0 ? 'ไม่ขยับขึ้นลง' : `${d.yPct > 0 ? 'ลง' : 'ขึ้น'} ${Math.abs(d.yPct)}%`;
-      const warn = Math.abs(d.xPct) > 10 || Math.abs(d.yPct) > 8 ? '. หัวขยับมากกว่าปกติ ลองดริลยืนเท้าชิดหรือเช็กแนวยืน' : '';
+      const warn = '. เป็นการเคลื่อนในภาพ 2D ไม่ใช่ข้อสรุปว่าสวิงผิด';
       setPoseMsg(`เทียบกับ address: หัว${side}, ${up} (เทียบความสูงตัว), ลำตัวเอียง ${m.spineDeg}° (${d.spineChange >= 0 ? '+' : ''}${d.spineChange}°)${warn}`);
     } catch {
-      setPoseMsg('โหลดตัววิเคราะห์ท่าไม่ได้ ต้องต่ออินเทอร์เน็ตครั้งแรก และใช้ได้ในแอปที่ kasidito.github.io/swinglog เท่านั้น (ไม่ทำงานในหน้าพรีวิว)');
+      setPoseMsg('โหลดตัววิเคราะห์ท่าไม่ได้ ตรวจอินเทอร์เน็ตครั้งแรก หรือใช้การวาดเส้นด้วยมือ');
     } finally { setBusy(false); }
   };
 
@@ -169,9 +174,9 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
         <section className="card stack">
           <h2>วิธีถ่ายให้ดูง่าย</h2>
           <ul style={{ margin: 0, paddingLeft: '1.2em' }}>
-            <li>วางมือถือนิ่งบนขาตั้งหรือพิงถุงกอล์ฟ แนวตั้ง ไม่ถือถ่าย</li>
+            <li>วางมือถือนิ่งบนขาตั้งหรือพิงถุงกอล์ฟ ให้เห็นตัวและไม้ครบ ไม่ถือถ่าย</li>
             <li>ห่างผู้ตี 2.5-3.5 เมตร กล้องสูงระดับมือตอน address (ประมาณเอว)</li>
-            <li>ด้านหลัง: ตรงแนวมือ หันไปทางเป้า ดูวิถีลูกและระนาบสวิง ส่วนด้านหน้า: ตั้งฉากกับแนวเป้า ตรงกลางเท้า ดูหัวและการถ่ายน้ำหนัก</li>
+            <li>ด้านหลัง: ตรงแนวมือ หันไปทางเป้า ดูวิถีลูกและระนาบสวิง ส่วนด้านหน้า: ตั้งฉากกับแนวเป้า ตรงกลางเท้า ดูการเคลื่อนในภาพจากด้านหน้า</li>
             <li>ตัวคนสูงประมาณ 2 ใน 3 ของจอ เหลือที่ด้านบนให้เห็นไม้ตอน top</li>
             <li>กล้องในแอปมีกรอบช่วยจัดตำแหน่ง ส่วนกล้องของเครื่องถ่ายสโลว์โมชันได้ชัดกว่า</li>
           </ul>
@@ -179,12 +184,15 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
         </section>
       )}
 
+      {msg && !url && <p role="alert">{msg}</p>}
       {url && (
         <>
           <div style={{ position: 'relative', background: '#000', borderRadius: 14, overflow: 'hidden' }}>
             <video ref={video} src={url} playsInline muted preload="metadata" style={{ width: '100%', display: 'block', maxHeight: '70vh', objectFit: 'contain' }}
-              onLoadedMetadata={(e) => { setDuration(e.currentTarget.duration); e.currentTarget.playbackRate = speed; sizeCanvas(); }}
+              onLoadedMetadata={(e) => { const v = e.currentTarget; setDuration(Number.isFinite(v.duration) ? v.duration : 0); if (file) setClip({ name: file.name, type: file.type, bytes: file.size, width: v.videoWidth, height: v.videoHeight, duration: v.duration }); v.playbackRate = speed; sizeCanvas(); }}
               onLoadedData={sizeCanvas}
+              onSeeked={(e) => setTime(e.currentTarget.currentTime)}
+              onError={() => { setClip(null); setMsg('เปิดวิดีโอนี้ไม่ได้ ลองไฟล์ MP4 หรือคลิปอื่น'); }}
               onTimeUpdate={(e) => setTime(e.currentTarget.currentTime)}
               onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onEnded={() => setPlaying(false)} />
             <canvas ref={canvas} aria-label="ชั้นวาดเส้นบนวิดีโอ" onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp}
@@ -193,14 +201,16 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
           <input type="range" min={0} max={duration || 0} step={0.01} value={time} aria-label="ตำแหน่งในวิดีโอ"
             onChange={(e) => { const v = video.current; if (v) { v.pause(); v.currentTime = Number(e.target.value); } }} style={{ width: '100%', accentColor: 'var(--primary)' }} />
           <div className="row" style={{ justifyContent: 'space-between' }}>
-            <button type="button" className="btn btn-secondary" onClick={() => step(-STEP)} aria-label="ถอยหนึ่งเฟรม">-1 เฟรม</button>
+            <button type="button" className="btn btn-secondary" onClick={() => step(-STEP)} aria-label="ถอยประมาณ 0.033 วินาที">-0.033 วิ</button>
             <button type="button" className="btn btn-small" onClick={toggle}>{playing ? 'หยุด' : 'เล่น'}</button>
-            <button type="button" className="btn btn-secondary" onClick={() => step(STEP)} aria-label="เดินหน้าหนึ่งเฟรม">+1 เฟรม</button>
+            <button type="button" className="btn btn-secondary" onClick={() => step(STEP)} aria-label="เดินหน้าประมาณ 0.033 วินาที">+0.033 วิ</button>
           </div>
           <div className="row" role="group" aria-label="ความเร็ว">
             {[0.25, 0.5, 1].map((s) => <button key={s} type="button" className="chip" aria-pressed={speed === s} onClick={() => setSpeed(s)}>{s}x</button>)}
             <span className="spacer" /><span className="muted">{time.toFixed(2)} / {duration ? duration.toFixed(2) : '-'} วิ</span>
           </div>
+
+          {clip && <VideoLab key={url} url={url} clip={clip} video={video} time={time} left={left} />}
 
           <section className="stack">
             <p className="q" style={{ margin: 0 }} id="tool-q">เครื่องมือ</p>

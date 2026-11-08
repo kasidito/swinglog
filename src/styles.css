@@ -235,3 +235,20 @@ line.d-path { stroke-dasharray: 5 3; }
 .hist .date b { font-family: var(--font-num); font-size: 24px; color: var(--ink); line-height: 1; }
 .hist .info { flex: 1; min-width: 0; display: flex; flex-direction: column; }
 .hist .btn-ghost { font-size: var(--fs-small); }
+
+/* Experimental video analysis extends the existing Floodlit bay tokens. */
+.analysis-lab { border-block: 1px solid var(--rule-strong); padding-block: 24px; margin-block: 12px; }
+.analysis-lab p { margin: 0; overflow-wrap: anywhere; }
+.analysis-lab h3 { font-size: 1rem; margin: 16px 0 0; }
+.analysis-lab fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.analysis-lab legend { font-weight: 600; margin-bottom: 8px; }
+.analysis-range { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.analysis-range label { display: grid; gap: 6px; }
+.analysis-range input { width: 100%; min-height: 44px; padding: 8px; color: var(--ink); background: var(--panel); border: 1px solid var(--rule-strong); border-radius: 8px; font: inherit; }
+.analysis-marks { list-style: none; padding: 0; margin: 0; }
+.analysis-marks li { border-top: 1px solid var(--rule); padding: 12px 0; display: grid; gap: 8px; }
+.analysis-proof { display: block; width: 100%; height: auto; background: var(--panel); border-radius: 8px; }
+.analysis-proof.picking { cursor: crosshair; touch-action: none; outline: 2px solid var(--action); outline-offset: 3px; }
+.analysis-lab .btn, .analysis-lab .chip { min-height: 44px; white-space: normal; }
+.analysis-meta { color: var(--ink-2); font-size: var(--fs-small); }
+.analysis-lab progress { width: 100%; accent-color: var(--action); }
