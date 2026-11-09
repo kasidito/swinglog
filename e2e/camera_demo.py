@@ -48,6 +48,8 @@ with sync_playwright() as p:
     # Three distinct pan positions prove the visible crop, not just aspect ratio.
     for pan,dominant in [('0',0),('0.5',1),('1',2)]:
         open_camera(page)
+        # Compare bare camera pixels; the human reference is intentionally preview-only.
+        page.get_by_role('button',name='ซ่อนภาพคน',exact=True).click()
         page.locator('.cam-pan input').fill(pan)
         box=page.locator('.cam-frame').bounding_box()
         assert abs(box['width']/box['height']-9/16)<.005

@@ -1,0 +1,19 @@
+{
+  "checks": [
+    "portrait recording matches preview pixels at left/center/right pan; 396×704 from native 1280×720 with provenance",
+    "full-camera option retains native 1280×720 without portrait crop",
+    "viewport rotation during capture keeps the selected output geometry",
+    "source geometry change stops and preserves only the original mapped crop",
+    "close while recording discards safely; Escape closes with focus restoration",
+    "unsupported portrait encoder explains fallback and recovers to full-camera recording",
+    "missing MediaRecorder still permits library import without trapping the camera dialog",
+    "12-second recording limit stops once and preserves a partial clip",
+    "manual demo playback, straight/fade/loss, frozen lost endpoint, and no demo metrics/history leaking into real clip",
+    "demo leaves an existing active session and its real shot count unchanged",
+    "24 size/theme/text/handedness combinations for demo and portrait camera, including non-overlay help",
+    "offline PWA reload loads demo, local AI illustration and scripted results",
+    "native portrait input records 720×1280 without canvas crop"
+  ],
+  "errors": [],
+  "physicalIOS": "not available; Chromium synthetic media only"
+}
