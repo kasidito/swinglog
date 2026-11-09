@@ -4,6 +4,10 @@ import { Pt, bezierAt, controlPoint, lineAngle, shapeHint } from './trace';
 import CameraCapture from './CameraCapture';
 import VideoLab from './VideoLab';
 import type { ClipInfo } from './analysis';
+import { importedCapture, type CaptureInfo } from './capture';
+import { unavailableShotMetrics } from './metrics';
+import ShotMetrics from './ShotMetrics';
+import ShotDemo from './ShotDemo';
 import { BONES, Landmarks, PoseMetrics, detectPose, headMove, poseMetrics } from './pose';
 
 type Mode = 'view' | 'line' | 'trace';
@@ -32,6 +36,8 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
   const [poseMsg, setPoseMsg] = useState('');
   const [busy, setBusy] = useState(false);
   const [camOpen, setCamOpen] = useState(false);
+  const [showDemo, setShowDemo] = useState(false);
+  const [captureInfo, setCaptureInfo] = useState<CaptureInfo | null>(null);
   const video = useRef<HTMLVideoElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
   const camInput = useRef<HTMLInputElement>(null);
@@ -39,9 +45,10 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
 
   useEffect(() => () => { if (url) URL.revokeObjectURL(url); }, [url]);
 
-  const pick = (f: File | undefined) => {
+  const pick = (f: File | undefined, capture?: CaptureInfo) => {
     if (!f) return;
     setFile(f); setClip(null); setDuration(0); setPlaying(false); setSpeed(0.5); setBusy(false); setCamOpen(false);
+    setCaptureInfo(capture ?? null);
     setUrl(URL.createObjectURL(f));
     setLines([]); setTrace([]); setFlight(null); setMsg(''); setMode('view'); setTime(0); setPose(null); setRef(null); setPoseMsg('');
   };
@@ -158,12 +165,14 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
   };
 
   const flights = left ? [...ORDER].reverse() : ORDER;
+  if (showDemo) return <ShotDemo left={left} onBack={() => setShowDemo(false)} />;
   return (
     <>
       <header className="masthead"><h1>ดูวงสวิงของคุณ</h1><p className="lede">ดูช้า ๆ ขีดแนว แล้วเทียบกับเฟรมจริง</p></header>
       <input ref={camInput} type="file" accept="video/*" capture="environment" hidden onChange={(e) => pick(e.target.files?.[0])} />
       <input ref={fileInput} type="file" accept="video/*" hidden onChange={(e) => pick(e.target.files?.[0])} />
-      {camOpen && <CameraCapture left={left} onClose={() => setCamOpen(false)} onCapture={(f) => { setCamOpen(false); pick(f); }} onFallback={() => { setCamOpen(false); camInput.current?.click(); }} />}
+      {camOpen && <CameraCapture left={left} onClose={() => setCamOpen(false)} onCapture={(f, info) => { setCamOpen(false); pick(f, info); }} onFallback={() => { setCamOpen(false); camInput.current?.click(); }} onImport={() => { setCamOpen(false); fileInput.current?.click(); }} />}
+      {!url && <button type="button" className="btn btn-secondary demo-entry" onClick={() => setShowDemo(true)}>ดูตัวอย่างผลตี<span>ลูกตรง ลูกโค้ง และกรณีติดตามหลุด · ข้อมูลสมมติ</span></button>}
       <button type="button" className="btn btn-primary" onClick={() => setCamOpen(true)}>เปิดกล้องพร้อมกรอบจัดตำแหน่ง</button>
       <div className="seg">
         <button type="button" className="btn btn-secondary" onClick={() => camInput.current?.click()}>กล้องเครื่อง, สโลว์</button>
@@ -189,7 +198,7 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
         <>
           <div style={{ position: 'relative', background: '#000', borderRadius: 14, overflow: 'hidden' }}>
             <video ref={video} src={url} playsInline muted preload="metadata" style={{ width: '100%', display: 'block', maxHeight: '70vh', objectFit: 'contain' }}
-              onLoadedMetadata={(e) => { const v = e.currentTarget; setDuration(Number.isFinite(v.duration) ? v.duration : 0); if (file) setClip({ name: file.name, type: file.type, bytes: file.size, width: v.videoWidth, height: v.videoHeight, duration: v.duration }); v.playbackRate = speed; sizeCanvas(); }}
+              onLoadedMetadata={(e) => { const v = e.currentTarget; setDuration(Number.isFinite(v.duration) ? v.duration : 0); if (file) setClip({ name: file.name, type: file.type, bytes: file.size, width: v.videoWidth, height: v.videoHeight, duration: v.duration, captureInfo: captureInfo ?? importedCapture(v.videoWidth, v.videoHeight) }); if (captureInfo && (v.videoWidth !== captureInfo.outputWidth || v.videoHeight !== captureInfo.outputHeight)) setMsg('ขนาดวิดีโอที่เครื่องบันทึกต่างจากกรอบที่ขอ โปรดตรวจภาพก่อนวิเคราะห์'); v.playbackRate = speed; sizeCanvas(); }}
               onLoadedData={sizeCanvas}
               onSeeked={(e) => setTime(e.currentTarget.currentTime)}
               onError={() => { setClip(null); setMsg('เปิดวิดีโอนี้ไม่ได้ ลองไฟล์ MP4 หรือคลิปอื่น'); }}
@@ -209,7 +218,7 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
             {[0.25, 0.5, 1].map((s) => <button key={s} type="button" className="chip" aria-pressed={speed === s} onClick={() => setSpeed(s)}>{s}x</button>)}
             <span className="spacer" /><span className="muted">{time.toFixed(2)} / {duration ? duration.toFixed(2) : '-'} วิ</span>
           </div>
-
+          {captureInfo && <p className="capture-summary" role="status">{captureInfo.mode === 'portrait' ? 'กรอบแนวตั้ง 9:16' : 'ภาพเต็มจากกล้อง'} · ต้นฉบับ {captureInfo.sourceWidth} × {captureInfo.sourceHeight} เป็นคลิป {clip?.width ?? captureInfo.outputWidth} × {clip?.height ?? captureInfo.outputHeight}{captureInfo.recording === 'canvas-stream' ? ' · บันทึกผ่านกรอบที่เลือก' : ''}{captureInfo.stopReason && !['user', 'limit'].includes(captureInfo.stopReason) ? ' · หยุดและเก็บคลิปบางส่วนเมื่อกล้องเปลี่ยนหรือแอปถูกพัก' : ''} · เวลาไฟล์โดยประมาณ ไม่รับรอง FPS ถ่ายจริง</p>}
           <section className="stack">
             <p className="q" style={{ margin: 0 }} id="tool-q">เครื่องมือ</p>
             <div className="row" role="group" aria-labelledby="tool-q">
@@ -234,6 +243,8 @@ export default function Analyze({ left, canLog, onLog }: { left: boolean; canLog
             {poseMsg && <p className="muted" style={{ margin: 0 }} aria-live="polite">{poseMsg}</p>}
             <p className="muted" style={{ margin: 0 }}>วัดจากกล้องตัวเดียวแบบ 2 มิติ ไม่ได้ติดตามหัวไม้ ใช้ดูแนวโน้ม ไม่ใช่ตัวเลขแม่นยำ</p>
           </section>
+
+          <section className="shot-results"><h2>ค่าช็อตจากคลิปนี้</h2><p className="muted">เส้นลูกในภาพยังไม่ใช่ระยะจริง ระบบยังไม่วัด Carry หรือความเร็วอัตโนมัติ ดูค่าท่าทาง 2D พร้อมเฟรมหลักฐานได้ในห้องทดลอง</p><ShotMetrics metrics={unavailableShotMetrics()} /></section>
 
           {trace.length === 3 && (
             <section className="card stack">

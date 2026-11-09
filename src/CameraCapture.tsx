@@ -1,164 +1,167 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { GUIDE_TIPS, View, guideLayout } from './guide';
+import { cameraInfo, captureGeometry, croppedStream, pickRecordingMime, type CaptureInfo, type CaptureMode } from './capture';
 
 const MAX_SECONDS = 12;
-// Start with a portrait guide; once metadata arrives, fit the native camera aspect ratio.
-const FRAME = 9 / 16;
-
-function pickMime() {
-  if (typeof MediaRecorder === 'undefined') return '';
-  for (const t of ['video/mp4', 'video/webm;codecs=vp9', 'video/webm']) if (MediaRecorder.isTypeSupported?.(t)) return t;
-  return '';
-}
-
-export default function CameraCapture({ left, onCapture, onClose, onFallback }: {
-  left: boolean; onCapture: (f: File) => void; onClose: () => void; onFallback: () => void;
+type StopReason = NonNullable<CaptureInfo['stopReason']>;
+export default function CameraCapture({ left, onCapture, onClose, onFallback, onImport }: {
+  left: boolean; onCapture: (f: File, info: CaptureInfo) => void; onClose: () => void; onFallback: () => void; onImport: () => void;
 }) {
-  const video = useRef<HTMLVideoElement>(null);
-  const stream = useRef<MediaStream | null>(null);
-  const recorder = useRef<MediaRecorder | null>(null);
-  const chunks = useRef<Blob[]>([]);
-  const [view, setView] = useState<View>('dtl');
-  const [aspect, setAspect] = useState(FRAME);
-  const stage = useRef<HTMLDivElement>(null);
+  const video = useRef<HTMLVideoElement>(null), stage = useRef<HTMLDivElement>(null), modal = useRef<HTMLDivElement>(null);
+  const stream = useRef<MediaStream | null>(null), recorder = useRef<MediaRecorder | null>(null);
+  const encoded = useRef<ReturnType<typeof croppedStream> | null>(null);
+  const disposed = useRef(false), discard = useRef(false), started = useRef(0), timer = useRef<number>();
+  const stopRef = useRef<(reason: StopReason) => void>(() => undefined), closeRef = useRef<() => void>(() => undefined);
+  const [view, setView] = useState<View>('dtl'), [mode, setMode] = useState<CaptureMode>('portrait');
+  const [pan, setPan] = useState(0.5), [source, setSource] = useState({ width: 0, height: 0 });
   const [box, setBox] = useState<{ w: number; h: number } | null>(null);
-  const [error, setError] = useState('');
-  const [recording, setRecording] = useState(false);
-  const [secs, setSecs] = useState(0);
-  const [showTips, setShowTips] = useState(true);
+  const [error, setError] = useState(''), [recording, setRecording] = useState(false), [secs, setSecs] = useState(0);
+  const [showTips, setShowTips] = useState(false), [saving, setSaving] = useState(false);
+  const geometry = useMemo(() => captureGeometry(source.width, source.height, mode, pan), [source, mode, pan]);
+  const aspect = geometry ? geometry.width / geometry.height : 9 / 16;
+  const cropped = !!geometry && (geometry.crop.width < source.width - 0.01 || geometry.crop.height < source.height - 0.01);
+  const locked = recording || saving;
+
+  const releaseEncoder = () => { window.clearInterval(timer.current); encoded.current?.close(); encoded.current = null; };
+  const close = () => { discard.current = true; releaseEncoder(); const r = recorder.current; if (r && r.state !== 'inactive') r.stop(); onClose(); };
+  closeRef.current = close;
+  const updateSource = () => {
+    const v = video.current;
+    if (!v?.videoWidth || !v.videoHeight) return;
+    if (recorder.current?.state === 'recording') {
+      if (v.videoWidth !== source.width || v.videoHeight !== source.height) stopRef.current('source-changed');
+    } else setSource({ width: v.videoWidth, height: v.videoHeight });
+  };
 
   useEffect(() => {
-    let cancelled = false;
+    disposed.current = false; let cancelled = false;
     (async () => {
       try {
-        const s = await navigator.mediaDevices.getUserMedia({
-          video: { facingMode: { ideal: 'environment' }, width: { ideal: 1080 }, height: { ideal: 1920 }, frameRate: { ideal: 60 } },
-          audio: false,
-        });
-        if (cancelled) { s.getTracks().forEach((t) => t.stop()); return; }
+        const s = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: 'environment' }, aspectRatio: { ideal: 9 / 16 }, width: { ideal: 1080 }, height: { ideal: 1920 }, frameRate: { ideal: 60 } }, audio: false });
+        if (cancelled) { s.getTracks().forEach(t => t.stop()); return; }
         stream.current = s;
-        if (video.current) { video.current.srcObject = s; await video.current.play().catch(() => undefined); }
-      } catch {
-        setError('เปิดกล้องในแอปไม่ได้ (อาจยังไม่ได้อนุญาตให้ใช้กล้อง) ใช้กล้องของเครื่องแทนได้');
-      }
+        s.getVideoTracks()[0]?.addEventListener('ended', () => {
+          if (disposed.current) return;
+          if (recorder.current?.state === 'recording') stopRef.current('camera-ended');
+          else setError('กล้องหยุดส่งภาพ ใช้กล้องเครื่องหรือนำเข้าคลิปแทน');
+        });
+        if (video.current) { video.current.srcObject = s; await video.current.play(); }
+      } catch { if (!cancelled) setError('เปิดกล้องไม่ได้ โปรดอนุญาตกล้อง หรือใช้กล้องเครื่อง/นำเข้าคลิป'); }
     })();
-    return () => { cancelled = true; stream.current?.getTracks().forEach((t) => t.stop()); };
+    const hide = () => { if (document.hidden) stopRef.current('background'); };
+    document.addEventListener('visibilitychange', hide);
+    return () => {
+      cancelled = true; disposed.current = true; discard.current = true; releaseEncoder();
+      const r = recorder.current;
+      if (r) { r.onstop = null; r.ondataavailable = null; r.onerror = null; if (r.state !== 'inactive') r.stop(); }
+      stream.current?.getTracks().forEach(t => t.stop()); document.removeEventListener('visibilitychange', hide);
+    };
   }, []);
 
-  // Fit the entire native camera picture inside the stage.
   useEffect(() => {
-    const el = stage.current;
-    if (!el) return;
-    const fit = () => {
-      const { width, height } = el.getBoundingClientRect();
-      const h = Math.min(height, width / aspect);
-      setBox({ w: Math.floor(h * aspect), h: Math.floor(h) });
+    const previous = document.activeElement as HTMLElement | null;
+    modal.current?.querySelector<HTMLButtonElement>('button')?.focus();
+    const key = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { e.preventDefault(); closeRef.current(); }
+      if (e.key !== 'Tab') return;
+      const nodes = Array.from(modal.current?.querySelectorAll<HTMLElement>('button:not(:disabled),input:not(:disabled),[tabindex="0"]') ?? []).filter(el => el.getClientRects().length);
+      const first = nodes[0], last = nodes[nodes.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last?.focus(); }
+      if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first?.focus(); }
     };
-    fit();
-    const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(fit) : null;
-    ro?.observe(el);
+    document.addEventListener('keydown', key);
+    return () => { document.removeEventListener('keydown', key); previous?.focus(); };
+  }, []);
+
+  useEffect(() => {
+    const el = stage.current; if (!el) return;
+    const fit = () => { const rect = el.getBoundingClientRect(); const h = Math.min(rect.height, rect.width / aspect); setBox({ w: Math.floor(h * aspect), h: Math.floor(h) }); };
+    fit(); const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(fit) : null; ro?.observe(el);
     window.addEventListener('resize', fit);
     return () => { ro?.disconnect(); window.removeEventListener('resize', fit); };
-  }, [aspect]);
-
-  useEffect(() => {
-    if (!recording) return;
-    const t = setInterval(() => setSecs((s) => {
-      if (s + 1 >= MAX_SECONDS) stop();
-      return s + 1;
-    }), 1000);
-    return () => clearInterval(t);
-  }, [recording]);
+  }, [aspect, showTips, cropped]);
 
   const start = () => {
-    if (!stream.current) return;
-    const mime = pickMime();
+    const v = video.current, raw = stream.current, g = geometry;
+    if (!v || !raw || !g || recorder.current?.state === 'recording' || saving) return;
+    if (v.videoWidth !== g.sourceWidth || v.videoHeight !== g.sourceHeight) { updateSource(); return; }
+    const mime = pickRecordingMime();
+    if (mime === null) { setError('เครื่องนี้ไม่มีตัวบันทึกวิดีโอบนเว็บ ใช้กล้องเครื่องหรือนำเข้าคลิปแทน'); return; }
     try {
-      const r = new MediaRecorder(stream.current, mime ? { mimeType: mime } : undefined);
-      chunks.current = [];
-      r.ondataavailable = (e) => { if (e.data.size) chunks.current.push(e.data); };
+      discard.current = false;
+      encoded.current = g.needsCanvas ? croppedStream(v, g, () => stopRef.current('source-changed')) : null;
+      const r = new MediaRecorder(encoded.current?.stream ?? raw, mime ? { mimeType: mime } : undefined);
+      const info = cameraInfo(g, mode, raw.getVideoTracks()[0]?.getSettings().frameRate);
+      const chunks: Blob[] = []; let delivered = false;
+      r.ondataavailable = e => { if (e.data.size) chunks.push(e.data); };
       r.onstop = () => {
+        releaseEncoder(); recorder.current = null;
+        if (discard.current || disposed.current || delivered) return;
+        delivered = true;
         const type = r.mimeType || mime || 'video/webm';
-        const file = new File(chunks.current, `swing.${type.includes('mp4') ? 'mp4' : 'webm'}`, { type });
-        stream.current?.getTracks().forEach((t) => t.stop());
-        onCapture(file);
+        const file = new File(chunks, `swing.${type.includes('mp4') ? 'mp4' : 'webm'}`, { type });
+        if (!file.size) { setSaving(false); setRecording(false); setError('ยังไม่มีภาพในคลิป ลองอัดอีกครั้งหรือใช้กล้องเครื่อง'); return; }
+        stream.current?.getTracks().forEach(t => t.stop());
+        onCapture(file, info);
       };
-      r.start(250);
-      recorder.current = r;
-      setSecs(0); setRecording(true); setShowTips(false);
-    } catch {
-      setError('อัดวิดีโอในแอปไม่ได้บนเครื่องนี้ ใช้กล้องของเครื่องแทนได้');
+      r.onerror = () => { discard.current = true; releaseEncoder(); if (r.state !== 'inactive') r.stop(); recorder.current = null; if (!disposed.current) { setRecording(false); setSaving(false); setError('ตัวบันทึกหยุดทำงาน ใช้ภาพเต็ม กล้องเครื่อง หรือนำเข้าคลิปแทน'); } };
+      stopRef.current = reason => {
+        if (r.state !== 'recording') return;
+        info.stopReason = reason; window.clearInterval(timer.current); setRecording(false); setSaving(true); r.stop();
+      };
+      r.start(250); recorder.current = r; started.current = performance.now();
+      setSecs(0); setRecording(true); setShowTips(false); setError('');
+      timer.current = window.setInterval(() => { const elapsed = (performance.now() - started.current) / 1000; setSecs(Math.floor(elapsed)); if (elapsed >= MAX_SECONDS) stopRef.current('limit'); }, 250);
+    } catch (e) {
+      discard.current = true; releaseEncoder(); recorder.current = null; setRecording(false); setSaving(false);
+      setError(e instanceof Error && e.message.includes('เครื่องนี้') ? e.message : 'อัดตามกรอบไม่ได้บนเครื่องนี้ เลือกภาพเต็ม ใช้กล้องเครื่อง หรือนำเข้าคลิป');
     }
   };
-  const stop = () => {
-    if (recorder.current && recorder.current.state !== 'inactive') recorder.current.stop();
-    setRecording(false);
-  };
-
-  const g = guideLayout(view, left);
-  const pct = (v: number) => `${v * 100}%`;
-  const label = (text: string, x: number, y: number) => (
-    <span className="cam-label" style={{ left: pct(x), top: pct(y) }}>{text}</span>
-  );
-
-  return (
-    <div className="cam" role="dialog" aria-modal="true" aria-label="กล้องพร้อมกรอบจัดตำแหน่ง">
-      <div className="cam-top">
-        <button type="button" className="cam-btn" onClick={() => { stop(); onClose(); }}>ปิด</button>
-        <div className="cam-seg" role="group" aria-label="มุมกล้อง">
-          <button type="button" aria-pressed={view === 'dtl'} onClick={() => setView('dtl')} disabled={recording}>ด้านหลัง</button>
-          <button type="button" aria-pressed={view === 'faceon'} onClick={() => setView('faceon')} disabled={recording}>ด้านหน้า</button>
-        </div>
-        <button type="button" className="cam-btn" aria-expanded={showTips} onClick={() => setShowTips((v) => !v)}>วิธีตั้ง</button>
+  const g = guideLayout(view, left), pct = (v: number) => `${v * 100}%`;
+  const label = (text: string, x: number, y: number) => <span className="cam-label" style={{ left: pct(x), top: pct(y) }}>{text}</span>;
+  return <div ref={modal} className="cam portrait-camera" role="dialog" aria-modal="true" aria-label="กล้องพร้อมกรอบจัดตำแหน่ง">
+    <div className="cam-top">
+      <button type="button" className="cam-btn" onClick={close}>ปิด</button>
+      <div className="cam-seg" role="group" aria-label="มุมกล้อง">
+        <button type="button" aria-pressed={view === 'dtl'} onClick={() => setView('dtl')} disabled={locked}>ด้านหลัง</button>
+        <button type="button" aria-pressed={view === 'faceon'} onClick={() => setView('faceon')} disabled={locked}>ด้านหน้า</button>
       </div>
-
-      <div className="cam-stage" ref={stage}>
-        <div className="cam-frame" style={box ? { width: box.w, height: box.h } : undefined}>
-          <video ref={video} playsInline muted autoPlay onLoadedMetadata={(e) => { const v = e.currentTarget; if (v.videoWidth && v.videoHeight) setAspect(v.videoWidth / v.videoHeight); }} />
-          {!error && (
-            <>
-              <svg className="cam-guide" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                <rect x={g.body.x * 100} y={g.body.y * 100} width={g.body.w * 100} height={g.body.h * 100} rx="3" className="g-zone" />
-                <ellipse cx={g.head.x * 100} cy={g.head.y * 100} rx={g.head.r * 100} ry={g.head.r * 100 * aspect} className="g-line" />
-                <line x1="4" x2="96" y1={g.feetY * 100} y2={g.feetY * 100} className="g-line" />
-                <line x1="50" x2="50" y1={g.hands.y * 100 - 3} y2={g.hands.y * 100 + 3} className="g-hands" />
-                <line x1={g.hands.x * 100 - 5} x2={g.hands.x * 100 + 5} y1={g.hands.y * 100} y2={g.hands.y * 100} className="g-hands" />
-                <ellipse cx={g.ball.x * 100} cy={g.ball.y * 100} rx="1.8" ry={1.8 * aspect} className="g-ball" />
-                {g.target && <line x1={g.target.x1 * 100} y1={g.target.y1 * 100} x2={g.target.x2 * 100} y2={g.target.y2 * 100} className="g-target" />}
-                <line x1="0" x2="100" y1="12" y2="12" className="g-top" />
-              </svg>
-              {label('หัว', g.head.x, g.head.y - g.head.r - 0.035)}
-              {label('มือตรงนี้', g.hands.x + 0.09, g.hands.y - 0.015)}
-              {label('ลูก', g.ball.x, g.ball.y + 0.035)}
-              {label('ปลายเท้า', 0.12, g.feetY - 0.035)}
-              {label('เหลือที่ให้ไม้ตอน top', 0.5, 0.075)}
-              {g.target && label('ทางเป้า', view === 'dtl' ? g.target.x2 + (left ? -0.08 : 0.08) : (g.target.x1 + g.target.x2) / 2, view === 'dtl' ? g.target.y2 + 0.03 : g.target.y1 - 0.035)}
-            </>
-          )}
-          {recording && <span className="cam-rec">REC {secs}/{MAX_SECONDS} วิ</span>}
-        </div>
-      </div>
-
-      {showTips && !error && (
-        <div className="cam-tips">
-          <strong>{view === 'dtl' ? 'ถ่ายจากด้านหลัง (ดูวิถีลูกและระนาบสวิง)' : 'ถ่ายจากด้านหน้า (ดูการถ่ายน้ำหนักและหัว)'}</strong>
-          <ul>{GUIDE_TIPS[view].map((t) => <li key={t}>{t}</li>)}</ul>
-          <span>จัดให้ตัวอยู่ในกรอบเส้นประ มืออยู่ที่กากบาท ลูกอยู่ที่วงกลม บันทึกภาพเต็มตามสัดส่วนกล้องโดยไม่ครอป และไม่รับประกัน 60 FPS</span>
-        </div>
-      )}
-      {error && (
-        <div className="cam-tips">
-          <strong>{error}</strong>
-          <button type="button" className="btn btn-small" onClick={onFallback}>ใช้กล้องของเครื่อง</button>
-        </div>
-      )}
-
-      <div className="cam-bottom">
-        {!error && (
-          <button type="button" className={`cam-shutter${recording ? ' on' : ''}`} onClick={recording ? stop : start}
-            aria-label={recording ? 'หยุดอัด' : 'เริ่มอัด'} />
-        )}
+      <button type="button" className="cam-btn" aria-expanded={showTips} onClick={() => setShowTips(x => !x)}>วิธีตั้ง</button>
+    </div>
+    <div className="cam-format" role="group" aria-label="กรอบที่บันทึก">
+      <button type="button" aria-pressed={mode === 'portrait'} disabled={locked} onClick={() => { setMode('portrait'); if (stream.current) setError(''); }}>แนวตั้ง 9:16</button>
+      <button type="button" aria-pressed={mode === 'native'} disabled={locked} onClick={() => { setMode('native'); if (stream.current) setError(''); }}>ภาพเต็มจากกล้อง</button>
+    </div>
+    <p className="cam-status" role="status">{saving ? 'กำลังเตรียมคลิป…' : error || (geometry ? `${cropped ? 'ตัดด้านข้าง/ขอบภาพตามกรอบ · ' : ''}บันทึก ${geometry.width} × ${geometry.height}${geometry.needsCanvas ? ' · ผ่านกรอบ 30 FPS ที่ร้องขอ' : ' · ตามสัดส่วนที่เลือก'}` : 'กำลังเปิดกล้อง…')}</p>
+    {showTips && <div className="cam-instructions"><strong>{view === 'dtl' ? 'ดูสวิงจากด้านหลัง' : 'ดูสวิงจากด้านหน้า'}</strong><ul>{GUIDE_TIPS[view].map(t => <li key={t}>{t}</li>)}</ul><p>นี่คือโหมดถ่ายสวิงเต็มตัว ไม่ใช่กล้องวัดความเร็วลูก ไม่มีการรับประกัน FPS จริง</p></div>}
+    <div className="cam-stage" ref={stage}>
+      <div className="cam-frame" data-capture-mode={mode} data-cropped={cropped} style={box ? { width: box.w, height: box.h } : undefined}>
+        <video ref={video} playsInline muted autoPlay onLoadedMetadata={updateSource} onResize={updateSource} style={{ objectPosition: `${pan * 100}% ${pan * 100}%` }} />
+        {geometry && !error && <>
+          <svg className="cam-guide" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <rect x={g.body.x * 100} y={g.body.y * 100} width={g.body.w * 100} height={g.body.h * 100} rx="3" className="g-zone" />
+            <ellipse cx={g.head.x * 100} cy={g.head.y * 100} rx={g.head.r * 100} ry={g.head.r * 100 * aspect} className="g-line" />
+            <line x1="4" x2="96" y1={g.feetY * 100} y2={g.feetY * 100} className="g-line" />
+            <path d={`M${g.hands.x * 100} ${g.hands.y * 100 - 3}v6M${g.hands.x * 100 - 5} ${g.hands.y * 100}h10`} className="g-hands" />
+            <ellipse cx={g.ball.x * 100} cy={g.ball.y * 100} rx="1.8" ry={1.8 * aspect} className="g-ball" />
+            {g.target && <line x1={g.target.x1 * 100} y1={g.target.y1 * 100} x2={g.target.x2 * 100} y2={g.target.y2 * 100} className="g-target" />}
+            <line x1="0" x2="100" y1="12" y2="12" className="g-top" />
+          </svg>
+          {label('หัว', g.head.x, g.head.y - g.head.r - 0.035)}
+          {label('มือ', g.hands.x + 0.1, g.hands.y)}
+          {label('ลูก', g.ball.x, g.ball.y + 0.035)}
+          {label('ปลายเท้า', 0.15, g.feetY - 0.035)}
+          {label('เหลือที่ให้ไม้ตอน top', 0.5, 0.075)}
+          {g.target && label('ทางเป้า', view === 'dtl' ? g.target.x2 + (left ? -0.1 : 0.1) : 0.8, view === 'dtl' ? 0.16 : 0.88)}
+        </>}
+        {recording && <span className="cam-rec" role="status">REC {secs}/{MAX_SECONDS} วิ</span>}
       </div>
     </div>
-  );
+    {cropped && <label className="cam-pan">เลื่อนกรอบ{geometry!.crop.width < source.width - 0.01 ? 'ซ้าย–ขวา' : 'บน–ล่าง'}<input type="range" min="0" max="1" step="0.01" value={pan} disabled={locked} onChange={e => setPan(Number(e.target.value))} /></label>}
+    <div className="cam-bottom">
+      <button type="button" className="cam-btn" disabled={locked} onClick={onFallback}>กล้องเครื่อง</button>
+      <button type="button" className={`cam-shutter${recording ? ' on' : ''}`} disabled={!geometry || !!error || saving} onClick={recording ? () => stopRef.current('user') : start} aria-label={recording ? 'หยุดอัด' : 'เริ่มอัด'} />
+      <button type="button" className="cam-btn" disabled={locked} onClick={onImport}>นำเข้าคลิป</button>
+    </div>
+  </div>;
 }

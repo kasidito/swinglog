@@ -28,7 +28,8 @@ A free practice planner for the range bay, not a scorecard or GPS app. It sugges
 
 - Session planner (minutes or trays, symptom, facility filter, pre-round mode), 20 drills with manually selected photographic illustration steps, self-checks, sources and secondary station diagrams, one-tap ball-flight log, history with straight %, settings (left-handed, dark, large text), JSON backup and import.
 - Six foundations: grip, feet/alignment, posture, ball position, club-specific setup and swing sequence. Related lessons return to the same drill step. Illustrations use a fictional AI-generated demonstrator; they are not professional certification or biomechanical measurements.
-- Video: in-app camera with framing guide, native camera or library, 0.25-1x and frame stepping, angle lines, 3-tap tracer with shape hint, MediaPipe pose (head movement, spine tilt vs address).
+- Video: default 9:16 in-app camera with pre-record crop/pan and matching encoded output, full-camera option, native camera or library fallback, 0.25-1x and frame stepping, angle lines, 3-tap tracer with shape hint, MediaPipe pose (head movement, spine tilt vs address).
+- Manual shot demo: straight, curve and tracking loss; explicitly synthetic geometry/results with existing AI illustrations, offline and isolated from practice history. Real shot metrics remain unavailable with reasons; capture provenance does not establish verified frame timing.
 - PR #12's separate analysis lab retains selected-clip phase marking, local pose worker, evidence frames, baseline ball tracking, correction, cancellation and JSON results. It cannot measure 3D flight, ball speed, spin or carry from this camera.
 - Offline PWA on GitHub Pages; all data on the device (IndexedDB); videos never uploaded or stored.
 - Everything free: no ads, no paid services, no accounts.

@@ -375,3 +375,70 @@ h1 { line-height:1.4; letter-spacing:-.025em; }
   .lesson-row { grid-template-columns:90px minmax(0,1fr); gap:12px; }
   .tabs button { font-size:12px; }
 }
+
+/* Portrait capture: controls and help occupy their own rows, never the live image. */
+.portrait-camera { height:100dvh; overflow-y:auto; }
+.portrait-camera .cam-top { flex:none; padding:8px; }
+.portrait-camera .cam-top button { padding-inline:12px; min-height:44px; }
+.cam-format { display:flex; gap:6px; padding:0 12px; flex:none; }
+.cam-format button { flex:1; padding:8px 10px; min-height:44px; border:1px solid #617660; border-radius:10px; color:#F2F3E9; background:#1B2A21; font-size:14px; cursor:pointer; }
+.cam-format button[aria-pressed="true"] { background:#BEDBB1; color:#183425; border-color:#BEDBB1; font-weight:600; }
+.cam-format button:disabled { opacity:.7; cursor:default; }
+.cam-status { flex:none; margin:8px 16px; font-size:13px; color:#C2CDBB; text-align:center; line-height:1.5; }
+.portrait-camera .cam-stage { flex:1 1 0; min-height:160px; }
+.portrait-camera .cam-frame { flex:none; }
+.portrait-camera .cam-frame video { object-fit:cover; }
+.cam-instructions { flex:none; max-height:26dvh; overflow:auto; margin:0 12px 8px; padding:12px 14px; border:1px solid #617660; background:#1B2A21; border-radius:12px; color:#F2F3E9; font-size:14px; }
+.cam-instructions ul { padding-left:20px; margin:8px 0; }
+.cam-instructions p { color:#C2CDBB; margin:8px 0 0; }
+.cam-pan { flex:none; display:flex; align-items:center; gap:10px; margin:0; padding:4px 16px; color:#F2F3E9; font-size:14px; }
+.cam-pan input { flex:1; min-width:30px; height:44px; accent-color:#BEDBB1; }
+.portrait-camera .cam-bottom { height:auto; flex:none; gap:16px; padding:8px 12px 12px; }
+.portrait-camera .cam-bottom .cam-btn { flex:1; font-size:13px; padding:8px; }
+.portrait-camera .cam-shutter { width:64px; height:64px; flex:none; }
+.portrait-camera button:disabled { cursor:default; }
+.portrait-camera .cam-shutter:disabled { opacity:.45; }
+.portrait-camera .cam-label { font-size:12px; }
+.capture-summary { margin:0; color:var(--ink-2); font-size:var(--fs-small); line-height:1.65; }
+.shot-results { border-block:1px solid var(--rule); padding-block:22px; }
+.shot-results > p { margin:10px 0 0; }
+.shot-metrics { margin:14px 0 0; }
+.shot-metrics > div { display:grid; grid-template-columns:minmax(90px,.8fr) minmax(0,1.4fr); gap:12px; border-top:1px solid var(--rule); padding:14px 0; }
+.shot-metrics dt { font-weight:600; font-size:var(--fs-body); }
+.shot-metrics dd { margin:0; }
+.shot-metrics strong { font-size:22px; font-weight:600; font-variant-numeric:tabular-nums; }
+.shot-metrics dd > span { margin-left:6px; color:var(--ink-2); font-size:var(--fs-small); }
+.shot-metrics small { display:block; color:var(--ink-2); font-size:var(--fs-small); line-height:1.65; margin-top:4px; }
+.demo-entry { width:100%; text-align:left; display:flex; flex-direction:column; align-items:flex-start; gap:5px; padding:16px 18px; }
+.demo-entry span { font-weight:400; color:var(--ink-2); font-size:var(--fs-small); }
+.shot-demo { gap:24px; }
+.demo-disclosure { border:1px solid var(--rule-strong); background:var(--panel-2); border-radius:12px; padding:16px 18px; }
+.demo-disclosure p { margin:6px 0 0; color:var(--ink-2); line-height:1.65; font-size:var(--fs-small); }
+.demo-stage { display:block; position:relative; }
+.demo-stage figure { margin:0; min-width:0; }
+.demo-golfer .coaching-photo { max-width:320px; margin:auto; border-radius:16px; }
+.demo-stage .demo-golfer { width:26%; max-width:150px; position:absolute; top:12px; left:12px; z-index:1; }
+.demo-golfer figcaption { font-size:14px; line-height:1.4; }
+.demo-stage figcaption { color:var(--ink-2); font-size:var(--fs-small); line-height:1.65; margin-top:8px; }
+.demo-flight svg { width:100%; display:block; }
+.demo-field { fill:var(--panel-2); }
+.demo-target-line { fill:none; stroke:var(--rule-strong); stroke-width:1; stroke-dasharray:5 6; }
+.demo-target { fill:none; stroke:var(--turf); stroke-width:2; }
+.demo-track { fill:none; stroke:var(--action); stroke-width:4; stroke-linecap:round; stroke-linejoin:round; }
+.demo-ball { fill:var(--panel); stroke:var(--ink); stroke-width:2; }
+.demo-lost-point { fill:none; stroke:var(--flag-red); stroke-width:3; stroke-dasharray:4 4; }
+.demo-phase { min-height:60px; border-block:1px solid var(--rule); padding-block:14px; font-weight:600; }
+.demo-phase span { display:block; font-weight:400; font-size:var(--fs-small); margin-top:4px; color:var(--ink-2); }
+.demo-player { display:flex; gap:10px; }
+.demo-player .btn { flex:1; }
+.demo-scrub { display:grid; gap:4px; font-size:var(--fs-small); color:var(--ink-2); }
+.demo-scrub input { width:100%; height:44px; accent-color:var(--action); }
+.demo-real { border-top:1px solid var(--rule); padding-top:20px; }
+.demo-real p { line-height:1.75; }
+:root[data-large="true"] .cam-format button, :root[data-large="true"] .cam-instructions, :root[data-large="true"] .cam-pan { font-size:16px; }
+:root[data-large="true"] .cam-status, :root[data-large="true"] .portrait-camera .cam-bottom .cam-btn { font-size:14px; }
+@media (max-height:600px) {
+  .portrait-camera .cam-stage { min-height:140px; }
+  .portrait-camera .cam-top { padding-block:4px; }
+  .portrait-camera .cam-bottom { padding-block:4px; }
+}

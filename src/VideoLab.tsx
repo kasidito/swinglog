@@ -2,6 +2,8 @@ import { useEffect, useRef, useState, type RefObject } from 'react';
 import { PHASES, closestPose, comparePose, correctedRun, findBall, makeReport, phaseOrderValid, reliablePose, samplingTimes, validTime, type BallRun, type ClipInfo, type Phase, type PhaseMarks, type PoseSample } from './analysis';
 import { BONES } from './pose';
 import { createPoseWorker, ensureActive, grayscale, sampleVideo } from './video-processing';
+import ShotMetrics from './ShotMetrics';
+import { poseMetricResults } from './metrics';
 
 const LABEL: Record<Phase, string> = { address: 'Address', top: 'Top', impact: 'Impact', finish: 'Finish' };
 export default function VideoLab({ url, clip, video, time, left }: { url: string; clip: ClipInfo; video: RefObject<HTMLVideoElement>; time: number; left: boolean }) {
@@ -181,7 +183,7 @@ export default function VideoLab({ url, clip, video, time, left }: { url: string
       </div>
       {ball && <><p>จุดลูก {ball.points.length} จุด {ball.stoppedAt !== null ? `· หลุดที่ ${ball.stoppedAt.toFixed(3)} วิ` : ''}</p>{ball.stoppedAt !== null && <button type="button" className="btn btn-secondary" disabled={busy} onClick={() => seek(ball.stoppedAt!)}>ดูเฟรมที่ติดตามหลุด</button>}<p className="muted">{ball.reason || 'ตัวติดตามทดลองหาเพียงวัตถุสว่างขนาดเล็ก อาจตามลูกผิด ไม่ควรใช้เป็นผลวัดอัตโนมัติ'}</p></>}
       <h3>เทียบกับ Address</h3>
-      {comparable.length ? <ul>{comparable.map(m => <li key={m.phase}>{LABEL[m.phase]}: ศีรษะเลื่อนในภาพ x {m.xPct}%, y {m.yPct}% ของความสูงตัวในเฟรมอ้างอิง · แนวลำตัว {m.spineDeg}° จากแนวตั้ง</li>)}</ul> : <p className="muted">กำหนด Address และจุดอื่นในช่วงวิเคราะห์ แล้วประมวลผลสวิงใหม่ ผลจะแสดงเมื่อข้อต่อในเฟรมอ้างอิงและเฟรมเปรียบเทียบชัดพอ</p>}
+      {comparable.length ? <div>{comparable.map(m => <section key={m.phase}><h3>{LABEL[m.phase]} · {m.time.toFixed(2)} วิ</h3><ShotMetrics metrics={poseMetricResults(m)} /></section>)}</div> : <p className="muted">กำหนด Address และจุดอื่นในช่วงวิเคราะห์ แล้วประมวลผลสวิงใหม่ ผลจะแสดงเมื่อข้อต่อในเฟรมอ้างอิงและเฟรมเปรียบเทียบชัดพอ</p>}
       <div className="row"><button type="button" className="btn btn-secondary" disabled={busy || (!poses.length && !ball && !Object.keys(marks).length)} onClick={exportResult}>ส่งออกผลวิเคราะห์ JSON</button>
         <button type="button" className="btn btn-ghost" disabled={busy} onClick={() => { setMarks({}); setPoses([]); setBall(null); setPointMode(false); setStatus('ล้างผลทดลองแล้ว'); setKind(null); setRunState('idle'); setProgress(0); }}>ล้างผลทดลอง</button></div>
       <p className="muted">ผลอยู่ในหน้านี้เท่านั้น เปลี่ยนคลิปหรือออกจากหน้าวิดีโอแล้วผลหาย ส่งออกไว้ก่อน ไม่มีการแก้ประวัติซ้อมเดิม</p>
