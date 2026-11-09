@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "old precache serves the book icon and one real test shot is saved",
+    "service-worker update replaces legacy icon bytes and loads fresh Apple metadata without clearing storage",
+    "session and shot IDs/counts/settings survive the update unchanged",
+    "current and legacy Apple icon bytes plus practice data remain available offline"
+  ],
+  "errors": [],
+  "beforeSHA256": "40b4b607075b9c90374a3ed61e601c58ab52938e8b2802d17b13db2e795c20a0",
+  "afterSHA256": "8fd400b88b6f93dbe8581c9b2cfabf3254f4634c2123bdac1a06c81f336ddcf4",
+  "limits": [
+    "Chromium cache-upgrade test; native iOS icon cache not accessible"
+  ]
+}

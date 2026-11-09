@@ -67,6 +67,66 @@
       "mode": "RGB",
       "bytes": 214547,
       "sha256": "1c2ea695be2ed7e379594ede71ac6d2eb505e9e1ce5fe8948c74501ea1868791"
+    },
+    {
+      "path": "public/apple-touch-icon-flight-s.png",
+      "bytes": 26481,
+      "sha256": "8fd400b88b6f93dbe8581c9b2cfabf3254f4634c2123bdac1a06c81f336ddcf4",
+      "width": 180,
+      "height": 180,
+      "mode": "RGB"
+    },
+    {
+      "path": "public/apple-touch-icon.png",
+      "bytes": 26481,
+      "sha256": "8fd400b88b6f93dbe8581c9b2cfabf3254f4634c2123bdac1a06c81f336ddcf4",
+      "width": 180,
+      "height": 180,
+      "mode": "RGB"
+    },
+    {
+      "path": "public/apple-touch-icon-precomposed.png",
+      "bytes": 26481,
+      "sha256": "8fd400b88b6f93dbe8581c9b2cfabf3254f4634c2123bdac1a06c81f336ddcf4",
+      "width": 180,
+      "height": 180,
+      "mode": "RGB"
+    },
+    {
+      "path": "public/icon-192.png",
+      "bytes": 29889,
+      "sha256": "a75d7c1cc28d5e7fbd4fd13ad0d0675d34a8c660d46b26bfc92fcc5af618e63b",
+      "width": 192,
+      "height": 192,
+      "mode": "RGB"
+    },
+    {
+      "path": "public/icon-512.png",
+      "bytes": 214547,
+      "sha256": "1c2ea695be2ed7e379594ede71ac6d2eb505e9e1ce5fe8948c74501ea1868791",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB"
+    },
+    {
+      "path": "public/icon.svg",
+      "bytes": 286221,
+      "sha256": "3091c59f3bb54d8bf762c3b5ff699607af15d066540dd5b5805b347f6fd5d15c"
     }
-  ]
+  ],
+  "compatibilityCorrection": {
+    "appleHead": "apple-touch-icon-flight-s.png",
+    "aliases": [
+      "apple-touch-icon.png",
+      "apple-touch-icon-precomposed.png",
+      "apple-touch-icon-v3.png",
+      "icon-192.png",
+      "icon-512.png",
+      "icon.svg"
+    ],
+    "svg": "embeds canonical 512px PNG without redrawing",
+    "pwa": "explicit workbox.skipWaiting:true for manual registration",
+    "verification": "compatibility-results.json and cache-upgrade-results.json",
+    "limit": "Native iOS Add to Home Screen not verified"
+  }
 }
