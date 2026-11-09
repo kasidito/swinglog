@@ -39,8 +39,11 @@ export default defineConfig(({ mode }) => ({
       : VitePWA({
           registerType: 'autoUpdate',
           injectRegister: false,
-          includeAssets: ['icon-v3-32.png', 'apple-touch-icon-v3.png'],
+          includeAssets: ['icon-v3-32.png', 'apple-touch-icon-flight-s.png', 'apple-touch-icon.png', 'apple-touch-icon-precomposed.png'],
           workbox: {
+            // With manual registration (injectRegister:false), the plugin does
+            // not enable this from registerType:autoUpdate. Activate updates.
+            skipWaiting: true,
             clientsClaim: true,
             globPatterns: ['**/*.{js,css,html,svg,png,webp,woff2}'],
             // Cache the pose model and its WASM after first use so swing analysis also works offline.
