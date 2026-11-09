@@ -39,7 +39,7 @@ export default defineConfig(({ mode }) => ({
       : VitePWA({
           registerType: 'autoUpdate',
           injectRegister: false,
-          includeAssets: ['icon.svg', 'apple-touch-icon.png'],
+          includeAssets: ['icon-v3-32.png', 'apple-touch-icon-v3.png'],
           workbox: {
             clientsClaim: true,
             globPatterns: ['**/*.{js,css,html,svg,png,webp,woff2}'],
@@ -62,9 +62,8 @@ export default defineConfig(({ mode }) => ({
             display: 'standalone',
             start_url: '.',
             icons: [
-              { src: 'icon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' },
-              { src: 'icon-192.png', sizes: '192x192', type: 'image/png', purpose: 'any maskable' },
-              { src: 'icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any maskable' },
+              { src: 'icon-v3-192.png', sizes: '192x192', type: 'image/png', purpose: 'any maskable' },
+              { src: 'icon-v3-512.png', sizes: '512x512', type: 'image/png', purpose: 'any maskable' },
             ],
           },
         }),
