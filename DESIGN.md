@@ -251,6 +251,14 @@ Previous/next controls and numbered 44px step buttons allow manual navigation; l
 
 Illustrations depict a fictional AI-generated demonstrator. Keep the disclosure near the material and source links below it. A golf professional’s review and comprehension checks with three real beginners are pending. Images are not angle or stance-distance measurement standards.
 
+### Portrait camera and shot results
+
+Default capture is 9:16 with pan before recording; full-camera mode preserves the source. The dark camera surface keeps controls in separate rows, a 64px shutter, and help collapsed outside the live frame. Disclose crop and actual output size. Encode the same crop that the preview shows; no decorative guide is burned into the clip. Lock geometry controls while recording. Failures offer native camera or import.
+
+The shot demo extends the handbook with a local AI photo inset and an explicitly synthetic geometric flight diagram. Playback starts only by action. The scripted trajectory stops when tracking is lost. Keep the simulation disclosure near the scene and label every numeric row; never let demo results write real practice history.
+
+Metrics use ruled definition-list rows, tabular Anuphan numerals, separate units, provenance and a short reason. Unknown values read `—` rather than zero. Real shot metrics remain unavailable; image-based pose values retain 2D limits and evidence frames. Keep frequent video tools directly after playback controls rather than below the unavailable metric list. See `docs/camera-demo/verification.md` for tested environments; physical iPhone/Safari remains pending.
+
 ## Do's and Don'ts
 
 ### Do:

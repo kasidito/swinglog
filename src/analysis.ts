@@ -1,9 +1,11 @@
 import type { Pt } from './trace';
 import { headMove, poseMetrics, type Landmarks } from './pose';
+import type { CaptureInfo } from './capture';
+import { poseMetricResults, unavailableShotMetrics } from './metrics';
 
 export type Phase = 'address' | 'top' | 'impact' | 'finish';
 export type PhaseMarks = Partial<Record<Phase, number>>;
-export interface ClipInfo { name: string; type: string; bytes: number; width: number; height: number; duration: number }
+export interface ClipInfo { name: string; type: string; bytes: number; width: number; height: number; duration: number; captureInfo?: CaptureInfo }
 export interface PoseSample { time: number; landmarks: Landmarks | null }
 export interface BallPoint extends Pt { time: number; source: 'manual' | 'detected' }
 export interface BallRun { points: BallPoint[]; stoppedAt: number | null; reason: string }
@@ -100,6 +102,7 @@ export function makeReport(clip: ClipInfo, view: 'faceon' | 'dtl', left: boolean
     qualityGate: 'required joint visibility >= 0.5; presence >= 0.5 when available; minimum body span 0.15', ballAlgorithm: 'bright-component-frame-difference-v1',
     phaseMarks: marks, phaseSource: 'manual', poseModel: 'mediapipe-pose-lite-0.10.14', poseSamples: poses,
     comparisons: comparePose(poses, marks, clip.width, clip.height), ballTracking: ball,
+    metrics: { shot: unavailableShotMetrics(), pose: comparePose(poses, marks, clip.width, clip.height).map(m => ({ phase: m.phase, time: m.time, results: poseMetricResults(m) })) },
     limitations: ['2D image measurements, not a swing diagnosis', 'Time is the encoded media timeline, not necessarily real capture time', 'Ball line segments interpolate sampled points; no extrapolated landing or distance', 'Bright moving-object baseline can fail or follow the wrong object; review every result'],
   };
 }
