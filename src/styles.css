@@ -399,6 +399,16 @@ h1 { line-height:1.4; letter-spacing:-.025em; }
 .portrait-camera button:disabled { cursor:default; }
 .portrait-camera .cam-shutter:disabled { opacity:.45; }
 .portrait-camera .cam-label { font-size:12px; }
+.camera-guide { position:absolute; pointer-events:none; }
+.cam-human { position:absolute; left:3.5%; top:0; width:93%; height:93%; object-fit:contain; pointer-events:none; user-select:none; }
+.cam-model-note { position:absolute; left:50%; top:1%; transform:translateX(-50%); width:max-content; max-width:calc(100% - 8px); padding:2px 8px; border-radius:8px; text-align:center; background:rgba(11,18,16,.85); color:#F2F3E9; font-size:12px; line-height:1.5; }
+.cam-human-controls { flex:none; display:flex; gap:12px; align-items:center; padding:0 16px; }
+.cam-human-controls .cam-btn { padding:6px 12px; font-size:14px; }
+.cam-human-controls label { display:flex; align-items:center; gap:8px; flex:1; min-width:0; color:#F2F3E9; font-size:14px; }
+.cam-human-controls input { height:44px; width:100%; min-width:30px; flex:1; accent-color:#BEDBB1; }
+:root[data-large="true"] .cam-human-controls .cam-btn, :root[data-large="true"] .cam-human-controls label { font-size:16px; }
+:root[data-large="true"] .cam-model-note { font-size:14px; }
+.portrait-camera .cam-rec { top:auto; bottom:8px; left:8px; transform:none; }
 .capture-summary { margin:0; color:var(--ink-2); font-size:var(--fs-small); line-height:1.65; }
 .shot-results { border-block:1px solid var(--rule); padding-block:22px; }
 .shot-results > p { margin:10px 0 0; }

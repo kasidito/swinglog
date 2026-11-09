@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { GUIDE_TIPS, View, guideLayout } from './guide';
+import { GUIDE_TIPS, View } from './guide';
+import CameraGuide from './CameraGuide';
 import { cameraInfo, captureGeometry, croppedStream, pickRecordingMime, type CaptureInfo, type CaptureMode } from './capture';
 
 const MAX_SECONDS = 12;
@@ -17,6 +18,7 @@ export default function CameraCapture({ left, onCapture, onClose, onFallback, on
   const [box, setBox] = useState<{ w: number; h: number } | null>(null);
   const [error, setError] = useState(''), [recording, setRecording] = useState(false), [secs, setSecs] = useState(0);
   const [showTips, setShowTips] = useState(false), [saving, setSaving] = useState(false);
+  const [showHuman, setShowHuman] = useState(true), [humanOpacity, setHumanOpacity] = useState(0.55);
   const geometry = useMemo(() => captureGeometry(source.width, source.height, mode, pan), [source, mode, pan]);
   const aspect = geometry ? geometry.width / geometry.height : 9 / 16;
   const cropped = !!geometry && (geometry.crop.width < source.width - 0.01 || geometry.crop.height < source.height - 0.01);
@@ -117,8 +119,6 @@ export default function CameraCapture({ left, onCapture, onClose, onFallback, on
       setError(e instanceof Error && e.message.includes('เครื่องนี้') ? e.message : 'อัดตามกรอบไม่ได้บนเครื่องนี้ เลือกภาพเต็ม ใช้กล้องเครื่อง หรือนำเข้าคลิป');
     }
   };
-  const g = guideLayout(view, left), pct = (v: number) => `${v * 100}%`;
-  const label = (text: string, x: number, y: number) => <span className="cam-label" style={{ left: pct(x), top: pct(y) }}>{text}</span>;
   return <div ref={modal} className="cam portrait-camera" role="dialog" aria-modal="true" aria-label="กล้องพร้อมกรอบจัดตำแหน่ง">
     <div className="cam-top">
       <button type="button" className="cam-btn" onClick={close}>ปิด</button>
@@ -133,29 +133,17 @@ export default function CameraCapture({ left, onCapture, onClose, onFallback, on
       <button type="button" aria-pressed={mode === 'native'} disabled={locked} onClick={() => { setMode('native'); if (stream.current) setError(''); }}>ภาพเต็มจากกล้อง</button>
     </div>
     <p className="cam-status" role="status">{saving ? 'กำลังเตรียมคลิป…' : error || (geometry ? `${cropped ? 'ตัดด้านข้าง/ขอบภาพตามกรอบ · ' : ''}บันทึก ${geometry.width} × ${geometry.height}${geometry.needsCanvas ? ' · ผ่านกรอบ 30 FPS ที่ร้องขอ' : ' · ตามสัดส่วนที่เลือก'}` : 'กำลังเปิดกล้อง…')}</p>
-    {showTips && <div className="cam-instructions"><strong>{view === 'dtl' ? 'ดูสวิงจากด้านหลัง' : 'ดูสวิงจากด้านหน้า'}</strong><ul>{GUIDE_TIPS[view].map(t => <li key={t}>{t}</li>)}</ul><p>นี่คือโหมดถ่ายสวิงเต็มตัว ไม่ใช่กล้องวัดความเร็วลูก ไม่มีการรับประกัน FPS จริง</p></div>}
+    {showTips && <div className="cam-instructions"><strong>{view === 'dtl' ? 'ดูสวิงจากด้านหลัง' : 'ดูสวิงจากด้านหน้า'}</strong><ul>{GUIDE_TIPS[view].map(t => <li key={t}>{t}</li>)}</ul><p>ขยับกล้องให้ตัวจริงมีขนาดใกล้ภาพคน เห็นเท้าและไม้ครบ ไม่ต้องทาบทุกส่วนให้ตรง ภาพตัวอย่างใช้เหล็กกลาง ตำแหน่งลูกและท่าจริงปรับตามไม้และสัดส่วนของคุณ ภาพ AI นี้ใช้จัดเฟรม ไม่ใช่การตรวจท่า</p><p>นี่คือโหมดถ่ายสวิงเต็มตัว ไม่ใช่กล้องวัดความเร็วลูก ไม่มีการรับประกัน FPS จริง</p></div>}
     <div className="cam-stage" ref={stage}>
       <div className="cam-frame" data-capture-mode={mode} data-cropped={cropped} style={box ? { width: box.w, height: box.h } : undefined}>
         <video ref={video} playsInline muted autoPlay onLoadedMetadata={updateSource} onResize={updateSource} style={{ objectPosition: `${pan * 100}% ${pan * 100}%` }} />
-        {geometry && !error && <>
-          <svg className="cam-guide" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-            <rect x={g.body.x * 100} y={g.body.y * 100} width={g.body.w * 100} height={g.body.h * 100} rx="3" className="g-zone" />
-            <ellipse cx={g.head.x * 100} cy={g.head.y * 100} rx={g.head.r * 100} ry={g.head.r * 100 * aspect} className="g-line" />
-            <line x1="4" x2="96" y1={g.feetY * 100} y2={g.feetY * 100} className="g-line" />
-            <path d={`M${g.hands.x * 100} ${g.hands.y * 100 - 3}v6M${g.hands.x * 100 - 5} ${g.hands.y * 100}h10`} className="g-hands" />
-            <ellipse cx={g.ball.x * 100} cy={g.ball.y * 100} rx="1.8" ry={1.8 * aspect} className="g-ball" />
-            {g.target && <line x1={g.target.x1 * 100} y1={g.target.y1 * 100} x2={g.target.x2 * 100} y2={g.target.y2 * 100} className="g-target" />}
-            <line x1="0" x2="100" y1="12" y2="12" className="g-top" />
-          </svg>
-          {label('หัว', g.head.x, g.head.y - g.head.r - 0.035)}
-          {label('มือ', g.hands.x + 0.1, g.hands.y)}
-          {label('ลูก', g.ball.x, g.ball.y + 0.035)}
-          {label('ปลายเท้า', 0.15, g.feetY - 0.035)}
-          {label('เหลือที่ให้ไม้ตอน top', 0.5, 0.075)}
-          {g.target && label('ทางเป้า', view === 'dtl' ? g.target.x2 + (left ? -0.1 : 0.1) : 0.8, view === 'dtl' ? 0.16 : 0.88)}
-        </>}
+        {geometry && !error && <CameraGuide key={view} view={view} left={left} aspect={aspect} visible={showHuman} opacity={humanOpacity} compact={(box?.h ?? 500) < 300} />}
         {recording && <span className="cam-rec" role="status">REC {secs}/{MAX_SECONDS} วิ</span>}
       </div>
+    </div>
+    <div className="cam-human-controls">
+      <button type="button" className="cam-btn" aria-pressed={showHuman} onClick={() => setShowHuman(x => !x)}>{showHuman ? 'ซ่อนภาพคน' : 'แสดงภาพคน'}</button>
+      <label>ความชัด<input type="range" aria-label="ความชัดของภาพคน" min="0.2" max="0.8" step="0.05" value={humanOpacity} disabled={!showHuman} onChange={e => setHumanOpacity(Number(e.target.value))} /></label>
     </div>
     {cropped && <label className="cam-pan">เลื่อนกรอบ{geometry!.crop.width < source.width - 0.01 ? 'ซ้าย–ขวา' : 'บน–ล่าง'}<input type="range" min="0" max="1" step="0.01" value={pan} disabled={locked} onChange={e => setPan(Number(e.target.value))} /></label>}
     <div className="cam-bottom">

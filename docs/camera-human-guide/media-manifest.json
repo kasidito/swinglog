@@ -1,0 +1,81 @@
+{
+  "createdAt": "2026-11-09",
+  "purpose": "Transparent human camera framing references at iron address; not a biomechanical standard",
+  "generator": "image_gen",
+  "fictionalDemonstrator": true,
+  "sourceHandedness": "right",
+  "display": {
+    "referenceAspect": "9:16",
+    "rasterWidth": "93% of reference box",
+    "rasterHeight": "93% of reference box",
+    "left": "3.5%",
+    "top": "0%",
+    "defaultOpacity": 0.55,
+    "leftHanded": "mirror raster and semantic anchors; never mirror Thai text"
+  },
+  "references": [
+    "https://www.pga.com/story/hit-the-golf-ball-where-you-want",
+    "https://www.pgaplay.co.uk/learn/understanding-correct-ball-position-and-set-up-for-different-clubs/"
+  ],
+  "sourcesNote": "Existing coaching references inform basic setup context, not claims that these authors approved these images. Actual camera framing uses current guide instructions.",
+  "generation": [
+    {
+      "stage": "initial dtl",
+      "prompt": "Create a single photorealistic instructional cutout of a fictional adult Thai male golfer at ADDRESS with a seven iron, for a transparent augmented-camera alignment overlay. Portrait 9:16 canvas. TRANSPARENT BACKGROUND: only the human, one connected golf club and one white golf ball, no floor, shadow, horizon, background, words, arrows, lines, borders or logos. Same wardrobe as SwingLog handbook: olive green short sleeve polo, beige straight trousers, clean white low golf shoes, short black hair, no cap, no gloves. Anatomically plausible relaxed posture, knees softly bent, hip hinge, both feet grounded and both hands together on a single black grip. Crucial viewpoint is DOWN THE LINE: camera behind the golfer along the hand line looking down the target direction, see rear/side three-quarter and backside of head rather than a frontal face. The golfer bends toward the RIGHT of the image, ball on his right, iron resting immediately behind ball. Not a follow-through or backswing. The two shoes partly overlap in perspective. Leave the upper 20 percent of the portrait entirely transparent for swing clearance; place full head around x43%,y26%, hip around x39%,y52%, joined hands around x50%,y56%, shoes at y86%, ball at x65%,y85%. Human height about two-thirds of canvas. Complete shoes and entire continuous shaft and clubhead visible, no cropped limbs, no extra fingers or clubs. This is a neutral framing reference rather than an idealized biomechanical standard. Crisp natural photographic detail without glows or decorative treatment. Output genuine RGBA transparency.",
+      "output": "/workspace/generated_images/exec-d043ad17-f23c-42ff-a3cc-0a287154a07c.png",
+      "disposition": "superseded: gaze pointed toward target rather than ball"
+    },
+    {
+      "stage": "selected dtl correction",
+      "prompt": "Edit this transparent photographic golfer cutout, preserving the same fictional man, wardrobe, entire full-body proportions, address pose, seven iron and white ball, and transparent portrait canvas with upper swing clearance. Keep the down-the-line rear/side three-quarter viewpoint. Correct ONLY his head and neck: at address he is looking DOWN at the golf ball, chin naturally lowered, face angled to the ground, not turning his head to look toward the target. Keep relaxed natural neck rather than twisting. Preserve the two hands together firmly contacting the single black grip, continuous straight shaft and iron head next to ball. Clean the alpha edges so no red/yellow edge artifacts appear. Genuine transparent background, no text or added marks, no ground plane, keep both shoes and entire club visible.",
+      "reference": "/workspace/generated_images/exec-d043ad17-f23c-42ff-a3cc-0a287154a07c.png",
+      "output": "/workspace/generated_images/exec-f2147534-60c6-48e7-a24e-025f919f50e9.png",
+      "asset": "public/camera-guides/dtl.webp"
+    },
+    {
+      "stage": "selected faceon",
+      "prompt": "Create a matching second camera-alignment cutout using the SAME fictional Thai adult male golfer and wardrobe as reference: olive polo, beige trousers, white plain low golf shoes, black short hair, no cap/gloves/logos. Change the camera viewpoint to FACE ON: camera in front of his chest, square to the target line, symmetrical frontal view of both shoulders and the two feet clearly separated left and right. Not side profile, not a three-quarter rear view. This is a RIGHT-HANDED golfer at ADDRESS with a seven iron, target toward viewer RIGHT; anatomical LEFT lead hand (viewer right) above anatomical RIGHT trail hand on one continuous black grip. Both hands connected to the same single shaft, iron head on the ground beside ONE white ball centered between the shoes and in front of toes. Natural hip hinge, soft knees, arms hang down, eyes look DOWN at the ball. Both complete shoes grounded, no cut limbs or missing fingers, no backswing. Transparent portrait 9:16 canvas, no floor/shadow/horizon/words/labels/arrows/lines. Leave upper 20 percent empty for swing room; top of head around x50%,y23%, joined hands around x50%,y57%, shoe bottoms around y87%, ball around x51%,y86%. Human height about two-thirds of the frame, feet about shoulder width. Neutral framing example not a prescriptive body-angle standard. Crisp photorealistic detail, genuine RGBA transparency.",
+      "reference": "/workspace/generated_images/exec-f2147534-60c6-48e7-a24e-025f919f50e9.png",
+      "output": "/workspace/generated_images/exec-358b3c79-00fa-43da-8468-d7c32c8720c4.png",
+      "asset": "public/camera-guides/faceon.webp"
+    }
+  ],
+  "processing": "PNG to WebP quality88 method6 exact alpha; compression only, no Python painting, background removal, pose repair or compositing",
+  "review": {
+    "status": "agent-screened-framing-reference",
+    "checks": [
+      "full head, shoes and club visible",
+      "one continuous shaft with hands contacting grip",
+      "front and rear/side viewpoints differ",
+      "ball/hand/foot anchors screened against selected images",
+      "eyes down toward ball after correction",
+      "alpha transparency and recognizable person checked in actual browser render"
+    ],
+    "limits": [
+      "occluded fingers and exact clubface are not professionally verified",
+      "not scaled to the user's height, club or body proportions",
+      "no named golf professional review",
+      "no real beginner study",
+      "no physical iPhone/Safari test"
+    ]
+  },
+  "originalPathsNote": "Generation-session originals are retained in the workspace; committed WebP files are all that builds require and are the references for future edits after cloning.",
+  "assets": [
+    {
+      "path": "public/camera-guides/dtl.webp",
+      "width": 941,
+      "height": 1672,
+      "mode": "RGBA",
+      "bytes": 91836,
+      "sha256": "f67b918bebfcc7f17a0f3b421ddaab5cb7139e2e2d02ea64bd59217165e515ce"
+    },
+    {
+      "path": "public/camera-guides/faceon.webp",
+      "width": 941,
+      "height": 1672,
+      "mode": "RGBA",
+      "bytes": 95286,
+      "sha256": "ffe06aa554eac517db5cf74a79284a0de0db0e18c086bc083c85f2e9328faa8f"
+    }
+  ]
+}

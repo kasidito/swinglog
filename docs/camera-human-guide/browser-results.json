@@ -1,0 +1,15 @@
+{
+  "checks": [
+    "distinct rear/face-on human references, opacity and hide/show with line-guide fallback",
+    "human and annotation reference remains 9:16 inside full landscape source and portrait output",
+    "visible human overlay is absent from decoded recording pixels; REC status does not overlap disclosure",
+    "both views in 24 size/theme/text/hand combinations; mirrored people/anchors, readable controls and separate help",
+    "deployed-style PWA offline reload loads both local transparent model assets",
+    "missing illustration leaves line guide, meaningful status and camera recording available"
+  ],
+  "errors": [],
+  "limits": [
+    "Chromium synthetic camera only; no physical iPhone/Safari",
+    "AI illustration screened by agent, not professionally verified"
+  ]
+}
