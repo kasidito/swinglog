@@ -1,0 +1,72 @@
+{
+  "createdAt": "2026-11-09",
+  "name": "SwingLog \u00b7 Flight S",
+  "generator": "image_gen",
+  "concept": "Ivory golf ball, gold S-shaped swing trail, forest-green full-bleed background",
+  "master": "docs/branding/icon-v3/master.png",
+  "initialGeneration": {
+    "prompt": "Design ONE finished premium mobile app icon for SwingLog, a golf swing practice app. A perfectly SQUARE full-bleed opaque canvas, designed as a real production icon, NOT a mockup or presentation board. Deep rich forest green background, approximately #174B34, with very subtle tonal depth. Center a bold sculptural gold swing trail that curves like a single flowing abstract S, rising dynamically from the lower-left toward a bright ivory golf ball at upper-right. The trail should have one elegant countercurve, a broad polished warm-gold ribbon body with a tapered tail, and clean deep-green negative space; visually read as both a golf ball in flight and an S gesture. White/ivory ball is generously sized, understated realistic dimples, softly dimensional satin material, immediately recognizable at small size. Warm gold approximately #E9BC63, ivory #FFFCED. Shape and contrast carry the design, not tiny detail. Confident contemporary sports brand, memorable silhouette, energetic but controlled, refined lighting. Composition IMPORTANT: all ball and gold foreground elements entirely inside the central 76% diameter safe circle centered on the square, so both circular Android masks and iOS rounded-square clipping retain the complete symbol. Ball centered near x65%,y34%, diameter24%; trail ends around x27%,y72%. Leave generous dark green outer margins. Background reaches ALL FOUR square corners: no transparent pixels, no pre-rounded corners, no outer frame. NO typography, letters, wordmarks, numbers, flags, books, clubs, scenery, gradients of text, sparkle stars, lens flares, glow, concentric rings, extra balls or logos. Crisp anti-aliased high-quality app artwork with warm 3D material depth, not flat line art. Deliver just the single square icon.",
+    "original": "/workspace/generated_images/exec-0476a2e3-fa3b-42aa-9d75-c392bebbafff.png"
+  },
+  "selectedGeneration": {
+    "prompt": "Keep this exact SwingLog app-icon design, same golf ball, same gold S-shaped swing ribbon, same materials, lighting, colors and full-bleed opaque forest-green square background. Make ONLY this production-safety adjustment: scale the complete ball-and-ribbon foreground group down by about EIGHT PERCENT around the center of the square, so every gold or ivory pixel, including the lower-left tapered tail, fits comfortably within a circle centered on the square with radius 37 percent of the square width. Do not add a visible circle or border. Keep the icon beautifully balanced and the same relative geometry of ball and S ribbon. Keep corners square, not pre-rounded. No text, no extra elements. The background still reaches every corner.",
+    "reference": "/workspace/generated_images/exec-0476a2e3-fa3b-42aa-9d75-c392bebbafff.png",
+    "original": "/workspace/generated_images/exec-64cfa7b5-16e0-4350-aa8b-6d02d890887e.png"
+  },
+  "exports": "scripts/export_app_icon.py performs only mechanical resizing and PNG encoding; no retouching or redrawing",
+  "safeZone": {
+    "radius": 0.4,
+    "observedForegroundRadius": 0.3566,
+    "method": "Gold/ivory pixel threshold: R > 70 and R > .95G; visual circle and rounded-square checks supplement it"
+  },
+  "assets": [
+    "public/icon-v3-32.png",
+    "public/apple-touch-icon-v3.png",
+    "public/icon-v3-192.png",
+    "public/icon-v3-512.png"
+  ],
+  "reviewLimit": "Browser previews only; no installed iPhone/Android launcher refresh verified",
+  "originalPathsNote": "Generated originals remain in workspace; committed master.png is the portable reference for future edits",
+  "files": [
+    {
+      "path": "docs/branding/icon-v3/master.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB",
+      "bytes": 1576755,
+      "sha256": "ddb9cbec9c57d8bcd1012f959144a7ded61d71fb2116b0ad65f88837021ecef9"
+    },
+    {
+      "path": "public/icon-v3-32.png",
+      "width": 32,
+      "height": 32,
+      "mode": "RGB",
+      "bytes": 1322,
+      "sha256": "ec0e01ba4a7c5c8ffc35c5bbc7aee1370cad01e6be0efce2dce724faeed89e9d"
+    },
+    {
+      "path": "public/apple-touch-icon-v3.png",
+      "width": 180,
+      "height": 180,
+      "mode": "RGB",
+      "bytes": 26481,
+      "sha256": "8fd400b88b6f93dbe8581c9b2cfabf3254f4634c2123bdac1a06c81f336ddcf4"
+    },
+    {
+      "path": "public/icon-v3-192.png",
+      "width": 192,
+      "height": 192,
+      "mode": "RGB",
+      "bytes": 29889,
+      "sha256": "a75d7c1cc28d5e7fbd4fd13ad0d0675d34a8c660d46b26bfc92fcc5af618e63b"
+    },
+    {
+      "path": "public/icon-v3-512.png",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "bytes": 214547,
+      "sha256": "1c2ea695be2ed7e379594ede71ac6d2eb505e9e1ce5fe8948c74501ea1868791"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "checks": [
+    "active favicon and Apple touch icon reference new versioned assets",
+    "PWA manifest has new 192/512 PNG icons and unchanged app identity/start URL",
+    "all four icon dimensions load correctly",
+    "production PWA reload and all new icon URLs work offline",
+    "390/1440 size and mask previews render without overflow"
+  ],
+  "errors": [],
+  "limits": [
+    "No physical iPhone/Android install or OS icon refresh test"
+  ]
+}
